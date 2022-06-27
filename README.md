@@ -1,2 +1,0 @@
-# Astrologist-backend
-Astrologist-backend
