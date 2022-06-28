@@ -860,7 +860,7 @@
                         <!--  -->
                         <!--  -->
                         <div class="img">
-                            <img src="{{ asset('images/img1.png')}}}" alt="#" width="90px">
+                            <img src="{{ asset('images/img1.png')}}" alt="#" width="90px">
                             <h5>Astro Anjana</h5>
                             <div style="display: flex; align-items:center;"><span>4.5</span>
                                 <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
@@ -897,44 +897,7 @@
                         <!--  -->
                         <!--  -->
                         <div class="img">
-                            <img src="img1.png" alt="#" width="90px">
-                            <h5>Astro Anjana</h5>
-                            <div style="display: flex; align-items:center;"><span>4.5</span>
-                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
-                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
-                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
-                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
-                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
-                            </div>
-
-                        </div>
-
-                        <!--  -->
-                        <div class="detail">
-                            <p>Numerology, Tarot <br>Reading</p>
-                            <p>Lang : Hindi, English</p>
-                            <p>Exp: 15 years </p>
-                            <p><b> <span> &#x20b9 50/min </span></b> <span> <del> <small> &#x20b9
-                                            60/min</small></del></span></p>
-                        </div>
-                        <!--  -->
-                        <div class="icon">
-                            <a href="#"> <img src="{{ asset('images/Group1.png') }}" alt="#"></a>
-                            <a href="#"> <img src="{{ asset('images/Group2.png') }}" alt="#"></a>
-                            <a href="#"> <img src="{{ asset('images/Group3.png') }}" alt="#"></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="carousel-cell">
-                <div class="slider-box">
-
-                    <div class="box">
-                        <!--  -->
-                        <!--  -->
-                        <div class="img">
-                            <img src="{{ asset('images/img1.png') }}" alt="#" width="90px">
+                            <img src="{{ asset('images/img1.png')}}" alt="#" width="90px">
                             <h5>Astro Anjana</h5>
                             <div style="display: flex; align-items:center;"><span>4.5</span>
                                 <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
@@ -1045,7 +1008,44 @@
                         <!--  -->
                         <!--  -->
                         <div class="img">
-                            <img src="{{ asset('images/img1.png') }} alt="#" width="90px">
+                            <img src="{{ asset('images/img1.png') }}" alt="#" width="90px">
+                            <h5>Astro Anjana</h5>
+                            <div style="display: flex; align-items:center;"><span>4.5</span>
+                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
+                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
+                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
+                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
+                                <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
+                            </div>
+
+                        </div>
+
+                        <!--  -->
+                        <div class="detail">
+                            <p>Numerology, Tarot <br>Reading</p>
+                            <p>Lang : Hindi, English</p>
+                            <p>Exp: 15 years </p>
+                            <p><b> <span> &#x20b9 50/min </span></b> <span> <del> <small> &#x20b9
+                                            60/min</small></del></span></p>
+                        </div>
+                        <!--  -->
+                        <div class="icon">
+                            <a href="#"> <img src="{{ asset('images/Group1.png') }}" alt="#"></a>
+                            <a href="#"> <img src="{{ asset('images/Group2.png') }}" alt="#"></a>
+                            <a href="#"> <img src="{{ asset('images/Group3.png') }}" alt="#"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="carousel-cell">
+                <div class="slider-box">
+
+                    <div class="box">
+                        <!--  -->
+                        <!--  -->
+                        <div class="img">
+                            <img src="{{ asset('images/img1.png') }}"  width="90px">
                             <h5>Astro Anjana</h5>
                             <div style="display: flex; align-items:center;"><span>4.5</span>
                                 <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
