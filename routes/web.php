@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/puja-home', [App\Http\Controllers\PujaController::class, 'index'])->name('index');

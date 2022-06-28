@@ -42,7 +42,7 @@
             </div>
             <div class="menu-row">
                 <div class="menu">
-                    <a href="../Home/index.html">Home</a>
+                    <a href="{{url('./')}}">Home</a>
                     <a href="../Home-page/Home-page.html">Talk to Astrologers</a>
                     <a href="../Product/product.html">Astroshop</a>
                     <a href="../Horoscope-page/horoscope.html">Horoscope</a>
