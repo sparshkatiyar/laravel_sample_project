@@ -81,6 +81,6 @@
     <!-- JavaScript -->
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
     <script src=" https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js "></script>
-    <script src=" script.js "></script>
+    <script src=" {{ asset('asset/js/script.js')}} "></script>
 </body>
 </html>

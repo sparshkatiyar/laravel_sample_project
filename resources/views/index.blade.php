@@ -411,7 +411,7 @@
                         <!--  -->
                         <!--  -->
                         <div class="img">
-                            <img src="{{ asset('images/img1png') }}" alt="#" width="90px">
+                            <img src="{{ asset('images/img1.png') }}" alt="#" width="90px">
                             <h5>Astro Anjana</h5>
                             <div style="display: flex; align-items:center;"><span>4.5</span>
                                 <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
@@ -802,7 +802,7 @@
                         <!--  -->
                         <!--  -->
                         <div class="img">
-                            <img src="img1.png" alt="#" width="90px">
+                            <img src="{{ asset('images/img1.png')}}" alt="#" width="90px">
                             <h5>Astro Anjana</h5>
                             <div style="display: flex; align-items:center;"><span>4.5</span>
                                 <img src="{{ asset('images/star.png') }}" alt="#" width="15px">
