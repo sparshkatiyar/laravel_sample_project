@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <!--  ---font awsome link ----->
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -16,6 +16,7 @@
     <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('asset/js/script.js') }}"></script>
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
+    <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script>
 </head>
 <body>
  <!-- --------navbar---- -->
@@ -45,7 +46,7 @@
                     <a href="../Home-page/Home-page.html">Talk to Astrologers</a>
                     <a href="../Product/product.html">Astroshop</a>
                     <a href="../Horoscope-page/horoscope.html">Horoscope</a>
-                    <a href="../Pooja-page/Pooja-main-page.html">Pooja</a>
+                    <a href="{{url('puja-home')}}">Pooja</a>
                     <a href="../About/about.html">About us</a>
                     <a href="../Contact/contact.html">Contact us</a>
                 </div>
