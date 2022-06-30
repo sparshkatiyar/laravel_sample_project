@@ -16,18 +16,22 @@ use Hash;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest:admin');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest:admin');
+    // }
  
-    public function index(){
-    	if(Auth::guard('admin')->user()){
-    		return redirect('admin-panel/dashboard');
-    	}else{
+    // public function index(){
+    // 	if(Auth::guard('admin')->user()){
+    // 		return redirect('admin-panel/dashboard');
+    // 	}else{
 
-            return view('admin.signin');
-        }
+    //         return view('admin.signin');
+    //     }
+    // }
+
+    public function index(){
+        return redirect('admin-panel/dashboard');
     }
     public function signin()
     {
@@ -38,32 +42,9 @@ class HomeController extends Controller
         Auth::logout();
         return view('admin/signin');
     }
-    // public function validateLogin(Request $request)
-    // {
-    //     // dd($request);
-    //     $validations        =  array(
-    //         'email'    => 'required',
-    //         'password'     => 'min:6|required',
-           
-    //     );       
-    //     $validator =Validator::make($request->all(),$validations);
-    //     if($validator->fails()){
-    //         $response   =[
-    //             'message'   => $validator->errors($validator)->first(),
-    //         ];
-    //         return response()->json($response,400);
-    //     }else{
-    //         if($request->email="admin@astropandit.com" && $request->password=="12345678"){
-                
-              
-    //             return view('admin/dashboard'); 
-    //         }
-    //         $response="Invalid Credential";
-    //         return response()->json($response,400);
-    //     }
-    // }
-
-    public function validateLogin(Request $request){
+    public function validateLogin(Request $request)
+    {
+        // dd($request);
         $validations        =  array(
             'email'    => 'required',
             'password'     => 'min:6|required',
@@ -75,35 +56,57 @@ class HomeController extends Controller
                 'message'   => $validator->errors($validator)->first(),
             ];
             return response()->json($response,400);
-        }
-        $user_data = array(
-         'email'  => $request->get('email'),
-         'password' => $request->get('password')
-        );
-
-        $remember_me = $request->remember=="on"?true:false;
-        // if(Auth::guard('admin')->attempt($user_data,$remember_me))
-        if($request->email="admin@astropandit.com" && $request->password=="12345678")
-        {
-              if ($request->remember=="on") {
-                   setcookie("email",$request->input('email'), time() + (86400 * 30), "/");
-                   setcookie("password",$request->input('password'), time() + (86400 * 30), "/");
-                   setcookie("remember",$request->input('remember'), time() + (86400 * 30), "/");
-               } else {
-                   unset($_COOKIE['email']);
-                   unset($_COOKIE['password']);
-                   unset($_COOKIE['remember']);
-                   setcookie("email",null, -1, "/");
-                   setcookie("password",null, -1, "/");
-                   setcookie("remember",null, -1, "/");
-               }
-         return redirect('admin-panel/dashboard');
-        }
-        else
-        {
-         return redirect()->back()->withInput($request->only('email','remember'))->with('error-message',"Invalid username or password");
+        }else{
+            if($request->email="admin@astropandit.com" && $request->password=="12345678"){
+                
+              
+                return view('admin/dashboard'); 
+            }
+            $response="Invalid Credential";
+            return response()->json($response,400);
         }
     }
+
+    // public function validateLogin(Request $request){
+    //     $validations        =  array(
+    //         'email'    => 'required',
+    //         'password'     => 'min:6|required',
+           
+    //     );       
+    //     $validator =Validator::make($request->all(),$validations);
+    //     if($validator->fails()){
+    //         $response   =[
+    //             'message'   => $validator->errors($validator)->first(),
+    //         ];
+    //         return response()->json($response,400);
+    //     }
+    //     $user_data = array(
+    //      'email'  => $request->get('email'),
+    //      'password' => $request->get('password')
+    //     );
+
+    //     $remember_me = $request->remember=="on"?true:false;
+    //     if(Auth::guard('admin')->attempt($user_data,$remember_me))        
+    //     {
+    //         if ($request->remember=="on") {
+    //             setcookie("email",$request->input('email'), time() + (86400 * 30), "/");
+    //             setcookie("password",$request->input('password'), time() + (86400 * 30), "/");
+    //             setcookie("remember",$request->input('remember'), time() + (86400 * 30), "/");
+    //         } else {
+    //             unset($_COOKIE['email']);
+    //             unset($_COOKIE['password']);
+    //             unset($_COOKIE['remember']);
+    //             setcookie("email",null, -1, "/");
+    //             setcookie("password",null, -1, "/");
+    //             setcookie("remember",null, -1, "/");
+    //         }
+    //         return redirect('admin-panel/dashboard');
+    //     }
+    //     else
+    //     {
+    //      return redirect()->back()->withInput($request->only('email','remember'))->with('error-message',"Invalid username or password");
+    //     }
+    // }
     public function forgetPassword(Request $request){
         switch ($request->method()) {
             case 'GET':
