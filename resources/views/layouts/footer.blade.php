@@ -42,26 +42,25 @@
 
 <!-- ------rights bootm bar----- -->
 
-<section id=" bottom ">
-    <div class=" container ">
-        <div class=" rights ">
-            © 2020 DevDNA. All rights reserved
-        </div>
+<section id="bottom">
+        <div class="container">
+            <div class="rights">
+                © 2020 DevDNA. All rights reserved
+            </div>
 
-        <div class=" terms ">
-            <p>
-                Terms & Conditions
-                <span class=" line ">&nbsp;|&nbsp;</span>
-                Privacy Policy
-                <span class=" line ">&nbsp;|&nbsp;</span>
-                Sitemap
-                <span class=" line ">&nbsp;|&nbsp;</span>
-                Disclaimer
-            </p>
+            <div class="terms">
+                <p>
+                    Terms & Conditions
+                    <span class="line">&nbsp;|&nbsp;</span>
+                    Privacy Policy
+                    <span class="line">&nbsp;|&nbsp;</span>
+                    Sitemap
+                    <span class="line">&nbsp;|&nbsp;</span>
+                    Disclaimer
+                </p>
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
 
 

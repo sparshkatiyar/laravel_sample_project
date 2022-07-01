@@ -11,4 +11,12 @@ class PujaController extends Controller
     {
         return view('puja');
     }
+    public function booking()
+    {
+        return view('puja-book');
+    }
+    public function delivery()
+    {
+        return view('delivery');
+    }
 }

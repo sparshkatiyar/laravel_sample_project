@@ -31,7 +31,15 @@ class HomeController extends Controller
     // }
 
     public function index(){
-        return redirect('admin-panel/dashboard');
+        return view('admin/dashboard');
+    }
+
+    public function pujaList(){
+        return view('admin/puja-list');
+    }
+
+    public function pujaCreation(){
+        return view('admin/puja-creation');
     }
     public function signin()
     {

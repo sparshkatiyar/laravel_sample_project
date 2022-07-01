@@ -14,6 +14,8 @@
 
     <title>{{ config('app.name', 'Astro Pandit') }}</title>
     <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/pujabook.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/delivery.css') }}" rel="stylesheet">
     <script src="{{ asset('asset/js/script.js') }}"></script>
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
     <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script>

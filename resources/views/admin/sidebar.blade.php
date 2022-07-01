@@ -28,6 +28,7 @@
                             <a href="{{url('admin-panel/pooja-booking')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Pooja Bookings</span>
                             </a>
                             <a href="{{url('admin-panel/pooja-assign')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Assign Pooja</span>
+                            <a href="{{url('admin-panel/puja-creation')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja creation/upload puja</span>
                             </a>
                         </li>
                         <li class="nav-header hidden-folded">
