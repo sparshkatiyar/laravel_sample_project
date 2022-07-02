@@ -8,12 +8,12 @@
                 <div class="page-hero page-container" id="page-hero">
                     <div class="padding d-flex">
                         <div class="page-title">
-                            <h2 class="text-md text-highlight">Puja Creation</h2>
-                            <small class="text-muted">upload your puja from here</small>
+                            <h2 class="text-md text-highlight">Puja Creation Ecommerce</h2>
+                            <small class="text-muted">wih price puja </small>
                         </div>
                         <div class="flex"></div>
                         <div>
-                            <a href="{{url('admin-panel/puja-list')}}"><span class="d-none d-sm-inline mx-1">Puja list</span>
+                            <a href="{{url('admin-panel/puja-list-ecommerce')}}"><span class="d-none d-sm-inline mx-1">Puja list Ecommerce</span>
                                 <i data-feather="arrow-right"></i></a>
                         </div>
                     </div>
@@ -24,31 +24,37 @@
                             <div class="col-sm-8 col-md-9">
                                 
                                 <!-- <p><strong>Fill flowing Details <Details></Details></strong></p> -->
-                                <form method="post" action="{{url('admin-panel/puja-creation')}}"  enctype="multipart/form-data">
+                                <form method="post" action="{{url('admin-panel/puja-creation-ecommerce')}}"  enctype="multipart/form-data">
                                 @csrf 
                                     <div class="form-group row">
                                         <div class="col-sm-6">
-                                            <label>Puja name</label><input type="text" name="pujaname" class="form-control"
-                                                placeholder="Name" required />
+                                            <label>Puja name</label>
+                                            <select class="form-control c-select" name="pujanameId">
+                                                <option>select name</option>
+                                                @foreach($pujaList as $puja)
+                                                <option value="{{$puja->id}}">{{$puja->name}}</option>
+                                                
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label>Puja icon/Image</label><input type="file" class="form-control" name="pujaimage"
-                                                placeholder="Enter date" required />
+                                            <label>Puja base price</label><input type="text" class="form-control" name="baseprice"
+                                                placeholder="Enter price" required />
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6">
                                             <label>Type</label>
                                             <select class="form-control c-select" name="pujatype">
-                                            <option></option>
-                                            <option>Ghar pe puja</option>
-                                            <option>Online Puja</option>
-                                            <option>On request puja</option>
+                                            <option>select type</option>
+                                            <option>Without Samagri</option>
+                                            <option>With Samagri </option>
+                                        
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Category</label><select name="pujacategory" class="form-control c-select">
-                                            <option></option>
+                                            <option>select category</option>
                                             <option>small</option>
                                             <option>medium</option>
                                             <option>large</option>
@@ -56,13 +62,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Puja Advantage</label><input type="text" name="pujaadvantage" class="form-control"
-                                                placeholder="Advantage" required />
+                                        <label>Puja price</label><input type="text" name="price" class="form-control"
+                                                placeholder="Total price" required />
                                     </div>
-                                    <div class="form-group">
-                                        <label> Puja Description</label><textarea class="form-control" name="pujadescription" rows="4"
-                                            placeholder="hmm.."></textarea>
-                                    </div>
+                                    
                                     <button type="submit" class="btn btn-primary">
                                        Create 
                                     </button>

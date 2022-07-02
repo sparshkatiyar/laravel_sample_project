@@ -64,20 +64,20 @@
                                                 style="width: 40px; text-align: center">
                                                 No.
                                             </th>
-                                            <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
+                                            <th class="text-muted sort sortable"  data-sort="item-company">
                                                 Type
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
-                                                style="width: 60px">
+                                                >
                                                 Category
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-badge"
-                                                style="width: 60px">
+                                                >
                                                 Name
                                             </th>
-                                            <th class="text-muted" >Description</th>
-                                            <th class="text-muted" style="width: 120px">Advantage</th>
-                                            <th class="text-muted" style="width: 120px">Icon/Image</th>
+                                            <th class="text-muted" style="width: 120px">Base price</th>
+                                            <th class="text-muted" style="width: 120px">Original price</th>
+                                            <!-- <th class="text-muted" style="width: 120px">Icon/Image</th> -->
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
                                             <th style="width: 50px"></th>
@@ -105,23 +105,23 @@
                                                 <span class="item-amount d-none d-sm-block text-sm">     {{$puja->category}}</span>
                                             </td>
                                             <td>
-                                                <span class="item-badge badge text-uppercase bg-success">     {{$puja->name}}</span>
+                                                <span class="item-badge badge text-uppercase bg-success">     {{$puja->puja_id->name}}</span>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$puja->desc}}
+                                                {{$puja->baseprice}}
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$puja->advantage}}
+                                                {{$puja->price}}
                                                 </div>
                                             </td>
-                                            <td class="no-wrap">
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                <!-- {{$puja->image}} -->.
+                                                {{$puja->image}}.
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$puja->created_at}}

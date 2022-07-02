@@ -30,7 +30,11 @@ Route::group(['prefix' => '/admin-panel'],function(){
 	Route::get('/logout',[App\Http\Controllers\Admin\HomeController::class,'logout']);
 	Route::get('/signin',[App\Http\Controllers\Admin\HomeController::class,'signin']);
 	Route::get('/puja-list',[App\Http\Controllers\Admin\HomeController::class,'pujaList']);
+	Route::get('/puja-list-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaListEm']);
 	Route::get('/puja-creation',[App\Http\Controllers\Admin\HomeController::class,'pujaCreation']);
+	Route::post('/puja-creation',[App\Http\Controllers\Admin\PujaController::class,'pujaCreation']);
+	Route::get('/puja-creation-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaCreationEm']);
+	Route::post('/puja-creation-ecommerce',[App\Http\Controllers\Admin\PujaController::class,'pujaCreationEm']);
 	Route::post('/validateLogin',[App\Http\Controllers\Admin\HomeController::class,'validateLogin']);
 
 });

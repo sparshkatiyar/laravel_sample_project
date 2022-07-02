@@ -12,6 +12,8 @@ use Auth;
 use Session;
 use App\Models\Admin;
 use Hash;
+use App\Models\Puja;
+use App\Models\PujaEcommerce;
 
 
 class HomeController extends Controller
@@ -35,11 +37,24 @@ class HomeController extends Controller
     }
 
     public function pujaList(){
-        return view('admin/puja-list');
+        $pujaList = Puja::all();
+        return view('admin/puja-list' ,compact('pujaList'));
+    }
+    public function pujaListEm(){
+        $pujaList = PujaEcommerce::all();
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->id);
+        }
+        // dd($pujaList);
+        return view('admin/puja-list-ecommerce' ,compact('pujaList'));
     }
 
     public function pujaCreation(){
         return view('admin/puja-creation');
+    }
+    public function pujaCreationEm(){
+        $pujaList = Puja::all();
+        return view('admin/puja-creation-ecomm',compact('pujaList'));
     }
     public function signin()
     {
