@@ -16,6 +16,7 @@
     <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/pujabook.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/delivery.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/pandit.css') }}" rel="stylesheet">
     <script src="{{ asset('asset/js/script.js') }}"></script>
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
     <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script>
@@ -39,7 +40,10 @@
                     <img src="https://img.icons8.com/material-outlined/2x/search.png" alt="#" width="20px" />
                     <a href="../Product/add to cart/cart.html"> <img src="https://img.icons8.com/small/2x/shopping-cart-loaded.png" alt="#" width="25px" /></a>
                     <img src="https://img.icons8.com/small/344/user.png" alt="#" width="20px" />
-                    <p>Pandit Registration</p>
+                    <a href="{{url('pandit-registration')}}">
+
+                        <p>Pandit Registration</p>
+                    </a>
                 </div>
             </div>
             <div class="menu-row">
