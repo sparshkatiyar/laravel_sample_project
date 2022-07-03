@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Puja;
+use App\Models\PujaEcommerce;
 
 class HomeController extends Controller
 {
@@ -11,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $pujaList = PujaEcommerce::all();
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->id);
+        }  
+        // dd($pujaList);
+        return view('index',compact('pujaList'));
     }
 }

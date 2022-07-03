@@ -40,7 +40,7 @@
                                         <div class="col-sm-6">
                                             <label>Type</label>
                                             <select class="form-control c-select" name="pujatype">
-                                            <option></option>
+                                            <option>Select puja type</option>
                                             <option>Ghar pe puja</option>
                                             <option>Online Puja</option>
                                             <option>On request puja</option>
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Category</label><select name="pujacategory" class="form-control c-select">
-                                            <option></option>
+                                            <option>Select puja category</option>
                                             <option>small</option>
                                             <option>medium</option>
                                             <option>large</option>

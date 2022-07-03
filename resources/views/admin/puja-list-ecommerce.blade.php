@@ -102,10 +102,14 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="item-amount d-none d-sm-block text-sm">     {{$puja->category}}</span>
+                                                <span class="item-amount d-none d-sm-block text-sm">  
+                                                       {{$puja->category}}</span>
                                             </td>
                                             <td>
-                                                <span class="item-badge badge text-uppercase bg-success">     {{$puja->puja_id->name}}</span>
+                                                <span class="item-badge badge text-uppercase bg-success"> 
+                                                        {{$puja->puja_id->name}}
+                                                    
+                                                </span>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">

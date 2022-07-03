@@ -30,12 +30,17 @@ class PujaController extends Controller
             ];
             return response()->json($response,400);
         }
-
+        
         $puja = new Puja();
-
+        if($request->file('pujaimage')){
+            $file= $request->file('pujaimage');
+            // $filename= date('YmdHi')."-".$file->getClientOriginalName();
+            $filename= date('YmdHi')."-puja.".$file->extension();
+            $file-> move(public_path('web/Image'), $filename);
+            $puja->image= $filename;
+        }
         $puja->name = $request->get('pujaname');
-        $puja->type = $request->get('pujatype');
-        $puja->image = Hash::make($request->get('pujaimage'));
+        $puja->type = $request->get('pujatype');      
         $puja->category = $request->get('pujacategory');
         $puja->advantage = $request->get('pujaadvantage');
         $puja->desc = $request->get('pujadescription');
@@ -58,8 +63,7 @@ class PujaController extends Controller
                 'message'   => $validator->errors($validator)->first(),
             ];
             return response()->json($response,400);
-        }
-        // dd($request->all());
+        }   
         $puja = new PujaEcommerce();
 
         $puja->puja_id = $request->get('pujanameId');
@@ -68,6 +72,6 @@ class PujaController extends Controller
         $puja->category = $request->get('pujacategory');
         $puja->price = $request->get('price');
         $puja->save();
-        return redirect('admin-panel/puja-list');
+        return redirect('admin-panel/puja-list-ecommerce');
     }
 }

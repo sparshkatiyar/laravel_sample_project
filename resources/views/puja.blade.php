@@ -84,16 +84,19 @@
 
             <!-- Portfolio Gallery Grid -->
             <div class="row">
-                <div class="column nature">
-                    <div class="content">
-                        <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains"
-                                style="width:100%"></a>
-                        <a href="{{url('puja-booking')}}">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                        </a>
-                        <p>INR-2100/-</p>
-                    </div>
+            @foreach(@$pujaList as $puja)
+
+            <div class="column nature">
+                <div class="content">
+                    <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains"
+                            style="width:100%"></a>
+                    <a href="{{url('puja-booking')}}">
+                        <h4>{{$puja->puja_id->name}}</h4>
+                    </a>
+                    <p>INR- {{$puja->baseprice}}/-</p>
                 </div>
+            </div>
+            @endforeach
 
 
                 <div class="column people">

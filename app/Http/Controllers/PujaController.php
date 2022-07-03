@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Puja;
+use App\Models\PujaEcommerce;
 
 class PujaController extends Controller
 {
     //
     public function index()
     {
-        return view('puja');
+        $pujaList = PujaEcommerce::all();
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->id);
+        }  
+        return view('puja',compact('pujaList'));
     }
     public function booking()
     {

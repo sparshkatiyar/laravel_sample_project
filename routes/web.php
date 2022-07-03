@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/puja-home', [App\Http\Controllers\PujaController::class, 'index'])->name('index');
 Route::get('/puja-booking', [App\Http\Controllers\PujaController::class, 'booking'])->name('booking');

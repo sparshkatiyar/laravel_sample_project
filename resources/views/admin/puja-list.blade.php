@@ -119,7 +119,7 @@
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                <!-- {{$puja->image}} -->.
+                                                {{$puja->image}}
                                                 </div>
                                             </td>
                                             <td class="no-wrap">

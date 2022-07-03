@@ -43,7 +43,7 @@ class HomeController extends Controller
         $pujaList = PujaEcommerce::all();
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->id);
-        }
+        }       
         return view('admin/puja-list-ecommerce' ,compact('pujaList'));
     }
 
