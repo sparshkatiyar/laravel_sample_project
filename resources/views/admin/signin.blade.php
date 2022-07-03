@@ -13,6 +13,27 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/css/site.min.css')}}" />
   </head>
   <body class="layout-row">
+  @php
+
+        if( isset( $_COOKIE['email']  ) ){
+            $c_email = $_COOKIE["email"];
+        } else{
+            $c_email = "";
+        }
+
+        if( isset( $_COOKIE['password']  ) ){
+        $c_pass = $_COOKIE["password"];
+        } else{
+            $c_pass = "";
+        }
+
+        if( isset( $_COOKIE['remember']  ) ){
+        $c_rem = $_COOKIE["remember"];
+        } else{
+            $c_rem = "";
+        }
+        
+    @endphp
     <div class="flex">
       <div class="w-xl w-auto-sm mx-auto py-5">
         <div class="p-4 d-flex flex-column h-100">
@@ -39,24 +60,26 @@
           <div id="content-body">
             <div class="p-3 p-md-5">
               <h5>Welcome back</h5>
+              <p class="text-danger">{{Session::get('error-message')}}</p>
+                    <p class="text-success">{{Session::get('success-message')}}</p>
               <p>
                 <small class="text-muted">Login to manage your account</small>
               </p>
-              <form class="" role="form" method="post" action="{{url('admin-panel/validateLogin')}}"
+              <form data-toggle="validator" role="form" method="post" action="{{url('admin-panel/validateLogin')}}"
               >
               @csrf
                 <div class="form-group">
                   <label>Email</label
                   ><input
                     type="email" name="email"
-                    class="form-control"
+                    class="form-control" value="{{$c_email}}"
                     placeholder="Enter email"
                   />
                 </div>
                 <div class="form-group">
                   <label>Password</label
                   ><input
-                    type="password" name="password"
+                    type="password" name="password" value="{{$c_pass}}"
                     class="form-control"
                     placeholder="Password"
                   />
@@ -68,7 +91,7 @@
                 </div>
                 <div class="checkbox mb-3">
                   <label class="ui-check"
-                    ><input type="checkbox" /><i></i> Remember me</label
+                    ><input type="checkbox" name="remember" id="remember" {{ $c_rem?'checked' : '' }}/><i></i> Remember me</label
                   >
                 </div>
                 <button type="submit" class="btn btn-primary  btn-block">
