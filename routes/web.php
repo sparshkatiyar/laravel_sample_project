@@ -25,6 +25,7 @@ Route::get('/puja-home', [App\Http\Controllers\PujaController::class, 'index'])-
 Route::get('/puja-booking', [App\Http\Controllers\PujaController::class, 'booking'])->name('booking');
 Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'delivery'])->name('delivery');
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index');
+Route::post('/pandit-registration', [App\Http\Controllers\PanditController::class, 'register'])->name('register');
 Route::group(['prefix' => '/admin-panel'],function(){
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'signin'])->name('signin');
     Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
@@ -36,6 +37,7 @@ Route::group(['prefix' => '/admin-panel'],function(){
 	Route::post('/puja-creation',[App\Http\Controllers\Admin\PujaController::class,'pujaCreation']);
 	Route::get('/puja-creation-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaCreationEm']);
 	Route::post('/puja-creation-ecommerce',[App\Http\Controllers\Admin\PujaController::class,'pujaCreationEm']);
+	Route::get('/pandit-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'index']);
 	Route::post('/validateLogin',[App\Http\Controllers\Admin\HomeController::class,'validateLogin']);
 	Route::post('/create',[App\Http\Controllers\Admin\HomeController::class,'create']);
 
