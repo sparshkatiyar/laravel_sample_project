@@ -116,11 +116,20 @@
                     <div class="row">
                         <div class="col">
                             <label for="javascript:void(0);">Register As* (Can Choose Upto 2)</label><br>
-                            <select id="Astrologers" name="reg_as" required>
+                            <!-- <div id="list3" class="dropdown-check-list" tabindex="100"> -->
+                                <ul class="items">
+                                    <li><input type="checkbox" name="reg_as[]" value="Astrologers"/>Astrologers</li>
+                                    <li><input type="checkbox" name="reg_as[]" value="Pandit Ji"/>Pandit Ji</li>
+                                    <li><input type="checkbox" name="reg_as[]" value="Motivational guide "/>Motivational guide </li>
+                                    
+    
+                                </ul>
+                            <!-- </div> -->
+                            <!-- <select id="Astrologers" name="reg_as" required>
                                 <option value="1" selected>Astrologers</option>
                                 <option value="2">Pandit Ji</option>
                                 <option value="3">Motivational guide</option>
-                            </select>
+                            </select> -->
                         </div>
     
                         <div class="col">
@@ -285,6 +294,14 @@
                 checkList2.classList.remove('visible');
             else
                 checkList2.classList.add('visible');
+        }
+
+        var checkList3 = document.getElementById('list3');
+        checkList3.getElementsByClassName('anchor')[0].onclick = function (evt) {
+            if (checkList3.classList.contains('visible'))
+                checkList3.classList.remove('visible');
+            else
+                checkList3.classList.add('visible');
         }
     </script>
 @include('layouts.footer')

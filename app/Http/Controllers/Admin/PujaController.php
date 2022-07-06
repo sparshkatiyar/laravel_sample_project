@@ -49,12 +49,13 @@ class PujaController extends Controller
     }
 
     public function pujaCreationEm(Request $request){
-        $validations            =  array(
-            'pujanameId'        => 'required',
-            'pujatype'          => 'required',
-            'pujacategory'      => 'required',
-            'baseprice'         => 'required',
-            'price'             => 'required',
+        $validations                =  array(
+            'pujanameId'            => 'required',
+            'baseprice'             => 'required',
+            'samagriprice'          => 'required',
+            'samallpujaprice'       => 'required',
+            'mediumpujaprice'       => 'required',
+            'largepujaprice'        => 'required',
             
         );       
         $validator =Validator::make($request->all(),$validations);
@@ -66,11 +67,12 @@ class PujaController extends Controller
         }   
         $puja = new PujaEcommerce();
 
-        $puja->puja_id = $request->get('pujanameId');
-        $puja->baseprice = $request->get('baseprice'); 
-        $puja->type = $request->get('pujatype');  
-        $puja->category = $request->get('pujacategory');
-        $puja->price = $request->get('price');
+        $puja->puja_id              = $request->get('pujanameId');
+        $puja->puja_base_price      = $request->get('baseprice'); 
+        $puja->puja_samagri_price   = $request->get('samagriprice');  
+        $puja->puja_price_samall    = $request->get('samallpujaprice');
+        $puja->puja_price_medium    = $request->get('mediumpujaprice');
+        $puja->puja_price_large     = $request->get('largepujaprice');
         $puja->save();
         return redirect('admin-panel/puja-list-ecommerce');
     }

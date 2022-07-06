@@ -44,6 +44,10 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6">
+                                            <label>Samagri price</label><input type="text" class="form-control" name="samagriprice"
+                                                placeholder="Enter price" required />
+                                        </div>
+                                        <!-- <div class="col-sm-6">
                                             <label>Type</label>
                                             <select class="form-control c-select" name="pujatype">
                                             <option>select type</option>
@@ -51,20 +55,32 @@
                                             <option>With Samagri </option>
                                         
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <div class="col-sm-6">
+                                            <label>Small puja price</label><input type="text" class="form-control" name="samallpujaprice"
+                                                placeholder="Enter price" required />
+                                        </div>
+                                        <!-- <div class="col-sm-6">
                                             <label>Category</label><select name="pujacategory" class="form-control c-select">
                                             <option>select category</option>
                                             <option>small</option>
                                             <option>medium</option>
                                             <option>large</option>
                                             </select>
+                                        </div> -->
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                            <label>Medium puja price</label><input type="text" class="form-control" name="mediumpujaprice"
+                                                placeholder="Enter price" required />
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Puja price</label><input type="text" name="price" class="form-control"
-                                                placeholder="Total price" required />
-                                    </div>
+                                        
+                                        <div class="col-sm-6">
+                                            <label>Large puja price</label><input type="text" class="form-control" name="largepujaprice"
+                                                placeholder="Enter price" required />
+                                        </div>
+                                     
+                                    </div>                                    
                                     
                                     <button type="submit" class="btn btn-primary">
                                        Create 

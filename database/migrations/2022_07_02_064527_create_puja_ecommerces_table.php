@@ -16,10 +16,11 @@ class CreatePujaEcommercesTable extends Migration
         Schema::create('puja_ecommerces', function (Blueprint $table) {
             $table->id();
             $table->string('puja_id');
-            $table->string('baseprice');
-            $table->string('type');
-            $table->string('category');
-            $table->string('price');       
+            $table->string('puja_base_price');
+            $table->string('puja_samagri_price');
+            $table->string('puja_price_samall');
+            $table->string('puja_price_medium');       
+            $table->string('puja_price_large');       
             $table->timestamps();
         });
     }

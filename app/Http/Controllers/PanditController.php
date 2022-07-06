@@ -53,7 +53,7 @@ class PanditController extends Controller
         $pandit->email          = $request->get('email'); 
         $pandit->gender         = $request->get('gender');  
         $pandit->dob            = $request->get('dob');
-        $pandit->reg_as         = $request->get('reg_as');
+        $pandit->reg_as         = json_encode($request->get('reg_as'));
         $pandit->skill_primary  = json_encode($request->get('skill_primary'));
         $pandit->skill_secondry = json_encode($request->get('skill_secondry'));
         $pandit->consult_time   = $request->get('consult_time');
@@ -69,6 +69,6 @@ class PanditController extends Controller
         $pandit->is_verify      = 0;
         $pandit->is_block       = 0;
         $pandit->save();
-        return redirect('pandit-registration')->with('success','registration');
+        return redirect('pandit-registration')->with('success','Your registration success !!');
     }
 }

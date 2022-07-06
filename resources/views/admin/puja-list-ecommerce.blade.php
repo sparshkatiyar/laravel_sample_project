@@ -65,18 +65,18 @@
                                                 No.
                                             </th>
                                             <th class="text-muted sort sortable"  data-sort="item-company">
-                                                Type
+                                                Samagri Price
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
                                                 >
-                                                Category
+                                                samll  puja rice
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-badge"
                                                 >
                                                 Name
                                             </th>
                                             <th class="text-muted" style="width: 120px">Base price</th>
-                                            <th class="text-muted" style="width: 120px">Original price</th>
+                                            <th class="text-muted" style="width: 120px">Large Puja price</th>
                                             <!-- <th class="text-muted" style="width: 120px">Icon/Image</th> -->
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
@@ -96,14 +96,14 @@
                                             </td>
                                             <td class="flex">
                                                 <a href="page.invoice.detail.html"
-                                                    class="item-company ajax h-1x">{{$puja->type}}</a>
+                                                    class="item-company ajax h-1x">{{$puja->puja_samagri_price}}</a>
                                                 <div class="item-mail text-muted h-1x d-none d-sm-block">
                                            
                                                 </div>
                                             </td>
                                             <td>
                                                 <span class="item-amount d-none d-sm-block text-sm">  
-                                                       {{$puja->category}}</span>
+                                                       {{$puja->puja_price_samall}}</span>
                                             </td>
                                             <td>
                                                 <span class="item-badge badge text-uppercase bg-success"> 
@@ -113,12 +113,12 @@
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$puja->baseprice}}
+                                                {{$puja->puja_base_price}}
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$puja->price}}
+                                                {{$puja->puja_price_large}}
                                                 </div>
                                             </td>
                                             <!-- <td class="no-wrap">
