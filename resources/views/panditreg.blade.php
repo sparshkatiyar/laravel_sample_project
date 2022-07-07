@@ -314,13 +314,13 @@
             }
             })
             $('input[type=checkbox].four-checkbox').change(function(e){
-            if ($('input[type=checkbox]:checked').length > 4) {
+            if ($('input[type=checkbox].four-checkbox:checked').length > 4) {
                     $(this).prop('checked', false)
                     // alert("allowed only 3");
             }
             })
             $('input[type=checkbox].six-checkbox').change(function(e){
-            if ($('input[type=checkbox]:checked').length > 6) {
+            if ($('input[type=checkbox].six-checkbox:checked').length > 6) {
                     $(this).prop('checked', false)
                     // alert("allowed only 3");
             }
