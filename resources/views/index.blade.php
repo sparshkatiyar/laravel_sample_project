@@ -1278,7 +1278,7 @@
                             <a href="{{url('puja-booking')}}">
                                 <h4>{{$puja->puja_id->name}}</h4>
                             </a>
-                            <p>INR- {{$puja->baseprice}}/-</p>
+                            <p>INR- {{$puja->puja_base_price}}/-</p>
                         </div>
                     </div>
                     @endforeach
