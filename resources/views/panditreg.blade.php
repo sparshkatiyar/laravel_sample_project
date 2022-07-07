@@ -118,18 +118,14 @@
                             <label for="javascript:void(0);">Register As* (Can Choose Upto 2)</label><br>
                             <!-- <div id="list3" class="dropdown-check-list" tabindex="100"> -->
                                 <ul class="items">
-                                    <li><input type="checkbox" name="reg_as[]" value="Astrologers"/>Astrologers</li>
-                                    <li><input type="checkbox" name="reg_as[]" value="Pandit Ji"/>Pandit Ji</li>
-                                    <li><input type="checkbox" name="reg_as[]" value="Motivational guide "/>Motivational guide </li>
+                                    <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Astrologers"/>Astrologers</li>
+                                    <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Pandit Ji"/>Pandit Ji</li>
+                                    <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Motivational guide "/>Motivational guide </li>
                                     
     
                                 </ul>
                             <!-- </div> -->
-                            <!-- <select id="Astrologers" name="reg_as" required>
-                                <option value="1" selected>Astrologers</option>
-                                <option value="2">Pandit Ji</option>
-                                <option value="3">Motivational guide</option>
-                            </select> -->
+                            
                         </div>
     
                         <div class="col">
@@ -137,15 +133,15 @@
                             <div id="list1" class="dropdown-check-list" tabindex="100">
                                 <span class="anchor">Vedic</span>
                                 <ul class="items" >
-                                    <li><input type="checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
-                                    <li><input type="checkbox" name="skill_primary[]" value="Karamkand visheshgya"/>Karamkand visheshgya</li>
-                                    <li><input type="checkbox" name="skill_primary[]" value="Kathavachak"/>Kathavachak </li>
-                                    <li><input type="checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
-                                    <li><input type="checkbox" name="skill_primary[]" value="Karamkand"/>Karamkand </li>
-                                    <li><input type="checkbox" name="skill_primary[]" value=""/>Puja-path Consultation </li>
-                                    <li><input type="checkbox" name="skill_primary[]" value="Gemstone consultation"/>Gemstone consultation</li>
-                                    <li><input type="checkbox" name="skill_primary[]" value="Puja Muhurat Consultation"/>Puja Muhurat Consultation</li>
-                                    <li><input type="checkbox" name="skill_primary[]" value="Bhajan/Sandhya- Sangeetmay Path"/>Bhajan/Sandhya- Sangeetmay Path</li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Karamkand visheshgya"/>Karamkand visheshgya</li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Kathavachak"/>Kathavachak </li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Karamkand"/>Karamkand </li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value=""/>Puja-path Consultation </li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Gemstone consultation"/>Gemstone consultation</li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Puja Muhurat Consultation"/>Puja Muhurat Consultation</li>
+                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Bhajan/Sandhya- Sangeetmay Path"/>Bhajan/Sandhya- Sangeetmay Path</li>
                                 </ul>
                             </div>
                         </div>
@@ -158,15 +154,15 @@
                             <div id="list2" class="dropdown-check-list" tabindex="100">
                                 <span class="anchor">Astrologers</span>
                                 <ul class="items">
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Birth Chart Analysis"/>Birth Chart Analysis </li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Gemstone consultatio"/>Gemstone consultation</li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Vastu Consultation"/>Vastu Consultation </li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Kundali Matching"/>Kundali Matching</li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Marriage consultation"/>Marriage consultation </li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Career and business advice"/>Career and business advice </li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Love and Relationship advice"/>Love and Relationship advice</li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Health and Family issues advice"/>Health and Family issues advice </li>
-                                    <li><input type="checkbox" name="skill_secondry[]" value="Spiritual/Reiki healing"/>Spiritual/Reiki healing </li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Birth Chart Analysis"/>Birth Chart Analysis </li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Gemstone consultatio"/>Gemstone consultation</li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Vastu Consultation"/>Vastu Consultation </li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Kundali Matching"/>Kundali Matching</li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Marriage consultation"/>Marriage consultation </li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Career and business advice"/>Career and business advice </li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Love and Relationship advice"/>Love and Relationship advice</li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Health and Family issues advice"/>Health and Family issues advice </li>
+                                    <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Spiritual/Reiki healing"/>Spiritual/Reiki healing </li>
     
                                 </ul>
                             </div>
@@ -296,12 +292,40 @@
                 checkList2.classList.add('visible');
         }
 
-        var checkList3 = document.getElementById('list3');
-        checkList3.getElementsByClassName('anchor')[0].onclick = function (evt) {
-            if (checkList3.classList.contains('visible'))
-                checkList3.classList.remove('visible');
-            else
-                checkList3.classList.add('visible');
-        }
+        // var checkList3 = document.getElementById('list3');
+        // checkList3.getElementsByClassName('anchor')[0].onclick = function (evt) {
+        //     if (checkList3.classList.contains('visible'))
+        //         checkList3.classList.remove('visible');
+        //     else
+        //         checkList3.classList.add('visible');
+        // }
+
+
+        
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){      
+            
+            $('input[type=checkbox].single-checkbox').change(function(e){
+            if ($('input[type=checkbox]:checked').length > 2) {
+                    $(this).prop('checked', false)
+                    // alert("allowed only 3");
+            }
+            })
+            $('input[type=checkbox].four-checkbox').change(function(e){
+            if ($('input[type=checkbox]:checked').length > 4) {
+                    $(this).prop('checked', false)
+                    // alert("allowed only 3");
+            }
+            })
+            $('input[type=checkbox].six-checkbox').change(function(e){
+            if ($('input[type=checkbox]:checked').length > 6) {
+                    $(this).prop('checked', false)
+                    // alert("allowed only 3");
+            }
+            })
+        });
+    </script>
+    
 @include('layouts.footer')

@@ -64,6 +64,10 @@
                                                 style="width: 40px; text-align: center">
                                                 No.
                                             </th>
+                                            <th class="text-muted sort sortable" data-sort="item-badge"
+                                                style="width: 60px">
+                                                Name
+                                            </th>
                                             <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
                                                 Type
                                             </th>
@@ -71,10 +75,7 @@
                                                 style="width: 60px">
                                                 Category
                                             </th>
-                                            <th class="text-muted sort sortable" data-sort="item-badge"
-                                                style="width: 60px">
-                                                Name
-                                            </th>
+                                            
                                             <th class="text-muted" >Description</th>
                                             <th class="text-muted" style="width: 120px">Advantage</th>
                                             <th class="text-muted" style="width: 120px">Icon/Image</th>
@@ -94,6 +95,9 @@
                                             <td style="min-width: 30px; text-align: center">
                                                 <small class="text-muted">  {{$puja->id}}</small>
                                             </td>
+                                            <td>
+                                                <span class="item-badge badge text-uppercase bg-success">     {{$puja->name}}</span>
+                                            </td>
                                             <td class="flex">
                                                 <a href="page.invoice.detail.html"
                                                     class="item-company ajax h-1x">{{$puja->type}}</a>
@@ -104,9 +108,7 @@
                                             <td>
                                                 <span class="item-amount d-none d-sm-block text-sm">     {{$puja->category}}</span>
                                             </td>
-                                            <td>
-                                                <span class="item-badge badge text-uppercase bg-success">     {{$puja->name}}</span>
-                                            </td>
+                                            
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$puja->desc}}

@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $pujaList = PujaEcommerce::all();
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->id);
         }  

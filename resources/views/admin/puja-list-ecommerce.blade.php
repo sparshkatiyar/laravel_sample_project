@@ -64,16 +64,16 @@
                                                 style="width: 40px; text-align: center">
                                                 No.
                                             </th>
+                                            <th class="text-muted sort sortable" data-sort="item-badge"
+                                                >
+                                                Name
+                                            </th>
                                             <th class="text-muted sort sortable"  data-sort="item-company">
                                                 Samagri Price
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
                                                 >
                                                 samll  puja rice
-                                            </th>
-                                            <th class="text-muted sort sortable" data-sort="item-badge"
-                                                >
-                                                Name
                                             </th>
                                             <th class="text-muted" style="width: 120px">Base price</th>
                                             <th class="text-muted" style="width: 120px">Large Puja price</th>
@@ -94,6 +94,12 @@
                                             <td style="min-width: 30px; text-align: center">
                                                 <small class="text-muted">  {{$puja->id}}</small>
                                             </td>
+                                            <td>
+                                                <span class="item-badge badge text-uppercase bg-success"> 
+                                                        {{$puja->puja_id->name}}
+                                                    
+                                                </span>
+                                            </td>
                                             <td class="flex">
                                                 <a href="page.invoice.detail.html"
                                                     class="item-company ajax h-1x">{{$puja->puja_samagri_price}}</a>
@@ -105,12 +111,7 @@
                                                 <span class="item-amount d-none d-sm-block text-sm">  
                                                        {{$puja->puja_price_samall}}</span>
                                             </td>
-                                            <td>
-                                                <span class="item-badge badge text-uppercase bg-success"> 
-                                                        {{$puja->puja_id->name}}
-                                                    
-                                                </span>
-                                            </td>
+                                            
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$puja->puja_base_price}}
