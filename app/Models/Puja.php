@@ -12,7 +12,11 @@ class Puja extends Model
         if(empty($value)){
             return "";
         }else{
-            return $_SERVER['SERVER_NAME']."/web/Image/".$value;
+            $protocol = (!empty($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) == 'on' || $_SERVER['HTTPS'] == '1')) ? 'https://' : 'http://';
+            $server = $_SERVER['SERVER_NAME'];
+            $port = $_SERVER['SERVER_PORT'] ? ':'.$_SERVER['SERVER_PORT'] : '';
+            return $protocol.$server.$port."/web/Image/".$value;
+            // return $_SERVER['SERVER_PORT']."/web/Image/".$value;
              
         }
     }

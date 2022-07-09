@@ -79,8 +79,13 @@
                 <h6>Personal Details :</h6>
                 <!-- <h2>{{Session::get('success')}}</h2> -->
                 <div class="logo-box">
-                    <div class="logo"><img src="{{ asset('pandit/pandit-logo.png')}}" alt="">
-                    <!-- <input type="file" name="" id=""> -->
+                    
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <img src="{{ asset('pandit/pandit-logo.png')}}" height="80px" width="80px" />
+                        </label>
+
+                        <input id="file-input" name="pandit_pic" type="file" />
                     </div>
                     <p>Profile Pic <span> *(png, jpg, jpeg only)</span></p>
                 </div>

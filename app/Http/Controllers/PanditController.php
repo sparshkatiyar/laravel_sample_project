@@ -18,6 +18,7 @@ class PanditController extends Controller
 
         // dd($request->all());
         $validations            =  array(
+            'pandit_pic'        => 'required',
             'name'              => 'required',
             'email'             => 'required',
             'gender'            => 'required',
@@ -47,8 +48,21 @@ class PanditController extends Controller
 
 
         $pandit = new Pandit();
-
-        $pandit->pandit_pic     = "profile_pic.jpg" /*$request->get('pandit_pic')*/;
+        if($request->file('pandit_pic')){
+            $file= $request->file('pandit_pic');
+            // $filename= date('YmdHi')."-".$file->getClientOriginalName();
+            $filename= date('YmdHi')."-puja.".$file->extension();
+            $file-> move(public_path('web/Image/pandit'), $filename);
+            $pandit->pandit_pic= $filename;
+        }
+        if($request->file('uid_image')){
+            $file= $request->file('uid_image');
+            // $filename= date('YmdHi')."-".$file->getClientOriginalName();
+            $filenameu= date('YmdHi')."-puja.".$file->extension();
+            $file-> move(public_path('web/Image/pandit'), $filenameu);
+            $pandit->uid_image= $filenameu;
+        }
+        // $pandit->pandit_pic     = "profile_pic.jpg" /*$request->get('pandit_pic')*/;
         $pandit->name           = $request->get('name');
         $pandit->email          = $request->get('email'); 
         $pandit->gender         = $request->get('gender');  
@@ -60,7 +74,7 @@ class PanditController extends Controller
         $pandit->other_platform = $request->get('other_platform');
         $pandit->app_or_website = $request->get('app_or_website');
         $pandit->uid_number     = $request->get('uid_number');
-        $pandit->uid_image      = "uid_image.jpg" /*$request->get('uid_image')*/;
+        // $pandit->uid_image      = "uid_image.jpg" /*$request->get('uid_image')*/;
         $pandit->experties      = $request->get('experties');
         $pandit->charge_chat    = $request->get('charge_chat');
         $pandit->charge_call    = $request->get('charge_call');

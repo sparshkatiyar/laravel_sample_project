@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/puja-home', [App\Http\Controllers\PujaController::class, 'index'])->name('index');
-Route::get('/puja-booking', [App\Http\Controllers\PujaController::class, 'booking'])->name('booking');
+Route::get('/puja-booking/{id}', [App\Http\Controllers\PujaController::class, 'booking'])->name('booking');
 Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'delivery'])->name('delivery');
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index');
 Route::post('/pandit-registration', [App\Http\Controllers\PanditController::class, 'register'])->name('register');

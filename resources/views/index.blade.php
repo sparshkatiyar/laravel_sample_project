@@ -1273,10 +1273,11 @@
                     @foreach(@$pujaList as $puja)
                     <div class="column nature">
                         <div class="content">
-                            <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains"
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image}}" alt="Mountains"
                                     style="width:100%"></a>
-                            <a href="{{url('puja-booking')}}">
-                                <h4>{{$puja->puja_id->name}}</h4>
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}">
+                                <h4>{{$puja->puja_id->name}}                               
+                                </h4>
                             </a>
                             <p>INR- {{$puja->puja_base_price}}/-</p>
                         </div>
@@ -1978,4 +1979,6 @@
             </div>
         </div>
     </section>
+
+    
     @include('layouts.footer')

@@ -7,12 +7,12 @@
     <div class="container-fluid main">
         <div class="img">
             <div>
-                <img src="{{ asset('puja/img1.png')}}" alt="">
+                <img src="{{ $pujaDetails->puja_id->image}}" alt="">
 
                 <div class="img-content">
-                    <h3>Starting From <span>&#x20b9 110.0</span></h3>
+                    <h3>Starting From <span>&#x20b9 {{ $pujaDetails->puja_base_price}}</span></h3>
                     <p class="Category">Category : <span>
-                            <font color="#B66200">Online E-Pooja</font>
+                            <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
                         </span></p>
                     <p class="">Choose Your Pooja :
                         <select id="dropdown">
@@ -28,10 +28,11 @@
         <!-- ----- -->
 
         <div class="details">
-            <h2>Akhand Ramayan (Musical)</h2>
+            <h2>{{ $pujaDetails->puja_id->name}}</h2>
 
             <h4> WHY YOU NEED THIS POOJA</h4>
             <p>
+                
                 Akhand Ramayan Path is performed to achieve peace and prosperity at the home and get blessings of Shri
                 Ram and Hanuman. This can be performed at any auspicious event like Wedding Anniversary, Birthdays,
                 Navratra days or other auspicious days or to get a wish to be fulfilled and etc.
@@ -95,6 +96,10 @@
             <div class="b">
                 <ul>
                     <li>
+
+                        {{ $pujaDetails->puja_id->advantage}}
+                    </li>
+                    <!-- <li>
                         <p>Brings the peace, understanding, prosperity and happiness in the family.</p>
                     </li>
                     <li>
@@ -119,7 +124,7 @@
                     <li>
                         <p>Protects against health problem.
                         </p>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -132,7 +137,8 @@
             <div class="b">
                 <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
                 <ul>
-                    <li>
+                    <li>       {{ $pujaDetails->puja_id->desc}}</li>
+                    <!-- <li>
                         <p>No of Pandits: 5, Time: 24 Hr,
                         </p>
                     </li>
@@ -147,7 +153,7 @@
                     <li>
                         <p>For Team of 7 People with Amplifier Sound System and Murti Setup for Big function Price - Rs
                             21000/-</p>
-                    </li>
+                    </li> -->
 
                 </ul>
             </div>
