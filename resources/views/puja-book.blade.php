@@ -10,15 +10,20 @@
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
 
                 <div class="img-content">
-                    <h3>Starting From <span>&#x20b9 {{ $pujaDetails->puja_base_price}}</span></h3>
+                    <h3>Starting From
+                        <span>&#x20b9 {{ $pujaDetails->puja_base_price}}</span>
+                        <span id="adds">+ &#x20b9 </span>
+                        <span id="addprice">0</span>
+                    </h3>
                     <p class="Category">Category : <span>
                             <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
                         </span></p>
                     <p class="">Choose Your Pooja :
-                        <select id="dropdown">
-                            <option value="a">Large Pooja</option>
-                            <option value="b">small Pooja</option>
-                            <option value="c">Large Pooja</option>
+                        <select id="pujatype">
+                            <option value="0">select</option>
+                            <option value="1">small Pooja</option>
+                            <option value="2">Medium Pooja</option>
+                            <option value="3">Large Pooja</option>
                         </select>
                     </p>
                 </div>
@@ -55,7 +60,7 @@
                             Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
                             facilis, cupiditate accusantium impedit fugit minima.</p>
                     </details> &nbsp;
-                    <input type="radio">
+                    <input type="radio" name="category" value="samagri" id="samgari">
                 </div>
                 <!--  -->
                 <div>
@@ -66,7 +71,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
                             Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
                             facilis, cupiditate accusantium impedit fugit minima.</p>
-                    </details> &nbsp;<input type="radio">
+                    </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
                 </div>
                 <!--  -->
                 <div>
@@ -77,7 +82,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
                             Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
                             facilis, cupiditate accusantium impedit fugit minima.</p>
-                    </details> &nbsp;<input type="radio">
+                    </details> &nbsp;<input type="radio" name="category" value="all" id="all">
                 </div>
             </div>
         </div>
@@ -236,6 +241,60 @@
     </div>
 
 </section>
+<script>
+    $(function(){
+        $("#adds").hide();
+        $("#addprice").hide();
+    })
+    $(document).ready(function(){
+        var basePrice =" {{$pujaDetails->puja_base_price}}";
+        var totalPrice = 0;
+        var setPrice = $("#addprice").text();
 
+        
+        $('#pujatype').on('change', function() {
+            if(this.value == 1){
+                $("#adds").show();
+                $("#addprice").show();
+                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
+                $("#addprice").text(0);
+                $("#addprice").text(totalPrice);               
+                
+            }
+            else if(this.value == 2){
+                $("#adds").show();
+                $("#addprice").show();
+                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
+                $("#addprice").text(0);
+                $("#addprice").text(totalPrice);
+            }
+            else if(this.value == 3){
+                $("#adds").show();
+                $("#addprice").show();
+                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_large}}");
+                $("#addprice").text(0);
+                $("#addprice").text(totalPrice);
+            }
+        });
+        $("#samgari").click(function(){
+            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+        
+        })
+        $("#wsamgari").click(function(){
+            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+            
+        })
+        $("#all").click(function(){
+            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+        })
+
+    });
+</script>
 <!-- -------------footer-------- -->
 @include('layouts.footer')

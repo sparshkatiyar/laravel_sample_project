@@ -13,14 +13,15 @@ class PujaController extends Controller
     {
         $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
         foreach(@$pujaList as $pujas){
-            $pujas->puja_id = Puja::find($pujas->id);
+            $pujas->puja_id = Puja::find($pujas->puja_id);
         }  
+      
         return view('puja',compact('pujaList'));
     }
     public function booking(Request $request )
     {
         $pujaDetails = PujaEcommerce::find($request->id);  
-        $pujaDetails->puja_id = Puja::find($pujaDetails->id);
+        $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
         
         return view('puja-book',compact('pujaDetails'));
     }

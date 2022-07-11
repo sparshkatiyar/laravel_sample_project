@@ -96,7 +96,7 @@
                                             </td>
                                             <td>
                                                 <span class="item-badge badge text-uppercase bg-success"> 
-                                                        {{$puja->puja_id->name}}
+                                                        {{@$puja->puja_id->name}}
                                                     
                                                 </span>
                                             </td>

@@ -53,9 +53,11 @@ class PujaController extends Controller
             'pujanameId'            => 'required',
             'baseprice'             => 'required',
             'samagriprice'          => 'required',
+            'wsamagriprice'         => 'required',
             'samallpujaprice'       => 'required',
             'mediumpujaprice'       => 'required',
             'largepujaprice'        => 'required',
+            'allpujaprice'          => 'required',
             
         );       
         $validator =Validator::make($request->all(),$validations);
@@ -70,9 +72,11 @@ class PujaController extends Controller
         $puja->puja_id              = $request->get('pujanameId');
         $puja->puja_base_price      = $request->get('baseprice'); 
         $puja->puja_samagri_price   = $request->get('samagriprice');  
+        $puja->puja_wsamagri_price   = $request->get('wsamagriprice');  
         $puja->puja_price_samall    = $request->get('samallpujaprice');
         $puja->puja_price_medium    = $request->get('mediumpujaprice');
         $puja->puja_price_large     = $request->get('largepujaprice');
+        $puja->puja_price_all       = $request->get('allpujaprice');
         $puja->save();
         return redirect('admin-panel/puja-list-ecommerce');
     }

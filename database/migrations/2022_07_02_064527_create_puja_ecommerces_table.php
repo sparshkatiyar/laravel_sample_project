@@ -18,9 +18,11 @@ class CreatePujaEcommercesTable extends Migration
             $table->string('puja_id');
             $table->string('puja_base_price');
             $table->string('puja_samagri_price');
+            $table->string('puja_wsamagri_price');
             $table->string('puja_price_samall');
             $table->string('puja_price_medium');       
             $table->string('puja_price_large');       
+            $table->string('puja_price_all');       
             $table->timestamps();
         });
     }

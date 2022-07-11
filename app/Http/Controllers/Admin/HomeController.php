@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function pujaListEm(){
         $pujaList = PujaEcommerce::all();
         foreach(@$pujaList as $pujas){
-            $pujas->puja_id = Puja::find($pujas->id);
+            $pujas->puja_id = Puja::find($pujas->puja_id);
         }       
         return view('admin/puja-list-ecommerce' ,compact('pujaList'));
     }

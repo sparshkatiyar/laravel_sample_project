@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $pujaList = PujaEcommerce::orderBy("id", "desc")->get();
         foreach(@$pujaList as $pujas){
-            $pujas->puja_id = Puja::find($pujas->id);
+            $pujas->puja_id = Puja::find($pujas->puja_id);
         }  
         // dd($pujaList);
         return view('index',compact('pujaList'));
