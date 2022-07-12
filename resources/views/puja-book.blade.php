@@ -37,15 +37,15 @@
 
             <h4> WHY YOU NEED THIS POOJA</h4>
             <p>
-                
-                Akhand Ramayan Path is performed to achieve peace and prosperity at the home and get blessings of Shri
+            {{ $pujaDetails->puja_id->desc}}
+                <!-- Akhand Ramayan Path is performed to achieve peace and prosperity at the home and get blessings of Shri
                 Ram and Hanuman. This can be performed at any auspicious event like Wedding Anniversary, Birthdays,
                 Navratra days or other auspicious days or to get a wish to be fulfilled and etc.
 
                 Akhand Ramayan Path is the recital of Ramcharit manas<br><br><br> continuously without stopping for 24
                 hours, it is performed with bhajans and kirtan in the praise of lord Shri Ram.
 
-                Get the blessings of lord Shri Ram and his life teachings for Read More/Hindi
+                Get the blessings of lord Shri Ram and his life teachings for Read More/Hindi -->
             </p>
 
             <!-- ---box-- -->
@@ -142,7 +142,7 @@
             <div class="b">
                 <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
                 <ul>
-                    <li>       {{ $pujaDetails->puja_id->desc}}</li>
+                    <li>       {{ $pujaDetails->puja_id->pujasimplified}}</li>
                     <!-- <li>
                         <p>No of Pandits: 5, Time: 24 Hr,
                         </p>

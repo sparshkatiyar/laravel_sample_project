@@ -63,6 +63,10 @@
                                         <label> Puja Description</label><textarea class="form-control" name="pujadescription" rows="4"
                                             placeholder="hmm.."></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label> Puja Simplified</label><textarea class="form-control" name="pujasimplified" rows="4"
+                                            placeholder="hmm.."></textarea>
+                                    </div>
                                     <button type="submit" class="btn btn-primary">
                                        Create 
                                     </button>

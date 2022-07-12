@@ -21,6 +21,7 @@ class PujaController extends Controller
             'pujacategory'      => 'required',
             'pujaadvantage'     => 'required',
             'pujadescription'   => 'required',
+            'pujasimplified'    => 'required',
             
         );       
         $validator =Validator::make($request->all(),$validations);
@@ -44,6 +45,7 @@ class PujaController extends Controller
         $puja->category = $request->get('pujacategory');
         $puja->advantage = $request->get('pujaadvantage');
         $puja->desc = $request->get('pujadescription');
+        $puja->pujasimplified = $request->get('pujasimplified');
         $puja->save();
         return redirect('admin-panel/puja-list');
     }
