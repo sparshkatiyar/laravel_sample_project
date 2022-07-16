@@ -14,7 +14,8 @@ use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class UserApiController extends Controller
-{
+{   
+    
     public function __construct(UserService $service)
     {
         $this->service = $service;
@@ -56,7 +57,7 @@ class UserApiController extends Controller
                     return response()->json(['error' => 'could_not_create_token'], 500);
                 }
                 $dBoy=User::where('id',$user->id)->first();                   
-                $dBoy->access_token=$token;
+                $dBoy->access_token=null;
                 $dBoy->save();
                 return response()->json(['message'=>'OTP send successfully.','data'=>$dBoy],200);
             }else{                   
@@ -76,7 +77,7 @@ class UserApiController extends Controller
                     return response()->json(['error' => 'could_not_create_token'], 500);
                 }
                 $dBoy=User::where('id',$user->id)->first();                   
-                $dBoy->access_token=$token;
+                $dBoy->access_token=null;
                 $dBoy->save();
                 return response()->json(['message'=>'OTP send successfully.','data'=>$dBoy],200);
             }
@@ -150,7 +151,9 @@ class UserApiController extends Controller
     public function otp_verify(Request $request){
         $validator = [          
             'otp' => 'required',
-            'type'=>'required'
+            'type'=>'required',
+            'mobileNumber'=>'required',
+            'mobileTelCode'=>'required',
         ];
         $validation = Validator::make($request->all(),$validator);
         if($validation->fails()){
@@ -160,7 +163,8 @@ class UserApiController extends Controller
             return response()->json($response,400);
         }
         // dd($request->userDetail);
-        $user_id = $request->userDetail->id;    
+        $otpUser = User::where('mobile_number',$request->mobileNumber)->first();
+        $user_id = $otpUser->id;    
         $data = User::find($user_id);      
         if($data){
             $time = time();
@@ -170,15 +174,23 @@ class UserApiController extends Controller
                 return response()->json($response,400);
             }
             if($data->otp==$request->otp || $request->otp=='1234'){
+                try {
+                    if (!$token = JWTAuth::fromUser($data)) {
+                        return response()->json(['error' => 'invalid_credentials'], 400);
+                    }
+                } catch (JWTException $e) {
+                    return response()->json(['error' => 'could_not_create_token'], 500);
+                }
                 if($request->type==1){
                     $dBoy=User::where('id',$user_id)->first();
+                    $dBoy->access_token=$token;
                     $dBoy->is_otp_verify=1;                   
                     $dBoy->save();
                 }
                 if($request->type==2){
                     $dBoy=User::where('id',$user_id)->first();
                     $dBoy->is_otp_verify=1;
-                    $dBoy->access_token=1;
+                    $dBoy->access_token=$token;
                     $dBoy->save();                    
                 }
                 
