@@ -11,6 +11,11 @@ use App\Models\RecentHistory;
 use DB;
 use JWTAuth;
 use App\Models\User;
+use App\Models\Language;
+use App\Models\Experte;
+use App\Models\PujaEcommerce;
+use App\Models\Puja;
+use App\Models\Pandit;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class UserApiController extends Controller
@@ -35,8 +40,7 @@ class UserApiController extends Controller
             'mobileNumber'      => 'required|regex:/[0-9]{9}/',              
             'deviceToken'       => 'required|min:6',
             'deviceType'        => 'required|min:1',     
-            'longitude'         =>'required|min:4',
-            'latitude'          => 'required|min:4',
+      
         ];
         $validator = Validator::make($request->all(),$validations);
         if($validator->fails()){
@@ -93,7 +97,7 @@ class UserApiController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
+            'expires_in' => auth()->factory()->getTTL() * 600,
             'user' => auth()->user()
         ]);
     }
@@ -204,5 +208,35 @@ class UserApiController extends Controller
             return response()->json(['message'=>'Not found.'],400); 
         }
     }  
+
+    public function list_of_puja(Request $request){
+        $list = PujaEcommerce::select('id','puja_base_price','puja_id')->orderBy("id", "desc")->get();
+        foreach(@$list as $pujas){
+            $pujas->puja_id = Puja::select('name','image')->where('id', $pujas->puja_id)->first();
+        }  
+        return response()->json(['message'=>' Experties list .','data'=>$list],200);
+    }
+
+    public function list_of_astro(Request $request){
+        $list = Pandit::select('name','pandit_pic', 'gender','skill_primary','skill_secondry','experties','charge_chat','charge_call','charge_video')->get();
+        foreach($list as $ratingData){
+            $ratingData->avg_rating=4.5;
+            $ratingData->exp=5;
+        }
+        // $list->avg_rating=4.5;
+        // $list = Pandit::all();
+        return response()->json(['message'=>' Experties list .','data'=>$list],200);
+    }
+
+    public function list_of_expert(Request $request){
+        $list = Experte::all();
+        return response()->json(['message'=>' Experties list .','data'=>$list],200);
+        
+    }
+
+    public function list_of_language(Request $request){
+        $list = Language::all();
+        return response()->json(['message'=>' Experties list .','data'=>$list],200);
+    }
 
 }

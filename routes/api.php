@@ -28,8 +28,12 @@ Route::group(['namespace' => 'API'], function () {
     Route::group(['prefix'=>'user'], function () {
         Route::Post('login',[UserApiController::class,'login']);
         Route::Post('otp_verify',[UserApiController::class,'otp_verify']);
+        Route::get('list_of_language',[UserApiController::class,'list_of_language']);
+        Route::get('list_of_expert',[UserApiController::class,'list_of_expert']);
         Route::group(['middleware' => 'jwt.verify'], function () {
             Route::Post('add_details',[UserApiController::class,'addDetails']);
+            Route::Post('list_of_puja',[UserApiController::class,'list_of_puja']);
+            Route::Post('list_of_astro',[UserApiController::class,'list_of_astro']);
 
         });
     });
