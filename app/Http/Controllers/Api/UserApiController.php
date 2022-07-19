@@ -222,8 +222,9 @@ class UserApiController extends Controller
         foreach($list as $ratingData){
             $ratingData->avg_rating=4.5;
             $ratingData->exp=5;
+            $ratingData->skill_primary=json_decode($ratingData->skill_primary);
+            $ratingData->skill_secondry=json_decode($ratingData->skill_secondry);
         }
-        // $list->avg_rating=4.5;
         // $list = Pandit::all();
         return response()->json(['message'=>' Experties list .','data'=>$list],200);
     }
