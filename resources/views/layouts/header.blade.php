@@ -20,6 +20,7 @@
     <script src="{{ asset('asset/js/script.js') }}"></script>
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
     <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 </head>
 <body>
  <!-- --------navbar---- -->

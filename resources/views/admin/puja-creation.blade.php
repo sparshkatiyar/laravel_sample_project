@@ -1,6 +1,7 @@
 @include('admin.head')
-<body class="layout-row">
-@include('admin.sidebar')
+
+<body class="layout-row" >
+   @include('admin.sidebar')
     <div id="main" class="layout-column flex">
         @include('admin.header')
         <div id="content" class="flex">
@@ -56,16 +57,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Puja Advantage</label><input type="text" name="pujaadvantage" class="form-control"
-                                                placeholder="Advantage" required />
+                                        <label>Puja Advantage</label><textarea onclick="ckeFunction()" type="text" name="pujaadvantage" rows="4" class="form-control"
+                                                placeholder="Advantage" id="editor1"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label> Puja Description</label><textarea class="form-control" name="pujadescription" rows="4"
-                                            placeholder="hmm.."></textarea>
+                                        <label> Puja Description</label><textarea  onclick="ckeFunction()" class="form-control" name="pujadescription" rows="4"
+                                            placeholder="hmm.." id="editor2"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label> Puja Simplified</label><textarea class="form-control" name="pujasimplified" rows="4"
-                                            placeholder="hmm.."></textarea>
+                                        <label> Puja Simplified</label><textarea onclick="ckeFunction()" class="form-control" name="pujasimplified" rows="4"
+                                            placeholder="hmm.." id="editor3"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary">
                                        Create 
@@ -121,4 +122,15 @@
             </div>
         </div>
     </div>
+    
+    <script>
+    function ckeFunction(){
+
+        CKEDITOR.replace( 'editor1' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+        CKEDITOR.replace( 'editor2' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+        CKEDITOR.replace( 'editor3' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    }
+   
+    </script>
+    @include('admin.footer')
 </body>

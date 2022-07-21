@@ -214,7 +214,7 @@ class UserApiController extends Controller
         foreach(@$list as $pujas){
             $pujas->puja_id = Puja::select('name','image')->where('id', $pujas->puja_id)->first();
         }  
-        return response()->json(['message'=>' Experties list .','data'=>$list],200);
+        return response()->json(['message'=>' Puja list .','data'=>$list],200);
     }
 
     public function list_of_astro(Request $request){
@@ -226,7 +226,7 @@ class UserApiController extends Controller
             $ratingData->skill_secondry=json_decode($ratingData->skill_secondry);
         }
         // $list = Pandit::all();
-        return response()->json(['message'=>' Experties list .','data'=>$list],200);
+        return response()->json(['message'=>' Astro list .','data'=>$list],200);
     }
 
     public function list_of_expert(Request $request){
