@@ -173,10 +173,10 @@ class UserApiController extends Controller
         if($data){
             $time = time();
             $utime =strtotime($data->updated_at)+19890;
-            if ( $time >$utime){
-                $response['message'] = "Otp Expired.";
-                return response()->json($response,400);
-            }
+            // if ( $time >$utime){
+            //     $response['message'] = "Otp Expired.";
+            //     return response()->json($response,400);
+            // }
             if($data->otp==$request->otp || $request->otp=='1234'){
                 try {
                     if (!$token = JWTAuth::fromUser($data)) {
