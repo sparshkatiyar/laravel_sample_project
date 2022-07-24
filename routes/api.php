@@ -36,6 +36,16 @@ Route::group(['namespace' => 'API'], function () {
             Route::Post('add_details',[UserApiController::class,'addDetails']);
             Route::Post('list_of_puja',[UserApiController::class,'list_of_puja']);
             Route::Post('list_of_astro',[UserApiController::class,'list_of_astro']);
+            Route::post('update_user_profile',[UserApiController::class,'updateProfileDetails']);
+            Route::get('get_profile_info',[UserApiController::class,'getProfileDetails']);
+            Route::get('address_get',[UserApiController::class,'getAddressDetails']);
+            Route::post('address_add',[UserApiController::class,'addAddress']);
+            Route::get('wallet_balance_get',[UserApiController::class,'getWalletDetails']);
+            Route::post('wallet_balance_add',[UserApiController::class,'addWalletBalance']);
+            Route::post('booking_placed',[UserApiController::class,'bookingPlaced']);
+            Route::post('booking_placed_details',[UserApiController::class,'getBookingDetails']);
+            Route::get('myorder',[UserApiController::class,'myorder']);
+            Route::post('make_payment',[UserApiController::class,'makePayment']);
 
         });
     });
