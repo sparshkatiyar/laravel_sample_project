@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>panditList | Astro Pandit - </title>
+    <title>userList | Astro user - </title>
     <meta name="description" content="Responsive, Bootstrap, BS4" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/site.min.css')}}" />
@@ -18,13 +18,13 @@
                 <div class="page-hero page-container" id="page-hero">
                     <div class="padding d-flex">
                         <div class="page-title">
-                            <h2 class="text-md text-highlight">PanditList</h2>
-                            <small class="text-muted">Astropandit have pandit</small>
+                            <h2 class="text-md text-highlight">UserList</h2>
+                            <small class="text-muted">Astrouser have user</small>
                         </div>
                         <div class="flex"></div>
                         <!-- <div>
-                            <a href="{{url('admin-panel/pandit-creation')}}" class="btn btn-md text-muted"><span
-                                    class="d-none d-sm-inline mx-1">Create pandit</span>
+                            <a href="{{url('admin-panel/user-creation')}}" class="btn btn-md text-muted"><span
+                                    class="d-none d-sm-inline mx-1">Create user</span>
                                 <i data-feather="arrow-right"></i></a>
                         </div> -->
                     </div>
@@ -76,15 +76,15 @@
                                                 Gender
                                             </th>
                                             <th class="text-muted" >DOB</th>
-                                            <th class="text-muted" style="width: 120px">Skill Primary</th>
-                                            <th class="text-muted" style="width: 120px">Skill  Secondary</th>
+                                            <th class="text-muted" style="width: 120px">Mobile No</th>
+                                            <th class="text-muted" style="width: 120px">Birth Place</th>
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
                                             <th style="width: 50px"></th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
-                                        @foreach(@$panditList as $pandit)
+                                        @foreach(@$userList as $user)
                                         <tr class="v-middle" data-id="20">
                                             <td>
                                                 <label class="ui-check m-0"><input type="checkbox" name="id"
@@ -92,20 +92,20 @@
                                                     <i></i></label>
                                             </td>
                                             <td style="min-width: 30px; text-align: center">
-                                                <small class="text-muted">  {{$pandit->id}}</small>
+                                                <small class="text-muted">  {{$user->id}}</small>
                                             </td>
                                             <td class="flex">
                                                 <a href="page.invoice.detail.html"
-                                                    class="item-company ajax h-1x">{{$pandit->name}}</a>
+                                                    class="item-company ajax h-1x">{{$user->first_name}}</a>
                                                 <div class="item-mail text-muted h-1x d-none d-sm-block">
                                            
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="item-amount d-none d-sm-block text-sm">     {{$pandit->email}}</span>
+                                                <span class="item-amount d-none d-sm-block text-sm">     {{$user->email}}</span>
                                             </td>
                                             <td>
-                                                @if($pandit->gender ==1)
+                                                @if($user->gender ==1)
                                                     <span class="item-badge badge text-uppercase bg-success"> 
                                                         male
                                                     </span>
@@ -117,22 +117,22 @@
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->dob}}
+                                                {{$user->dob}}
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->skill_primary}}
+                                                {{$user->country_code}}-{{$user->mobile_number}}
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->skill_secondry}}
+                                                {{$user->date_of_birth}}
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->image}}
+                                                {{$user->created_at}}
                                                 </div>
                                             </td>
                                             

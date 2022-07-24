@@ -20,7 +20,7 @@
                         <li>
                             <a href="{{url('admin-panel/dashboard')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Dashboard</span>
                             </a>
-                            <a href="{{url('admin-panel/user-registred')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">User Registered</span>
+                            <a href="{{url('admin-panel/user-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">User Registered</span>
                             </a>
                             <a href="{{url('admin-panel/pandit-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Pandit Ji List</span>
                             <a href="dashboard.html"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Astrologer/Motivational Speakers</span>

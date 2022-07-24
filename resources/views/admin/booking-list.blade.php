@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>panditList | Astro Pandit - </title>
+    <title>Pooja Booking | Astro user - </title>
     <meta name="description" content="Responsive, Bootstrap, BS4" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/site.min.css')}}" />
@@ -18,13 +18,13 @@
                 <div class="page-hero page-container" id="page-hero">
                     <div class="padding d-flex">
                         <div class="page-title">
-                            <h2 class="text-md text-highlight">PanditList</h2>
-                            <small class="text-muted">Astropandit have pandit</small>
+                            <h2 class="text-md text-highlight">BookingList</h2>
+                            <small class="text-muted">Astrouser have user</small>
                         </div>
                         <div class="flex"></div>
                         <!-- <div>
-                            <a href="{{url('admin-panel/pandit-creation')}}" class="btn btn-md text-muted"><span
-                                    class="d-none d-sm-inline mx-1">Create pandit</span>
+                            <a href="{{url('admin-panel/user-creation')}}" class="btn btn-md text-muted"><span
+                                    class="d-none d-sm-inline mx-1">Create user</span>
                                 <i data-feather="arrow-right"></i></a>
                         </div> -->
                     </div>
@@ -65,26 +65,26 @@
                                                 No.
                                             </th>
                                             <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
-                                                Name
+                                                Puja Name
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
-                                                style="width: 60px">
-                                                email
+                                                style="width: 100px">
+                                                Order price
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-badge"
                                                 style="width: 60px">
-                                                Gender
+                                                Address
                                             </th>
-                                            <th class="text-muted" >DOB</th>
-                                            <th class="text-muted" style="width: 120px">Skill Primary</th>
-                                            <th class="text-muted" style="width: 120px">Skill  Secondary</th>
+                                            <th class="text-muted" >UserInfo</th>
+                                            <th class="text-muted" style="width: 120px">Payment info</th>
+                                            <th class="text-muted" style="width: 120px">Assign pandit</th>
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
                                             <th style="width: 50px"></th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
-                                        @foreach(@$panditList as $pandit)
+                                        @foreach(@$bookingList as $user)
                                         <tr class="v-middle" data-id="20">
                                             <td>
                                                 <label class="ui-check m-0"><input type="checkbox" name="id"
@@ -92,47 +92,56 @@
                                                     <i></i></label>
                                             </td>
                                             <td style="min-width: 30px; text-align: center">
-                                                <small class="text-muted">  {{$pandit->id}}</small>
+                                                <small class="text-muted">  {{$user->id}}</small>
                                             </td>
                                             <td class="flex">
                                                 <a href="page.invoice.detail.html"
-                                                    class="item-company ajax h-1x">{{$pandit->name}}</a>
+                                                    class="item-company ajax h-1x">{{$user->ecomm_puja_id->puja_id->name}}</a>
                                                 <div class="item-mail text-muted h-1x d-none d-sm-block">
                                            
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="item-amount d-none d-sm-block text-sm">     {{$pandit->email}}</span>
+                                                <span class="item-amount d-none d-sm-block text-sm"> {{$user->price_total}}/-</span>
                                             </td>
                                             <td>
-                                                @if($pandit->gender ==1)
+                                                <div class="item-date text-muted text-sm d-none d-md-block">
                                                     <span class="item-badge badge text-uppercase bg-success"> 
-                                                        male
+                                                        see details
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td class="no-wrap">
+                                                <div class="item-date text-muted text-sm d-none d-md-block">
+                                                    <span class="item-badge badge text-uppercase bg-success"> 
+                                                        see details
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td class="no-wrap">
+                                                <div class="item-date text-muted text-sm d-none d-md-block">
+                                                    <span class="item-badge badge text-uppercase bg-success"> 
+                                                        see details
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td class="no-wrap">
+                                                <div class="item-date text-muted text-sm d-none d-md-block">
+                                                @if($user->pandit_id)
+                                                    <span class="item-badge badge text-uppercase bg-success"> 
+                                                        see details
                                                     </span>
                                                 @else 
-                                                <span class="item-badge badge text-uppercase bg-success"> 
-                                                        female
+                                                    <span class="item-badge badge text-uppercase bg-warning"> 
+                                                        assign pandit
                                                     </span>   
                                                 @endif
-                                            </td>
-                                            <td class="no-wrap">
-                                                <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->dob}}
+                                                    
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->skill_primary}}
-                                                </div>
-                                            </td>
-                                            <td class="no-wrap">
-                                                <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->skill_secondry}}
-                                                </div>
-                                            </td>
-                                            <td class="no-wrap">
-                                                <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$pandit->image}}
+                                                {{$user->created_at}}
                                                 </div>
                                             </td>
                                             
