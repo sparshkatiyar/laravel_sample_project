@@ -42,6 +42,7 @@ Route::group(['prefix' => '/admin-panel'],function(){
 	Route::get('/user-list',[App\Http\Controllers\Admin\UserMgmtController::class,'index']);
 	Route::post('/validateLogin',[App\Http\Controllers\Admin\HomeController::class,'validateLogin']);
 	Route::post('/create',[App\Http\Controllers\Admin\HomeController::class,'create']);
+	Route::post('/assing-pandit',[App\Http\Controllers\Admin\BookingMgmtController::class,'assignPandit']);
 
 });
 

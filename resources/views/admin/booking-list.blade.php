@@ -128,17 +128,18 @@
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 @if($user->pandit_id)
-                                                    <span class="item-badge badge text-uppercase bg-success"> 
+                                                    <button class="btn w-sm mb-1 btn-success"> 
                                                         see details
-                                                    </span>
+                                                    </button>
                                                 @else 
-                                                    <span class="item-badge badge text-uppercase bg-warning"> 
+                                                    <button value="{{$user->id}}" class="btn w-sm mb-1 btn-outline-warning assing"  > 
                                                         assign pandit
-                                                    </span>   
+                                                    </button>   
                                                 @endif
                                                     
                                                 </div>
                                             </td>
+                                            
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$user->created_at}}
@@ -161,47 +162,7 @@
                                             </td>
                                         </tr>
                                       @endforeach
-                                        <!-- <tr class="v-middle" data-id="11">
-                                            <td>
-                                                <label class="ui-check m-0"><input type="checkbox" name="id"
-                                                        value="11" />
-                                                    <i></i></label>
-                                            </td>
-                                            <td style="min-width: 30px; text-align: center">
-                                                <small class="text-muted">11</small>
-                                            </td>
-                                            <td class="flex">
-                                                <a href="page.invoice.detail.html"
-                                                    class="item-company ajax h-1x">KissKiss</a>
-                                                <div class="item-mail text-muted h-1x d-none d-sm-block">
-                                                    kenneth-pierce@kisskiss.com
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="item-amount d-none d-sm-block text-sm">240</span>
-                                            </td>
-                                            <td>
-                                                <span class="item-badge badge text-uppercase bg-success">Paid</span>
-                                            </td>
-                                            <td class="no-wrap">
-                                                <div class="item-date text-muted text-sm d-none d-md-block">
-                                                    20 minutes ago
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="item-action dropdown">
-                                                    <a href="#" data-toggle="dropdown" class="text-muted"><i
-                                                            data-feather="more-vertical"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                        <a class="dropdown-item" href="#">See detail </a><a
-                                                            class="dropdown-item download">Download </a><a
-                                                            class="dropdown-item edit">Edit</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item trash">Delete item</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr> -->
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -236,63 +197,43 @@
                                 <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
                             </div>
                         </div>
-                        <div id="modal" class="modal fade" data-backdrop="true">
+                        <div id="pandit" class="modal fade" data-backdrop="true">
                             <div class="modal-dialog">
+                          
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">New invoice</h5>
+                                        <h5 class="modal-title">Assign Pandit</h5>
                                     </div>
                                     <div class="modal-body p-4">
-                                        <form>
+                                        <form action="{{url('admin-panel/assing-pandit')}}" method="post">
+                                            @csrf
+                                            
                                             <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">First Name</label><input type="text"
-                                                        class="form-control" placeholder="First name" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Last Name</label><input type="text"
-                                                        class="form-control" placeholder="Last name" />
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Email</label><input type="email"
-                                                        class="form-control" placeholder="Email" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Password <small>(Register
-                                                            account)</small></label><input type="password"
-                                                        class="form-control" placeholder="Password" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-muted">Address</label><input type="text"
-                                                    class="form-control" placeholder="1234 Main St" />
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">City</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-12">
                                                     <label for="inputState"
-                                                        class="text-muted d-block">State</label><select
-                                                        class="custom-select">
-                                                        <option selected="selected">Choose...</option>
-                                                        <option>...</option>
+                                                    class="text-muted d-block">Pandit</label>
+                                                    <select name="pandit_id"         class="custom-select">
+                                                        <option selected="selected" >Choose...</option>
+                                                        @foreach($panditList as $assign)
+                                                        <option value="{{$assign->id}}">{{$assign->name}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-2">
-                                                    <label class="text-muted">Zip</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
+                                               
                                             </div>
+                                            <input type="text" name="booking_id" id="booking_id" hidden >
                                             <button type="submit" class="btn btn-primary">
-                                                Submit
+                                                Assign puja now
                                             </button>
                                         </form>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div id="modalToast" class="modal fade" data-backdrop="false">
+                            <div class="modal-dialog">
+                            <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-line join="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> <span class="mx-2">Pandit assign to ecoomerce puja is successful !!</span></div>
+                               
                             </div>
                         </div>
                     </div>
@@ -302,6 +243,19 @@
 
     </div>
     @include('admin.footer')
+    <script>
+  
+    $(document).ready(function(){
+        $(".assing").click(function(){
+            var puaj_id = $(this).attr('value');
+            $("#booking_id").val(puaj_id);           
+            $('#pandit').modal('show');
+            // $('#modalToast').modal('show').delay(2000).fadeOut();
+    
+        
+        });
+    });
+</script>
 </body>
 
 </html>
