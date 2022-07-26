@@ -378,6 +378,16 @@ class UserApiController extends Controller
         $user = Booking::find($request->placed_id);               
         return response()->json(['message'=>'Fetch booking details successfully.','data'=>$user],200); 
     }
+    public function pujaDetails(Request $request) {
+      
+    
+        $pujaDetails = PujaEcommerce::find($request->epuja_id);
+        // dd($pujaDetails);
+       
+            $pujaDetails->puja_id = Puja::find(@$pujaDetails->puja_id);
+                   
+        return response()->json(['message'=>'Fetch booking details successfully.','data'=>$pujaDetails],200); 
+    }
     public function myorder(Request $request) {
       
         $user_id = $request->userDetail->id;        

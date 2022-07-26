@@ -35,6 +35,7 @@ Route::group(['namespace' => 'API'], function () {
         Route::group(['middleware' => 'jwt.verify'], function () {
             Route::Post('add_details',[UserApiController::class,'addDetails']);
             Route::Post('list_of_puja',[UserApiController::class,'list_of_puja']);
+            Route::Post('puaja-details-byId',[UserApiController::class,'pujaDetails']);
             Route::Post('list_of_astro',[UserApiController::class,'list_of_astro']);
             Route::post('update_user_profile',[UserApiController::class,'updateProfileDetails']);
             Route::get('get_profile_info',[UserApiController::class,'getProfileDetails']);
