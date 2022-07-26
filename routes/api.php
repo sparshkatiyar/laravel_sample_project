@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserApiController;
 use App\Http\Controllers\Api\PanditApiController;
+use App\Http\Controllers\SubscriberController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ Route::get('/documentations', function(){
 Route::group(['namespace' => 'API'], function () {
     Route::get('home',[UserApiController::class,'home']);
     // User API Routes
+    Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
     Route::post('pandit/pandit_registration',[PanditApiController::class,'register']);
     Route::group(['prefix'=>'user'], function () {
         Route::Post('login',[UserApiController::class,'login']);
