@@ -17,6 +17,7 @@
     <link href="{{ asset('asset/css/pujabook.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/delivery.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/pandit.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/popup.css') }}" rel="stylesheet">
     <script src="{{ asset('asset/js/script.js') }}"></script>
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
     <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script>
@@ -58,7 +59,7 @@
                     <a href="../Contact/contact.html">Contact us</a>
                 </div>
                 <div class="button">
-                    <a href="">Login/Sign up</a>
+                <a onclick="popshow()">Login/Sign up</a>
                 </div>
             </div>
         </div>
