@@ -118,6 +118,7 @@
     width: 79%;
     border: none;
     padding: 0 10px;
+    background: transparent;
   }
   
   .popup-1 .second-div input:focus{
