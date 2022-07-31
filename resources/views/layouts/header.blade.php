@@ -18,6 +18,7 @@
     <link href="{{ asset('asset/css/delivery.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/pandit.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/popup.css') }}" rel="stylesheet">
+    
     <script src="{{ asset('asset/js/script.js') }}"></script>
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
     <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script>
@@ -25,7 +26,7 @@
 </head>
 <body>
  <!-- --------navbar---- -->
- <div class="container-fluid b-navbar">
+    <div class="container-fluid b-navbar">
         <div class="img-div">
             <img src="{{ asset('images/Logo.png')}}" alt="#" />
         </div>

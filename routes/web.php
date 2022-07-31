@@ -26,6 +26,10 @@ Route::get('/puja-booking/{id}', [App\Http\Controllers\PujaController::class, 'b
 Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'delivery'])->name('delivery');
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index');
 Route::post('/pandit-registration', [App\Http\Controllers\PanditController::class, 'register'])->name('register');
+Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('index');
+Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('index');
+Route::get('/address', [App\Http\Controllers\AddressController::class, 'index'])->name('index');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('index');
 Route::group(['prefix' => '/admin-panel'],function(){
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'signin'])->name('signin');
     Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
