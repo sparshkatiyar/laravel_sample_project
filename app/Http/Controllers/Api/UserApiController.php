@@ -488,5 +488,18 @@ class UserApiController extends Controller
         return response()->json(['message'=>' Experties list .','data'=>$list],200);
     }
 
+    public function sendNewOtp(Request $request){
+        $otp =rand(1000,9999);
+        $result =$this->sendOtp($otp,$request->mobile_number,$request->country_code);
+        if($result['status']==1){
+        
+            return response()->json(['message'=>'Successfully registered','data'=>$result],200);
+        
+        }else{
+            return response()->json(['message'=>'Mobile number invalid!'],400); 
+        }
+        // return response()->json(['message'=>' Experties list .'],200);
+    }
+
 }
 

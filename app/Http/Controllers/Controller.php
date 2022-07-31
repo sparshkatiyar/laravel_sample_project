@@ -6,7 +6,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-
+use Twilio\Rest\Client;
+use DB;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -63,21 +64,22 @@ class Controller extends BaseController
 
     public function sendOtp($otp,$mobile,$countryCode) {
 
-        $AccountSid   =  "ACa6a569c4337f2f1589e1973d761274ee";
-        $AuthToken    =  "6a0037b16047f0046151ab60ae87f599";
+        $AccountSid   =  "AC248fda92be8423797941d80a75acdf25";
+        $AuthToken    =  "a55b2e19802fb6394cc6687cd25e0e61";
         $client       =  new Client($AccountSid, $AuthToken);
         $contact      =  $countryCode.$mobile;//'+919899728180';
         try{       
-            //DB::beginTransaction();     
-            // $client->account->messages->create(
-            //     $contact,
-            //     array(
-            //         'from' => "+18186503828", 
-            //         // 'from' => "+15744062664",
-            //         'body' => $otp." is the OTP for Flip Application."
-            //     )
-            // );
-            //print_r($sms);die;   -----
+            DB::beginTransaction();     
+            $client->account->messages->create(
+                $contact,
+                array(
+                    // 'from' => "+18186503828", 
+                    
+                    'from' => "+15744062664",
+                    'body' => "Astro pandit one time  OTP ".$otp." for signin !."
+                )
+            );
+            // print_r($sms);die;   -----
             $response     =  [
                 'message' => 'success',
                 'status'  => 1,
