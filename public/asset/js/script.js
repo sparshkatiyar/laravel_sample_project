@@ -1,5 +1,3 @@
-// ---tab pooja script
-
 filterSelection("all")
 
 function filterSelection(c) {
@@ -34,13 +32,46 @@ function w3RemoveClass(element, name) {
 }
 
 
-// Add active class to the current button (highlight it)
-// var btnContainer = document.getElementById("myBtnContainer");
-// var btns = btnContainer.getElementsByClassName("btn");
-// for (var i = 0; i < btns.length; i++) {
-//     btns[i].addEventListener("click", function() {
-//         var current = document.getElementsByClassName("active");
-//         current[0].className = current[0].className.replace(" active", "");
-//         this.className += " active";
-//     });
-// }
+
+// ---------------------for pop up-----------
+function popshow(){
+
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  
+  let box = document.getElementById("pop1");
+  box.classList.add("popup2")
+  }
+  
+  function clsfirstpopup(){
+    let box = document.getElementById("pop1");
+    box.classList.remove("popup2")
+  }
+
+   
+  
+  function continiuepop(){
+    let box = document.getElementById("pop1");
+    box.classList.remove("popup2");
+    let otp = document.getElementById("otp-popup");
+    otp.classList.add("otp-popup2");
+  }
+  
+
+  
+  
+  function submitotp(){
+    let pop2 = document.getElementById("otp-submit");
+    let otpPopup = document.getElementById("otp-popup");
+  otpPopup.classList.remove("otp-popup2");
+    if(true){
+  alert("you are login");
+    }
+  }  
+ 
+  function otpcls(){
+    let otpPopup = document.getElementById("otp-popup");
+    otpPopup.classList.remove("otp-popup2")
+  }
+
+   

@@ -1,4 +1,11 @@
 @include('layouts.header')
+<!-- -------popup include--- -->
+@include('layouts.popup')
+
+
+
+
+
 <section id="header">
         <div class="heading">
             <h1>Book Pandit Online</h1>
