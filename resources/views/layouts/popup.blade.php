@@ -13,19 +13,21 @@
               </b>
               <h3 class="heading2">Enter your mobile number*</h3>
           </div>
-         
-          <div class="second-div">
-              <select class="optiondiv">
-  
-                  
-                   <option>IND</option>
-                  <option>PAK</option>
-              </select>
-  
-        <input type="text" id="numberOtp">
-          </div>
-          <button type="submit" class="main-button" id="otpContinue" onclick="continiuepop()">Continue</button>
-      
+            <form action="javascript:void(0);" id="registerForm">
+
+                <div class="second-div">
+                    <select class="optiondiv" name="mobileTelCode" id="mobileTelCode">
+        
+                        
+                        <option value="+91">IND</option>
+                        <option value="+92">PAK</option>
+                    </select>
+        
+                    <input type="text" id="numberOtp" value="" id="mobileNumber" name="mobileNumber">
+                </div>
+                <button type="submit" class="main-button" id="otpContinue" >Continue</button>
+          
+            </form>
       </div>
   
   
@@ -41,9 +43,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h5 class="login">Verify Phone</h5>
-        <p class="otpheading">OTP sent to <span> +91 1234567890</span></p>
+        <p class="otpheading" >OTP sent to <span id="otpheading"> +91 1234567890</span></p>
       </div>
-      <form action="" class="mt-5">
+      <form action="javascript:void(0);" class="mt-5" id="veryfyOtp">
+        <input type="text" id="otpMob" name="mobileNumber" hidden>
+        <input type="text" id= "otpTel" name="mobileTelCode" hidden>
         <!-- <input
           class="otp"
           type="text"
@@ -73,20 +77,20 @@
           maxlength="1"
         /> -->
 		<div class="otp-field">
-		<input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-2" required>
-		<input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-3" required>
-		<input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-4" required>
-		<input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-5" required>
+		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-2" required>
+		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-3" required>
+		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" name="otp[]" id="otc-4" required>
+		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-5" required>
 		
 		</div>
 	
+        <button class="main-button-index" id="otpSubmit" >Submit</button>
       </form>
-      <button class="main-button-index" id="otp-submit" onclick="submitotp()">Submit</button>
 
       <p class="otpheading1">
-        Resent OTP available in<span class="second"> 58s</span>
+        Resent OTP available in <span class="second"> </span>
       </p>
-      <p class="resendbutton"><a href="#">Resend OTP availablenin</a></p>
+      <p class="resendbutton"><a href="#">Resend OTP availablen in </a></p>
       <div class="button-div">
         <button class="resendotp">
           Resend OTP on<br />
@@ -157,4 +161,75 @@ ins.forEach(function(input) {
 
 in1.addEventListener('input', splitNumber);
 
+    </script>
+
+    <script>
+        
+        $('#otpContinue').on('click',  function(){
+            $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });         
+            var LoginForm = $("#registerForm");
+            var formData = LoginForm.serialize();
+            $("#otpContinue"). attr("disabled", true);
+            var mobileTelCode = $("select[name=mobileTelCode]").val();
+            var mobileNumber= $("input[name=mobileNumber]").val();
+            // alert(mobileNumber);
+            var timer2 = "1:01";
+            var base_url = '<?=url('');?>';           
+            $.ajax({
+                url: "{{url('login')}}",
+                type: "POST",
+                data: formData,
+                success: function( response ) {
+                    document.getElementById("registerForm").reset(); 
+                    $('#otpTel').val(mobileTelCode);
+                    $('#otpMob').val(mobileNumber);
+                    setInterval(function() {
+
+                    var timer = timer2.split(':');
+                    //by parsing integer, I avoid all extra string processing
+                    var minutes = parseInt(timer[0], 10);
+                    var seconds = parseInt(timer[1], 10);
+                    --seconds;
+                    minutes = (seconds < 0) ? --minutes : minutes;
+                    if (minutes < 0) clearInterval(interval);
+                    seconds = (seconds < 0) ? 59 : seconds;
+                    seconds = (seconds < 10) ? '0' + seconds : seconds;
+                    //minutes = (minutes < 10) ?  minutes : minutes;
+                    $('.second').html(minutes + ':' + seconds);
+                    timer2 = minutes + ':' + seconds;
+                    }, 1000);
+                    continiuepop();
+                    // alert('Ajax form has been submitted successfully');
+                }
+            });
+        });
+
+
+        $('#otpSubmit').on('click',  function(){
+            $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });         
+            var LoginForm = $("#veryfyOtp");
+            var formData = LoginForm.serialize();
+           
+            var base_url = '<?=url('');?>';           
+            $.ajax({
+                url: "{{url('otp_verify')}}",
+                type: "POST",
+                data: formData,
+                success: function( response ) {
+                    window.location.replace("{{url('dashboard')}}");
+                }
+            });
+        });
+    </script>
+    <script>
+        // var timer2 = "1:01";
+        // var interval = 
     </script>
