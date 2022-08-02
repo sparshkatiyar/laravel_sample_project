@@ -12,7 +12,7 @@
 
                 <div class="img-content">
                     <h3>Starting From
-                        <span id="bprice">&#x20b9 {{ $pujaDetails->puja_base_price}}</span>
+                        <span id="bprice">&#x20b9  {{ $pujaDetails->puja_base_price}}</span>
                         <span id="adds">+ &#x20b9 </span>
                         <span id="addprice">0</span>
                     </h3>
@@ -168,7 +168,7 @@
 
     <div class="text-center" id="view-btn">
         @if(Auth::guard('user')->user())
-        <a href="{{url('puja-delivery')}}"> <button>Book Your Pooja</button></a>
+        <a id="proceedBook"> <button>Book Your Pooja</button></a>
             <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
             <!-- <a onclick="popshow()">Login/Sign up</a> -->
         @else
@@ -336,6 +336,35 @@
         })
 
     });
+</script>
+
+<script>
+
+    $('#proceedBook').on('click',  function(){
+
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });         
+        var puja_type = $("select[name=pujatype]").val();
+        
+        var puja_category= $("input[name=category]").val();           
+        var price_order= $("#addprice").text();           
+        alert(price_order)
+        
+        var base_url = '<?=url('');?>'; 
+        var pujadata = "hj";          
+        $.ajax({
+            url: "{{url('puja-delivery')}}",
+            type: "POST",
+            data: pujadata,
+            success: function( response ) {
+                
+                // alert('Ajax form has been submitted successfully');
+            }
+        });
+        });
 </script>
 <!-- -------------footer-------- -->
 @include('layouts.footer')
