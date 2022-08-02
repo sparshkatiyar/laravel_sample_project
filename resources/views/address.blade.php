@@ -51,86 +51,89 @@
                         </div>
                     </div>
 
+                    <form action="{{url('save-address/')}}" method="post"> 
+                        @csrf
+                        <div class="form">
+                            <div class="col">
+                                <h4>Contact Details :</h4>
+                            </div>
+                            <div class="col2">
+                                <input type="text" value="{{$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
+                            </div>
+                            <div class="col3">
+                                <input type="text" value="{{$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
+                            </div>
+                            <div class="col4">
+                                <h5>Address:</h5>
+                            </div>
+                            <div class="col5">
+                                <input type="text" value="{{$userAddress->flat_no}}" name="flat_no" placeholder="Flat No*">
+                            </div>
+                            <div class="col6">
+                                <input type="text" value="{{$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
+                            </div>
+    
+                            <div class="col7">
+                                <input type="text" value="{{$userAddress->city}}" name="city" placeholder="City*">
+                            </div>
+    
+                            <div class="col8">
+                                <input type="text" value="{{$userAddress->pincode}}" name ="pincode" placeholder="Pincode*">
+                            </div>
+                            <div class="col9">
+                                <textarea cols="30" rows="5" name="address" placeholder="Address (Area and Street)">"{{$userAddress->address}}"</textarea>
+                            </div>
+                            <div class="col10">
+                                <input type="text" value="{{$userAddress->town}}" name="town" placeholder="City/District/Town">
+                            </div>
+                            <div class="col11">
+                                <select name="state" id="state" class="form-control">
+                                    <option selected><b>--Select State--</b> </option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                    <option value="Daman and Diu">Daman and Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                </select>
+                            </div>
+                            <div class="col12">
+                                <button type="submit" value="submit">Save</button>
+                            </div>
+    
+                        </div>
+                    </form>
                     <!-- ----form--- -->
-                    <div class="form">
-                        <div class="col">
-                            <h4>Contact Details :</h4>
-                        </div>
-                        <div class="col2">
-                            <input type="text" placeholder="Name*">
-                        </div>
-                        <div class="col3">
-                            <input type="text" placeholder="Mobile No*">
-                        </div>
-                        <div class="col4">
-                            <h5>Address:</h5>
-                        </div>
-                        <div class="col5">
-                            <input type="text" placeholder="Flat No*">
-                        </div>
-                        <div class="col6">
-                            <input type="text" placeholder="Locality*">
-                        </div>
-
-                        <div class="col7">
-                            <input type="text" placeholder="City*">
-                        </div>
-
-                        <div class="col8">
-                            <input type="text" placeholder="Pincode*">
-                        </div>
-                        <div class="col9">
-                            <textarea cols="30" rows="5" placeholder="Address (Area and Street)"></textarea>
-                        </div>
-                        <div class="col10">
-                            <input type="text" placeholder="City/District/Town">
-                        </div>
-                        <div class="col11">
-                            <select name="state" id="state" class="form-control">
-                                <option selected><b>--Select State--</b> </option>
-                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                <option value="Assam">Assam</option>
-                                <option value="Bihar">Bihar</option>
-                                <option value="Chandigarh">Chandigarh</option>
-                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                <option value="Daman and Diu">Daman and Diu</option>
-                                <option value="Delhi">Delhi</option>
-                                <option value="Lakshadweep">Lakshadweep</option>
-                                <option value="Puducherry">Puducherry</option>
-                                <option value="Goa">Goa</option>
-                                <option value="Gujarat">Gujarat</option>
-                                <option value="Haryana">Haryana</option>
-                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                <option value="Jharkhand">Jharkhand</option>
-                                <option value="Karnataka">Karnataka</option>
-                                <option value="Kerala">Kerala</option>
-                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                <option value="Maharashtra">Maharashtra</option>
-                                <option value="Manipur">Manipur</option>
-                                <option value="Meghalaya">Meghalaya</option>
-                                <option value="Mizoram">Mizoram</option>
-                                <option value="Nagaland">Nagaland</option>
-                                <option value="Odisha">Odisha</option>
-                                <option value="Punjab">Punjab</option>
-                                <option value="Rajasthan">Rajasthan</option>
-                                <option value="Sikkim">Sikkim</option>
-                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                <option value="Telangana">Telangana</option>
-                                <option value="Tripura">Tripura</option>
-                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                <option value="Uttarakhand">Uttarakhand</option>
-                                <option value="West Bengal">West Bengal</option>
-                            </select>
-                        </div>
-                        <div class="col12">
-                            <button>Save</button>
-                        </div>
-
-                    </div>
                     <!-- ------// form----- -->
 
 

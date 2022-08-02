@@ -19,8 +19,9 @@
                         <h4>Login <span><img src="right.png" alt="" width="20px"></span></h4>
 
                     </div>
-                    <div id="loginNumber">+91 0000 000 000</div>
-                    <button id="changeButton">change</button>
+                    <div id="loginNumber">{{$user->country_code}}-{{$user->mobile_number}}</div>
+                    <!-- <button id="changeButton" href="{{url('/address')}}">change</button> -->
+                    <button id="changeButton" href="{{url('/address')}}">change</button>
                 </div>
                 <!-- Customer Details for Pooja -->
                 <div class="customer-detail" id="customerDetail">
@@ -40,8 +41,8 @@
                             <div class="contact">
                                 <label for="">Contact Details :</label>
                                 <div>
-                                    <input type="text" placeholder="Name*">
-                                    <input type="text" placeholder="Mobile No*">
+                                    <input type="text" name="contact_name" placeholder="Name*">
+                                    <input type="text" name="contact_no" placeholder="Mobile No*">
                                 </div>
                             </div>
                             <!--  -->
@@ -49,28 +50,28 @@
                                 <label for="">Address :</label>
                                 <div>
 
-                                    <input type="text" placeholder="Flat no.*">
-                                    <input type="text" placeholder="Locality*">
+                                    <input type="text" name="flat_no" placeholder="Flat no.*">
+                                    <input type="text" name="locality_no" placeholder="Locality*">
 
                                 </div>
 
                                 <div>
 
-                                    <input type="text" placeholder="City*">
-                                    <input type="text" placeholder="Pincode*">
+                                    <input type="text" name="city" placeholder="City*">
+                                    <input type="text" name="pincode" placeholder="Pincode*">
 
                                 </div>
 
                                 <div>
-                                    <textarea id="" name="" rows="4" cols="50"
+                                    <textarea id="" name="address" rows="4" cols="50"
                                         placeholder="Address (Area and Street)"></textarea>
                                 </div>
                                 <div>
-                                    <input type="text" placeholder="City/District/Town">
-                                    <select>
+                                    <input type="text" name="town" placeholder="City/District/Town">
+                                    <select name="state">
                                         <option value="#">--Select State--</option>
-                                        <option value="#">state 1</option>
-                                        <option value="#">State 2</option>
+                                        <option value="state 1">state 1</option>
+                                        <option value="State 2">State 2</option>
                                     </select>
                                 </div>
                             </div>
@@ -91,7 +92,7 @@
                             3
                         </div>
                         <div>
-                            <h5>Order Summary &nbsp;<span><img src="right.png" alt="#" width="20px"></span></h5>
+                            <h5>Order Summary &nbsp;<span></span></h5>
                         </div>
                         <button id="downBtn" onclick="f3()"> Fill</button>
                     </div>
@@ -140,35 +141,41 @@
                             3
                         </div>
                         <div>
-                            <h5>Payment Options &nbsp;<span><img src="right.png" alt="" width="20px"></span></h5>
+                            <h5>Payment Options &nbsp;<span><img src="{{asset('web/image/right.png')}}" alt="" width="20px"></span></h5>
+                           
                         </div>
                         <!-- <button id="downBtn"> <img src="down.png" alt=""></button> -->
                     </div>
                 </div>
             </div>
             <!-- ----------------------------------------------------------------------------------------- -->
-            <div class="price-detail">
-                <div class="detail">
-                    <p>Price-Detail :</p>
-
-                    <div>
-                        <h6>Price( 2 Items)</h6>
-                        <h6>&#x20b9 <span>50.00</span></h6>
+            <form action="{{url('/booking-placed')}}" method="post">
+                @csrf
+                <div class="price-detail">
+                    <div class="detail">
+                        <p>Price-Detail :</p>
+    
+                        <div>
+                            <h6>Price( 2 Items)</h6>
+                            <h6>&#x20b9 <span>50.00</span></h6>
+                        </div>
+    
+                        <div class="tax">
+                            <h6>Tax</h6>
+                            <h6>&#x20b9 <span>5.00</span></h6>
+                        </div>
+    
+                        <div class="total">
+                            <h6>Total amount</h6>
+                            <h6>&#x20b9 <span>55.00</span></h6>
+                        </div>
                     </div>
-
-                    <div class="tax">
-                        <h6>Tax</h6>
-                        <h6>&#x20b9 <span>5.00</span></h6>
-                    </div>
-
-                    <div class="total">
-                        <h6>Total amount</h6>
-                        <h6>&#x20b9 <span>55.00</span></h6>
-                    </div>
+                    <input type="text" value="5" name="price_tax" hidden>
+                    <input type="text" value="{{}}" name="price_total" hidden>
+                    <input type="text" value="0" name="price_coupan" hidden>
+                    <button id="placeBtn" type="submit" value="submit">Place Order</button>
                 </div>
-
-                <button id="placeBtn">Place Order</button>
-            </div>
+            </form>
         </div>
     </section>
 

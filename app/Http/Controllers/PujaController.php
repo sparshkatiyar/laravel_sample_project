@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Puja;
 use App\Models\PujaEcommerce;
+use Auth;
 
 class PujaController extends Controller
 {
@@ -27,6 +28,10 @@ class PujaController extends Controller
     }
     public function delivery()
     {
-        return view('delivery');
+        
+        $user =Auth::guard('user')->user(); 
+        // dd($user);          
+        return view('delivery',compact('user'));
     }
+    
 }

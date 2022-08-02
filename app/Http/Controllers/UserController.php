@@ -131,41 +131,7 @@ class UserController extends Controller
         return response()->json(['message'=>'Profile updated successfully.','data'=>$user],200); 
     }
 
-    public function addAddress(Request $request) {
-        $validator = [          
-            'contact_name'      =>'required|min:2',
-            'contact_no'        =>'required|min:2',
-            'flat_no'           =>'required|min:2',
-            'locality_no'       =>'required|min:2',
-            'pincode'           =>'required|min:2',
-            'address'           =>'required|min:2',
-            'city'              =>'required|min:2',
-            'state'             =>'required|min:2',
-            'town'              =>'required|min:2',
-        ];
-        $validation = Validator::make($request->all(),$validator);
-        if($validation->fails()){
-            $response   =[
-                'message'   => $validation->errors($validation)->first(),
-            ];
-            return response()->json($response,400);
-        }
-        $user_id = $request->userDetail->id; 
-        $userAddress = UserAddress::create([
-            'user_id'      => $user_id,
-            'contact_name'      => $request->get('contact_name'),
-            'contact_no'        => $request->get('contact_no'),
-            'flat_no'           => $request->get('flat_no'),
-            'locality_no'       => $request->get('locality_no'),
-            'pincode'           => $request->get('pincode'),
-            'address'           => $request->get('address'),
-            'city'              => $request->get('address'),
-            'state'             => $request->get('state'),
-            'town'              => $request->get('town'),
-        ]);  
-                     
-        return response()->json(['message'=>'Address added successfully.','data'=>$userAddress],200); 
-    }
+    
 
     public function otp_verify(Request $request){
         $validator = [          
@@ -226,4 +192,98 @@ class UserController extends Controller
             return response()->json(['message'=>'Not found.'],400); 
         }
     }  
+
+    public function bookingPlaced(Request $request) {
+        $validator = [   
+            // 'user_id'       =>'required|min:2',
+            'ecomm_puja_id' =>'required|min:1',
+            'address_id'    =>'required|min:1',
+            'payment_id'    =>'required|min:1',            
+            'puja_type'     =>'required|min:1',
+            'puja_category' =>'required|min:1',
+            'price_order'   =>'required|min:1',
+            'price_tax'     =>'required|min:1',
+            'price_coupan'  =>'required|min:1',
+            'price_total'   =>'required|min:1',
+            'booking_type'  =>'required|min:1',
+            'deliver_date'  =>'required|min:2',  
+           
+        ];
+        $validation = Validator::make($request->all(),$validator);
+        if($validation->fails()){
+            $response   =[
+                'message'   => $validation->errors($validation)->first(),
+            ];
+            return response()->json($response,400);
+        }
+        $user_id = $request->userDetail->id; 
+        $unique = uniqid();
+        
+        $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
+        $userBooking = Booking::create([
+            'user_id'           => $user_id,            
+            'ecomm_puja_id'     => $request->get('ecomm_puja_id'),
+            'address_id'        => $request->get('address_id'),
+            'payment_id'        => $request->get('payment_id'),
+            'booking_id'        => $bookingid,
+            'pandit_id'         => null,        
+            'puja_type'         => $request->get('puja_type'),
+            'puja_category'     => $request->get('puja_category'),
+            'price_order'       => $request->get('price_order'),
+            'price_tax'         => $request->get('price_tax'),
+            'price_coupan'      => $request->get('price_coupan'),
+            'price_total'       => $request->get('price_total'),
+            'booking_type'      => $request->get('booking_type'),
+            'booking_active'    => 1,
+            'booking_date'      => now()->timestamp,
+            'deliver_date'      => $request->get('deliver_date'),
+            'booking_status'    => 1,   
+            
+            
+        ]);  
+                    
+        return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
+    }
+
+    public function updateProfileDetails(Request $request) {
+        $validator = [          
+            'firstName'     => 'required|min:2',
+            'lastName'      =>'required|min:2',
+            'email'         =>'required |email',
+            'dob'           =>'required ',
+            'birthTime'     =>'required|min:2',
+            'birthPlace'    =>'required|min:2',
+            'gender'        =>'required|min:1',
+        ];
+        $validation = Validator::make($request->all(),$validator);
+        if($validation->fails()){
+            $response   =[
+                'message'   => $validation->errors($validation)->first(),
+            ];
+            return response()->json($response,400);
+        }
+        // dd($request->userDetail);
+        $user_id = $request->userDetail->id;
+        $dBoy=User::where('id',$user_id)->first();
+        if($request->file('profile_image')){
+            $file= $request->file('profile_image');
+            // $filename= date('YmdHi')."-".$file->getClientOriginalName();
+            $filename= date('YmdHi')."-user.".$file->extension();
+            $file-> move(public_path('web/Image/user'), $filename);
+            $dBoy->profile_image= $filename;
+        }
+         
+        $dBoy->first_name=$request->firstName;                   
+        $dBoy->last_name=$request->lastName;;                   
+        $dBoy->email=$request->email;                   
+        $dBoy->date_of_birth=$request->dob;                   
+        $dBoy->birth_time=$request->birthTime;                   
+        $dBoy->birth_place=$request->birthPlace;                    
+        $dBoy->gender=$request->gender;                    
+        $dBoy->save(); 
+        $user = User::find($user_id);               
+        return response()->json(['message'=>'Profile updated successfully.','data'=>$user],200); 
+    }
+
+    
 }
