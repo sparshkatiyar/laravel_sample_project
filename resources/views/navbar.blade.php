@@ -32,7 +32,13 @@
                     <a href="../Contact/contact.html">Contact us</a>
                 </div>
                 <div class="button">
-                    <a href="">Login/Sign up</a>
+                    @if(Auth::guard('user')->user())
+                    <a href="{{url('./dashboard')}}">Dashboard</a>
+                   <!-- <a onclick="popshow()">Login/Sign up</a> -->
+                    @else
+                    <a onclick="popshow()">Login/Sign up</a>
+                    @endif
+                    <!-- <a href="">Login/Sign up</a> -->
                 </div>
             </div>
         </div>

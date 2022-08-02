@@ -40,11 +40,7 @@
                 @include('dashnav')
                
 
-                <div class="headding Logout">
-
-                    <p class="heading-pera"><a href="#">Logout </a></p>
-
-                </div>
+               
 
 
 

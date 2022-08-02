@@ -11,14 +11,38 @@ use App\Models\RecentHistory;
 use DB;
 use JWTAuth;
 use App\Models\User;
+use Auth;
+use Session;
 
 class UserController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('guest:user');
+        // $this->middleware('guest')->except(['logout', '/']);
+        // $this->middleware('auth')->only(['logout', '/']);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        Session::flush();
+        return redirect('/');
+        // return redirect()->route('/index')->with('success', 'you are successfully logged out.');
+    }
     public function index()
     {   
-         
-        return view('dashboard');
+        if(Auth::guard('user')->user()){
+            $yi =Auth::guard('user')->user();           
+            return view('dashboard');
+    	}
+        return redirect('/');
+        // $id = Auth::id();
+        // $user = Auth::user();
+        // $yi = auth()->guard('user');
+        // dd($yi);
+        // $auth  = Auth::user();
     }
 
     public function  login(Request $request){
@@ -150,7 +174,7 @@ class UserController extends Controller
             'mobileNumber'=>'required',
             'mobileTelCode'=>'required',
         ];
-        // dd($request);
+        $type =3;
         $validation = Validator::make($request->all(),$validator);
         if($validation->fails()){
             $response   =[
@@ -179,19 +203,15 @@ class UserController extends Controller
                 } catch (JWTException $e) {
                     return response()->json(['error' => 'could_not_create_token'], 500);
                 }
-                if($request->type==1){
-                    $dBoy=User::where('id',$user_id)->first();
-                    $dBoy->access_token=$token;
-                    $dBoy->is_otp_verify=1;                   
-                    $dBoy->save();
-                }
-                if($request->type==2){
+              
+                if($type==3){
                     $dBoy=User::where('id',$user_id)->first();
                     $dBoy->is_otp_verify=1;
                     $dBoy->access_token=$token;
-                    $dBoy->save();                    
+                    $dBoy->save();       
+                    Auth::loginUsingId($dBoy->id);                  
+                    
                 }
-                
                 $user = User::find($user_id);   
                 $path = base_path();
         

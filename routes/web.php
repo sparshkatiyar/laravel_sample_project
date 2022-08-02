@@ -27,6 +27,7 @@ Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deliv
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index');
 Route::post('/pandit-registration', [App\Http\Controllers\PanditController::class, 'register'])->name('register');
 Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('index');
+Route::get('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
 Route::post('/otp_verify', [App\Http\Controllers\UserController::class, 'otp_verify'])->name('otp_verify');
 Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('index');

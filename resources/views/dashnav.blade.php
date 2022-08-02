@@ -32,19 +32,21 @@
                     </div>
                 </div>
                 <!-- ----col 2---- -->
-    
-                <div class="headding myAddresses">
-    
-                    <p class="heading-pera"><a href="my addressess/my_adressess.html"> My Addresses </a></p>
-    
-                </div>
+                <a href="{{url('/address')}}"> 
+                    <div class="headding myAddresses">
+        
+                        <p class="heading-pera">My Addresses </p>
+        
+                    </div>
+                </a>
                 <!-- ----col 3---- -->
-    
-                <div class="headding myProfile">
-    
-                    <p class="heading-pera"><a href="my profile/profile.html"> My Profile </a></p>
-    
-                </div>
+                <a href="{{url('/profile')}}"> 
+                    <div class="headding myProfile">
+        
+                        <p class="heading-pera">My Profile </p>
+        
+                    </div>
+                </a>
                 <!-- ----col 4---- -->
     
                 <div class="headding myWishlist">
@@ -53,20 +55,22 @@
     
                 </div>
                 <!-- ----col 5---- -->
-    
-                <div class="headding myWallet">
-    
-                    <p class="heading-pera"><a href="my wallet/my-wallet.html"> My Wallet </a></p>
-    
-                </div>
+                <a href="{{url('/wallet')}}"> 
+                    <div class="headding myWallet">
+        
+                        <p class="heading-pera">My Wallet </p>
+        
+                    </div>
+                </a>
     
                 <!-- ----col 6---- -->
-    
-                <div class="headding Logout">
-    
-                    <p class="heading-pera"><a href="#"> Logout </a></p>
-    
-                </div>
+                <a href="{{url('/logout')}}">
+                    <div class="headding Logout">
+        
+                        <p class="heading-pera"> Logout </p>
+        
+                    </div>
+                </a>
     
     
     
