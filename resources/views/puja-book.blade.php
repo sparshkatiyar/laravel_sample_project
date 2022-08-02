@@ -11,7 +11,7 @@
 
                 <div class="img-content">
                     <h3>Starting From
-                        <span>&#x20b9 {{ $pujaDetails->puja_base_price}}</span>
+                        <span id="bprice">&#x20b9 {{ $pujaDetails->puja_base_price}}</span>
                         <span id="adds">+ &#x20b9 </span>
                         <span id="addprice">0</span>
                     </h3>
@@ -19,7 +19,7 @@
                             <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
                         </span></p>
                     <p class="">Choose Your Pooja :
-                        <select id="pujatype">
+                        <select id="pujatype" name="pujatype">
                             <option value="0">select</option>
                             <option value="1">small Pooja</option>
                             <option value="2">Medium Pooja</option>
@@ -250,46 +250,79 @@
         var basePrice =" {{$pujaDetails->puja_base_price}}";
         var totalPrice = 0;
         var setPrice = $("#addprice").text();
-
         
+        // var ptype= $("#pujatype").val();
+    
         $('#pujatype').on('change', function() {
             if(this.value == 1){
                 $("#adds").show();
                 $("#addprice").show();
-                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
+                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
                 $("#addprice").text(0);
+                $("#bprice").hide();
                 $("#addprice").text(totalPrice);               
                 
             }
             else if(this.value == 2){
                 $("#adds").show();
                 $("#addprice").show();
-                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
+                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
                 $("#addprice").text(0);
+                $("#bprice").hide();
                 $("#addprice").text(totalPrice);
             }
             else if(this.value == 3){
                 $("#adds").show();
                 $("#addprice").show();
-                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_large}}");
+                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_large}}");
                 $("#addprice").text(0);
+                $("#bprice").hide();
                 $("#addprice").text(totalPrice);
             }
         });
         $("#samgari").click(function(){
-            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            var ptype = $("select[name=pujatype]").val();
+            if(ptype ==1){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype ==2){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype ==3){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         
         })
         $("#wsamgari").click(function(){
-            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            var ptype = $("select[name=pujatype]").val();
+            if(ptype ==1){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype ==2){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype ==3){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
             
         })
         $("#all").click(function(){
-            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            var ptype = $("select[name=pujatype]").val();
+            if(ptype ==1){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else if(ptype ==2){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else if(ptype ==3){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         })
