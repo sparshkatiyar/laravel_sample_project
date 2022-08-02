@@ -24,10 +24,11 @@ class PujaController extends Controller
     }
     public function booking(Request $request )
     {
+        $ecomm_puja_id = $request->id;
         $pujaDetails = PujaEcommerce::find($request->id);  
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
         
-        return view('puja-book',compact('pujaDetails'));
+        return view('puja-book',compact('pujaDetails','ecomm_puja_id'));
     }
     public function delivery(Request $request)
     {

@@ -9,7 +9,7 @@
         <div class="img">
             <div>
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
-
+                <input type="text" name="ecomm_puja_id" value="{{$ecomm_puja_id}}" hidden>
                 <div class="img-content">
                     <h3>Starting From
                         <span id="bprice">&#x20b9  {{ $pujaDetails->puja_base_price}}</span>
@@ -350,11 +350,12 @@
         var puja_type = $("select[name=pujatype]").val();
         
         var puja_category= $("input[name=category]").val();           
+        var ecomm_puja_id= $("input[name=ecomm_puja_id]").val();           
         var price_order= $("#addprice").text();           
         // alert(price_order)
         
         var base_url = '<?=url('');?>'; 
-        var ecomm_puja_id = 6;          
+        // var ecomm_puja_id = 6;          
         $.ajax({
             url: "{{url('puja-delivery')}}",
             type: "POST",
