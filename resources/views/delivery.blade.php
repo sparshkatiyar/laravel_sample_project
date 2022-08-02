@@ -41,8 +41,8 @@
                             <div class="contact">
                                 <label for="">Contact Details :</label>
                                 <div>
-                                    <input type="text" name="contact_name" placeholder="Name*">
-                                    <input type="text" name="contact_no" placeholder="Mobile No*">
+                                    <input type="text" value="{{@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
+                                    <input type="text" value="{{@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
                                 </div>
                             </div>
                             <!--  -->
@@ -50,24 +50,24 @@
                                 <label for="">Address :</label>
                                 <div>
 
-                                    <input type="text" name="flat_no" placeholder="Flat no.*">
-                                    <input type="text" name="locality_no" placeholder="Locality*">
+                                    <input type="text" value="{{@$userAddress->flat_no}}" name="flat_no" placeholder="Flat no.*">
+                                    <input type="text"  value="{{@$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
 
                                 </div>
 
                                 <div>
 
-                                    <input type="text" name="city" placeholder="City*">
-                                    <input type="text" name="pincode" placeholder="Pincode*">
+                                    <input type="text" value="{{@$userAddress->city}}" name="city" placeholder="City*">
+                                    <input type="text"  value="{{@$userAddress->pincode}}" name="pincode" placeholder="Pincode*">
 
                                 </div>
 
                                 <div>
                                     <textarea id="" name="address" rows="4" cols="50"
-                                        placeholder="Address (Area and Street)"></textarea>
+                                        placeholder="Address (Area and Street)">{{@$userAddress->address}}</textarea>
                                 </div>
                                 <div>
-                                    <input type="text" name="town" placeholder="City/District/Town">
+                                    <input type="text" value="{{@$userAddress->town}}" name="town" placeholder="City/District/Town">
                                     <select name="state">
                                         <option value="#">--Select State--</option>
                                         <option value="state 1">state 1</option>
@@ -100,15 +100,15 @@
                     <!-- ---summary-detail-- -->
                     <div class="summary-detail">
                         <div class="img">
-                            <img src="product.png" alt="">
+                            <img src="{{ $pujaDetails->puja_id->image}}" alt="">
                         </div>
                         <div class="detail">
-                            <h5>Rudraksh</h5>
-                            <p>Lorem ipsum dolor sit tetur </p>
+                            <h5>{{ $pujaDetails->puja_id->name}}</h5>
+                            <p>{{ $pujaDetails->puja_id->desc}}</p>
 
-                            <p class="price-pera"><strong> <span class="current-price">&#x20b9 5.00</span></strong>
+                            <p class="price-pera"><strong> <span class="current-price">&#x20b9 {{ $pujaDetails->puja_base_price}}</span></strong>
                                 <small><del>
-                                        <font color="gray"> &#x20b9 6.00 </font>
+                                        <!-- <font color="gray"> &#x20b9 6.00 </font> -->
                                     </del></small></p>
                             <div id="offer">
                                 <font color="#A65D08
@@ -157,22 +157,23 @@
     
                         <div>
                             <h6>Price( 2 Items)</h6>
-                            <h6>&#x20b9 <span>50.00</span></h6>
+                            <h6>&#x20b9 <span>{{$price_order}}</span></h6>
                         </div>
     
                         <div class="tax">
                             <h6>Tax</h6>
-                            <h6>&#x20b9 <span>5.00</span></h6>
+                            <h6>&#x20b9 <span>{{$tax}}</span></h6>
                         </div>
     
                         <div class="total">
                             <h6>Total amount</h6>
-                            <h6>&#x20b9 <span>55.00</span></h6>
+                            <h6>&#x20b9 <span>{{$price_total}}</span></h6>
                         </div>
                     </div>
-                    <input type="text" value="5" name="price_tax" hidden>
-                    <input type="text" value="{{}}" name="price_total" hidden>
+                    <input type="text" value="{{$tax}}" name="price_tax" hidden>
+                    <input type="text" value="{{$price_total}}" name="price_total" hidden>
                     <input type="text" value="0" name="price_coupan" hidden>
+                    <input type="text" value="1" name="booking_type" hidden>
                     <button id="placeBtn" type="submit" value="submit">Place Order</button>
                 </div>
             </form>

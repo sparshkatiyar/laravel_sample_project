@@ -351,16 +351,16 @@
         
         var puja_category= $("input[name=category]").val();           
         var price_order= $("#addprice").text();           
-        alert(price_order)
+        // alert(price_order)
         
         var base_url = '<?=url('');?>'; 
-        var pujadata = "hj";          
+        var ecomm_puja_id = 6;          
         $.ajax({
             url: "{{url('puja-delivery')}}",
             type: "POST",
-            data: pujadata,
+            data: "price_order="+price_order + "&puja_category=" + puja_category+ "&puja_type=" +puja_type+"&ecomm_puja_id=" +ecomm_puja_id,
             success: function( response ) {
-                
+                window.location.replace("{{url('puja-delivery')}}");
                 // alert('Ajax form has been submitted successfully');
             }
         });

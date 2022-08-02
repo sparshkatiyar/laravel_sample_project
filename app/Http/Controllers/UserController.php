@@ -11,6 +11,8 @@ use App\Models\RecentHistory;
 use DB;
 use JWTAuth;
 use App\Models\User;
+use App\Models\UserAddress;
+use App\Models\Booking;
 use Auth;
 use Session;
 
@@ -196,19 +198,27 @@ class UserController extends Controller
     public function bookingPlaced(Request $request) {
         $validator = [   
             // 'user_id'       =>'required|min:2',
-            'ecomm_puja_id' =>'required|min:1',
-            'address_id'    =>'required|min:1',
-            'payment_id'    =>'required|min:1',            
-            'puja_type'     =>'required|min:1',
-            'puja_category' =>'required|min:1',
-            'price_order'   =>'required|min:1',
+            // 'ecomm_puja_id' =>'required|min:1',
+            // 'address_id'    =>'required|min:1',
+            // 'payment_id'    =>'required|min:1',            
+            // 'puja_type'     =>'required|min:1',
+            // 'puja_category' =>'required|min:1',
+            // 'price_order'   =>'required|min:1',
             'price_tax'     =>'required|min:1',
             'price_coupan'  =>'required|min:1',
             'price_total'   =>'required|min:1',
-            'booking_type'  =>'required|min:1',
-            'deliver_date'  =>'required|min:2',  
+            // 'booking_type'  =>'required|min:1',
+            // 'deliver_date'  =>'required|min:2',  
            
         ];
+        $payment_id = rand()."".rand();
+        $price_order        =  Session::get('price_order');
+        $puja_category      =  Session::get('puja_category');
+        $puja_type          =  Session::get('puja_type');
+        $ecomm_puja_id      =  Session::get('ecomm_puja_id');
+        $user =  $user =Auth::guard('user')->user(); 
+        $userAddress = UserAddress::where('user_id',$user->id)->first();
+        $address_id = $userAddress->id;
         $validation = Validator::make($request->all(),$validator);
         if($validation->fails()){
             $response   =[
@@ -216,20 +226,22 @@ class UserController extends Controller
             ];
             return response()->json($response,400);
         }
-        $user_id = $request->userDetail->id; 
+
+
+        $user_id = $user->id; 
         $unique = uniqid();
         
         $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
         $userBooking = Booking::create([
             'user_id'           => $user_id,            
-            'ecomm_puja_id'     => $request->get('ecomm_puja_id'),
-            'address_id'        => $request->get('address_id'),
-            'payment_id'        => $request->get('payment_id'),
+            'ecomm_puja_id'     => $ecomm_puja_id,
+            'address_id'        => $address_id,
+            'payment_id'        => $payment_id,
             'booking_id'        => $bookingid,
             'pandit_id'         => null,        
-            'puja_type'         => $request->get('puja_type'),
-            'puja_category'     => $request->get('puja_category'),
-            'price_order'       => $request->get('price_order'),
+            'puja_type'         => $puja_type,
+            'puja_category'     => $puja_category,
+            'price_order'       => $price_order,
             'price_tax'         => $request->get('price_tax'),
             'price_coupan'      => $request->get('price_coupan'),
             'price_total'       => $request->get('price_total'),
@@ -241,7 +253,7 @@ class UserController extends Controller
             
             
         ]);  
-                    
+        return redirect('/dashboard');       
         return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }
 
