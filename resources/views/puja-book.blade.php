@@ -1,4 +1,5 @@
 @include('layouts.header')
+@include('layouts.popup')
 <!-- divider -->
 <div id="divaider"></div>
 <!-- -----------section1----------- -->
@@ -166,7 +167,14 @@
     </div>
 
     <div class="text-center" id="view-btn">
+        @if(Auth::guard('user')->user())
         <a href="{{url('puja-delivery')}}"> <button>Book Your Pooja</button></a>
+            <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
+            <!-- <a onclick="popshow()">Login/Sign up</a> -->
+        @else
+            <a onclick="popshow()"><button>Book Your Pooja</button></a>
+        @endif
+        
     </div>
 
 
