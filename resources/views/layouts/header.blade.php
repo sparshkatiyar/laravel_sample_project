@@ -23,6 +23,8 @@
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
     <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script>
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 </head>
 <body>
  <!-- --------navbar---- -->
@@ -35,9 +37,9 @@
             <div class="contact-div">
                 <div class="item1">
                     <img src="https://img.icons8.com/ios/2x/apple-phone.png" alt="#" width="20px" />
-                    <p><a href=""> 1234567890</a></p>
+                    <p><a href="tel:+91 88106 40406 "> +91 88106 40406</a></p>
                     <img src="https://img.icons8.com/ios/2x/apple-mail.png" alt="#" width="25px" />
-                    <p><a href=""> tim.jennings@example.com</a></p>
+                    <p><a href="mailto:info@astropanditom.com">  info@astropanditom.com</a></p>
                 </div>
                 <div class="item2">
                     <img src="https://img.icons8.com/material-outlined/2x/search.png" alt="#" width="20px" />

@@ -35,14 +35,29 @@ class PujaController extends Controller
         
         
 
-        $user_id            =  $user =Auth::guard('user')->user(); 
-        $userAddress        =  UserAddress::where('user_id',$user_id->id)->first();
+        $user_id            =  Auth::guard('user')->user(); 
+        $userAddress        =  UserAddress::where('user_id',@$user_id->id)->first();
         $price_order        =  Session::get('price_order');
         $puja_category      =  Session::get('puja_category');
         $puja_type          =  Session::get('puja_type');
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
         $user               =  Auth::guard('user')->user(); 
-        $tax                = 50;
+        $tax                =  ($price_order *18)/100;
+        $price_total        =  $price_order+ $tax;       
+        $pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
+        $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);  
+        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress'));
+    }
+    public function deliveryForLogin(Request $request)
+    {
+        $user_id            =  Auth::guard('user')->user(); 
+        $userAddress        =  UserAddress::where('user_id',@$user_id->id)->first();
+        $price_order        =  Session::get('price_order');
+        $puja_category      =  Session::get('puja_category');
+        $puja_type          =  Session::get('puja_type');
+        $ecomm_puja_id      =  Session::get('ecomm_puja_id');
+        $user               =  Auth::guard('user')->user(); 
+        $tax                =  ($price_order *18)/100;
         $price_total        =  $price_order+ $tax;       
         $pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);  

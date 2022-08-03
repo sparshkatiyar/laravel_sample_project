@@ -42,7 +42,19 @@ class AddressController extends Controller
         $userAddress = UserAddress::where('user_id',$user_id->id)->first();
         // $otpUser = User::where('mobile_number',$request->mobileNumber)->first();
         if($userAddress){
-            return view('address',compact('userAddress')); 
+            $userAddress->contact_name =$request->get('contact_name');
+            $userAddress->contact_no =$request->get('contact_no');
+            $userAddress->flat_no = $request->get('flat_no');
+            $userAddress->locality_no= $request->get('locality_no');
+            $userAddress->pincode=$request->get('pincode');
+            $userAddress->address=$request->get('address');
+            $userAddress->city=$request->get('state');
+            $userAddress->town=$request->get('town');
+            if($userAddress->save()){
+
+                return redirect()->back()->with('success','updated successfully');
+            }
+            // return view('address',compact('userAddress')); 
         }else{
 
             $userAddress = UserAddress::create([
@@ -57,7 +69,8 @@ class AddressController extends Controller
                 'state'             => $request->get('state'),
                 'town'              => $request->get('town'),
             ]);  
-            return view('address',compact('userAddress'));    
+            return redirect()->back()->with('success','updated successfully');
+            // return view('address',compact('userAddress'));    
         }
         // return response()->json(['message'=>'Address added successfully.','data'=>$userAddress],200); 
     }

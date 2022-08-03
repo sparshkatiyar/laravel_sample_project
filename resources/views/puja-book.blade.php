@@ -13,12 +13,12 @@
                 <div class="img-content">
                     <h3>Starting From
                         <span id="bprice">&#x20b9  {{ $pujaDetails->puja_base_price}}</span>
-                        <span id="adds">+ &#x20b9 </span>
-                        <span id="addprice">0</span>
+                        
                     </h3>
                     <p class="Category">Category : <span>
                             <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
-                        </span></p>
+                        </span>
+                    </p>
                     <p class="">Choose Your Pooja :
                         <select id="pujatype" name="pujatype">
                             <option value="0">select</option>
@@ -26,6 +26,16 @@
                             <option value="2">Medium Pooja</option>
                             <option value="3">Large Pooja</option>
                         </select>
+                    </p>
+                    <p class="Category">Date :
+                         <span>
+                           <input type="date" name="date">
+                        </span>
+                    </p>
+                    <p class="Category">Select Time :
+                         <span>
+                           <input type="time" name="date">
+                        </span>
                     </p>
                 </div>
             </div>
@@ -39,14 +49,14 @@
             <h4> WHY YOU NEED THIS POOJA</h4>
             <p>
             {{ $pujaDetails->puja_id->desc}}
-                <!-- Akhand Ramayan Path is performed to achieve peace and prosperity at the home and get blessings of Shri
+                Akhand Ramayan Path is performed to achieve peace and prosperity at the home and get blessings of Shri
                 Ram and Hanuman. This can be performed at any auspicious event like Wedding Anniversary, Birthdays,
                 Navratra days or other auspicious days or to get a wish to be fulfilled and etc.
 
                 Akhand Ramayan Path is the recital of Ramcharit manas<br><br><br> continuously without stopping for 24
                 hours, it is performed with bhajans and kirtan in the praise of lord Shri Ram.
 
-                Get the blessings of lord Shri Ram and his life teachings for Read More/Hindi -->
+                Get the blessings of lord Shri Ram and his life teachings for Read More/Hindi
             </p>
 
             <!-- ---box-- -->
@@ -85,6 +95,16 @@
                             facilis, cupiditate accusantium impedit fugit minima.</p>
                     </details> &nbsp;<input type="radio" name="category" value="all" id="all">
                 </div>
+            </div>
+
+            <br>
+            <div class="detail-box">
+                <h5>
+
+                    <b>Total you pay : <span id="adds" class="web-tex"> &#x20b9 </span>
+                            <span id="addprice" class="web-tex">{{ $pujaDetails->puja_base_price}}</span>
+                    </b>
+                </h5>
             </div>
         </div>
 
@@ -172,7 +192,8 @@
             <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
             <!-- <a onclick="popshow()">Login/Sign up</a> -->
         @else
-            <a onclick="popshow()"><button>Book Your Pooja</button></a>
+        <a id="proceedBookForLogin"> <button>Book Your Pooja</button></a>
+            
         @endif
         
     </div>
@@ -251,8 +272,8 @@
 </section>
 <script>
     $(function(){
-        $("#adds").hide();
-        $("#addprice").hide();
+        // $("#adds").hide();
+        // $("#addprice").hide();
     })
     $(document).ready(function(){
         var basePrice =" {{$pujaDetails->puja_base_price}}";
@@ -267,7 +288,7 @@
                 $("#addprice").show();
                 totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
                 $("#addprice").text(0);
-                $("#bprice").hide();
+                // $("#bprice").hide();
                 $("#addprice").text(totalPrice);               
                 
             }
@@ -276,7 +297,7 @@
                 $("#addprice").show();
                 totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
                 $("#addprice").text(0);
-                $("#bprice").hide();
+                // $("#bprice").hide();
                 $("#addprice").text(totalPrice);
             }
             else if(this.value == 3){
@@ -284,7 +305,7 @@
                 $("#addprice").show();
                 totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_large}}");
                 $("#addprice").text(0);
-                $("#bprice").hide();
+                // $("#bprice").hide();
                 $("#addprice").text(totalPrice);
             }
         });
@@ -358,6 +379,33 @@
         // var ecomm_puja_id = 6;          
         $.ajax({
             url: "{{url('puja-delivery')}}",
+            type: "POST",
+            data: "price_order="+price_order + "&puja_category=" + puja_category+ "&puja_type=" +puja_type+"&ecomm_puja_id=" +ecomm_puja_id,
+            success: function( response ) {
+                window.location.replace("{{url('puja-delivery')}}");
+                // alert('Ajax form has been submitted successfully');
+            }
+        });
+    });
+        
+    $('#proceedBookForLogin').on('click',  function(){
+
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });         
+        var puja_type = $("select[name=pujatype]").val();
+        
+        var puja_category= $("input[name=category]").val();           
+        var ecomm_puja_id= $("input[name=ecomm_puja_id]").val();           
+        var price_order= $("#addprice").text();           
+        // alert(price_order)
+        
+        var base_url = '<?=url('');?>'; 
+        // var ecomm_puja_id = 6;          
+        $.ajax({
+            url: "{{url('puja-delivery-login')}}",
             type: "POST",
             data: "price_order="+price_order + "&puja_category=" + puja_category+ "&puja_type=" +puja_type+"&ecomm_puja_id=" +ecomm_puja_id,
             success: function( response ) {

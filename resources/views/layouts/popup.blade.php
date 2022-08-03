@@ -224,7 +224,9 @@ in1.addEventListener('input', splitNumber);
                 type: "POST",
                 data: formData,
                 success: function( response ) {
-                    window.location.replace("{{url('dashboard')}}");
+                    location.reload();
+                    // window.history.go(-1);
+                    // window.location.replace("{{url('dashboard')}}");
                 }
             });
         });

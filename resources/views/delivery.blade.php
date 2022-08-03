@@ -1,5 +1,6 @@
   
   @include('layouts.header')
+  @include('layouts.popup')
 <!-- divider -->
 <div id="divaider"></div>
   <!-- ----------------section1--------- -->
@@ -19,9 +20,18 @@
                         <h4>Login <span><img src="right.png" alt="" width="20px"></span></h4>
 
                     </div>
-                    <div id="loginNumber">{{$user->country_code}}-{{$user->mobile_number}}</div>
-                    <!-- <button id="changeButton" href="{{url('/address')}}">change</button> -->
-                    <button id="changeButton" href="{{url('/address')}}">change</button>
+                    <div id="loginNumber">{{@$user->country_code}}-{{@$user->mobile_number}}</div>
+                   
+                    @if(Auth::guard('user')->user())
+                    <a href="{{url('/address')}}">
+                        <button class="changeNumber" >change</button>
+
+                    </a>
+                    @else
+                    <button class="changeNumber" onclick="popshow()">Signup</button>
+                  
+                    @endif
+                    
                 </div>
                 <!-- Customer Details for Pooja -->
                 <div class="customer-detail" id="customerDetail">
@@ -37,12 +47,13 @@
 
                     <!-- ---detail-form -->
                     <div class="detail-form">
-                        <form method="">
+                        <form action="{{url('save-address/')}}" method="post">
+                            @csrf
                             <div class="contact">
                                 <label for="">Contact Details :</label>
                                 <div>
-                                    <input type="text" value="{{@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
-                                    <input type="text" value="{{@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
+                                    <input type="text" value="{{@@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
+                                    <input type="text" value="{{@@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
                                 </div>
                             </div>
                             <!--  -->
@@ -50,34 +61,68 @@
                                 <label for="">Address :</label>
                                 <div>
 
-                                    <input type="text" value="{{@$userAddress->flat_no}}" name="flat_no" placeholder="Flat no.*">
-                                    <input type="text"  value="{{@$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
+                                    <input type="text" value="{{@@$userAddress->flat_no}}" name="flat_no" placeholder="Flat no.*">
+                                    <input type="text"  value="{{@@$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
 
                                 </div>
 
                                 <div>
 
-                                    <input type="text" value="{{@$userAddress->city}}" name="city" placeholder="City*">
-                                    <input type="text"  value="{{@$userAddress->pincode}}" name="pincode" placeholder="Pincode*">
+                                    <input type="text" value="{{@@$userAddress->city}}" name="city" placeholder="City*">
+                                    <input type="text"  value="{{@@$userAddress->pincode}}" name="pincode" placeholder="Pincode*">
 
                                 </div>
 
                                 <div>
                                     <textarea id="" name="address" rows="4" cols="50"
-                                        placeholder="Address (Area and Street)">{{@$userAddress->address}}</textarea>
+                                        placeholder="Address (Area and Street)">{{@@$userAddress->address}}</textarea>
                                 </div>
                                 <div>
-                                    <input type="text" value="{{@$userAddress->town}}" name="town" placeholder="City/District/Town">
-                                    <select name="state">
-                                        <option value="#">--Select State--</option>
-                                        <option value="state 1">state 1</option>
-                                        <option value="State 2">State 2</option>
-                                    </select>
+                                    <input type="text" value="{{@@$userAddress->town}}" name="town" placeholder="City/District/Town">
+                                    <select name="state" id="state" class="form-control">
+                                    <option selected><b>--Select State--</b> </option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                    <option value="Daman and Diu">Daman and Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                </select>
                                 </div>
                             </div>
                             <!--  -->
                             <div class="note">
-                                <button>Deliver Here</button>
+                                <button type="submit">Deliver Here</button>
                             </div>
                         </form>
                     </div>

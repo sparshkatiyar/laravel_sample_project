@@ -29,9 +29,10 @@ Route::post('/pandit-registration', [App\Http\Controllers\PanditController::clas
 Route::get('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
 Route::post('/otp_verify', [App\Http\Controllers\UserController::class, 'otp_verify'])->name('otp_verify');
+Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'delivery'])->name('delivery');
+Route::post('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryProcced');
+Route::post('/puja-delivery-login', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryForLogin');
 Route::group(['middleware' => 'user-auth'],function(){
-	Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'delivery'])->name('delivery');
-	Route::post('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryProcced');
 	Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('index');
 	Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('index');
 	Route::get('/address', [App\Http\Controllers\AddressController::class, 'index'])->name('index');
