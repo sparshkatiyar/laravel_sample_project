@@ -1,77 +1,37 @@
-            <div class="sidebar" id="side-Bar">
-                <!-- ----col 1 -->
-    
-                <div class="headding myOrder " id="my-order">
-                    <!--  -->
-    
-                    <div class="order">
-                        <p class="heading-pera"> My Order</p>
+            
+         <div class="sidebar" id="side-Bar">
+         <nav class="py-2 mb-4">
+                <ul class="nav flex-column" id="nav_accordion">
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1" href="#">  My Order
                         <img src="{{asset('web/image/arrow.png')}}" alt="arrow" id="arrow">
-                    </div>
-    
-                    <!--  -->
-                    <div class="row">
-    
-    
-                        <p> <a  class="order-link" id="myPooja">My Pooja</a></p>
-                    
-    
-    
-                        <p> <a  class="order-link" id="myAstro">My Astroshop</a></p>
-    
-    
-                        <p> <a  class="order-link" id="call">Call</a></p>
-    
-    
-                        <p> <a  class="order-link" id="chat">Chat</a></p>
-    
-    
-                        <p> <a  class="order-link" id="video">Video Call</a></p>
-    
-    
-                    </div>
-                </div>
-                <!-- ----col 2---- -->
-                <a href="{{url('/address')}}"> 
-                    <div class="headding myAddresses">
-        
-                        <p class="heading-pera">My Addresses </p>
-        
-                    </div>
-                </a>
-                <!-- ----col 3---- -->
-                <a href="{{url('/profile')}}"> 
-                    <div class="headding myProfile">
-        
-                        <p class="heading-pera">My Profile </p>
-        
-                    </div>
-                </a>
-                <!-- ----col 4---- -->
-    
-                <div class="headding myWishlist">
-    
-                    <p class="heading-pera"><a href="my wishlist/my-wishlist.html"> My Wishlist </a></p>
-    
-                </div>
-                <!-- ----col 5---- -->
-                <a href="{{url('/wallet')}}"> 
-                    <div class="headding myWallet">
-        
-                        <p class="heading-pera">My Wallet </p>
-        
-                    </div>
-                </a>
-    
-                <!-- ----col 6---- -->
-                <a href="{{url('/logout')}}">
-                    <div class="headding Logout">
-        
-                        <p class="heading-pera"> Logout </p>
-        
-                    </div>
-                </a>
-    
-    
-    
-            </div>
+                        </a>
+                        <ul id="menu_item1" class="submenu collapse" data-bs-parent="#nav_accordion">
+                            <li><a class="nav-link" href="#">My Pooja</a></li>
+                            <li><a class="nav-link" href="#">My Astroshop </a></li>
+                            <li><a class="nav-link" href="#">Call </a> </li>
+                            <li><a class="nav-link" href="#">Chat </a> </li>
+                            <li><a class="nav-link" href="#">Video Call </a> </li>
+                          
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/address')}}">My Addresses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/profile')}}"> My Profile </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> My Wishlist </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/wallet')}}"> My Wallet </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/logout')}}"> Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>            
+          

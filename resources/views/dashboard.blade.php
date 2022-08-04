@@ -36,477 +36,93 @@
             <!-- -------side bar---- -->
       
             @include('dashnav')
-            <!-- --------------------------------col 2----------------- -->
-            <div class="second-div">
-                <!-- ----uper buttons-- -->
-                <!-- <div class="upper-buttons" id="upperBtns">
-                  <button id="uBtn" value="All">  All</button>
-                  <button id="uBtn" value="Completed">  Completed</button>
-                  <button id="uBtn" value="Cancelled">  Cancelled</button>
-                  <button id="uBtn" value="Ongoing">  Ongoing</button>
-                    
-                </div> -->
-                <!-- -------alll-------- -->
-                <div class="all-content">
+            
+            
+            <div class="custom-tab">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+            
+                            <div class="tab-container-one">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item active"><a class="nav-link active" href="#home" role="tab" aria-controls="home" data-bs-toggle="tab">All</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#profile" role="tab" aria-controls="profile" data-bs-toggle="tab">Completed</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#messages" role="tab" aria-controls="messages" data-bs-toggle="tab">Cancelled</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#settings" role="tab" aria-controls="settings" data-bs-toggle="tab">Ongoing</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                                <div class="boxs  no-order boxs-show" id="noOrder">
+                                                    <img src="{{asset('web/image/empty-cart.png')}}" alt="no-order-img">
+                                                    <h2>You have no ordered</h2>
+                                                    <a href="#">Book Now</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                            <div class="pooja-card" id="Ongoing">
     
-                    <!-- ----no-order--- -->
-                    <div class="boxs  no-order boxs-show" id="noOrder">
-                        <img src="{{asset('web/image/empty-cart.png')}}" alt="no-order-img">
-                        <h2>You have no ordered</h2>
-                        <a href="#">Book Now</a>
+                                                        <div class="col col1">
+                                                            <p class="order-no">
+                                                                Order No: <span>25365425</span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col col2">
+                                                            <p class="date">
+                                                                Date <span>5/02/2022</span>
+                                                            </p>
+                                                        </div>
+
+
+
+                                                        <div class="col col3">
+                                                            <img  src="{{asset('web/image/ram.png')}}" alt="ram img">
+                                                        </div>
+                                                        <div class="col col4">
+                                                            <p class="Name">ddd Ramayan</p>
+
+                                                        </div>
+
+
+                                                        <div class="col col5">
+                                                            <img src="right.png" alt="right" width="10px">
+                                                            <p>Delivery Expected on Nov
+                                                                02,2022</p>
+                                                        </div>
+                                                        <div class="col col6">
+                                                            <p class="text">Lorem ipsum dolor sit tetur </p>
+                                                        </div>
+                                                        <div class="col col7">
+                                                            <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                            <p>Rates the Pooja</p>
+                                                        </div>
+                                                        <div class="col col8">
+                                                            <p class="price"><span><b>$5.00</b></span> <span><del>$6.00</del></span></p>
+                                                        </div>
+
+                                                        <div class="col col9">
+                                                            <p><a href="order-detail/order-detail.html">View Details</a></p>
+                                                        </div>
+
+
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        Profile...</div>
+                                    <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                                        Messages...</div>
+                                    <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                                        Settings...</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-    
-    
-    
-                    <!-- ------// no order----- -->
-    
-                    <!-- -----------my pooja-------------- -->
-                    <div class="boxs my-pooja" id="myPja">
-                         <!-- ----uper buttons-- -->
-                <div class="upper-buttons" id="upperBtns">
-                  <button id="uBtn" value="All">  All</button>
-                  <button id="uBtn" value="Completed">  Completed</button>
-                  <button id="uBtn" value="Cancelled">  Cancelled</button>
-                  <button id="uBtn" value="Ongoing">  Ongoing</button>
-                    
                 </div>
-                        <!-- ---card 1-- -->
-                        <div class="pooja-card" id="Ongoing">
-    
-                            <div class="col col1">
-                                <p class="order-no">
-                                    Order No: <span>25365425</span>
-                                </p>
-                            </div>
-                            <div class="col col2">
-                                <p class="date">
-                                    Date <span>5/02/2022</span>
-                                </p>
-                            </div>
-    
-    
-    
-                            <div class="col col3">
-                                <img src="ram.png" alt="ram img">
-                            </div>
-                            <div class="col col4">
-                                <p class="Name">Akhand Ramayan</p>
-    
-                            </div>
-    
-    
-                            <div class="col col5">
-                                <img src="right.png" alt="right" width="10px">
-                                <p>Delivery Expected on Nov
-                                    02,2022</p>
-                            </div>
-                            <div class="col col6">
-                                <p class="text">Lorem ipsum dolor sit tetur </p>
-                            </div>
-                            <div class="col col7">
-                                <img src="star.png" alt="star">
-                                <p>Rates the Pooja</p>
-                            </div>
-                            <div class="col col8">
-                                <p class="price"><span><b>$5.00</b></span> <span><del>$6.00</del></span></p>
-                            </div>
-    
-                            <div class="col col9">
-                                <p><a href="order-detail/order-detail.html">View Details</a></p>
-                            </div>
-    
-    
-                        </div>
-                        <!-- ---card 2-- -->
-                        <div class="pooja-card" id="Completed">
-    
-                            <div class="col col1">
-                                <p class="order-no">
-                                    Order No: <span>25365425</span>
-                                </p>
-                            </div>
-                            <div class="col col2">
-                                <p class="date">
-                                    Date <span>5/02/2022</span>
-                                </p>
-                            </div>
-    
-    
-    
-                            <div class="col col3">
-                                <img src="ram.png" alt="ram img">
-                            </div>
-                            <div class="col col4">
-                                <p class="Name">Akhand Ramayan</p>
-    
-                            </div>
-    
-    
-                            <div class="col col5">
-                                <img src="done-arrow.png" alt="right" width="10px">
-                                <p>Pooja Done on Nov 02,2022</p>
-                            </div>
-                            <div class="col col6">
-                                <p class="text">Lorem ipsum dolor sit tetur </p>
-                            </div>
-                            <div class="col col7">
-                                <img src="star.png" alt="star">
-                                <p>Rates the Pooja</p>
-                            </div>
-                            <div class="col col8">
-                                <p class="price"><span><b>$5.00</b></span> <span><del>$6.00</del></span></p>
-                            </div>
-    
-                            <div class="col col9">
-                                <p><a href="order-detail/order-detail.html">View Details</a></p>
-                            </div>
-    
-    
-                        </div>
-    
-                        <!-- ---card 3-- -->
-                        <div class="pooja-card" id="Cancelled">
-    
-                            <div class="col col1">
-                                <p class="order-no">
-                                    Order No: <span>25365425</span>
-                                </p>
-                            </div>
-                            <div class="col col2">
-                                <p class="date">
-                                    Date <span>5/02/2022</span>
-                                </p>
-                            </div>
-    
-    
-    
-                            <div class="col col3">
-                                <img src="ram.png" alt="ram img">
-                            </div>
-                            <div class="col col4">
-                                <p class="Name">Akhand Ramayan</p>
-    
-                            </div>
-    
-    
-                            <div class="col col5">
-                                <img src="cancle-arrow.png" alt="right" width="10px">
-                                <p>Cancelled on Nov 02,2022</p>
-                            </div>
-                            <div class="col col6">
-                                <p class="text">Lorem ipsum dolor sit tetur </p>
-                            </div>
-                            <div class="col col7">
-                                <img src="star.png" alt="star">
-                                <p>Rates the Pooja</p>
-                            </div>
-                            <div class="col col8">
-                                <p class="price"><span><b>$5.00</b></span> <span><del>$6.00</del></span></p>
-                            </div>
-    
-                            <div class="col col9">
-                                <p><a href="order-detail/order-detail.html">View Details</a></p>
-                            </div>
-    
-    
-                        </div>
-    
-                        <!-- ------//card---- -->
-    
-    
-                    </div>
-                    <!-- ------// my pooja----- -->
-    
-                    <!-- -----------------call---------------------- -->
-                    <div class="boxs  call-box" id="Call">
-                        <div class="cards">
-    
-                            <!-- -----card 1-- -->
-                            <div class="card">
-                                <div class="col col1">
-                                    <p>Order No: <span>25365425</span> </p>
-                                </div>
-                                <div class="col col2">
-                                    <p>Date: <span>5/02/2022</span> | <span>09:50PM</span></p>
-                                </div>
-                                <div class="col col3">
-                                    <img src="call-person.png" alt="call-person">
-                                </div>
-                                <div class="col col4 ">
-                                    <h4>Astro Rahul</h4>
-                                </div>
-                                <div class="col col5">
-                                    <p>
-                                        <b> Status : <span class="status">Completed</span></b>
-                                    </p>
-                                </div>
-                                <div class="col col6">
-                                    Duration : <span> 10 Min </span>
-                                </div>
-                                <div class="col col7">
-                                    <a href="#"> <img src="call-icon.png" alt="callicon" width="30px"></a>
-                                    <p>call</p>
-                                </div>
-                                <div class="col col8">
-                                    <a href="#"> <img src="trash.png" alt="trash" width="20px"></a>
-                                </div>
-                                <div class="col col9">
-                                    <a href="#"> <img src="share.png" alt="share " width="20px"></a>
-                                </div>
-                                <div class="col col10">
-                                    <p>Rate : <span>Rs.5.00/Min</span></p>
-                                </div>
-                                <div class="col col11">
-                                    <img src="star.png" alt="star" width="15px">
-                                    <p>Rates the Pandit</p>
-                                </div>
-                                <div class="col col12">
-                                   <p> Total Deduction : <span>Rs.50.00</span>
-                                   </p></div>
-    
-                            </div>
-    
-                            <!-- -----card 1-- -->
-                            <div class="card">
-                                <div class="col col1">
-                                    <p>Order No: <span>25365425</span> </p>
-                                </div>
-                                <div class="col col2">
-                                    <p>Date: <span>5/02/2022</span> | <span>09:50PM</span></p>
-                                </div>
-                                <div class="col col3">
-                                    <img src="call-person.png" alt="call-person">
-                                </div>
-                                <div class="col col4 ">
-                                    <h4>Astro Rahul</h4>
-                                </div>
-                                <div class="col col5">
-                                    <p>
-                                        <b> Status : <span class="status">Completed</span></b>
-                                    </p>
-                                </div>
-                                <div class="col col6">
-                                    Duration : <span> 10 Min </span>
-                                </div>
-                                <div class="col col7">
-                                    <a href="#"> <img src="call-icon.png" alt="callicon" width="30px"></a>
-                                    <p>call</p>
-                                </div>
-                                <div class="col col8">
-                                    <a href="#"> <img src="trash.png" alt="trash" width="20px"></a>
-                                </div>
-                                <div class="col col9">
-                                    <a href="#"> <img src="share.png" alt="share " width="20px"></a>
-                                </div>
-                                <div class="col col10">
-                                    <p>Rate : <span>Rs.5.00/Min</span></p>
-                                </div>
-                                <div class="col col11">
-                                    <img src="star.png" alt="star" width="15px">
-                                    <p>Rates the Pandit</p>
-                                </div>
-                                <div class="col col12">Total Deduction : <span>Rs.50.00</span></div>
-    
-                            </div>
-    
-    
-                        </div>
-                    </div>
-                    <!-- -----------------//call---------------------- -->
-    
-                    <!-- -----------------chat---------------------- -->
-                    <div class="boxs call-box" id="Chat">
-                        <div class="cards">
-    
-                            <!-- -----card 1-- -->
-                            <div class="card">
-                                <div class="col col1">
-                                    <p>Order No: <span>25365425</span> </p>
-                                </div>
-                                <div class="col col2">
-                                    <p>Date: <span>5/02/2022</span> | <span>09:50PM</span></p>
-                                </div>
-                                <div class="col col3">
-                                    <img src="call-person.png" alt="call-person">
-                                </div>
-                                <div class="col col4 ">
-                                    <h4>Astro Rahul</h4>
-                                </div>
-                                <div class="col col5">
-                                    <p>
-                                        <b> Status : <span class="status">Completed</span></b>
-                                    </p>
-                                </div>
-                                <div class="col col6">
-                                    Duration : <span> 10 Min </span>
-                                </div>
-                                <div class="col col7">
-                                    <a href="#"> <img src="chat-icon.png" alt="callicon" width="30px"></a>
-                                    <p>Chat</p>
-                                </div>
-                                <div class="col col8">
-                                    <a href="#"> <img src="trash.png" alt="trash" width="20px"></a>
-                                </div>
-                                <div class="col col9">
-                                    <a href="#"> <img src="share.png" alt="share " width="20px"></a>
-                                </div>
-                                <div class="col col10">
-                                    <p>Rate : <span>Rs.5.00/Min</span></p>
-                                </div>
-                                <div class="col col11">
-                                    <img src="star.png" alt="star" width="15px">
-                                    <p>Rates the Pandit</p>
-                                </div>
-                                <div class="col col12">Total Deduction : <span>Rs.50.00</span></div>
-    
-                            </div>
-    
-                            <!-- -----card 1-- -->
-                            <div class="card">
-                                <div class="col col1">
-                                    <p>Order No: <span>25365425</span> </p>
-                                </div>
-                                <div class="col col2">
-                                    <p>Date: <span>5/02/2022</span> | <span>09:50PM</span></p>
-                                </div>
-                                <div class="col col3">
-                                    <img src="call-person.png" alt="call-person">
-                                </div>
-                                <div class="col col4 ">
-                                    <h4>Astro Rahul</h4>
-                                </div>
-                                <div class="col col5">
-                                    <p>
-                                        <b> Status : <span class="status">Completed</span></b>
-                                    </p>
-                                </div>
-                                <div class="col col6">
-                                    Duration : <span> 10 Min </span>
-                                </div>
-                                <div class="col col7">
-                                    <a href="#"> <img src="chat-icon.png" alt="callicon" width="30px"></a>
-                                    <p>Chat</p>
-                                </div>
-                                <div class="col col8">
-                                    <a href="#"> <img src="trash.png" alt="trash" width="20px"></a>
-                                </div>
-                                <div class="col col9">
-                                    <a href="#"> <img src="share.png" alt="share " width="20px"></a>
-                                </div>
-                                <div class="col col10">
-                                    <p>Rate : <span>Rs.5.00/Min</span></p>
-                                </div>
-                                <div class="col col11">
-                                    <img src="star.png" alt="star" width="15px">
-                                    <p>Rates the Pandit</p>
-                                </div>
-                                <div class="col col12">Total Deduction : <span>Rs.50.00</span></div>
-    
-                            </div>
-    
-    
-                        </div>
-                    </div>
-                    <!-- -----------------//chat---------------------- -->
-                    <!-- -----------------video---------------------- -->
-                    <div class="boxs call-box" id="Video">
-                        <div class="cards">
-    
-                            <!-- -----card 1-- -->
-                            <div class="card">
-                                <div class="col col1">
-                                    <p>Order No: <span>25365425</span> </p>
-                                </div>
-                                <div class="col col2">
-                                    <p>Date: <span>5/02/2022</span> | <span>09:50PM</span></p>
-                                </div>
-                                <div class="col col3">
-                                    <img src="call-person.png" alt="call-person">
-                                </div>
-                                <div class="col col4 ">
-                                    <h4>Astro Rahul</h4>
-                                </div>
-                                <div class="col col5">
-                                    <p> <b> Status : <span class="status">Completed</span></b></p>
-                                </div>
-                                <div class="col col6">
-                                    Duration : <span> 10 Min </span>
-                                </div>
-                                <div class="col col7">
-                                    <a href="#"> <img src="video-icon.png" alt="callicon" width="30px"></a>
-                                    <p>Video</p>
-                                </div>
-                                <div class="col col8">
-                                    <a href="#"> <img src="trash.png" alt="trash" width="20px"></a>
-                                </div>
-                                <div class="col col9">
-                                    <a href="#"> <img src="share.png" alt="share " width="20px"></a>
-                                </div>
-                                <div class="col col10">
-                                    <p>Rate : <span>Rs.5.00/Min</span></p>
-                                </div>
-                                <div class="col col11">
-                                    <img src="star.png" alt="star" width="15px">
-                                    <p>Rates the Pandit</p>
-                                </div>
-                                <div class="col col12">Total Deduction : <span>Rs.50.00</span></div>
-    
-                            </div>
-    
-                            <!-- -----card 1-- -->
-                            <div class="card">
-                                <div class="col col1">
-                                    <p>Order No: <span>25365425</span> </p>
-                                </div>
-                                <div class="col col2">
-                                    <p>Date: <span>5/02/2022</span> | <span>09:50PM</span></p>
-                                </div>
-                                <div class="col col3">
-                                    <img src="call-person.png" alt="call-person">
-                                </div>
-                                <div class="col col4 ">
-                                    <h4>Astro Rahul</h4>
-                                </div>
-                                <div class="col col5">
-                                    <p>
-                                        <b> <b> Status : <span class="status">Completed</span></b></b>
-                                    </p>
-                                </div>
-                                <div class="col col6">
-                                    Duration : <span> 10 Min </span>
-                                </div>
-                                <div class="col col7">
-                                    <a href="#"> <img src="video-icon.png" alt="callicon" width="30px"></a>
-                                    <p>Video</p>
-                                </div>
-                                <div class="col col8">
-                                    <a href="#"> <img src="trash.png" alt="trash" width="20px"></a>
-                                </div>
-                                <div class="col col9">
-                                    <a href="#"> <img src="share.png" alt="share " width="20px"></a>
-                                </div>
-                                <div class="col col10">
-                                    <p>Rate : <span>Rs.5.00/Min</span></p>
-                                </div>
-                                <div class="col col11">
-                                    <img src="star.png" alt="star" width="15px">
-                                    <p>Rates the Pandit</p>
-                                </div>
-                                <div class="col col12">Total Deduction : <span>Rs.50.00</span></div>
-    
-                            </div>
-    
-    
-                        </div>
-                    </div>
-                    <!-- -----------------//video---------------------- -->
-    
-    
-                </div>
-    
-    
-    
             </div>
+
     
         </div>
         <!-- --------//---- -->
@@ -518,3 +134,51 @@
 
 <!-- -----------section1----------- -->
 @include('layouts.footer')
+
+<scritp>
+
+ function simulateClick(elem) {
+	// Create our event (with options)
+	var evt = new MouseEvent('click', {
+		bubbles: true,
+		cancelable: true,
+		view: window
+	});
+	// If cancelled, don't dispatch our event
+	var canceled = !elem.dispatchEvent(evt);
+};
+
+function prepareTabs(triggerEl) {
+    var tabTrigger = new bootstrap.Tab(triggerEl)
+
+    triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        //alert('test-'+this.parentNode.tagName);
+        tabTrigger.show()
+
+        //console.log('>>>' + this.parentNode.tagName);
+        //console.log('>>>>' + this.parentNode.parentNode.tagName);
+        var sibling = this.parentNode.parentNode.firstChild;
+        // Loop through each sibling and push to the array
+        while (sibling) {
+            if (sibling.tagName !== undefined) 
+            {
+                //console.log('>>>' + sibling.tagName);
+                //console.log('--->' + sibling.classList);
+                //console.log('>>' + sibling.firstChild.href);
+                sibling.classList.remove('active');
+            }
+            sibling = sibling.nextSibling;
+        }
+        this.parentNode.classList.add('active');
+        console.log('href = ' + this.href);
+        simulateClick(document.querySelector(this.href));
+    })
+}
+
+var triggerTabListTest = [].slice.call(document.querySelectorAll("#myTab a"));
+triggerTabListTest.forEach(function (triggerEl) {
+  prepareTabs(triggerEl);
+});
+
+</script>
