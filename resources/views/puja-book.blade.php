@@ -27,16 +27,26 @@
                             <option value="3">Large Pooja</option>
                         </select>
                     </p>
-                    <p class="Category">Date :
-                         <span>
-                           <input type="date" name="date">
+                    <div  class="date-time">
+                        <span class="datey" >Date :
                         </span>
+
+                        <span class="datey">
+                          <input type="date" name="date">
+                       </span>
+                    </div>
+                    <p>
+
+                        <div  class="date-time">
+                            <span class="datey" >Select Time :
+                            </span>
+    
+                            <span class="datey">
+                            <input type="time" name="date">
+                           </span>
+                        </div>
                     </p>
-                    <p class="Category">Select Time :
-                         <span>
-                           <input type="time" name="date">
-                        </span>
-                    </p>
+                    
                 </div>
             </div>
         </div>
@@ -45,24 +55,32 @@
 
         <div class="details">
             <h2>{{ $pujaDetails->puja_id->name}}</h2>
+            <span >
 
-            <h4> WHY YOU NEED THIS POOJA</h4>
+            <?php
+                $string = strip_tags($pujaDetails->puja_id->desc);
+                if (strlen($string) > 500) {
+
+                    // truncate string
+                    $stringCut = substr($string, 0, 600);
+                    $endPoint = strrpos($stringCut, ' ');
+                
+                    //if the string doesn't contain any space then it will cut without word basis.
+                    $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                    $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
+                }
+                echo $string;
+            ?>
+            </span>     
             <p>
-            {{ $pujaDetails->puja_id->desc}}
-                Akhand Ramayan Path is performed to achieve peace and prosperity at the home and get blessings of Shri
-                Ram and Hanuman. This can be performed at any auspicious event like Wedding Anniversary, Birthdays,
-                Navratra days or other auspicious days or to get a wish to be fulfilled and etc.
-
-                Akhand Ramayan Path is the recital of Ramcharit manas<br><br><br> continuously without stopping for 24
-                hours, it is performed with bhajans and kirtan in the praise of lord Shri Ram.
-
-                Get the blessings of lord Shri Ram and his life teachings for Read More/Hindi
+                {!! $pujaDetails->puja_id->desc!!}
+                
             </p>
-
+            <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
             <!-- ---box-- -->
             <div class="detail-box">
                 <h6>Pooja Samagri :</h6>
-                <div>
+                <div >
                     <details>
                         <summary>
                             <h4> With Samagri </h4>
@@ -122,40 +140,9 @@
             <div class="a">
                 <h4>Advantages of this pooja</h4>
             </div>
-            <div class="b">
-                <ul>
-                    <li>
-
-                        {{ $pujaDetails->puja_id->advantage}}
-                    </li>
-                    <!-- <li>
-                        <p>Brings the peace, understanding, prosperity and happiness in the family.</p>
-                    </li>
-                    <li>
-                        <p>Brings success to new business and ventures.</p>
-                    </li>
-                    <li>
-                        <p>Auspicious for new beginnings like Griha Pravesh, wedding ceremonies, Birth of a baby and so
-                            on</p>
-                    </li>
-                    <li>
-                        <p>A divine atmosphere is created at the place where Akhand Ramayan Paath is recited..</p>
-                    </li>
-                    <li>
-                        <p>Induces truth, bravery and morality amongst devotees.</p>
-                    </li>
-                    <li>
-                        <p>Provides moksha to soul and rids it from trails of re-birth.</p>
-                    </li>
-                    <li>
-                        <p>Prevents damage and danger from evil.</p>
-                    </li>
-                    <li>
-                        <p>Protects against health problem.
-                        </p>
-                    </li> -->
-                </ul>
-            </div>
+            {!!$pujaDetails->puja_id->advantage!!}               
+            <!-- <div class="b">
+            </div> -->
         </div>
 
         <!-- --- -->
@@ -163,29 +150,11 @@
             <div class="a">
                 <h4>Your Pooja is Simplified</h4>
             </div>
-            <div class="b">
-                <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
-                <ul>
-                    <li>       {{ $pujaDetails->puja_id->pujasimplified}}</li>
-                    <!-- <li>
-                        <p>No of Pandits: 5, Time: 24 Hr,
-                        </p>
-                    </li>
-                    <li>
-                        <p>Pooja Cost: Ghar pe Pooja (At your place-home or office): Rs 13501/-. Price is inclusive of
-                            Pooja samagri. You need to arrange eatables, utensils, hawan kund, flowers / garland etc.
-                            For details what you need to arrange, check Pooja Samagri Column below. </p>
-                    </li>
-                    <li>
-                        <p>Extra Rs 2000 for Sound system.</p>
-                    </li>
-                    <li>
-                        <p>For Team of 7 People with Amplifier Sound System and Murti Setup for Big function Price - Rs
-                            21000/-</p>
-                    </li> -->
-
-                </ul>
-            </div>
+            <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
+            {!! $pujaDetails->puja_id->pujasimplified!!}
+            <!-- <div class="b">
+                
+            </div> -->
         </div>
     </div>
 
@@ -417,6 +386,35 @@
             }
         });
         });
+        $(function(){
+
+            $('.details p').hide();
+            $('.details a#lessMore').hide();
+            $('.details ol li').hide();
+            $('.details ul li').hide();
+            $('.details details').show();
+            
+        });
+        $(document).ready(function(){
+            
+            $('#readMore').click(function(){
+                $('.details span').hide();
+                $('.details p').show();
+                $('.details ol li').show();
+                $('.details ul li').show();
+                $('.details a#lessMore').show();
+            });
+        })
+        $(document).ready(function(){
+            
+            $('#lessMore').click(function(){
+                $('.details a#lessMore').hide();
+                $('.details span').show();
+                $('.details p').hide();
+                $('.details ol li').hide();
+                $('.details ul li').hide();
+            });
+        })
 </script>
 <!-- -------------footer-------- -->
 @include('layouts.footer')

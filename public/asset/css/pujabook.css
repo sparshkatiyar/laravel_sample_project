@@ -252,7 +252,7 @@
     font-family: Poppins;
     font-weight: 400;
     font-size: 1.1em;
-    min-height: 400px;
+    /* min-height: 400px; */
     color: rgb(98, 97, 97);
   }
   
@@ -918,5 +918,25 @@
   .pujsection{
     width: 50%;
     height: auto;
+  }
+
+  #more {display: none;}
+
+  .date-time{
+    width:100%;
+    height:auto;
+    display: inline-block;
+  }
+  .datey{
+    width:49%;
+    height:auto; 
+     display: inline-block;
+  }
+  .date-time input{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 3em;
+    padding: 10px;
   }
   
