@@ -67,9 +67,11 @@
                         <summary>
                             <h4> With Samagri </h4>
                         </summary>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
-                            Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
-                            facilis, cupiditate accusantium impedit fugit minima.</p>
+                        <p>
+                            
+                            {{$category_samagri->name_desc}}
+                          
+                        </p>
                     </details> &nbsp;
                     <input type="radio" name="category" value="samagri" id="samgari">
                 </div>
@@ -79,9 +81,9 @@
                         <summary>
                             <h4> Without Samagri </h4>
                         </summary>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
-                            Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
-                            facilis, cupiditate accusantium impedit fugit minima.</p>
+                        <p>                           
+                            {{$category_wsamagri->name_desc}}                          
+                        </p>
                     </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
                 </div>
                 <!--  -->
@@ -90,9 +92,10 @@
                         <summary>
                             <h4> All </h4>
                         </summary>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
-                            Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
-                            facilis, cupiditate accusantium impedit fugit minima.</p>
+                        <p>
+
+                            {{$category_all->name_desc}}  
+                        </p>
                     </details> &nbsp;<input type="radio" name="category" value="all" id="all">
                 </div>
             </div>

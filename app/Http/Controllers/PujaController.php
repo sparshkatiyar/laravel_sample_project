@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Puja;
 use App\Models\PujaEcommerce;
 use App\Models\UserAddress;
+use App\Models\PujaCategory;
 use Auth;
 use Cookie;
 use Session;
@@ -15,20 +16,24 @@ class PujaController extends Controller
     //
     public function index()
     {
+    
         $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->puja_id);
         }  
       
-        return view('puja',compact('pujaList'));
+        return view('puja',compact('pujaList',));
     }
     public function booking(Request $request )
     {
         $ecomm_puja_id = $request->id;
         $pujaDetails = PujaEcommerce::find($request->id);  
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
-        
-        return view('puja-book',compact('pujaDetails','ecomm_puja_id'));
+        $category_samagri = PujaCategory::select('name_desc')->where('id',1)->get()->first();
+        $category_wsamagri = PujaCategory::select('name_desc')->where('id',2)->get()->first();
+        $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
+        // dd($category_samagri->name_desc);
+        return view('puja-book',compact('pujaDetails','ecomm_puja_id','category_samagri','category_wsamagri','category_all'));
     }
     public function delivery(Request $request)
     {
