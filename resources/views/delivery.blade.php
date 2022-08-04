@@ -149,9 +149,9 @@
                         </div>
                         <div class="detail">
                             <h5>{{ $pujaDetails->puja_id->name}}</h5>
-                            <p>{{ $pujaDetails->puja_id->desc}}</p>
+                      
 
-                            <p class="price-pera"><strong> <span class="current-price">&#x20b9 {{ $pujaDetails->puja_base_price}}</span></strong>
+                            <p class="price-pera"><strong> <span class="current-price">&#x20b9 {{$price_order}}</span></strong>
                                 <small><del>
                                         <!-- <font color="gray"> &#x20b9 6.00 </font> -->
                                     </del></small></p>
@@ -162,21 +162,11 @@
                         </div>
 
 
-                        <div class="Quantity">
-                            <!-- <h5>Quantity</h5>
-      -->
-                            <div class="input">
-                                <div class="value-button" id="decrease" onclick="decreaseValue()"
-                                    value="Decrease Value">-</div>
-                                <input type="number" id="number" placeholder="#" value="0" />
-                                <div class="value-button" id="increase" onclick="increaseValue()"
-                                    value="Increase Value">+</div>
-                            </div>
-                        </div>
+                      
 
 
                     </div>
-                    <button id="continue">Continue</button>
+                    <!-- <button id="continue">Continue</button> -->
                 </div>
 
                 <!-- ----pay-option-- -->

@@ -540,8 +540,10 @@ padding: 2%;
    }
 
    #section1 .form  .summary .summary-detail .img{
-   width: 25%;
-       }
+    object-fit: cover;
+    width: 25%;
+    max-height: 100px;
+    }
 
        
    #section1 .form  .summary .summary-detail .img img{
