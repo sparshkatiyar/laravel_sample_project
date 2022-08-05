@@ -1,5 +1,6 @@
   
   @include('layouts.header')
+  @include('layouts.popup')
 <!-- divider -->
 <div id="divaider"></div>
   <!-- ----------------section1--------- -->
@@ -19,8 +20,18 @@
                         <h4>Login <span><img src="right.png" alt="" width="20px"></span></h4>
 
                     </div>
-                    <div id="loginNumber">+91 0000 000 000</div>
-                    <button id="changeButton">change</button>
+                    <div id="loginNumber">{{@$user->country_code}}-{{@$user->mobile_number}}</div>
+                   
+                    @if(Auth::guard('user')->user())
+                    <a href="{{url('/address')}}">
+                        <button class="changeNumber" >change</button>
+
+                    </a>
+                    @else
+                    <button class="changeNumber" onclick="popshow()">Signup</button>
+                  
+                    @endif
+                    
                 </div>
                 <!-- Customer Details for Pooja -->
                 <div class="customer-detail" id="customerDetail">
@@ -36,12 +47,13 @@
 
                     <!-- ---detail-form -->
                     <div class="detail-form">
-                        <form method="">
+                        <form action="{{url('save-address/')}}" method="post">
+                            @csrf
                             <div class="contact">
                                 <label for="">Contact Details :</label>
                                 <div>
-                                    <input type="text" placeholder="Name*">
-                                    <input type="text" placeholder="Mobile No*">
+                                    <input type="text" value="{{@@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
+                                    <input type="text" value="{{@@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
                                 </div>
                             </div>
                             <!--  -->
@@ -49,34 +61,68 @@
                                 <label for="">Address :</label>
                                 <div>
 
-                                    <input type="text" placeholder="Flat no.*">
-                                    <input type="text" placeholder="Locality*">
+                                    <input type="text" value="{{@@$userAddress->flat_no}}" name="flat_no" placeholder="Flat no.*">
+                                    <input type="text"  value="{{@@$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
 
                                 </div>
 
                                 <div>
 
-                                    <input type="text" placeholder="City*">
-                                    <input type="text" placeholder="Pincode*">
+                                    <input type="text" value="{{@@$userAddress->city}}" name="city" placeholder="City*">
+                                    <input type="text"  value="{{@@$userAddress->pincode}}" name="pincode" placeholder="Pincode*">
 
                                 </div>
 
                                 <div>
-                                    <textarea id="" name="" rows="4" cols="50"
-                                        placeholder="Address (Area and Street)"></textarea>
+                                    <textarea id="" name="address" rows="4" cols="50"
+                                        placeholder="Address (Area and Street)">{{@@$userAddress->address}}</textarea>
                                 </div>
                                 <div>
-                                    <input type="text" placeholder="City/District/Town">
-                                    <select>
-                                        <option value="#">--Select State--</option>
-                                        <option value="#">state 1</option>
-                                        <option value="#">State 2</option>
-                                    </select>
+                                    <input type="text" value="{{@@$userAddress->town}}" name="town" placeholder="City/District/Town">
+                                    <select name="state" id="state" class="form-control">
+                                    <option selected><b>--Select State--</b> </option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                    <option value="Daman and Diu">Daman and Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                </select>
                                 </div>
                             </div>
                             <!--  -->
                             <div class="note">
-                                <button>Deliver Here</button>
+                                <button type="submit">Deliver Here</button>
                             </div>
                         </form>
                     </div>
@@ -91,7 +137,7 @@
                             3
                         </div>
                         <div>
-                            <h5>Order Summary &nbsp;<span><img src="right.png" alt="#" width="20px"></span></h5>
+                            <h5>Order Summary &nbsp;<span></span></h5>
                         </div>
                         <button id="downBtn" onclick="f3()"> Fill</button>
                     </div>
@@ -99,15 +145,15 @@
                     <!-- ---summary-detail-- -->
                     <div class="summary-detail">
                         <div class="img">
-                            <img src="product.png" alt="">
+                            <img src="{{ $pujaDetails->puja_id->image}}" alt="">
                         </div>
                         <div class="detail">
-                            <h5>Rudraksh</h5>
-                            <p>Lorem ipsum dolor sit tetur </p>
+                            <h5>{{ $pujaDetails->puja_id->name}}</h5>
+                      
 
-                            <p class="price-pera"><strong> <span class="current-price">&#x20b9 5.00</span></strong>
+                            <p class="price-pera"><strong> <span class="current-price">&#x20b9 {{$price_order}}</span></strong>
                                 <small><del>
-                                        <font color="gray"> &#x20b9 6.00 </font>
+                                        <!-- <font color="gray"> &#x20b9 6.00 </font> -->
                                     </del></small></p>
                             <div id="offer">
                                 <font color="#A65D08
@@ -116,21 +162,11 @@
                         </div>
 
 
-                        <div class="Quantity">
-                            <!-- <h5>Quantity</h5>
-      -->
-                            <div class="input">
-                                <div class="value-button" id="decrease" onclick="decreaseValue()"
-                                    value="Decrease Value">-</div>
-                                <input type="number" id="number" placeholder="#" value="0" />
-                                <div class="value-button" id="increase" onclick="increaseValue()"
-                                    value="Increase Value">+</div>
-                            </div>
-                        </div>
+                      
 
 
                     </div>
-                    <button id="continue">Continue</button>
+                    <!-- <button id="continue">Continue</button> -->
                 </div>
 
                 <!-- ----pay-option-- -->
@@ -140,35 +176,42 @@
                             3
                         </div>
                         <div>
-                            <h5>Payment Options &nbsp;<span><img src="right.png" alt="" width="20px"></span></h5>
+                            <h5>Payment Options &nbsp;<span><img src="{{asset('web/image/right.png')}}" alt="" width="20px"></span></h5>
+                           
                         </div>
                         <!-- <button id="downBtn"> <img src="down.png" alt=""></button> -->
                     </div>
                 </div>
             </div>
             <!-- ----------------------------------------------------------------------------------------- -->
-            <div class="price-detail">
-                <div class="detail">
-                    <p>Price-Detail :</p>
-
-                    <div>
-                        <h6>Price( 2 Items)</h6>
-                        <h6>&#x20b9 <span>50.00</span></h6>
+            <form action="{{url('/booking-placed')}}" method="post">
+                @csrf
+                <div class="price-detail">
+                    <div class="detail">
+                        <p>Price-Detail :</p>
+    
+                        <div>
+                            <h6>Price( 2 Items)</h6>
+                            <h6>&#x20b9 <span>{{$price_order}}</span></h6>
+                        </div>
+    
+                        <div class="tax">
+                            <h6>Tax</h6>
+                            <h6>&#x20b9 <span>{{$tax}}</span></h6>
+                        </div>
+    
+                        <div class="total">
+                            <h6>Total amount</h6>
+                            <h6>&#x20b9 <span>{{$price_total}}</span></h6>
+                        </div>
                     </div>
-
-                    <div class="tax">
-                        <h6>Tax</h6>
-                        <h6>&#x20b9 <span>5.00</span></h6>
-                    </div>
-
-                    <div class="total">
-                        <h6>Total amount</h6>
-                        <h6>&#x20b9 <span>55.00</span></h6>
-                    </div>
+                    <input type="text" value="{{$tax}}" name="price_tax" hidden>
+                    <input type="text" value="{{$price_total}}" name="price_total" hidden>
+                    <input type="text" value="0" name="price_coupan" hidden>
+                    <input type="text" value="1" name="booking_type" hidden>
+                    <button id="placeBtn" type="submit" value="submit">Place Order</button>
                 </div>
-
-                <button id="placeBtn">Place Order</button>
-            </div>
+            </form>
         </div>
     </section>
 

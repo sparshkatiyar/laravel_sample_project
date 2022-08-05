@@ -28,9 +28,11 @@ Route::get('/documentations', function(){
 Route::group(['namespace' => 'API'], function () {
     Route::get('home',[UserApiController::class,'home']);
     // User API Routes
-    Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
+    
     Route::post('pandit/pandit_registration',[PanditApiController::class,'register']);
     Route::group(['prefix'=>'user'], function () {
+        Route::post('/subscribe', [SubscriberController::class, 'subscribe']);
+        Route::post('/send_otp', [UserApiController::class, 'sendNewOtp']);
         Route::Post('login',[UserApiController::class,'login']);
         Route::Post('otp_verify',[UserApiController::class,'otp_verify']);
         Route::get('list_of_language',[UserApiController::class,'list_of_language']);

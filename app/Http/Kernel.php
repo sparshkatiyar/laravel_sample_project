@@ -65,6 +65,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'amdin-api-auth' => \App\Http\Middleware\AdminTokenValid::class,
         'admin-auth' => \App\Http\Middleware\RedirectIfNotAdmin::class,
+        'user-auth' => \App\Http\Middleware\RedirectIfNotUser::class,
+        'pandit-auth' => \App\Http\Middleware\RedirectIfNotPandit::class,
         'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
     ];
 }

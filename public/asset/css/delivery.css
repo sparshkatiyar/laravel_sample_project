@@ -246,8 +246,24 @@
     left: 10%;
     bottom: 7%;
   }
+  .loginNumber{
+    position:absolute;
+    left: 10%;
+    bottom: 7%;
+  }
 
   #section1 .form .login #changeButton {
+   display:block;
+   background-color: transparent;
+   height: 3em;
+   width: 6em;
+   border-radius: 10px;
+   color: #109BAE;
+   font-size: 14px;
+   border: 1px solid #109BAE;
+    
+   }
+  #section1 .form .login .changeNumber {
    display:block;
    background-color: transparent;
    height: 3em;
@@ -524,8 +540,10 @@ padding: 2%;
    }
 
    #section1 .form  .summary .summary-detail .img{
-   width: 25%;
-       }
+    object-fit: cover;
+    width: 25%;
+    max-height: 100px;
+    }
 
        
    #section1 .form  .summary .summary-detail .img img{

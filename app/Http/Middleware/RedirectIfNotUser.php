@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Auth;
 
-class RedirectIfNotAdmin
+class RedirectIfNotUser
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,9 @@ class RedirectIfNotAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle($request, Closure $next , $guard = 'admin'){
+    public function handle($request, Closure $next , $guard = 'user'){
         if (!Auth::guard($guard)->check()) {
-            return redirect('/admin-panel');
+            return redirect('/');
         }
         return $next($request);
     }

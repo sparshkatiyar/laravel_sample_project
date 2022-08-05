@@ -1,4 +1,5 @@
 @include('layouts.header')
+@include('layouts.popup')
 <!-- divider -->
 <div id="divaider"></div>
 <!-- -----------section1----------- -->
@@ -8,24 +9,44 @@
         <div class="img">
             <div>
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
-
+                <input type="text" name="ecomm_puja_id" value="{{$ecomm_puja_id}}" hidden>
                 <div class="img-content">
                     <h3>Starting From
-                        <span>&#x20b9 {{ $pujaDetails->puja_base_price}}</span>
-                        <span id="adds">+ &#x20b9 </span>
-                        <span id="addprice">0</span>
+                        <span id="bprice">&#x20b9  {{ $pujaDetails->puja_base_price}}</span>
+                        
                     </h3>
                     <p class="Category">Category : <span>
                             <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
-                        </span></p>
+                        </span>
+                    </p>
                     <p class="">Choose Your Pooja :
-                        <select id="pujatype">
+                        <select id="pujatype" name="pujatype">
                             <option value="0">select</option>
                             <option value="1">small Pooja</option>
                             <option value="2">Medium Pooja</option>
                             <option value="3">Large Pooja</option>
                         </select>
                     </p>
+                    <div  class="date-time">
+                        <span class="datey" >Date :
+                        </span>
+
+                        <span class="datey">
+                          <input type="date" name="date">
+                       </span>
+                    </div>
+                    <p>
+
+                        <div  class="date-time">
+                            <span class="datey" >Select Time :
+                            </span>
+    
+                            <span class="datey">
+                            <input type="time" name="date">
+                           </span>
+                        </div>
+                    </p>
+                    
                 </div>
             </div>
         </div>
@@ -34,31 +55,41 @@
 
         <div class="details">
             <h2>{{ $pujaDetails->puja_id->name}}</h2>
+            <span >
 
-            <h4> WHY YOU NEED THIS POOJA</h4>
+            <?php
+                $string = strip_tags($pujaDetails->puja_id->desc);
+                if (strlen($string) > 500) {
+
+                    // truncate string
+                    $stringCut = substr($string, 0, 600);
+                    $endPoint = strrpos($stringCut, ' ');
+                
+                    //if the string doesn't contain any space then it will cut without word basis.
+                    $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                    $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
+                }
+                echo $string;
+            ?>
+            </span>     
             <p>
-            {{ $pujaDetails->puja_id->desc}}
-                <!-- Akhand Ramayan Path is performed to achieve peace and prosperity at the home and get blessings of Shri
-                Ram and Hanuman. This can be performed at any auspicious event like Wedding Anniversary, Birthdays,
-                Navratra days or other auspicious days or to get a wish to be fulfilled and etc.
-
-                Akhand Ramayan Path is the recital of Ramcharit manas<br><br><br> continuously without stopping for 24
-                hours, it is performed with bhajans and kirtan in the praise of lord Shri Ram.
-
-                Get the blessings of lord Shri Ram and his life teachings for Read More/Hindi -->
+                {!! $pujaDetails->puja_id->desc!!}
+                
             </p>
-
+            <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
             <!-- ---box-- -->
             <div class="detail-box">
                 <h6>Pooja Samagri :</h6>
-                <div>
+                <div >
                     <details>
                         <summary>
                             <h4> With Samagri </h4>
                         </summary>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
-                            Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
-                            facilis, cupiditate accusantium impedit fugit minima.</p>
+                        <p>
+                            
+                            {{$category_samagri->name_desc}}
+                          
+                        </p>
                     </details> &nbsp;
                     <input type="radio" name="category" value="samagri" id="samgari">
                 </div>
@@ -68,9 +99,9 @@
                         <summary>
                             <h4> Without Samagri </h4>
                         </summary>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
-                            Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
-                            facilis, cupiditate accusantium impedit fugit minima.</p>
+                        <p>                           
+                            {{$category_wsamagri->name_desc}}                          
+                        </p>
                     </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
                 </div>
                 <!--  -->
@@ -79,11 +110,22 @@
                         <summary>
                             <h4> All </h4>
                         </summary>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid totam quaerat omnis hic.
-                            Omnis ratione officiis dolor repellat, facere exercitationem ea aliquid architecto cumque
-                            facilis, cupiditate accusantium impedit fugit minima.</p>
+                        <p>
+
+                            {{$category_all->name_desc}}  
+                        </p>
                     </details> &nbsp;<input type="radio" name="category" value="all" id="all">
                 </div>
+            </div>
+
+            <br>
+            <div class="detail-box">
+                <h5>
+
+                    <b>Total you pay : <span id="adds" class="web-tex"> &#x20b9 </span>
+                            <span id="addprice" class="web-tex">{{ $pujaDetails->puja_base_price}}</span>
+                    </b>
+                </h5>
             </div>
         </div>
 
@@ -98,40 +140,9 @@
             <div class="a">
                 <h4>Advantages of this pooja</h4>
             </div>
-            <div class="b">
-                <ul>
-                    <li>
-
-                        {{ $pujaDetails->puja_id->advantage}}
-                    </li>
-                    <!-- <li>
-                        <p>Brings the peace, understanding, prosperity and happiness in the family.</p>
-                    </li>
-                    <li>
-                        <p>Brings success to new business and ventures.</p>
-                    </li>
-                    <li>
-                        <p>Auspicious for new beginnings like Griha Pravesh, wedding ceremonies, Birth of a baby and so
-                            on</p>
-                    </li>
-                    <li>
-                        <p>A divine atmosphere is created at the place where Akhand Ramayan Paath is recited..</p>
-                    </li>
-                    <li>
-                        <p>Induces truth, bravery and morality amongst devotees.</p>
-                    </li>
-                    <li>
-                        <p>Provides moksha to soul and rids it from trails of re-birth.</p>
-                    </li>
-                    <li>
-                        <p>Prevents damage and danger from evil.</p>
-                    </li>
-                    <li>
-                        <p>Protects against health problem.
-                        </p>
-                    </li> -->
-                </ul>
-            </div>
+            {!!$pujaDetails->puja_id->advantage!!}               
+            <!-- <div class="b">
+            </div> -->
         </div>
 
         <!-- --- -->
@@ -139,34 +150,24 @@
             <div class="a">
                 <h4>Your Pooja is Simplified</h4>
             </div>
-            <div class="b">
-                <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
-                <ul>
-                    <li>       {{ $pujaDetails->puja_id->pujasimplified}}</li>
-                    <!-- <li>
-                        <p>No of Pandits: 5, Time: 24 Hr,
-                        </p>
-                    </li>
-                    <li>
-                        <p>Pooja Cost: Ghar pe Pooja (At your place-home or office): Rs 13501/-. Price is inclusive of
-                            Pooja samagri. You need to arrange eatables, utensils, hawan kund, flowers / garland etc.
-                            For details what you need to arrange, check Pooja Samagri Column below. </p>
-                    </li>
-                    <li>
-                        <p>Extra Rs 2000 for Sound system.</p>
-                    </li>
-                    <li>
-                        <p>For Team of 7 People with Amplifier Sound System and Murti Setup for Big function Price - Rs
-                            21000/-</p>
-                    </li> -->
-
-                </ul>
-            </div>
+            <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
+            {!! $pujaDetails->puja_id->pujasimplified!!}
+            <!-- <div class="b">
+                
+            </div> -->
         </div>
     </div>
 
     <div class="text-center" id="view-btn">
-        <a href="{{url('puja-delivery')}}"> <button>Book Your Pooja</button></a>
+        @if(Auth::guard('user')->user())
+        <a id="proceedBook"> <button>Book Your Pooja</button></a>
+            <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
+            <!-- <a onclick="popshow()">Login/Sign up</a> -->
+        @else
+        <a id="proceedBookForLogin"> <button>Book Your Pooja</button></a>
+            
+        @endif
+        
     </div>
 
 
@@ -243,58 +244,177 @@
 </section>
 <script>
     $(function(){
-        $("#adds").hide();
-        $("#addprice").hide();
+        // $("#adds").hide();
+        // $("#addprice").hide();
     })
     $(document).ready(function(){
         var basePrice =" {{$pujaDetails->puja_base_price}}";
         var totalPrice = 0;
         var setPrice = $("#addprice").text();
-
         
+        // var ptype= $("#pujatype").val();
+    
         $('#pujatype').on('change', function() {
             if(this.value == 1){
                 $("#adds").show();
                 $("#addprice").show();
-                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
+                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
                 $("#addprice").text(0);
+                // $("#bprice").hide();
                 $("#addprice").text(totalPrice);               
                 
             }
             else if(this.value == 2){
                 $("#adds").show();
                 $("#addprice").show();
-                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
+                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
                 $("#addprice").text(0);
+                // $("#bprice").hide();
                 $("#addprice").text(totalPrice);
             }
             else if(this.value == 3){
                 $("#adds").show();
                 $("#addprice").show();
-                totalPrice = parseInt(setPrice) + parseInt("{{$pujaDetails->puja_price_large}}");
+                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_large}}");
                 $("#addprice").text(0);
+                // $("#bprice").hide();
                 $("#addprice").text(totalPrice);
             }
         });
         $("#samgari").click(function(){
-            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            var ptype = $("select[name=pujatype]").val();
+            if(ptype ==1){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype ==2){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype ==3){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         
         })
         $("#wsamgari").click(function(){
-            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            var ptype = $("select[name=pujatype]").val();
+            if(ptype ==1){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype ==2){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype ==3){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
             
         })
         $("#all").click(function(){
-            totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            var ptype = $("select[name=pujatype]").val();
+            if(ptype ==1){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else if(ptype ==2){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else if(ptype ==3){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         })
 
     });
+</script>
+
+<script>
+
+    $('#proceedBook').on('click',  function(){
+
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });         
+        var puja_type = $("select[name=pujatype]").val();
+        
+        var puja_category= $("input[name=category]").val();           
+        var ecomm_puja_id= $("input[name=ecomm_puja_id]").val();           
+        var price_order= $("#addprice").text();           
+        // alert(price_order)
+        
+        var base_url = '<?=url('');?>'; 
+        // var ecomm_puja_id = 6;          
+        $.ajax({
+            url: "{{url('puja-delivery')}}",
+            type: "POST",
+            data: "price_order="+price_order + "&puja_category=" + puja_category+ "&puja_type=" +puja_type+"&ecomm_puja_id=" +ecomm_puja_id,
+            success: function( response ) {
+                window.location.replace("{{url('puja-delivery')}}");
+                // alert('Ajax form has been submitted successfully');
+            }
+        });
+    });
+        
+    $('#proceedBookForLogin').on('click',  function(){
+
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });         
+        var puja_type = $("select[name=pujatype]").val();
+        
+        var puja_category= $("input[name=category]").val();           
+        var ecomm_puja_id= $("input[name=ecomm_puja_id]").val();           
+        var price_order= $("#addprice").text();           
+        // alert(price_order)
+        
+        var base_url = '<?=url('');?>'; 
+        // var ecomm_puja_id = 6;          
+        $.ajax({
+            url: "{{url('puja-delivery-login')}}",
+            type: "POST",
+            data: "price_order="+price_order + "&puja_category=" + puja_category+ "&puja_type=" +puja_type+"&ecomm_puja_id=" +ecomm_puja_id,
+            success: function( response ) {
+                window.location.replace("{{url('puja-delivery')}}");
+                // alert('Ajax form has been submitted successfully');
+            }
+        });
+        });
+        $(function(){
+
+            $('.details p').hide();
+            $('.details a#lessMore').hide();
+            $('.details ol li').hide();
+            $('.details ul li').hide();
+            $('.details details').show();
+            
+        });
+        $(document).ready(function(){
+            
+            $('#readMore').click(function(){
+                $('.details span').hide();
+                $('.details p').show();
+                $('.details ol li').show();
+                $('.details ul li').show();
+                $('.details a#lessMore').show();
+            });
+        })
+        $(document).ready(function(){
+            
+            $('#lessMore').click(function(){
+                $('.details a#lessMore').hide();
+                $('.details span').show();
+                $('.details p').hide();
+                $('.details ol li').hide();
+                $('.details ul li').hide();
+            });
+        })
 </script>
 <!-- -------------footer-------- -->
 @include('layouts.footer')

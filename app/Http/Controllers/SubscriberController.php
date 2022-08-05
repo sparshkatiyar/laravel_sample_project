@@ -9,6 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 
 class SubscriberController extends Controller
 {
@@ -134,4 +135,6 @@ class SubscriberController extends Controller
             );
         }
     }
+
+    
 }
