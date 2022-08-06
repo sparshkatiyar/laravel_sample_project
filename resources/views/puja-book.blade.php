@@ -140,9 +140,10 @@
             <div class="a">
                 <h4>Advantages of this pooja</h4>
             </div>
-            {!!$pujaDetails->puja_id->advantage!!}               
-            <!-- <div class="b">
-            </div> -->
+                           
+            <div class="b">
+                {!!$pujaDetails->puja_id->advantage!!}
+            </div>
         </div>
 
         <!-- --- -->
@@ -151,10 +152,10 @@
                 <h4>Your Pooja is Simplified</h4>
             </div>
             <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
-            {!! $pujaDetails->puja_id->pujasimplified!!}
-            <!-- <div class="b">
-                
-            </div> -->
+            
+            <div class="b">
+                {!! $pujaDetails->puja_id->pujasimplified!!}
+            </div>
         </div>
     </div>
 
@@ -191,7 +192,7 @@
 
             <!-- Portfolio Gallery Grid -->
             <div class="row">
-                <div class="column nature">
+                <div class="column show nature">
                     <div class="content">
                         <a href="../Pooja-1/pooja-book.html"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains"
                                 style="width:100%"></a>
@@ -202,7 +203,7 @@
                 </div>
 
 
-                <div class="column people">
+                <div class="column show people">
                     <div class="content">
                         <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -211,7 +212,7 @@
                 </div>
 
 
-                <div class="column cars">
+                <div class="column show cars">
                     <div class="content">
                         <a href=""> <img src="{{ asset('puja/god-img3.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -220,7 +221,7 @@
                 </div>
 
 
-                <div class="column people">
+                <div class="column show people">
                     <div class="content">
                         <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
