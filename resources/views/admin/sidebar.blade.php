@@ -23,7 +23,7 @@
                             <a href="{{url('admin-panel/user-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">User Registered</span>
                             </a>
                             <a href="{{url('admin-panel/pandit-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Pandit Ji List</span>
-                            <a href="dashboard.html"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Astrologer/Motivational Speakers</span>
+                            <a href="{{url('admin-panel/astrologer-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Astrologer/Motivational Speakers</span>
                             </a>
                             <a href="{{url('admin-panel/pooja-booking')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Pooja Bookings</span>
                             </a>

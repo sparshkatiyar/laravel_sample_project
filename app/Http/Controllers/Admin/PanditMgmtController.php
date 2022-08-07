@@ -13,4 +13,8 @@ class PanditMgmtController extends Controller
         $panditList = Pandit::all();
         return view('admin/pandit-list' ,compact('panditList'));
     }
+    public function astro(){
+        $panditList = Pandit::all();
+        return view('admin/astrologer-list' ,compact('panditList'));
+    }
 }
