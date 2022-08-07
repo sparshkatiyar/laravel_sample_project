@@ -14,7 +14,7 @@ use App\Models\Puja;
 class BookingMgmtController extends Controller
 {
     public function index(){
-        $bookingList = Booking::all();
+        $bookingList = $bookingList = Booking::where('pandit_id',null)->get();
         $panditList = Pandit::all();
         foreach(@$bookingList as $booking){
             $booking->ecomm_puja_id     = PujaEcommerce::find($booking->ecomm_puja_id);
@@ -24,6 +24,19 @@ class BookingMgmtController extends Controller
         } 
         // dd($bookingList);
         return view('admin/booking-list' ,compact('bookingList','panditList'));
+    }
+
+    public function assigned(){
+        $bookingList = Booking::where('pandit_id',"!=",null)->get();
+        $panditList = Pandit::all();
+        foreach(@$bookingList as $booking){
+            $booking->ecomm_puja_id     = PujaEcommerce::find($booking->ecomm_puja_id);
+            $booking->ecomm_puja_id->puja_id     = Puja::find($booking->ecomm_puja_id->puja_id);            
+            $booking->address_id        = UserAddress::find($booking->address_id);
+            $booking->pandit_id         = Pandit::find($booking->pandit_id);
+        } 
+        // dd($bookingList);
+        return view('admin/assigned-puja' ,compact('bookingList','panditList'));
     }
 
     public function assignPandit(Request $request){

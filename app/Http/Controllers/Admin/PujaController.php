@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Puja;
 use App\Models\PujaEcommerce;
+use App\Models\PujaCategory;
 use Validator;
 use Hash;
 use Illuminate\Support\Facades\Input;
@@ -81,5 +82,26 @@ class PujaController extends Controller
         $puja->puja_price_all       = $request->get('allpujaprice');
         $puja->save();
         return redirect('admin-panel/puja-list-ecommerce');
+    }
+
+    public function pujaCategory(){
+        $category_samagri = PujaCategory::select('name_desc')->where('id',1)->get()->first();
+        $category_wsamagri = PujaCategory::select('name_desc')->where('id',2)->get()->first();
+        $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
+        return view('admin/puja-category',compact('category_samagri','category_wsamagri','category_all'));
+    }
+
+    public function pujaCategoryUpdate(Request $request){
+        $saveCategory1 = pujaCategory::where('id', 1)
+        ->update(['name_desc' => $request->category_samagri]);
+        $saveCategory2 = pujaCategory::where('id', 2)
+        ->update(['name_desc' => $request->category_wsamagri]);
+        $saveCategory3 = pujaCategory::where('id', 3)
+        ->update(['name_desc' => $request->category_all]);
+       
+        $category_samagri = PujaCategory::select('name_desc')->where('id',1)->get()->first();
+        $category_wsamagri = PujaCategory::select('name_desc')->where('id',2)->get()->first();
+        $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
+        return view('admin/puja-category',compact('category_samagri','category_wsamagri','category_all'));
     }
 }

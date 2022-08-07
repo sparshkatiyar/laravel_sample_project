@@ -55,10 +55,14 @@ Route::group(['prefix' => '/admin-panel'],function(){
 	Route::post('/puja-creation-ecommerce',[App\Http\Controllers\Admin\PujaController::class,'pujaCreationEm']);
 	Route::get('/pandit-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'index']);
 	Route::get('/pooja-booking',[App\Http\Controllers\Admin\BookingMgmtController::class,'index']);
+	Route::get('/assigned-pandit-pooja',[App\Http\Controllers\Admin\BookingMgmtController::class,'assigned']);
 	Route::get('/user-list',[App\Http\Controllers\Admin\UserMgmtController::class,'index']);
 	Route::post('/validateLogin',[App\Http\Controllers\Admin\HomeController::class,'validateLogin']);
 	Route::post('/create',[App\Http\Controllers\Admin\HomeController::class,'create']);
 	Route::post('/assing-pandit',[App\Http\Controllers\Admin\BookingMgmtController::class,'assignPandit']);
+	Route::get('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategory']);
+	Route::post('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategoryUpdate']);
+	
 	Route::group(['middleware' => 'admin-auth'],function(){
 		
 		
