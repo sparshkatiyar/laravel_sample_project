@@ -59,7 +59,7 @@
 
             <?php
                 $string = strip_tags($pujaDetails->puja_id->desc);
-                if (strlen($string) > 500) {
+                /*if (strlen($string) > 500) {
 
                     // truncate string
                     $stringCut = substr($string, 0, 600);
@@ -68,12 +68,20 @@
                     //if the string doesn't contain any space then it will cut without word basis.
                     $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
                     $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
+                }*/
+                
+                $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
+                if($string_hindi)
+                {
+                    $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
                 }
                 echo $string;
+                echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
+
             ?>
             </span>     
             <p>
-                {!! $pujaDetails->puja_id->desc!!}
+                <!-- {!! $pujaDetails->puja_id->desc!!} -->
                 
             </p>
             <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
@@ -399,22 +407,28 @@
         $(document).ready(function(){
             
             $('#readMore').click(function(){
-                $('.details span').hide();
+                $('#hindi_desc').show();
+                $(this).hide();
+                /*$('.details span').hide();
                 $('.details p').show();
                 $('.details ol li').show();
-                $('.details ul li').show();
+                $('.details ul li').show();*/
                 $('.details a#lessMore').show();
             });
         })
         $(document).ready(function(){
             
             $('#lessMore').click(function(){
-                $('.details a#lessMore').hide();
+                 $('#hindi_desc').hide();
+                  $('.details a#readMore').show();
+                  $(this).hide();
+               /* $('.details a#lessMore').hide();
                 $('.details span').show();
                 $('.details p').hide();
                 $('.details ol li').hide();
-                $('.details ul li').hide();
+                $('.details ul li').hide();*/
             });
+
         })
 </script>
 <!-- -------------footer-------- -->
