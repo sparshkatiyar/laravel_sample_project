@@ -47,20 +47,25 @@ Route::group(['prefix' => '/admin-panel'],function(){
 	Route::get('/signin',[App\Http\Controllers\Admin\HomeController::class,'signin']);
 	Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
 	Route::get('/logout',[App\Http\Controllers\Admin\HomeController::class,'logout']);
-	Route::get('/puja-list',[App\Http\Controllers\Admin\HomeController::class,'pujaList']);
-	Route::get('/puja-list-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaListEm']);
-	Route::get('/puja-creation',[App\Http\Controllers\Admin\HomeController::class,'pujaCreation']);
-	Route::post('/puja-creation',[App\Http\Controllers\Admin\PujaController::class,'pujaCreation']);
-	Route::get('/puja-creation-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaCreationEm']);
-	Route::post('/puja-creation-ecommerce',[App\Http\Controllers\Admin\PujaController::class,'pujaCreationEm']);
-	Route::get('/pandit-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'index']);
-	Route::get('/pooja-booking',[App\Http\Controllers\Admin\BookingMgmtController::class,'index']);
-	Route::get('/user-list',[App\Http\Controllers\Admin\UserMgmtController::class,'index']);
 	Route::post('/validateLogin',[App\Http\Controllers\Admin\HomeController::class,'validateLogin']);
-	Route::post('/create',[App\Http\Controllers\Admin\HomeController::class,'create']);
-	Route::post('/assing-pandit',[App\Http\Controllers\Admin\BookingMgmtController::class,'assignPandit']);
+	
+	
 	Route::group(['middleware' => 'admin-auth'],function(){
-		
+		Route::get('/pooja-booking',[App\Http\Controllers\Admin\BookingMgmtController::class,'index']);
+		Route::get('/assigned-pandit-pooja',[App\Http\Controllers\Admin\BookingMgmtController::class,'assigned']);
+		Route::get('/user-list',[App\Http\Controllers\Admin\UserMgmtController::class,'index']);
+		Route::post('/create',[App\Http\Controllers\Admin\HomeController::class,'create']);
+		Route::get('/puja-list',[App\Http\Controllers\Admin\HomeController::class,'pujaList']);
+		Route::get('/puja-list-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaListEm']);
+		Route::get('/puja-creation',[App\Http\Controllers\Admin\HomeController::class,'pujaCreation']);
+		Route::post('/puja-creation',[App\Http\Controllers\Admin\PujaController::class,'pujaCreation']);
+		Route::get('/puja-creation-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaCreationEm']);
+		Route::post('/puja-creation-ecommerce',[App\Http\Controllers\Admin\PujaController::class,'pujaCreationEm']);
+		Route::post('/assing-pandit',[App\Http\Controllers\Admin\BookingMgmtController::class,'assignPandit']);
+		Route::get('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategory']);
+		Route::post('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategoryUpdate']);
+		Route::get('/pandit-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'index']);
+		Route::get('/astrologer-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'astro']);
 		
 	});
 

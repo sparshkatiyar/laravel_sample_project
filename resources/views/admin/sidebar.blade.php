@@ -1,7 +1,7 @@
     <div id="aside" class="page-sidenav no-shrink bg-light nav-dropdown fade" aria-hidden="true">
         <div class="sidenav h-100 modal-dialog bg-light">
             <div class="navbar">
-                <a href="index.html" class="navbar-brand"><svg width="32" height="32" viewBox="0 0 512 512"
+                <a href="{{url('admin-panel/dashboard')}}" class="navbar-brand"><svg width="32" height="32" viewBox="0 0 512 512"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- <g class="loading-spin" style="transform-origin: 256px 256px">
                 <path
@@ -23,14 +23,16 @@
                             <a href="{{url('admin-panel/user-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">User Registered</span>
                             </a>
                             <a href="{{url('admin-panel/pandit-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Pandit Ji List</span>
-                            <a href="dashboard.html"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Astrologer/Motivational Speakers</span>
+                            <a href="{{url('admin-panel/astrologer-list')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Astrologer/Motivational Speakers</span>
                             </a>
                             <a href="{{url('admin-panel/pooja-booking')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Pooja Bookings</span>
                             </a>
-                            <a href="{{url('admin-panel/pooja-assign')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Assign Pooja</span>
-                            <a href="{{url('admin-panel/puja-creation')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja creation/upload puja</span>
+                            <a href="{{url('admin-panel/assigned-pandit-pooja')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Assigned Pooja</span>
+                            <a href="{{url('admin-panel/puja-creation')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja Creation/upload puja</span>
                             </a>
-                            <a href="{{url('admin-panel/puja-creation-ecommerce')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja creation Ecommerce</span>
+                            <a href="{{url('admin-panel/puja-creation-ecommerce')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja Creation Ecommerce</span>
+                            </a>
+                            <a href="{{url('admin-panel/puja-category')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja Category</span>
                             </a>
                         </li>
                         <li class="nav-header hidden-folded">
