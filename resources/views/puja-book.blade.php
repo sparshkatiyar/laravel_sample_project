@@ -5,7 +5,7 @@
 <!-- -----------section1----------- -->
 
 <section id="section1">
-    <div class="container-fluid main">
+    <div class="container-fluid main-pooja">
         <div class="img">
             <div>
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
@@ -135,7 +135,7 @@
 <!-- ----section2-- -->
 
 <section id="section2">
-    <div class="container-fluid boxes">
+    <div class="container-fluid boxes-pooja">
         <div class="box1">
             <div class="a">
                 <h4>Advantages of this pooja</h4>
@@ -389,7 +389,7 @@
         });
         $(function(){
 
-            $('.details p').hide();
+            //$('.details p').hide();
             $('.details a#lessMore').hide();
             $('.details ol li').hide();
             $('.details ul li').hide();

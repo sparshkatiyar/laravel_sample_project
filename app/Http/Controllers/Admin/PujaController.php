@@ -45,6 +45,7 @@ class PujaController extends Controller
         $puja->category = $request->get('pujacategory');
         $puja->advantage = $request->get('pujaadvantage');
         $puja->desc = $request->get('pujadescription');
+        $puja->deschindi = $request->get('pujadescriptionhindi');
         $puja->pujasimplified = $request->get('pujasimplified');
         $puja->save();
         return redirect('admin-panel/puja-list');

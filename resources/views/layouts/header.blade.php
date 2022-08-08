@@ -75,7 +75,7 @@
 
     <!-- ---------popup page ---------->
       <!-- ---first -- -->
-      <div class="popup-1 "  id="pop1">
+      <!-- <div class="popup-1 "  id="pop1">
          <div class="main-div">
             <div class="next-div">
                <button type="button" class="close" aria-label="Close" id="cls-index">
@@ -96,9 +96,9 @@
             </div>
             <button type="submit" class="main-button" id="otpContinue">Continue</button>
          </div>
-      </div>
+      </div> -->
       <!-- ----second--- -->
-      <div id="otp-popup">
+      <!-- <div id="otp-popup">
          <div class="main-div">
             <div class="next-div">
                <button type="button" class="close" aria-label="Close" id="otpClose">
@@ -152,5 +152,5 @@
                </button>
             </div>
          </div>
-      </div>
+      </div> -->
       <!-- -------popup end------- -->
