@@ -10,11 +10,11 @@ class PanditMgmtController extends Controller
 {
     //
     public function index(){
-        $panditList = Pandit::all();
+        $panditList = Pandit::orderBy('id', 'DESC')->paginate(5);
         return view('admin/pandit-list' ,compact('panditList'));
     }
     public function astro(){
-        $panditList = Pandit::all();
+        $panditList = Pandit::orderBy('id', 'DESC')->paginate(5);
         return view('admin/astrologer-list' ,compact('panditList'));
     }
 }

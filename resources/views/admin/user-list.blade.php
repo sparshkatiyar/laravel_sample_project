@@ -67,17 +67,18 @@
                                             <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
                                                 Name
                                             </th>
+                                            <th class="text-muted" style="width: 120px">Mobile No</th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
                                                 style="width: 60px">
-                                                email
+                                                Email
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-badge"
                                                 style="width: 60px">
-                                                Gender
+                                                No.Booking 
                                             </th>
-                                            <th class="text-muted" >DOB</th>
-                                            <th class="text-muted" style="width: 120px">Mobile No</th>
-                                            <th class="text-muted" style="width: 120px">Birth Place</th>
+                                            <!-- <th class="text-muted" >DOB</th>
+                                            
+                                            <th class="text-muted" style="width: 120px">Birth Place</th> -->
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
                                             <th style="width: 50px"></th>
@@ -101,10 +102,15 @@
                                            
                                                 </div>
                                             </td>
+                                            <td class="no-wrap">
+                                                <div class="item-date text-muted text-sm d-none d-md-block">
+                                                {{$user->country_code}}-{{$user->mobile_number}}
+                                                </div>
+                                            </td>
                                             <td>
                                                 <span class="item-amount d-none d-sm-block text-sm">     {{$user->email}}</span>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 @if($user->gender ==1)
                                                     <span class="item-badge badge text-uppercase bg-success"> 
                                                         male
@@ -114,22 +120,18 @@
                                                         female
                                                     </span>   
                                                 @endif
-                                            </td>
+                                            </td> -->
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$user->dob}}
+                                                1
                                                 </div>
                                             </td>
-                                            <td class="no-wrap">
-                                                <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$user->country_code}}-{{$user->mobile_number}}
-                                                </div>
-                                            </td>
-                                            <td class="no-wrap">
+                                           
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$user->date_of_birth}}
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$user->created_at}}
@@ -142,11 +144,10 @@
                                                     <a href="#" data-toggle="dropdown" class="text-muted"><i
                                                             data-feather="more-vertical"></i></a>
                                                     <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                        <a class="dropdown-item" href="#">See detail </a><a
-                                                            class="dropdown-item download">Download </a><a
-                                                            class="dropdown-item edit">Edit</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item trash">Delete item</a>
+                                                    <a class="dropdown-item download"  href="#">View </a>
+                                                    <a  class="dropdown-item edit">Edit</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item trash">Delete item</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -197,34 +198,32 @@
                                 </table>
                             </div>
                             <div class="d-flex">
+                            {!! $userList->appends(['sort' => 'id'])->links() !!}
+                            <!-- {!! $userList->links() !!} -->
                                 <ul class="pagination">
-                                    <li class="page-item disabled">
+                                    <!-- <li class="page-item disabled">
                                         <a class="page-link" href="#" aria-label="Previous"><span
                                                 aria-hidden="true">&laquo;</span>
                                             <span class="sr-only">Previous</span></a>
-                                    </li>
-                                    <li class="page-item active">
+                                    </li> -->
+                                    <!-- <li class="page-item active">
                                         <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item">
+                                    </li> -->
+                                    <!-- <li class="page-item active">
+                                        <a class="page-link" href="#">1 <span class="sr-only">{!! $userList->links() !!}</span></a>
+                                    </li> -->
+                                    <!-- <li class="page-item">
                                         <a class="page-link" href="#">2</a>
                                     </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
+                                   
                                     </li>
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Next"><span
                                                 aria-hidden="true">&raquo;</span>
                                             <span class="sr-only">Next</span></a>
-                                    </li>
+                                    </li> -->
                                 </ul>
-                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
+                                <!-- <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small> -->
                             </div>
                         </div>
                         <div id="modal" class="modal fade" data-backdrop="true">

@@ -67,17 +67,18 @@
                                             <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
                                                 Name
                                             </th>
-                                            <th class="text-muted sort sortable" data-sort="item-amount"
-                                                style="width: 60px">
-                                                email
-                                            </th>
                                             <th class="text-muted sort sortable" data-sort="item-badge"
                                                 style="width: 60px">
-                                                Gender
+                                                Phone
                                             </th>
-                                            <th class="text-muted" >DOB</th>
-                                            <th class="text-muted" style="width: 120px">Skill Primary</th>
-                                            <th class="text-muted" style="width: 120px">Skill  Secondary</th>
+                                            <th class="text-muted sort sortable" data-sort="item-amount"
+                                                style="width: 60px">
+                                                Email
+                                            </th>
+                                            
+                                            <th class="text-muted" >No  Pooja Performed</th>
+                                            <!-- <th class="text-muted" style="width: 120px">Skill Primary</th>
+                                            <th class="text-muted" style="width: 120px">Skill  Secondary</th> -->
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
                                             <th style="width: 50px"></th>
@@ -102,9 +103,18 @@
                                                 </div>
                                             </td>
                                             <td>
+                                                <span  style="min-width: 120px;"class="item-amount d-none d-sm-block text-sm">     N/A</span>
+                                            </td>
+                                            <td>
                                                 <span class="item-amount d-none d-sm-block text-sm">     {{$pandit->email}}</span>
                                             </td>
                                             <td>
+                                                <span style="min-width: 60px;" class="item-amount d-none d-sm-block text-sm">     N/A</span>
+                                            </td>
+                                            <td>
+                                                <span class="item-date text-muted text-sm d-none d-md-block">                {{$pandit->created_at}}</span>
+                                            </td>
+                                            <!-- <td>
                                                 @if($pandit->gender ==1)
                                                     <span class="item-badge badge text-uppercase bg-success"> 
                                                         male
@@ -119,8 +129,8 @@
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$pandit->dob}}
                                                 </div>
-                                            </td>
-                                            <td class="no-wrap">
+                                            </td> -->
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$pandit->skill_primary}}
                                                 </div>
@@ -134,7 +144,7 @@
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$pandit->image}}
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             
                                            
                                             <td>
@@ -142,11 +152,10 @@
                                                     <a href="#" data-toggle="dropdown" class="text-muted"><i
                                                             data-feather="more-vertical"></i></a>
                                                     <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                        <a class="dropdown-item" href="#">See detail </a><a
-                                                            class="dropdown-item download">Download </a><a
-                                                            class="dropdown-item edit">Edit</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item trash">Delete item</a>
+                                                    <a class="dropdown-item download"  href="#">View </a>
+                                                    <a  class="dropdown-item edit">Edit</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item trash">Delete item</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -197,7 +206,8 @@
                                 </table>
                             </div>
                             <div class="d-flex">
-                                <ul class="pagination">
+                            {!! $panditList->appends(['sort' => 'id'])->links() !!}
+                                <!-- <ul class="pagination">
                                     <li class="page-item disabled">
                                         <a class="page-link" href="#" aria-label="Previous"><span
                                                 aria-hidden="true">&laquo;</span>
@@ -224,7 +234,7 @@
                                             <span class="sr-only">Next</span></a>
                                     </li>
                                 </ul>
-                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
+                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small> -->
                             </div>
                         </div>
                         <div id="modal" class="modal fade" data-backdrop="true">

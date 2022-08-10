@@ -68,7 +68,7 @@
                                                 style="width: 60px">
                                                 Name
                                             </th>
-                                            <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
+                                            <th class="text-muted sort sortable" data-sort="item-company">
                                                 Type
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
@@ -76,8 +76,8 @@
                                                 Category
                                             </th>
                                             
-                                            <th class="text-muted" >Description</th>
-                                            <th class="text-muted" style="width: 120px">Advantage</th>
+                                            <!-- <th class="text-muted" >Description</th> -->
+                                            <!-- <th class="text-muted" style="width: 120px">Advantage</th> -->
                                             <th class="text-muted" style="width: 120px">Icon/Image</th>
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
@@ -109,19 +109,20 @@
                                                 <span class="item-amount d-none d-sm-block text-sm">     {{$puja->category}}</span>
                                             </td>
                                             
-                                            <td class="no-wrap">
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$puja->desc}}
                                                 </div>
-                                            </td>
-                                            <td class="no-wrap">
+                                            </td> -->
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$puja->advantage}}
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$puja->image}}
+                                                    <img src="{{$puja->image}}" alt="" style="widh:50px;height:50px;">
+                                                
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
@@ -190,34 +191,8 @@
                                 </table>
                             </div>
                             <div class="d-flex">
-                                <ul class="pagination">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous"><span
-                                                aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span></a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next"><span
-                                                aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span></a>
-                                    </li>
-                                </ul>
-                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
+                            {!! $pujaList->appends(['sort' => 'id'])->links() !!}
+                               
                             </div>
                         </div>
                         <div id="modal" class="modal fade" data-backdrop="true">

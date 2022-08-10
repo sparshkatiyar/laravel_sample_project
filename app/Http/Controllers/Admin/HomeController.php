@@ -36,11 +36,11 @@ class HomeController extends Controller
     
 
     public function pujaList(){
-        $pujaList = Puja::all();
+        $pujaList = Puja::orderBy('id', 'DESC')->paginate(5);
         return view('admin/puja-list' ,compact('pujaList'));
     }
     public function pujaListEm(){
-        $pujaList = PujaEcommerce::all();
+        $pujaList = PujaEcommerce::orderBy('id', 'DESC')->paginate(5);
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->puja_id);
         }       

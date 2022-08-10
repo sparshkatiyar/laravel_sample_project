@@ -14,7 +14,7 @@ use App\Models\Puja;
 class BookingMgmtController extends Controller
 {
     public function index(){
-        $bookingList = $bookingList = Booking::where('pandit_id',null)->get();
+        $bookingList = Booking::where('pandit_id',null)->orderBy('id', 'DESC')->paginate(5);
         $panditList = Pandit::all();
         foreach(@$bookingList as $booking){
             $booking->ecomm_puja_id     = PujaEcommerce::find($booking->ecomm_puja_id);
@@ -27,7 +27,7 @@ class BookingMgmtController extends Controller
     }
 
     public function assigned(){
-        $bookingList = Booking::where('pandit_id',"!=",null)->get();
+        $bookingList = Booking::where('pandit_id',"!=",null)->orderBy('id', 'DESC')->paginate(5);
         $panditList = Pandit::all();
         foreach(@$bookingList as $booking){
             $booking->ecomm_puja_id     = PujaEcommerce::find($booking->ecomm_puja_id);
