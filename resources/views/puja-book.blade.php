@@ -5,7 +5,7 @@
 <!-- -----------section1----------- -->
 
 <section id="section1">
-    <div class="container-fluid main">
+    <div class="container-fluid main-pooja">
         <div class="img">
             <div>
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
@@ -59,7 +59,7 @@
 
             <?php
                 $string = strip_tags($pujaDetails->puja_id->desc);
-                if (strlen($string) > 500) {
+                /*if (strlen($string) > 500) {
 
                     // truncate string
                     $stringCut = substr($string, 0, 600);
@@ -68,12 +68,20 @@
                     //if the string doesn't contain any space then it will cut without word basis.
                     $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
                     $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
+                }*/
+                
+                $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
+                if($string_hindi)
+                {
+                    $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
                 }
                 echo $string;
+                echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
+
             ?>
             </span>     
             <p>
-                {!! $pujaDetails->puja_id->desc!!}
+                <!-- {!! $pujaDetails->puja_id->desc!!} -->
                 
             </p>
             <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
@@ -135,14 +143,15 @@
 <!-- ----section2-- -->
 
 <section id="section2">
-    <div class="container-fluid boxes">
+    <div class="container-fluid boxes-pooja">
         <div class="box1">
             <div class="a">
                 <h4>Advantages of this pooja</h4>
             </div>
-            {!!$pujaDetails->puja_id->advantage!!}               
-            <!-- <div class="b">
-            </div> -->
+                           
+            <div class="b">
+                {!!$pujaDetails->puja_id->advantage!!}
+            </div>
         </div>
 
         <!-- --- -->
@@ -151,10 +160,10 @@
                 <h4>Your Pooja is Simplified</h4>
             </div>
             <h5>Your Pooja is Simplified at “AstroPandit Om”</h5>
-            {!! $pujaDetails->puja_id->pujasimplified!!}
-            <!-- <div class="b">
-                
-            </div> -->
+            
+            <div class="b">
+                {!! $pujaDetails->puja_id->pujasimplified!!}
+            </div>
         </div>
     </div>
 
@@ -191,7 +200,7 @@
 
             <!-- Portfolio Gallery Grid -->
             <div class="row">
-                <div class="column nature">
+                <div class="column show nature">
                     <div class="content">
                         <a href="../Pooja-1/pooja-book.html"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains"
                                 style="width:100%"></a>
@@ -202,7 +211,7 @@
                 </div>
 
 
-                <div class="column people">
+                <div class="column show people">
                     <div class="content">
                         <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -211,7 +220,7 @@
                 </div>
 
 
-                <div class="column cars">
+                <div class="column show cars">
                     <div class="content">
                         <a href=""> <img src="{{ asset('puja/god-img3.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -220,7 +229,7 @@
                 </div>
 
 
-                <div class="column people">
+                <div class="column show people">
                     <div class="content">
                         <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -388,7 +397,7 @@
         });
         $(function(){
 
-            $('.details p').hide();
+            //$('.details p').hide();
             $('.details a#lessMore').hide();
             $('.details ol li').hide();
             $('.details ul li').hide();
@@ -398,22 +407,28 @@
         $(document).ready(function(){
             
             $('#readMore').click(function(){
-                $('.details span').hide();
+                $('#hindi_desc').show();
+                $(this).hide();
+                /*$('.details span').hide();
                 $('.details p').show();
                 $('.details ol li').show();
-                $('.details ul li').show();
+                $('.details ul li').show();*/
                 $('.details a#lessMore').show();
             });
         })
         $(document).ready(function(){
             
             $('#lessMore').click(function(){
-                $('.details a#lessMore').hide();
+                 $('#hindi_desc').hide();
+                  $('.details a#readMore').show();
+                  $(this).hide();
+               /* $('.details a#lessMore').hide();
                 $('.details span').show();
                 $('.details p').hide();
                 $('.details ol li').hide();
-                $('.details ul li').hide();
+                $('.details ul li').hide();*/
             });
+
         })
 </script>
 <!-- -------------footer-------- -->

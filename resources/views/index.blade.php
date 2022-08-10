@@ -1241,7 +1241,7 @@
 
 
     <!-- ----------------------Book Pooja------------- -->
-    <section id="Book-Pooja">
+    <section id="Book-Pooja" class="pooja_tabs">
         <div class="container-fluid text-center p-0">
 
             <h2 id="h2">Book Pooja</h2>
@@ -1268,17 +1268,17 @@
       </div> -->
 
                 <!--  -->
-                <div id="myBtnContainer">
-                    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                    <button class="btn" onclick="filterSelection('nature')"> Ghar Pe Pooja</button>
-                    <button class="btn" onclick="filterSelection('cars')"> Online Pooja</button>
-                    <button class="btn" onclick="filterSelection('people')"> On Request Special Pooja</button>
-                </div>
+                <div id="myBtnContainer" class="tabs_title">
+                  <button class="btn active" data-name="all"> Show all</button>
+                  <button class="btn" data-name="nature" > Ghar Pe Pooja</button>
+                  <button class="btn" data-name="cars" > Online Pooja</button>
+                  <button class="btn" data-name="people" > On Request Special Pooja</button>
+               </div>
 
                 <!-- Portfolio Gallery Grid -->
-                <div class="row">
+                <div class="row tabs_content">
                     @foreach(@$pujaList as $puja)
-                    <div class="column nature">
+                    <div class="column show nature">
                         <div class="content">
                             <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image}}" alt="Mountains"
                                     style="width:100%"></a>
@@ -1290,7 +1290,7 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="column nature">
+                    <div class="column show nature">
                         <div class="content">
                             <img src="{{ asset('images/god-img1.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1299,7 +1299,7 @@
                     </div>
 
 
-                    <div class="column people">
+                    <div class="column show people">
                         <div class="content">
                             <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1308,7 +1308,7 @@
                     </div>
 
 
-                    <div class="column cars">
+                    <div class="column show cars">
                         <div class="content">
                             <img src="{{ asset('images/god-img3.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1317,7 +1317,7 @@
                     </div>
 
 
-                    <div class="column people">
+                    <div class="column show people">
                         <div class="content">
                             <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1326,7 +1326,7 @@
                     </div>
 
 
-                    <div class="column cars">
+                    <div class="column show cars">
                         <div class="content">
                             <img src="{{ asset('images/god-img1.png')}}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1335,7 +1335,7 @@
                     </div>
 
 
-                    <div class="column cars">
+                    <div class="column show cars">
                         <div class="content">
                             <img src="{{ asset('images/god-img3.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1343,7 +1343,7 @@
                         </div>
                     </div>
 
-                    <div class="column cars">
+                    <div class="column show cars">
                         <div class="content">
                             <img src="{{ asset('images/god-img1.png')}}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1353,7 +1353,7 @@
 
 
 
-                    <div class="column nature">
+                    <div class="column show nature">
                         <div class="content">
                             <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
@@ -1394,16 +1394,16 @@
 
 
 
-                <div id="myBtnContainer">
-                    <button class="btn active" onclick="filterSelection('all')"> All</button>
-                    <button class="btn" onclick="filterSelection('nature')">Pooja Essentials</button>
-                    <button class="btn" onclick="filterSelection('cars')">Gemstones</button>
-                    <!-- <button class="btn" onclick="filterSelection('people')"> On Request Special Pooja</button> -->
-                </div>
+                <div id="myBtnContainer" class="tabs_title">
+                  <button class="btn active" data-name="all"> All</button>
+                  <button class="btn" data-name="nature">Pooja Essentials</button>
+                  <button class="btn" data-name="cars">Gemstones</button>
+                  <!-- <button class="btn" onclick="filterSelection('people')"> On Request Special Pooja</button> -->
+               </div>
 
                 <!-- Portfolio Gallery Grid -->
-                <div class="row">
-                    <div class="column nature">
+                <div class="row tabs_content">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 
@@ -1419,7 +1419,7 @@
 
 
                     <!-- ---- -->
-                    <div class="column nature">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 
@@ -1434,7 +1434,7 @@
                     </div>
 
                     <!-- ---- -->
-                    <div class="column nature">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 
@@ -1450,7 +1450,7 @@
 
 
                     <!-- ---- -->
-                    <div class="column nature">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 
@@ -1466,7 +1466,7 @@
 
 
                     <!-- ---- -->
-                    <div class="column nature">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 
@@ -1482,7 +1482,7 @@
 
 
                     <!-- ---- -->
-                    <div class="column nature">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 
@@ -1498,7 +1498,7 @@
 
 
                     <!-- ---- -->
-                    <div class="column nature">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 
@@ -1513,7 +1513,7 @@
                     </div>
 
                     <!-- ---- -->
-                    <div class="column nature">
+                    <div class="column show nature">
                         <img src="{{ asset('images/product.png')}}" alt="Mountains" style="width:100%">
                         <div class="content">
 

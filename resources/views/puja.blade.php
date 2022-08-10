@@ -84,9 +84,10 @@
 
             <!-- Portfolio Gallery Grid -->
             <div class="row">
+                
             @foreach(@$pujaList as $puja)
 
-            <div class="column nature">
+            <div class="column show nature">
                 <div class="content">
                     <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image }}" alt="Mountains"
                             style="width:100%"></a>
@@ -99,7 +100,7 @@
             @endforeach
 
 
-                <div class="column people">
+                <div class="column show people">
                     <div class="content">
                         <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -108,7 +109,7 @@
                 </div>
 
 
-                <div class="column cars">
+                <div class="column show cars">
                     <div class="content">
                         <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img3.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -117,7 +118,7 @@
                 </div>
 
 
-                <div class="column people">
+                <div class="column show people">
                     <div class="content">
                         <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -126,7 +127,7 @@
                 </div>
 
 
-                <div class="column cars">
+                <div class="column show cars">
                     <div class="content">
                         <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -135,7 +136,7 @@
                 </div>
 
 
-                <div class="column cars">
+                <div class="column show cars">
                     <div class="content">
                         <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img3.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -143,7 +144,7 @@
                     </div>
                 </div>
 
-                <div class="column cars">
+                <div class="column show cars">
                     <div class="content">
                         <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>
@@ -153,7 +154,7 @@
 
 
 
-                <div class="column nature">
+                <div class="column show nature">
                     <div class="content">
                         <a href="{{url('puja-booking')}}"> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
                         <h4>Akhand Ramayan (Musical)</h4>

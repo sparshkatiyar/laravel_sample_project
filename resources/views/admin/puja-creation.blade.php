@@ -65,6 +65,10 @@
                                             placeholder="hmm.." id="editor2"></textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label> Puja Description ( Hindi )</label><textarea  onclick="ckeFunction()" class="form-control" name="pujadescriptionhindi" rows="4"
+                                            placeholder="hmm.." id="editor4"></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label> Puja Simplified</label><textarea onclick="ckeFunction()" class="form-control" name="pujasimplified" rows="4"
                                             placeholder="hmm.." id="editor3"></textarea>
                                     </div>
@@ -129,6 +133,7 @@
         CKEDITOR.replace( 'editor1' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
         CKEDITOR.replace( 'editor2' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
         CKEDITOR.replace( 'editor3' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+        CKEDITOR.replace( 'editor4' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
     }
    
     </script>

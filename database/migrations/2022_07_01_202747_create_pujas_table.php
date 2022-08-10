@@ -21,6 +21,7 @@ class CreatePujasTable extends Migration
             $table->string('category');
             $table->string('advantage');
             $table->string('desc');
+            $table->string('deschindi');
             $table->timestamps();
         });
     }
