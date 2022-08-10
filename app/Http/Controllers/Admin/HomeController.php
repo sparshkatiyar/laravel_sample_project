@@ -68,7 +68,8 @@ class HomeController extends Controller
         setcookie("remember",null, -1, "/");
         Auth::logout();
         Session::flush();
-        return view('admin/signin');
+        return redirect('admin-panel/signin')->with('success','Logout  is successful !!');
+        
     }
     
 

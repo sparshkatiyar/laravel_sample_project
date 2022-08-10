@@ -152,10 +152,10 @@
                                                     <a href="#" data-toggle="dropdown" class="text-muted"><i
                                                             data-feather="more-vertical"></i></a>
                                                     <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                    <a class="dropdown-item download"  href="#">View </a>
+                                                    <a class="dropdown-item download"  onclick="viewPandit({{$pandit}})">View </a>
                                                     <a  class="dropdown-item edit">Edit</a>
                                                     <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item trash">Delete item</a>
+                                                    <a class="dropdown-item trash" onclick="deletePandit({{$pandit->id}})">Delete item</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -237,71 +237,165 @@
                                 <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small> -->
                             </div>
                         </div>
-                        <div id="modal" class="modal fade" data-backdrop="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">New invoice</h5>
-                                    </div>
-                                    <div class="modal-body p-4">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">First Name</label><input type="text"
-                                                        class="form-control" placeholder="First name" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Last Name</label><input type="text"
-                                                        class="form-control" placeholder="Last name" />
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Email</label><input type="email"
-                                                        class="form-control" placeholder="Email" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Password <small>(Register
-                                                            account)</small></label><input type="password"
-                                                        class="form-control" placeholder="Password" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-muted">Address</label><input type="text"
-                                                    class="form-control" placeholder="1234 Main St" />
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">City</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState"
-                                                        class="text-muted d-block">State</label><select
-                                                        class="custom-select">
-                                                        <option selected="selected">Choose...</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                    <label class="text-muted">Zip</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">
-                                                Submit
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
+
+    <div id="panditInfoModel" class="modal fade  " data-backdrop="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Pandit Details</h5>
+                    <!-- </div> -->
+                    <button class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted"> Name</label><input type="text" class="form-control"
+                                    id="first_name" placeholder="Name" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Email</label><input type="email" class="form-control"
+                                placeholder="Email" id="email" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">DOB</label><input type="text"
+                                    class="form-control" placeholder="Last name" id="dob"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Gender.</label><input type="phone" class="form-control"
+                                    placeholder="Phone" id="gender" />
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted">Register As</label><input type="text"
+                                    class="form-control" placeholder="Last name" id="reg_as"/>
+                            </div>
+                            
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Primary Skill <small></small></label><input type="text"
+                                    class="form-control" placeholder="Primary Skill" id="skill_primary" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Secondry Skill</label><input id="skill_secondry" type="text"
+                                    class="form-control" placeholder="Secondry Skill" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Primary Skill <small></small></label><input type="text"
+                                    class="form-control" placeholder="Primary Skill" id="consult_time" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Secondry Skill</label><input id="other_platform" type="text"
+                                    class="form-control" placeholder="Secondry Skill" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Primary Skill <small></small></label><input type="text"
+                                    class="form-control" placeholder="Primary Skill" id="app_or_website" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">UID No.</label><input id="uid_number" type="text"
+                                    class="form-control" placeholder="UID No." />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Experies <small></small></label><input type="text"
+                                    class="form-control" placeholder="Experties" id="experties" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Chat Charge</label><input id="charge_chat" type="text"
+                                    class="form-control" placeholder="Chat charge" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Call Charge<small></small></label><input type="text"
+                                    class="form-control" placeholder="Call Charge id="charge_call" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Video Chage</label><input id="charge_video" type="text"
+                                    class="form-control" placeholder="Video Charge" />
+                            </div>
+                        </div>
+
+                        <!-- <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deletePandit" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title text-md">Delete this pandit !</div><button class="close"
+                        data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-4 text-center">
+                    <p>Woohoo, you're going to delete paandit!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button> 
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function viewPandit(panditInfo) {
+        $('#panditInfoModel').modal('show');
+        $("#name").val(panditInfo.name);
+        $("#email").val(panditInfo.email);
+        $("#reg_as").val( panditInfo.reg_as);
+        $("#skill_primary").val(panditInfo.skill_primary);
+        $("#gender").val(panditInfo.gender);
+        $("#dob").val(panditInfo.dob);
+        $("#skill_secondry").val(panditInfo.skill_secondry);
+        $("#consult_time").val(panditInfo.consult_time);
+        $("#other_platform").val(panditInfo.other_platform);
+        $("#app_or_website").val(panditInfo.app_or_website);
+        $("#uid_number").val(panditInfo.uid_number);
+        $("#experties").val(panditInfo.experties);
+        $("#charge_chat").val(panditInfo.charge_chat);
+        $("#charge_call").val(panditInfo.charge_call);
+        $("#charge_video").val(panditInfo.charge_video);
+        
+    }
+
+    function deletePandit() {
+        $('#deletePandit').modal('show');
+    }
+
+    function cancel() {
+        $('#deletePandit').modal('hide');
+    }
+    </script>
     @include('admin.footer')
 </body>
 
