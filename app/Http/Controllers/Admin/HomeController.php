@@ -36,7 +36,7 @@ class HomeController extends Controller
     
 
     public function pujaList(){
-        $pujaList = Puja::orderBy('id', 'DESC')->paginate(5);
+        $pujaList = Puja::orderBy('id', 'DESC')->paginate(5);        
         return view('admin/puja-list' ,compact('pujaList'));
     }
     public function pujaListEm(){
@@ -49,6 +49,26 @@ class HomeController extends Controller
 
     public function pujaCreation(){
         return view('admin/puja-creation');
+    }
+    public function pujaEdit(Request $request){    
+        $puja = Puja::find($request->id);       
+        return view('admin/puja-edit', compact('puja'));
+    }
+
+    public function pujaEditSave(Request $request){   
+      
+        $puja = Puja::find($request->id);  
+        if($request->pujatype !="1"){
+            $puja->type = $request->pujatype;
+        }     
+        if($request->pujacategory !="1"){
+            $puja->category = $request->pujacategory;
+        } 
+        $puja->advantage = $request->pujaadvantage;    
+        $puja->desc = $request->pujadescription;    
+        $puja->pujasimplified = $request->pujasimplified;  
+        $puja->save();  
+        return view('admin/puja-edit', compact('puja'));
     }
     public function pujaCreationEm(){
         $pujaList = Puja::all();
