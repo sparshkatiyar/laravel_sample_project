@@ -289,8 +289,6 @@
             </div>
         </div>
     </div>
-    
-    @include('admin.footer')
     <script>
   
     $(document).ready(function(){
@@ -331,7 +329,9 @@
         $("#town").val(userInfo.town);
         $("#state").val(userInfo.state);
     }
-</script>
+    </script>
+    @include('admin.footer')
+ 
 </body>
 
 </html>

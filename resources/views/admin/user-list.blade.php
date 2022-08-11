@@ -97,15 +97,16 @@
                                                 <small class="text-muted"> {{$user->id}}</small>
                                             </td>
                                             <td class="flex">
-                                                <a href="page.invoice.detail.html"
-                                                    class="item-company ajax h-1x">{{$user->first_name}}</a>
                                                 <div class="item-mail text-muted h-1x d-none d-sm-block">
+                                                    <a class="item-company ajax h-1x">{{$user->first_name}}</a>
 
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
+                                                    <a class="item-company ajax h-1x">
                                                     {{$user->country_code}}-{{$user->mobile_number}}
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td>
