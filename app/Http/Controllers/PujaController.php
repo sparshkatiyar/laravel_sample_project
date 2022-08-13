@@ -21,25 +21,21 @@ class PujaController extends Controller
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->puja_id);
         }  
-      
-        return view('puja',compact('pujaList',));
+     
+        return view('puja',compact('pujaList'));
     }
     public function booking(Request $request )
     {
         $ecomm_puja_id = $request->id;
         $pujaDetails = PujaEcommerce::find($request->id);  
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
-        $category_samagri = PujaCategory::select('name_desc')->where('id',1)->get()->first();
-        $category_wsamagri = PujaCategory::select('name_desc')->where('id',2)->get()->first();
-        $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
+        $category_samagri = PujaCategory::where('pooja_id',$ecomm_puja_id)->get()->first();
+        
         // dd($category_samagri->name_desc);
-        return view('puja-book',compact('pujaDetails','ecomm_puja_id','category_samagri','category_wsamagri','category_all'));
+        return view('puja-book',compact('pujaDetails','ecomm_puja_id','category_samagri'));
     }
     public function delivery(Request $request)
     {
-        
-        
-
         $user_id            =  Auth::guard('user')->user(); 
         $userAddress        =  UserAddress::where('user_id',@$user_id->id)->first();
         $price_order        =  Session::get('price_order');

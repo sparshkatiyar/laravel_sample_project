@@ -13,6 +13,7 @@
                             <small class="text-muted">Add content of category</small>
                         </div>
                         <div class="flex"></div>
+
                         <div>
                             <a href="{{url('admin-panel/puja-category')}}"><span class="d-none d-sm-inline mx-1">Puja list</span>
                                 <i data-feather="arrow-right"></i></a>
@@ -23,23 +24,67 @@
                     <div class="padding">
                         <div class="row">
                             <div class="col-sm-8 col-md-9">
-                                
+                            @if ($message = Session::get('success'))
+                          <div class="alert alert-success alert-block">
+                              <button type="button" class="close" data-dismiss="alert">×</button> 
+                                  <strong>{{ $message }}</strong>
+                          </div>
+                          @php Session::flush('success') @endphp
+                          @endif
+
+                          @if ($message = Session::get('error'))
+                              <div class="alert alert-danger alert-block">
+                                  <button type="button" class="close" data-dismiss="alert">×</button> 
+                                      <strong>{{ $message }}</strong>
+                              </div>
+                              @php Session::flush('error') @endphp
+                          @endif
                                 <!-- <p><strong>Fill flowing Details <Details></Details></strong></p> -->
-                                <form method="post" action="{{url('admin-panel/puja-category')}}"  enctype="multipart/form-data">
+                                <form method="post" action="{{url('admin-panel/puja-category')}}"  enctype="multipart/form-data" id="create-pooja-category">
                                 @csrf 
-                                    
-                                   
-                                    <div class="form-group">
-                                        <label>Puja with samagry</label><textarea onclick="ckeFunction()" type="text" name="category_samagri" rows="4" class="form-control"
-                                                placeholder="Advantage">{{$category_samagri->name_desc}}</textarea>
+                                   <div class="form-group">
+                                        <label>Select Pooja<span class="text-danger">*</span></label>
+                                        <select name="pujaname" class="form-control c-select" required>
+                                        <option value="">Select pooja Name</option>
+                                        @if(!empty($allpooja))
+                                        @foreach($allpooja as $pooja)
+                                        <option value="{{$pooja->id}}">{{$pooja->name ?? ''}}</option>
+                                        @endforeach
+                                        @endif
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label> Puja without samagry</label><textarea  onclick="ckeFunction()" class="form-control" name="category_wsamagri" rows="4"
-                                            placeholder="hmm.." >{{$category_wsamagri->name_desc}}</textarea>
+                                        <label>Standard<span class="text-danger">*</span></label>
+                                        <textarea onclick="ckeFunction()" type="text" name="standard_pooja" rows="4" class="form-control"
+                                                placeholder="Standard" required>{{$category_samagri->standard_pooja ?? ''}}
+                                        </textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label> Puja all</label><textarea onclick="ckeFunction()" class="form-control" name="category_all" rows="4"
-                                            placeholder="hmm.." >{{$category_all->name_desc}}</textarea>
+                                        <label>Premium<span class="text-danger">*</span></label>
+                                        <textarea onclick="ckeFunction()" type="text" name="premium_pooja" rows="4" class="form-control"
+                                                placeholder="Premium" required>{{$category_samagri->premium_pooja ?? ''}}
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Grand<span class="text-danger">*</span></label>
+                                        <textarea onclick="ckeFunction()" type="text" name="grand_pooja" rows="4" class="form-control"
+                                                placeholder="Grand" required>{{$category_samagri->grand_pooja ?? ''}}
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Puja with samagry<span class="text-danger">*</span></label>
+                                        <textarea onclick="ckeFunction()" type="text" name="category_samagri" rows="4" class="form-control"
+                                                placeholder="Puja with samagry" required>{{$category_samagri->category_samagri ?? ''}}
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label> Puja without samagry<span class="text-danger">*</span></label><textarea  onclick="ckeFunction()" class="form-control" name="category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry" required>{{$category_wsamagri->category_wsamagri ?? ''}}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label> Puja all<span class="text-danger">*</span></label>
+                                        <textarea onclick="ckeFunction()" class="form-control" name="category_all" rows="4"
+                                            placeholder="Puja all" required>{{$category_all->category_all ?? ''}}</textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary">
                                        Save
@@ -72,17 +117,17 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-primary mx-1"></span>
-                                                <span class="nav-text">large</span></a>
+                                                <span class="nav-text">Standard</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-info mx-1"></span>
-                                                <span class="nav-text">small</span></a>
+                                                <span class="nav-text">Premium</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-success mx-1"></span>
-                                                <span class="nav-text">Medium</span></a>
+                                                <span class="nav-text">Grand</span></a>
                                         </li>
                                         
                                     </ul>
@@ -95,15 +140,18 @@
             </div>
         </div>
     </div>
-    
-    <script>
-    function ckeFunction(){
 
-        CKEDITOR.replace( 'editor1' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-        CKEDITOR.replace( 'editor2' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-        CKEDITOR.replace( 'editor3' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    }
+<script>
+function ckeFunction(){
+
+    CKEDITOR.replace( 'editor1' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor2' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor3' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+}
    
-    </script>
+
+
+
+</script>
     @include('admin.footer')
 </body>

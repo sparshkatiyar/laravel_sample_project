@@ -22,7 +22,6 @@ class PujaController extends Controller
             'pujacategory'      => 'required',
             'pujaadvantage'     => 'required',
             'pujadescription'   => 'required',
-            'pujasimplified'    => 'required',
             
         );       
         $validator =Validator::make($request->all(),$validations);
@@ -46,10 +45,12 @@ class PujaController extends Controller
         $puja->category = $request->get('pujacategory');
         $puja->advantage = $request->get('pujaadvantage');
         $puja->desc = $request->get('pujadescription');
-        $puja->deschindi = $request->get('pujadescriptionhindi');
-        $puja->pujasimplified = $request->get('pujasimplified');
+        $puja->pujasimplified = $request->get('pujadescriptionhindi');
+        // $puja->pujasimplified = $request->get('pujasimplified');
         $puja->save();
-        return redirect('admin-panel/puja-list');
+        \Session::put('PoojaDetail',$puja);
+        // return redirect('admin-panel/puja-list');
+        return redirect('admin-panel/puja-creation-ecommerce');
     }
 
     public function pujaCreationEm(Request $request){
@@ -71,6 +72,7 @@ class PujaController extends Controller
             ];
             return response()->json($response,400);
         }   
+        
         $puja = new PujaEcommerce();
 
         $puja->puja_id              = $request->get('pujanameId');
@@ -82,27 +84,49 @@ class PujaController extends Controller
         $puja->puja_price_large     = $request->get('largepujaprice');
         $puja->puja_price_all       = $request->get('allpujaprice');
         $puja->save();
-        return redirect('admin-panel/puja-list-ecommerce');
+        \Session::put('PoojaPrice',$puja);
+        // return redirect('admin-panel/puja-list-ecommerce');
+        return redirect('admin-panel/puja-category');
     }
 
     public function pujaCategory(){
-        $category_samagri = PujaCategory::select('name_desc')->where('id',1)->get()->first();
-        $category_wsamagri = PujaCategory::select('name_desc')->where('id',2)->get()->first();
-        $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
-        return view('admin/puja-category',compact('category_samagri','category_wsamagri','category_all'));
+        // $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
+        $allpooja = Puja::get();
+        return view('admin/puja-category',compact('allpooja'));
     }
 
     public function pujaCategoryUpdate(Request $request){
-        $saveCategory1 = pujaCategory::where('id', 1)
-        ->update(['name_desc' => $request->category_samagri]);
-        $saveCategory2 = pujaCategory::where('id', 2)
-        ->update(['name_desc' => $request->category_wsamagri]);
-        $saveCategory3 = pujaCategory::where('id', 3)
-        ->update(['name_desc' => $request->category_all]);
+        $checlpooja=PujaCategory::where('pooja_id',$request->pujaname)->first();
+        if(empty($checlpooja))
+        {
+            $saveCategory = new PujaCategory;
+            $saveCategory->pooja_id = $request->pujaname ?? '';
+            $saveCategory->standard_pooja = $request->standard_pooja ?? '';
+            $saveCategory->premium_pooja = $request->premium_pooja ?? '';
+            $saveCategory->grand_pooja = $request->grand_pooja ?? '';
+            $saveCategory->category_samagri = $request->category_samagri ?? '';
+            $saveCategory->category_wsamagri = $request->category_wsamagri ?? '';
+            $saveCategory->category_all = $request->category_all ?? '';
+            $saveCategory->created_at = \Carbon\Carbon::now();
+            $saveCategory->updated_at = \Carbon\Carbon::now();
+            $saveCategory->save();
+            return redirect()->back()->with('success','Pooja category details added successfully');
+        }else
+        {
+            $saveCategory = PujaCategory::where('pooja_id',$request->pujaname)->first();
+           $saveCategory->pooja_id = $request->pujaname ?? '';
+            $saveCategory->standard_pooja = $request->standard_pooja ?? '';
+            $saveCategory->premium_pooja = $request->premium_pooja ?? '';
+            $saveCategory->grand_pooja = $request->grand_pooja ?? '';
+            $saveCategory->category_samagri = $request->category_samagri ?? '';
+            $saveCategory->category_wsamagri = $request->category_wsamagri ?? '';
+            $saveCategory->category_all = $request->category_all ?? '';
+            $saveCategory->updated_at = \Carbon\Carbon::now();
+            $saveCategory->save();
+            return redirect()->back()->with('success','Pooja category details edited successfully');
+        }
+        
        
-        $category_samagri = PujaCategory::select('name_desc')->where('id',1)->get()->first();
-        $category_wsamagri = PujaCategory::select('name_desc')->where('id',2)->get()->first();
-        $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
-        return view('admin/puja-category',compact('category_samagri','category_wsamagri','category_all'));
+        
     }
 }

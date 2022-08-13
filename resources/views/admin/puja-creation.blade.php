@@ -44,15 +44,14 @@
                                             <option>Select puja type</option>
                                             <option>Ghar pe puja</option>
                                             <option>Online Puja</option>
-                                            <option>On request puja</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Category</label><select name="pujacategory" class="form-control c-select">
                                             <option>Select puja category</option>
-                                            <option>small</option>
-                                            <option>medium</option>
-                                            <option>large</option>
+                                            <option value="Standard">Standard</option>
+                                            <option value="Premium">Premium</option>
+                                            <option value="Grand">Grand</option>
                                             </select>
                                         </div>
                                     </div>
@@ -68,13 +67,11 @@
                                         <label> Puja Description ( Hindi )</label><textarea  onclick="ckeFunction()" class="form-control" name="pujadescriptionhindi" rows="4"
                                             placeholder="hmm.." id="editor4"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label> Puja Simplified</label><textarea onclick="ckeFunction()" class="form-control" name="pujasimplified" rows="4"
-                                            placeholder="hmm.." id="editor3"></textarea>
-                                    </div>
+                                    
                                     <button type="submit" class="btn btn-primary">
-                                       Create 
+                                       Next 
                                     </button>
+                                   <!--  <a href="{{url('admin-panel/puja-creation-ecommerce')}}" class="btn btn-primary">Next</a> -->
                                 </form>
                             </div>
                             <div class="col-sm-4 col-md-3">
@@ -103,17 +100,17 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-primary mx-1"></span>
-                                                <span class="nav-text">large</span></a>
+                                                <span class="nav-text">Standard</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-info mx-1"></span>
-                                                <span class="nav-text">small</span></a>
+                                                <span class="nav-text">Premium</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-success mx-1"></span>
-                                                <span class="nav-text">Medium</span></a>
+                                                <span class="nav-text">Grand</span></a>
                                         </li>
                                         
                                     </ul>

@@ -21,10 +21,10 @@
                     </p>
                     <p class="">Choose Your Pooja :
                         <select id="pujatype" name="pujatype">
-                            <option value="0">select</option>
-                            <option value="1">small Pooja</option>
-                            <option value="2">Medium Pooja</option>
-                            <option value="3">Large Pooja</option>
+                            <option value="">select</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Grand">Grand</option>
                         </select>
                     </p>
                     <div  class="date-time">
@@ -95,7 +95,7 @@
                         </summary>
                         <p>
                             
-                            {{$category_samagri->name_desc}}
+                            {{$category_samagri->category_samagri ?? ''}}
                           
                         </p>
                     </details> &nbsp;
@@ -108,7 +108,7 @@
                             <h4> Without Samagri </h4>
                         </summary>
                         <p>                           
-                            {{$category_wsamagri->name_desc}}                          
+                            {{$category_wsamagri->category_wsamagri ?? ''}}                          
                         </p>
                     </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
                 </div>
@@ -120,7 +120,7 @@
                         </summary>
                         <p>
 
-                            {{$category_all->name_desc}}  
+                            {{$category_all->category_all ?? ''}}  
                         </p>
                     </details> &nbsp;<input type="radio" name="category" value="all" id="all">
                 </div>
