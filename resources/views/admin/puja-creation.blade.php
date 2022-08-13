@@ -58,7 +58,7 @@
                                     <div class="form-group">
                                         <label>Puja Advantage</label><textarea onclick="ckeFunction()" type="text" name="pujaadvantage" rows="4" class="form-control"
                                                 placeholder="Advantage" id="editor1"></textarea>
-                                    </div>
+                                    </div> 
                                     <div class="form-group">
                                         <label> Puja Description</label><textarea  onclick="ckeFunction()" class="form-control" name="pujadescription" rows="4"
                                             placeholder="hmm.." id="editor2"></textarea>
@@ -88,11 +88,11 @@
                                                     class="badge badge-circle text-info mx-1"></span>
                                                 <span class="nav-text">Online Puja</span></a>
                                         </li>
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-success mx-1"></span>
                                                 <span class="nav-text">On request Puja</span></a>
-                                        </li>
+                                        </li> -->
                                         
                                     </ul>
                                     <div class="p-3 text-muted">Category</div>

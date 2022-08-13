@@ -14,7 +14,7 @@ class UpdateTablePujaCategories extends Migration
     public function up()
     {
         Schema::table('puja_categories', function (Blueprint $table) {
-            $table->string('pooja_id')->nullable()->change();
+            $table->id('pooja_id')->nullable()->change();
             $table->longText('standard_pooja')->nullable()->change();
             $table->longText('premium_pooja')->nullable()->change();
             $table->longText('grand_pooja')->nullable()->change();

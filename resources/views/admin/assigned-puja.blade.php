@@ -18,8 +18,8 @@
                 <div class="page-hero page-container" id="page-hero">
                     <div class="padding d-flex">
                         <div class="page-title">
-                            <h2 class="text-md text-highlight">BookingList</h2>
-                            <small class="text-muted">Astrouser have user</small>
+                            <h2 class="text-md text-highlight">Assined Puja List</h2>
+                            <small class="text-muted">Your booking puja assigned to pandit</small>
                         </div>
                         <div class="flex"></div>
                         <!-- <div>

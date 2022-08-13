@@ -53,38 +53,55 @@
                                         @endif
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label>Standard<span class="text-danger">*</span></label>
-                                        <textarea onclick="ckeFunction()" type="text" name="standard_pooja" rows="4" class="form-control"
-                                                placeholder="Standard" required>{{$category_samagri->standard_pooja ?? ''}}
+                                        <textarea  type="text" name="standard_pooja" rows="4" class="form-control"
+                                                placeholder="Standard" required>{{@$category_samagri->standard_pooja}}
                                         </textarea>
-                                    </div>
+                                    </div> -->
+
                                     <div class="form-group">
+                                    <label>Standard<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_pooja" rows="4"
+                                            placeholder="Standard" required></textarea>
+                                    </div>
+                                    <!-- <div class="form-group">
                                         <label>Premium<span class="text-danger">*</span></label>
-                                        <textarea onclick="ckeFunction()" type="text" name="premium_pooja" rows="4" class="form-control"
-                                                placeholder="Premium" required>{{$category_samagri->premium_pooja ?? ''}}
+                                        <textarea  type="text" name="premium_pooja" rows="4" class="form-control"
+                                                placeholder="Premium" required>{{@$category_samagri->premium_pooja}}
                                         </textarea>
+                                    </div> -->
+                                    <div class="form-group">
+                                    <label>Premium<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_pooja" rows="4"
+                                            placeholder="Premium" required></textarea>
                                     </div>
                                     <div class="form-group">
+                                    <label>Grand<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_pooja" rows="4"
+                                            placeholder="Grand" required></textarea>
+                                    </div>
+                                    <!-- <div class="form-group">
                                         <label>Grand<span class="text-danger">*</span></label>
-                                        <textarea onclick="ckeFunction()" type="text" name="grand_pooja" rows="4" class="form-control"
-                                                placeholder="Grand" required>{{$category_samagri->grand_pooja ?? ''}}
+                                        <textarea  type="text" name="grand_pooja" rows="4" class="form-control"
+                                                placeholder="Grand" required>
                                         </textarea>
-                                    </div>
-                                    <div class="form-group">
+                                    </div> -->
+
+                                    <!-- <div class="form-group">
                                         <label>Puja with samagry<span class="text-danger">*</span></label>
-                                        <textarea onclick="ckeFunction()" type="text" name="category_samagri" rows="4" class="form-control"
-                                                placeholder="Puja with samagry" required>{{$category_samagri->category_samagri ?? ''}}
+                                        <textarea  type="text" name="category_samagri" rows="4" class="form-control"  placeholder="Puja with samagry" required>
                                         </textarea>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label> Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="category_samagri" rows="4"
+                                            placeholder="Puja with samagry" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label> Puja without samagry<span class="text-danger">*</span></label><textarea  onclick="ckeFunction()" class="form-control" name="category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry" required>{{$category_wsamagri->category_wsamagri ?? ''}}</textarea>
+                                        <label> Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry" required></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label> Puja all<span class="text-danger">*</span></label>
-                                        <textarea onclick="ckeFunction()" class="form-control" name="category_all" rows="4"
-                                            placeholder="Puja all" required>{{$category_all->category_all ?? ''}}</textarea>
+                                        <textarea  class="form-control" name="category_all" rows="4"
+                                            placeholder="Puja all" required></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary">
                                        Save
