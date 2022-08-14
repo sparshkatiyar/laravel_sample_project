@@ -109,7 +109,7 @@ class PujaController extends Controller
             $saveCategory->category_all = $request->category_all ?? '';
             $saveCategory->created_at = \Carbon\Carbon::now();
             $saveCategory->updated_at = \Carbon\Carbon::now();
-            $saveCategory->save();
+            $saveCategory->save();          
             return redirect()->back()->with('success','Pooja category details added successfully');
         }else
         {
@@ -122,7 +122,7 @@ class PujaController extends Controller
             $saveCategory->category_wsamagri = $request->category_wsamagri ?? '';
             $saveCategory->category_all = $request->category_all ?? '';
             $saveCategory->updated_at = \Carbon\Carbon::now();
-            $saveCategory->save();
+            $saveCategory->save();          
             return redirect()->back()->with('success','Pooja category details edited successfully');
         }
         

@@ -29,7 +29,7 @@
                               <button type="button" class="close" data-dismiss="alert">×</button> 
                                   <strong>{{ $message }}</strong>
                           </div>
-                          @php Session::flush('success') @endphp
+             
                           @endif
 
                           @if ($message = Session::get('error'))
@@ -37,7 +37,7 @@
                                   <button type="button" class="close" data-dismiss="alert">×</button> 
                                       <strong>{{ $message }}</strong>
                               </div>
-                              @php Session::flush('error') @endphp
+                             
                           @endif
                                 <!-- <p><strong>Fill flowing Details <Details></Details></strong></p> -->
                                 <form method="post" action="{{url('admin-panel/puja-category')}}"  enctype="multipart/form-data" id="create-pooja-category">
