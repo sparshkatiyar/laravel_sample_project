@@ -8940,6 +8940,7 @@ float: right;
 
 #section2 .boxes-pooja .box1 {
   width: 100%;
+  margin: 0% 5%;
   border: 1px solid #fa941c;
 }
 
@@ -9045,7 +9046,7 @@ float: right;
 /* Create three equal columns that floats next to each other */
 #Book-Pooja .column {
   float: left;
-  width: 400px;
+  width: 340px;
   height: 400px;
  /* display: block;*/
   margin: 20px 0;
