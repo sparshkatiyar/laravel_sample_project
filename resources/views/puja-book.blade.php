@@ -7,7 +7,7 @@
 <section id="section1">
     <div class="container-fluid main-pooja">
         <div class="img">
-            <div>
+            <div class="book1">
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
                 <input type="text" name="ecomm_puja_id" value="{{$ecomm_puja_id}}" hidden>
                 <div class="img-content">
@@ -19,14 +19,54 @@
                             <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
                         </span>
                     </p>
-                    <p class="">Choose Your Pooja :
+                    <!-- <p class="">Choose Your Pooja :
                         <select id="pujatype" name="pujatype">
                             <option value="">select</option>
                             <option value="Standard">Standard</option>
                             <option value="Premium">Premium</option>
                             <option value="Grand">Grand</option>
                         </select>
-                    </p>
+                    </p> -->
+                    <div class="detail-box">
+                        <h6>Choose Your Pooja :</h6>
+                        <div >
+                            <details>
+                                <summary>
+                                    <h6> Standard </h6>
+                                    <input type="radio" name="pujatype" value="pujatype" id="pujatype">
+                                </summary>
+                                <p>
+                                    
+                                    {{$category_samagri->category_samagri ?? ''}}
+                                
+                                </p>
+                            </details> &nbsp;
+                        </div>
+                        <!--  -->
+                        <div>
+                            <details>
+                                <summary>
+                                    <h6> Premium </h6>
+                                    <input type="radio" name="pujatype" value="pujatype" id="pujatype">
+                                </summary>
+                                <p>                           
+                                    {{$category_wsamagri->category_wsamagri ?? ''}}                          
+                                </p>
+                            </details>
+                        </div>
+                        <!--  -->
+                        <div>
+                            <details>
+                                <summary>
+                                    <h6> Grand</h6>
+                                    <input type="radio" name="pujatype" value="pujatype" id="pujatype">
+                                </summary>
+                                <p>
+
+                                    {{$category_all->category_all ?? ''}}  
+                                </p>
+                            </details>  </div>
+                    </div>
                     <div  class="date-time">
                         <span class="datey" >Date :
                         </span>
@@ -155,7 +195,7 @@
         </div>
 
         <!-- --- -->
-        <div class="box2">
+        <!-- <div class="box2">
             <div class="a">
                 <h4>Your Pooja is Simplified</h4>
             </div>
@@ -164,7 +204,7 @@
             <div class="b">
                 {!! $pujaDetails->puja_id->pujasimplified!!}
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="text-center" id="view-btn">
