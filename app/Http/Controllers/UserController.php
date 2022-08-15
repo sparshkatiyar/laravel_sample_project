@@ -13,6 +13,8 @@ use JWTAuth;
 use App\Models\User;
 use App\Models\UserAddress;
 use App\Models\Booking;
+use App\Models\Puja;
+use App\Models\PujaEcommerce;
 use Auth;
 use Session;
 
@@ -36,15 +38,45 @@ class UserController extends Controller
     public function index()
     {   
         if(Auth::guard('user')->user()){
-            $yi =Auth::guard('user')->user();           
-            return view('dashboard');
+            $yi =Auth::guard('user')->user();
+            $orderList =  Booking::where('user_id',$yi->id)->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderList as $order){
+                
+                $order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                $order->ecomm_puja_id->puja_id = Puja::find($order->ecomm_puja_id->puja_id);
+                // $order->puja_id = Puja::find($pujaDetails->puja_id);
+                
+            }
+            $orderListCompleted =  Booking::where('user_id',$yi->id)->where('booking_status',"3")->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderListCompleted as $order){
+                
+                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+                // $order->puja_id = Puja::find($pujaDetails->puja_id);
+                
+            }
+
+            $orderListOngoing =  Booking::where('user_id',$yi->id)->where('booking_status',"1")->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderListOngoing as $order){
+                
+                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+                // $order->puja_id = Puja::find($pujaDetails->puja_id);
+                
+            }
+            $orderListCanceled =  Booking::where('user_id',$yi->id)->where('booking_status',"4")->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderListCanceled as $order){
+                
+                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+ 
+                
+            }
+            // dd($orderList);       
+            return view('dashboard',compact('orderList','orderListCompleted','orderListOngoing','orderListCanceled'));
     	}
         return redirect('/');
-        // $id = Auth::id();
-        // $user = Auth::user();
-        // $yi = auth()->guard('user');
-        // dd($yi);
-        // $auth  = Auth::user();
+        
     }
 
     public function  login(Request $request){

@@ -191,18 +191,19 @@
                         <p>Price-Detail :</p>
     
                         <div>
-                            <h6>Price( 2 Items)</h6>
+                            <h6>Price( 1 Items)</h6>
                             <h6>&#x20b9 <span>{{$price_order}}</span></h6>
                         </div>
     
                         <div class="tax">
-                            <h6>Tax</h6>
-                            <h6>&#x20b9 <span>{{$tax}}</span></h6>
+                            <h6><input type="radio" value="{{$adPay}}" id="adpay">Advance Pay</h6>
+                            
+                            <h6>&#x20b9 <span>{{$adPay}}</span></h6>
                         </div>
-    
+                        <small>(pay balance amount to pandit ji)</small>
                         <div class="total">
                             <h6>Total amount</h6>
-                            <h6>&#x20b9 <span>{{$price_total}}</span></h6>
+                            <h6>&#x20b9 <span id="finalprice">{{$price_total}}</span></h6>
                         </div>
                     </div>
                     <input type="text" value="{{$tax}}" name="price_tax" hidden>
@@ -271,6 +272,13 @@
             value--;
             document.getElementById('number').value = value;
         }
+
+        $("#adpay").click(function(){
+            var basePrice ="{{$price_order}}";
+            // alert(basePrice);
+            var totalPrice = parseInt(basePrice) + parseInt("{{$adPay}}");;
+            var setPrice = $("#finalprice").text(totalPrice);
+        });
     </script>
 
 @include('layouts.footer')

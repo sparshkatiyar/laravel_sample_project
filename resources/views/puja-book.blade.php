@@ -56,7 +56,7 @@
                             <details>
                                 <summary>
                                     <h6> Standard </h6>
-                                    <input type="radio" name="pujatype" value="pujatype" id="pujatype">
+                                    <input type="radio" name="pujatype" value="1" id="standard">
                                 </summary>
                                 <p>
                                     
@@ -70,7 +70,7 @@
                             <details style="padding-bottom:17px;">
                                 <summary>
                                     <h6> Premium </h6>
-                                    <input type="radio" name="pujatype" value="pujatype" id="pujatype">
+                                    <input type="radio" name="pujatype" value="2" id="premium">
                                 </summary>
                                 <p>                           
                                     {{$category_wsamagri->category_wsamagri ?? ''}}                          
@@ -82,7 +82,7 @@
                             <details style="padding-bottom:17px;">
                                 <summary>
                                     <h6> Grand</h6>
-                                    <input type="radio" name="pujatype" value="pujatype" id="pujatype">
+                                    <input type="radio" name="pujatype" value="3" id="grand">
                                 </summary>
                                 <p>
 
@@ -295,35 +295,36 @@
         
         // var ptype= $("#pujatype").val();
     
-        $('#pujatype').on('change', function() {
-            if(this.value == 1){
-                $("#adds").show();
-                $("#addprice").show();
-                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
-                $("#addprice").text(0);
-                // $("#bprice").hide();
-                $("#addprice").text(totalPrice);               
+        // $('#pujatype').on('change', function() {
+        //     if(this.value == 1){
+        //         $("#adds").show();
+        //         $("#addprice").show();
+        //         totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
+        //         $("#addprice").text(0);
+        //         // $("#bprice").hide();
+        //         $("#addprice").text(totalPrice);               
                 
-            }
-            else if(this.value == 2){
-                $("#adds").show();
-                $("#addprice").show();
-                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
-                $("#addprice").text(0);
-                // $("#bprice").hide();
-                $("#addprice").text(totalPrice);
-            }
-            else if(this.value == 3){
-                $("#adds").show();
-                $("#addprice").show();
-                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_large}}");
-                $("#addprice").text(0);
-                // $("#bprice").hide();
-                $("#addprice").text(totalPrice);
-            }
-        });
+        //     }
+        //     else if(this.value == 2){
+        //         $("#adds").show();
+        //         $("#addprice").show();
+        //         totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
+        //         $("#addprice").text(0);
+        //         // $("#bprice").hide();
+        //         $("#addprice").text(totalPrice);
+        //     }
+        //     else if(this.value == 3){
+        //         $("#adds").show();
+        //         $("#addprice").show();
+        //         totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_large}}");
+        //         $("#addprice").text(0);
+        //         // $("#bprice").hide();
+        //         $("#addprice").text(totalPrice);
+        //     }
+        // });
         $("#samgari").click(function(){
-            var ptype = $("select[name=pujatype]").val();
+            var ptype = $("input[name=pujatype]:checked").val();
+         
             if(ptype ==1){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
             }
@@ -333,12 +334,17 @@
             else if(ptype ==3){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
             }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         
         })
         $("#wsamgari").click(function(){
-            var ptype = $("select[name=pujatype]").val();
+            var ptype = $("input[name=pujatype]:checked").val();
+
+            // alert(ptype);
             if(ptype ==1){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
             }
@@ -348,13 +354,16 @@
             else if(ptype ==3){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
             }
-            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+           
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
             
         })
         $("#all").click(function(){
-            var ptype = $("select[name=pujatype]").val();
+            var ptype = $("input[name=pujatype]:checked").val();
             if(ptype ==1){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
             }
@@ -364,7 +373,71 @@
             else if(ptype ==3){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
             }
-            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+        })
+
+        $("#standard").click(function(){
+            var ptype = $("input[name=category]:checked").val();
+            // alert(ptype);
+         
+            if(ptype =="samagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype =="wsamagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype =="all"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
+                alert(totalPrice);
+            }
+
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+        
+        })
+        $("#premium").click(function(){
+            var ptype = $("input[name=category]:checked").val();
+
+            // alert(ptype);
+            if(ptype =="samagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype =="wsamagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype =="all"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_medium}}"); 
+            }
+           
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+            
+        })
+        $("#grand").click(function(){
+            var ptype = $("input[name=category]:checked").val();
+            // alert(ptype);
+            if(ptype =="samagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype =="wsamagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype =="all"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_large}}"); 
+            }
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         })
@@ -381,7 +454,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });         
-        var puja_type = $("select[name=pujatype]").val();
+        var puja_type = $("input[name=pujatype]:checked").val();
         
         var puja_category= $("input[name=category]").val();           
         var ecomm_puja_id= $("input[name=ecomm_puja_id]").val();           

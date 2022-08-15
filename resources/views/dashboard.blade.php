@@ -53,6 +53,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
+                                            @if(empty($orderList))
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                 <div class="boxs  no-order boxs-show" id="noOrder">
                                                     <img src="{{asset('web/image/empty-cart.png')}}" alt="no-order-img">
@@ -60,62 +61,222 @@
                                                     <a href="#">Book Now</a>
                                                 </div>
                                             </div>
+                                            @endif
+                                            @foreach($orderList as $orderDetails)
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                            <div class="pooja-card" id="Ongoing">
+                                                <div class="pooja-card" id="Ongoing">
     
-                                                        <div class="col col1">
-                                                            <p class="order-no">
-                                                                Order No: <span>25365425</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="col col2">
-                                                            <p class="date">
-                                                                Date <span>5/02/2022</span>
-                                                            </p>
-                                                        </div>
+                                                    <div class="col col1">
+                                                        <p class="order-no">
+                                                            Order No: <span>{{$orderDetails->booking_id}}</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col col2">
+                                                        <p class="date">
+                                                            Date <span>{{$orderDetails->created_at}}</span>
+                                                        </p>
+                                                    </div>
 
 
 
-                                                        <div class="col col3">
-                                                            <img  src="{{asset('web/image/ram.png')}}" alt="ram img">
-                                                        </div>
-                                                        <div class="col col4">
-                                                            <p class="Name">ddd Ramayan</p>
-
-                                                        </div>
-
-
-                                                        <div class="col col5">
-                                                            <img src="right.png" alt="right" width="10px">
-                                                            <p>Delivery Expected on Nov
-                                                                02,2022</p>
-                                                        </div>
-                                                        <div class="col col6">
-                                                            <p class="text">Lorem ipsum dolor sit tetur </p>
-                                                        </div>
-                                                        <div class="col col7">
-                                                            <img src="{{asset('web/image/ram.png')}}" alt="star">
-                                                            <p>Rates the Pooja</p>
-                                                        </div>
-                                                        <div class="col col8">
-                                                            <p class="price"><span><b>$5.00</b></span> <span><del>$6.00</del></span></p>
-                                                        </div>
-
-                                                        <div class="col col9">
-                                                            <p><a href="order-detail/order-detail.html">View Details</a></p>
-                                                        </div>
-
+                                                    <div class="col col3">
+                                                        <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                    </div>
+                                                    <div class="col col4">
+                                                        <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
 
                                                     </div>
+
+
+                                                    <div class="col col5">
+                                                        <!-- <img src="right.png" alt="right" width="10px"> -->
+                                                        <p>Delivery Expected on Nov
+                                                            {{$orderDetails->deliver_date}}</p>
+                                                    </div>
+                                                    <div class="col col6">
+                                                        <p class="text">Lorem ipsum dolor sit tetur </p>
+                                                    </div>
+                                                    <div class="col col7">
+                                                        <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                        <p>Rates the Pooja</p>
+                                                    </div>
+                                                    <div class="col col8">
+                                                        <p class="price"><span><b>&#x20b9 {{$orderDetails->price_total}}</b></span> </p>
+                                                    </div>
+
+                                                    <div class="col col9">
+                                                        <p><a href="order-detail/order-detail.html">View Details</a></p>
+                                                    </div>
+
+
+                                                </div>
                                             </div>
+                                            @endforeach
+                                            <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                            
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        Profile...</div>
+
+                                        @foreach($orderListCompleted as $orderDetails)
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                            <div class="pooja-card" id="Ongoing">
+
+                                                <div class="col col1">
+                                                    <p class="order-no">
+                                                        Order No: <span>{{$orderDetails->booking_id}}</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col col2">
+                                                    <p class="date">
+                                                        Date <span>{{$orderDetails->created_at}}</span>
+                                                    </p>
+                                                </div>
+
+
+
+                                                <div class="col col3">
+                                                    <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                </div>
+                                                <div class="col col4">
+                                                    <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
+
+                                                </div>
+
+
+                                                <div class="col col5">
+                                                    <!-- <img src="right.png" alt="right" width="10px"> -->
+                                                    <p>Delivery Expected on Nov
+                                                        {{$orderDetails->deliver_date}}</p>
+                                                </div>
+                                                <div class="col col6">
+                                                    <p class="text">Lorem ipsum dolor sit tetur </p>
+                                                </div>
+                                                <div class="col col7">
+                                                    <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                    <p>Rates the Pooja</p>
+                                                </div>
+                                                <div class="col col8">
+                                                    <p class="price"><span><b>&#x20b9 {{$orderDetails->price_total}}</b></span> </p>
+                                                </div>
+
+                                                <div class="col col9">
+                                                    <p><a href="order-detail/order-detail.html">View Details</a></p>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                        <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                    </div>
                                     <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                                        Messages...</div>
+
+                                        @foreach($orderListCanceled as $orderDetails)
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                            <div class="pooja-card" id="Ongoing">
+
+                                                <div class="col col1">
+                                                    <p class="order-no">
+                                                        Order No: <span>{{$orderDetails->booking_id}}</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col col2">
+                                                    <p class="date">
+                                                        Date <span>{{$orderDetails->created_at}}</span>
+                                                    </p>
+                                                </div>
+
+
+
+                                                <div class="col col3">
+                                                    <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                </div>
+                                                <div class="col col4">
+                                                    <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
+
+                                                </div>
+
+
+                                                <div class="col col5">
+                                                    <!-- <img src="right.png" alt="right" width="10px"> -->
+                                                    <p>Delivery Expected on Nov
+                                                        {{$orderDetails->deliver_date}}</p>
+                                                </div>
+                                                <div class="col col6">
+                                                    <p class="text">Lorem ipsum dolor sit tetur </p>
+                                                </div>
+                                                <div class="col col7">
+                                                    <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                    <p>Rates the Pooja</p>
+                                                </div>
+                                                <div class="col col8">
+                                                    <p class="price"><span><b>&#x20b9 {{$orderDetails->price_total}}</b></span> </p>
+                                                </div>
+
+                                                <div class="col col9">
+                                                    <p><a href="order-detail/order-detail.html">View Details</a></p>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                        <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                    </div>
                                     <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                                        Settings...</div>
+                                        @foreach($orderListOngoing as $orderDetails)
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                            <div class="pooja-card" id="Ongoing">
+
+                                                <div class="col col1">
+                                                    <p class="order-no">
+                                                        Order No: <span>{{$orderDetails->booking_id}}</span>
+                                                    </p>
+                                                </div>
+                                                <div class="col col2">
+                                                    <p class="date">
+                                                        Date <span>{{$orderDetails->created_at}}</span>
+                                                    </p>
+                                                </div>
+
+
+
+                                                <div class="col col3">
+                                                    <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                </div>
+                                                <div class="col col4">
+                                                    <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
+
+                                                </div>
+
+
+                                                <div class="col col5">
+                                                    <img src="right.png" alt="right" width="10px">
+                                                    <p>Delivery Expected on Nov
+                                                        {{$orderDetails->deliver_date}}</p>
+                                                </div>
+                                                <div class="col col6">
+                                                    <p class="text">Lorem ipsum dolor sit tetur </p>
+                                                </div>
+                                                <div class="col col7">
+                                                    <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                    <p>Rates the Pooja</p>
+                                                </div>
+                                                <div class="col col8">
+                                                    <p class="price"><span><b>&#x20b9 {{$orderDetails->price_total}}</b></span> </p>
+                                                </div>
+
+                                                <div class="col col9">
+                                                    <p><a href="order-detail/order-detail.html">View Details</a></p>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                            <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -135,50 +296,3 @@
 <!-- -----------section1----------- -->
 @include('layouts.footer')
 
-<scritp>
-
- function simulateClick(elem) {
-	// Create our event (with options)
-	var evt = new MouseEvent('click', {
-		bubbles: true,
-		cancelable: true,
-		view: window
-	});
-	// If cancelled, don't dispatch our event
-	var canceled = !elem.dispatchEvent(evt);
-};
-
-function prepareTabs(triggerEl) {
-    var tabTrigger = new bootstrap.Tab(triggerEl)
-
-    triggerEl.addEventListener('click', function (event) {
-        event.preventDefault()
-        //alert('test-'+this.parentNode.tagName);
-        tabTrigger.show()
-
-        //console.log('>>>' + this.parentNode.tagName);
-        //console.log('>>>>' + this.parentNode.parentNode.tagName);
-        var sibling = this.parentNode.parentNode.firstChild;
-        // Loop through each sibling and push to the array
-        while (sibling) {
-            if (sibling.tagName !== undefined) 
-            {
-                //console.log('>>>' + sibling.tagName);
-                //console.log('--->' + sibling.classList);
-                //console.log('>>' + sibling.firstChild.href);
-                sibling.classList.remove('active');
-            }
-            sibling = sibling.nextSibling;
-        }
-        this.parentNode.classList.add('active');
-        console.log('href = ' + this.href);
-        simulateClick(document.querySelector(this.href));
-    })
-}
-
-var triggerTabListTest = [].slice.call(document.querySelectorAll("#myTab a"));
-triggerTabListTest.forEach(function (triggerEl) {
-  prepareTabs(triggerEl);
-});
-
-</script>

@@ -21,7 +21,7 @@ class PujaController extends Controller
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->puja_id);
         }  
-     
+        // dd($pujaList);
         return view('puja',compact('pujaList'));
     }
     public function booking(Request $request )
@@ -31,7 +31,7 @@ class PujaController extends Controller
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
         $category_samagri = PujaCategory::where('pooja_id',$ecomm_puja_id)->get()->first();
         
-        // dd($category_samagri->name_desc);
+        // dd($pujaDetails);
         return view('puja-book',compact('pujaDetails','ecomm_puja_id','category_samagri'));
     }
     public function delivery(Request $request)
@@ -44,10 +44,11 @@ class PujaController extends Controller
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
         $user               =  Auth::guard('user')->user(); 
         $tax                =  ($price_order *18)/100;
-        $price_total        =  $price_order+ $tax;       
+        $adPay              =  ($price_order *40)/100;
+        $price_total        =  $price_order;       
         $pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);  
-        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress'));
+        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress','adPay'));
     }
     public function deliveryForLogin(Request $request)
     {
@@ -59,10 +60,12 @@ class PujaController extends Controller
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
         $user               =  Auth::guard('user')->user(); 
         $tax                =  ($price_order *18)/100;
-        $price_total        =  $price_order+ $tax;       
+        $adPay              =  ($price_order *40)/100;
+        $price_total        =  $price_order;       
         $pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);  
-        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress'));
+   
+        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress','adPay'));
     }
 
     public function deliveryProcced(Request $request)   {
