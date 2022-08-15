@@ -8636,7 +8636,7 @@ h1 {
 }
 
 #section1 .main-pooja {
-  display: flex;
+  display: block;
 }
 
 #section1 .main-pooja .img {
@@ -8647,14 +8647,17 @@ h1 {
   align-items: center;
   text-align: left;
   margin: 3% 0;
+  display: none
 }
 #section1 .main-pooja .img img {
   width: 409px;
   height: 427.75px;
+  display: none;
 }
 
 #section1 .main-pooja .img .img-content {
   margin: 30px 0;
+  display: none;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -8678,6 +8681,7 @@ h1 {
   width: 50%;
   margin: 3% 0;
   padding-right: 10%;
+  display: none;
 }
 
 #section1 .main-pooja .details h2 {
@@ -8717,6 +8721,7 @@ h1 {
   position: relative;
   padding: 2% 0 0 0;
   border-bottom: 1px solid rgba(191, 191, 191, 0.366);
+  display: none;
 }
 
 #section1 .main-pooja .details .detail-box div details {
@@ -8745,7 +8750,7 @@ h1 {
  .book1 .detail-box {
   border: 1px solid #908e8e47;
   width: 100%;
-
+  display: none !important;
   margin: 10% auto 5% auto;
   padding: 2%;
   border-radius: 10px;

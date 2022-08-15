@@ -3512,3 +3512,99 @@ h1 {
     border: 1px solid gray;
     border-radius: 10px;
 }
+.main-pooja{
+    padding: 0 10%;
+}
+.top{    
+    display: inline-flex;
+    width: 100%;
+}
+.top .top1{
+    padding: 0% 5% ;
+    width: 49%;
+    
+    display: inline-block;
+}
+.top .top1{
+    padding: 0% 5%;
+    width: 49%;
+    
+    display: inline-block;
+}
+.top-row{    
+    display: inline-flex;
+    width: 100%;
+}
+.top-row .top2{
+    padding: 0% 5% ;
+    width: 49%;
+    margin-top: 50px;
+    display: inline-block;
+}
+.top-row .top2{
+    padding: 0% 5%;
+    width: 49%;
+    
+    display: inline-block;
+}
+.top .top1 img{
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.top2 .detail-box {
+    border: 1px solid #908e8e47;
+    width: 100%;
+  
+    margin: 10% auto 5% auto;
+    padding: 2%;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  .top2 .detail-box div {
+    /* background-color: red; */
+    width: 100%;
+    position: relative;
+    padding: 2% 0 0 0;
+    border-bottom: 1px solid rgba(191, 191, 191, 0.366);
+ 
+  }
+  
+  .top2 .detail-box div details {
+    margin: 20px 0 0 20px;
+  }
+  
+  .top2 .detail-box div h4 {
+    display: inline;
+    font-size: 1.1em;
+    color: #353535;
+    font-weight: 500;
+  }
+  
+  .top2 .detail-box div input {
+    position: absolute;
+    top: 10px;
+    right: 10%;
+    margin-top: 20px;
+    border-radius: 50%;
+    padding: 5%;
+    cursor: pointer;
+  }
+  .top2 .detail-box summary h6 {
+    display: inline-block;
+   }
+
+   #view-btn  button {
+    text-align: center;
+    height: 54px;
+    width: 258px;
+    background: #fa941c;
+    border-radius: 10px;
+    border: none;
+    margin: 2em 0;
+    color: white;
+  }
+  
+  

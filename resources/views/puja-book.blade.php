@@ -6,27 +6,50 @@
 
 <section id="section1">
     <div class="container-fluid main-pooja">
-        <div class="img">
-            <div class="book1">
+        <div class="top">
+
+            <div class="top1">
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
                 <input type="text" name="ecomm_puja_id" value="{{$ecomm_puja_id}}" hidden>
-                <div class="img-content">
-                    <h3>Starting From
-                        <span id="bprice">&#x20b9  {{ $pujaDetails->puja_base_price}}</span>
-                        
-                    </h3>
-                    <p class="Category">Category : <span>
-                            <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
-                        </span>
-                    </p>
-                    <!-- <p class="">Choose Your Pooja :
-                        <select id="pujatype" name="pujatype">
-                            <option value="">select</option>
-                            <option value="Standard">Standard</option>
-                            <option value="Premium">Premium</option>
-                            <option value="Grand">Grand</option>
-                        </select>
-                    </p> -->
+            </div>
+            <div class="top1">
+                <h5> <b>{{ $pujaDetails->puja_id->name}}</b></h5>
+                <span >
+
+                <?php
+                    $string = strip_tags($pujaDetails->puja_id->desc);
+                    if (strlen($string) > 550) {
+
+                        // truncate string
+                        $stringCut = substr($string, 0, 550);
+                        $endPoint = strrpos($stringCut, ' ');
+                    
+                        //if the string doesn't contain any space then it will cut without word basis.
+                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                        $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
+                    }
+                    
+                    $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
+                    if($string_hindi)
+                    {
+                        $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
+                    }
+                    echo $string;
+                    echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
+
+                ?>
+                </span>     
+                <!-- <p>
+                    {!! $pujaDetails->puja_id->desc!!}
+                    
+                </p> -->
+                <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
+            </div>
+        </div>
+        
+        <div class="top-row">
+
+            <div class="top2">
                     <div class="detail-box">
                         <h6>Choose Your Pooja :</h6>
                         <div >
@@ -44,7 +67,7 @@
                         </div>
                         <!--  -->
                         <div>
-                            <details>
+                            <details style="padding-bottom:17px;">
                                 <summary>
                                     <h6> Premium </h6>
                                     <input type="radio" name="pujatype" value="pujatype" id="pujatype">
@@ -56,7 +79,7 @@
                         </div>
                         <!--  -->
                         <div>
-                            <details>
+                            <details style="padding-bottom:17px;">
                                 <summary>
                                     <h6> Grand</h6>
                                     <input type="radio" name="pujatype" value="pujatype" id="pujatype">
@@ -67,7 +90,7 @@
                                 </p>
                             </details>  </div>
                     </div>
-                    <div  class="date-time">
+                    <!-- <div  class="date-time">
                         <span class="datey" >Date :
                         </span>
 
@@ -85,98 +108,77 @@
                             <input type="time" name="date">
                            </span>
                         </div>
-                    </p>
-                    
-                </div>
+                    </p> -->
             </div>
-        </div>
-
-        <!-- ----- -->
-
-        <div class="details">
-            <h2>{{ $pujaDetails->puja_id->name}}</h2>
-            <span >
-
-            <?php
-                $string = strip_tags($pujaDetails->puja_id->desc);
-                /*if (strlen($string) > 500) {
-
-                    // truncate string
-                    $stringCut = substr($string, 0, 600);
-                    $endPoint = strrpos($stringCut, ' ');
-                
-                    //if the string doesn't contain any space then it will cut without word basis.
-                    $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                    $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
-                }*/
-                
-                $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
-                if($string_hindi)
-                {
-                    $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
-                }
-                echo $string;
-                echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
-
-            ?>
-            </span>     
-            <p>
-                <!-- {!! $pujaDetails->puja_id->desc!!} -->
-                
-            </p>
-            <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
-            <!-- ---box-- -->
-            <div class="detail-box">
-                <h6>Pooja Samagri :</h6>
-                <div >
-                    <details>
-                        <summary>
-                            <h4> With Samagri </h4>
-                        </summary>
-                        <p>
+            <div class="top2">
+                <div class="detail-box">
+                    <h6>Pooja Samagri :</h6>
+                    <div >
+                        <details>
+                            <summary>
+                                <h4> With Samagri </h4>
+                            </summary>
+                            <p>
+                                
+                                {{$category_samagri->category_samagri ?? ''}}
                             
-                            {{$category_samagri->category_samagri ?? ''}}
-                          
-                        </p>
-                    </details> &nbsp;
-                    <input type="radio" name="category" value="samagri" id="samgari">
-                </div>
-                <!--  -->
-                <div>
-                    <details>
-                        <summary>
-                            <h4> Without Samagri </h4>
-                        </summary>
-                        <p>                           
-                            {{$category_wsamagri->category_wsamagri ?? ''}}                          
-                        </p>
-                    </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
-                </div>
-                <!--  -->
-                <div>
-                    <details>
-                        <summary>
-                            <h4> All </h4>
-                        </summary>
-                        <p>
+                            </p>
+                        </details> &nbsp;
+                        <input type="radio" name="category" value="samagri" id="samgari">
+                    </div>
+                    <!--  -->
+                    <div>
+                        <details>
+                            <summary>
+                                <h4> Without Samagri </h4>
+                            </summary>
+                            <p>                           
+                                {{$category_wsamagri->category_wsamagri ?? ''}}                          
+                            </p>
+                        </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
+                    </div>
+                    <!--  -->
+                    <div>
+                        <details>
+                            <summary>
+                                <h4> All </h4>
+                            </summary>
+                            <p>
 
-                            {{$category_all->category_all ?? ''}}  
-                        </p>
-                    </details> &nbsp;<input type="radio" name="category" value="all" id="all">
+                                {{$category_all->category_all ?? ''}}  
+                            </p>
+                        </details> &nbsp;<input type="radio" name="category" value="all" id="all">
+                    </div>
                 </div>
-            </div>
 
-            <br>
-            <div class="detail-box">
-                <h5>
-
-                    <b>Total you pay : <span id="adds" class="web-tex"> &#x20b9 </span>
-                            <span id="addprice" class="web-tex">{{ $pujaDetails->puja_base_price}}</span>
-                    </b>
-                </h5>
+                <br>
+                
             </div>
         </div>
 
+       
+        <div class="text-center">
+            <h5>
+
+                <b>Total you pay : <span id="adds" class="web-tex"> &#x20b9 </span>
+                        <span id="addprice" class="web-tex">{{ $pujaDetails->puja_base_price}}</span>
+                </b>
+            </h5>
+        </div>
+
+      
+      
+        <div class="text-center" id="view-btn">
+            @if(Auth::guard('user')->user())
+            <a id="proceedBook"> <button>Book Your Pooja</button></a>
+                <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
+                <!-- <a onclick="popshow()">Login/Sign up</a> -->
+            @else
+            <a id="proceedBookForLogin"> <button>Book Your Pooja</button></a>
+                
+            @endif
+            
+        </div>
     </div>
 </section>
 
@@ -207,17 +209,7 @@
         </div> -->
     </div>
 
-    <div class="text-center" id="view-btn">
-        @if(Auth::guard('user')->user())
-        <a id="proceedBook"> <button>Book Your Pooja</button></a>
-            <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
-            <!-- <a onclick="popshow()">Login/Sign up</a> -->
-        @else
-        <a id="proceedBookForLogin"> <button>Book Your Pooja</button></a>
-            
-        @endif
-        
-    </div>
+    
 
 
 </section>
