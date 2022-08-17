@@ -22,12 +22,18 @@
                 </div>
             </div>
             <div class="menu-row">
-                <div class="menu">
+                <div class="menu header-menu">
                     <a href="{{url('./')}}">Home</a>
                     <a href="../Home-page/Home-page.html">Talk to Astrologers</a>
                     <a href="../Product/product.html">Astroshop</a>
                     <a href="../Horoscope-page/horoscope.html">Horoscope</a>
-                    <a href="{{url('puja-home')}}">Pooja</a>
+                    <a class="submenu" href="../{{url('puja-home')}}">Pooja
+                        <ul class="dropdown-menu">
+                            <li><a href="">Ghar Pe Pooja</a></li>
+                            <li><a href="">Online E-Pooja</a></li>
+                            <li><a href="">On Request-Pooja</a></li>
+                        </ul>
+                    </a>
                     <a href="../About/about.html">About us</a>
                     <a href="../Contact/contact.html">Contact us</a>
                 </div>

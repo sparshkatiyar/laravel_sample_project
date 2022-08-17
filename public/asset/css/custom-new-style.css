@@ -1,0 +1,267 @@
+.submenu {
+    position: relative;
+}
+
+.header-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu-custom {
+    width: 277px;
+    position: absolute;
+    bottom: -160px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    border-radius: 10px;
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+.submenu:hover .dropdown-menu-custom {
+    display: block !important;
+}
+
+.dropdown-menu-custom li {
+    width: 100%;
+    /* padding: 15px 15px; */
+}
+
+.dropdown-menu-custom li a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 15px 15px;
+    display: block;
+    color: #222222;
+}
+.custom-nav-pooja{
+    justify-content: center;
+    border: 0;
+    margin-bottom: 50px;
+}
+.custom-nav-pooja .nav-link{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #3A3C41;
+    border: 0;
+    position: relative;
+}
+.custom-nav-pooja .nav-link:hover{
+    border: 0;
+}
+.custom-nav-pooja  .nav-link.active{
+    color: #222222;
+
+}
+.custom-nav-pooja  .nav-link.active span{
+    position: relative;
+    display: inline-block;
+}
+.custom-nav-pooja  .nav-link:focus-visible{
+    outline: none;
+    box-shadow: none;
+    border: 0;
+}
+.custom-nav-pooja  .nav-link.active span::before{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: #FA941C;
+    display: block;
+}
+
+.pooja-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pooja-section .left-section {
+    max-width: 500px;
+    width: 100%;
+}
+
+.pooja-section .left-section img {
+    border-radius: 50px;
+}
+
+.pooja-section .right-section {
+    max-width: 545px;
+    width: 100%;
+}
+
+.pooja-section .right-section h5 {
+    font-family: 'Times New Roman';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 39px;
+    color: #222222;
+    margin-bottom: 25px;
+}
+
+.read-more-link {
+    color: #FA941C;
+}
+
+.read-more-link:hover {
+    color: #FA941C;
+}
+
+.pooja-section .right-section p {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    color: #5E5F63;
+    margin-bottom: 15px;
+}
+
+.specialPooja-form {
+    margin-top: 120px;
+}
+
+.specialPooja-form .form-group {
+    margin-bottom: 30px;
+}
+
+.specialPooja-form .form-group label {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FA941C;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.specialPooja-form .form-group .form-control {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    color: #656262;
+    border-radius: 5px;
+}
+
+.specialPooja-form .form-group label span {
+    color: #494F59;
+}
+
+.specialPooja-form .form-group .form-control::placeholder {
+    color: #656262;
+}
+
+.specialPooja-form .form-group .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.specialPooja-form .btn.btn-submit {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    padding: 12px 48px;
+    width: 193px;
+    height: 54px;
+    background: #FA941C;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+}
+
+.specialPooja-form .btn.btn-submit:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.pooja-details-section {
+    margin-top: 120px;
+}
+
+.pooja-details-section h3 {
+    font-family: 'Times New Roman';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 39px;
+    color: #353535;
+    margin-bottom: 65px;
+}
+
+.pooja-details-section .inner-pooja-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:0 20px;
+    flex-wrap: wrap;
+}
+
+.pooja-details-section .inner-pooja-details .item {
+    width: 23%;
+    margin-bottom: 60px;
+}
+
+.pooja-details-section .inner-pooja-details .item h5 {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #353535;
+    margin: 15px 0 0;
+}
+
+.pooja-details-section .inner-pooja-details .item p {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: #222222;
+}
+
+
+
+
+
+
+
+
+.btn.btn-view-all {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    padding: 12px 12px;
+    max-width: 258px;
+    width: 100%;
+    height: 54px;
+    background: #FA941C;
+    border-radius: 10px;
+}

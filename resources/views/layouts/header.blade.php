@@ -15,6 +15,7 @@
     <title>{{ config('app.name', 'Astro Pandit') }}</title>
     <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/custom-new-style.css') }}" rel="stylesheet">
     
     
     <!-- <script src="{{ asset('asset/js/script.js') }}"></script> -->
@@ -50,14 +51,31 @@
                 </div>
             </div>
             <div class="menu-row">
-                <div class="menu">
-                    <a href="{{url('./')}}">Home</a>
-                    <a href="../Home-page/Home-page.html">Talk to Astrologers</a>
-                    <a href="../Product/product.html">Astroshop</a>
-                    <a href="../Horoscope-page/horoscope.html">Horoscope</a>
-                    <a href="{{url('puja-home')}}">Pooja</a>
+               <div class="menu header-menu">
+                  <ul>
+                     <li> <a href="{{url('./')}}">Home</a></li>
+                     <li><a href="../Home-page/Home-page.html">Talk to Astrologers</a></li>
+                     <li> <a href="../Product/product.html">Astroshop</a></li>
+                     <li><a href="../Horoscope-page/horoscope.html">Horoscope</a></li>
+                     <li class="submenu"> <a class=""  href="{{url('puja-home')}}">Pooja</a>
+                           <ul class="dropdown-menu-custom">
+                              <li><a href="">Ghar Pe Pooja</a></li>
+                              <li><a href="">Online E-Pooja</a></li>
+                              <li><a href="">On Request-Pooja</a></li>
+                           </ul>
+                     </li>
+                     <li>
+                        
+                     </li>
+                     <li> 
                     <a href="../About/about.html">About us</a>
-                    <a href="../Contact/contact.html">Contact us</a>
+                  </li>
+                  <li>  <a href="../Contact/contact.html">Contact us</a></li>
+                  </ul>
+               </div>
+                <div class="menu">
+                   
+                   
                 </div>
                 <div class="button">
                     @if(Auth::guard('user')->user())

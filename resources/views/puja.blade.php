@@ -2,22 +2,467 @@
 <!-- divider -->
 <div id="divaider"></div>
 
+<div class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="nav nav-tabs custom-nav-pooja" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                    <span>All</span>
+                </button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                    <span>Ghar Pe Pooja</span>
+                </button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                    <span>Online Pooja</span>
+                </button>
+                <button class="nav-link" id="specialPooja-tab" data-bs-toggle="tab" data-bs-target="#specialPooja" type="button" role="tab" aria-controls="specialPooja" aria-selected="false">
+                    <span>On Request Special Pooja</span>
+                </button>
+            </div>
+		
+		<div class="tab-content custom-tab-content" id="nav-tabContent">
+			<div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="pooja-section">
+                        <div class="left-section">
+                            <div class="img">
+                                <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div class="right-section">
+                            <h5>Ghar Pe Pooja</h5>
+                            <div class="read-more">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor vel dignissim volutpat vel eget arcu eget vel. Aenean augue amet, et, maecenas enim tristique sed mauris, et. Eget maecenas tortor blandit leo.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="pooja-details-section">
+                    <h3>All Pooja’s</h3>
+                    <div class="inner-pooja-details">
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-view-all">View All</button>
+                    </div>
+                    
+                </div>
+			</div>
+			<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="pooja-section">
+                        <div class="left-section">
+                            <div class="img">
+                                <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div class="right-section">
+                            <h5>Ghar Pe Pooja</h5>
+                            <div class="read-more">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor vel dignissim volutpat vel eget arcu eget vel. Aenean augue amet, et, maecenas enim tristique sed mauris, et. Eget maecenas tortor blandit leo.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="pooja-details-section">
+                    <h3>Ghar Pe Pooja</h3>
+                    <div class="inner-pooja-details">
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-view-all">View All</button>
+                    </div>
+                    
+                </div>
+			</div>
+			<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="pooja-section">
+                        <div class="left-section">
+                            <div class="img">
+                                <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div class="right-section">
+                            <h5>Online Pooja</h5>
+                            <div class="read-more">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor vel dignissim volutpat vel eget arcu eget vel. Aenean augue amet, et, maecenas enim tristique sed mauris, et. Eget maecenas tortor blandit leo.</p>
+
+                            <!-- <p>If you wish that the pooja of your choice is to be performed specially with more pandits or your pooja is to be performed from holy places in India of your choice. Then, you ...<a href="" class="read-more-link">Read More</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="pooja-details-section">
+                    <h3>Online Pooja</h3>
+                    <div class="inner-pooja-details">
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="img-section">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>Akhand Ramayan (Musical)</h5>
+                            <p>INR-2100/-</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-view-all">View All</button>
+                    </div>
+                    
+                </div>
+            </div> 
+            <div class="tab-pane fade" id="specialPooja" role="tabpanel" aria-labelledby="specialPooja-tab">
+				<div class="pooja-section">
+                    <div class="left-section">
+                        <div class="img">
+                            <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="right-section">
+                        <h5>On Request Special Pooja</h5>
+                        <div class="read-more">
+                        <p>Ghar pe premium pooja as customized by you, Ghar Pe Pooja on Urgent basis and Pooja from holy places of your choice in India along holy river banks, temples and Dhams etc.</p>
+
+                        <p>If you wish that the pooja of your choice is to be performed specially with more pandits or your pooja is to be performed from holy places in India of your choice. Then, you ...<a href="" class="read-more-link">Read More</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specialPooja-form">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label> Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name" >
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Email" >
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label>Enter Your Mobile Number</label>
+                                <input type="text" class="form-control" placeholder="Mobile Number" >
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label>Enter Location</label>
+                                <input type="text" class="form-control" placeholder="Enter Location" >
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label>Enter City</label>
+                                <input type="text" class="form-control" placeholder="Enter City" >
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <div class="form-group">
+                                <label>Your Message <span>( Maximum 200 Words) </span></label>
+                                <textarea name="" id="" cols="3" rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                           <button type="submit" class="btn btn-submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+			</div>
+		</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ------tabsection---- -->
-<div class="buttons">
+<!-- <div class="buttons">
     <button class="btnn" id="all" onclick="show(), filterSelection('all')">All</button>
     <button class="btnn" id="g-pooja" onclick="hide(event , 'a1') , filterSelection('ghar_pe_puja')">Ghar Pe Pooja</button>
     <button class="btnn" id="o-pooja" onclick="hide(event , 'a2'), filterSelection('online_puja')">Online Pooja</button>
     <button class="btnn" id="r-pooja" onclick="hide(event , 'a3') , filterSelection('onrequest_puja')">On Request Special
         Pooja</button>
-    <!-- <div class="drop">
-      <button class="btnn" id="all" onclick="show(), filterSelection('all')">All</button>
-      <button class="btnn" id="g-pooja" onclick="hide(event , 'a1') , filterSelection('nature')">Ghar Pe Pooja</button>
-      <button class="btnn" id="o-pooja" onclick="hide(event , 'a2'), filterSelection('online_puja')">Online Pooja</button>
-      <button class="btnn" id="r-pooja" onclick="hide(event , 'a3') , filterSelection('ghar_pe_puja')">On Request Special Pooja</button>
-    </div> -->
+   
 </div>
 
-<!-- --------pooja detail--- -->
+
 
 <section id="section1">
     <div class="container-fluid">
@@ -34,7 +479,7 @@
         </div>
 
 
-        <!-- --------------- -->
+       
         <div class="first" id="a2">
 
             <div class="img">
@@ -46,7 +491,7 @@
                 <p>If you wish that the pooja of your choice is to be performed Online. Then, you can book your pooja under this category. Nowadays, people prefer this type of pooja also and it is believed that it also works. In this case you need not to arrange anything. Our qualified Priest will arrange the pooja with all pooja samagri required as per your convenience. The pooja will be performed preferably at a holy place of temples. After booking your pooja and successful payment of full amount as mentioned in the description of pooja column, our support team will work to allocate the pooja to a qualified priest/ pandit. You will be given the confirmation message and one link. Through this link you will be able to connect with the pooja place and our priest. Then priest will take Sankalp (your name, father’s name, Gotra, your place, and purpose of pooja like information will be required) while starting the pooja. You may like to observe the pooja for full time as per your convenience or can do your routine urgent works in between if you want. Based on the availability, our Customer care/ Support team executive may also join for a short while to see all is well arranged. Rates of online pooja are less than the onsite Pooja.</p>
             </div>
         </div>
-        <!-- --------------- -->
+      
         <div class="first" id="a3">
 
             <div class="img">
@@ -59,24 +504,20 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!-- -----------------------All Pooja’s------------ -->
 <!-- ----------------------Book Pooja------------- -->
-<section id="Book-Pooja">
+<!-- <section id="Book-Pooja">
     <div class="container-fluid text-center p-0">
 
         <h2 id="h2">All Pooja’s</h2>
 
 
-        <!-- MAIN (Center website) -->
         <div class="main">
 
 
-
-
-            <!-- Portfolio Gallery Grid -->
             <div class="row">
                
             @foreach(@$pujaList as $puja)
@@ -120,14 +561,13 @@
             </div>
 
 
-            <!-- END MAIN -->
         </div>
 
     </div>
     <div class="text-center" id="view-btn">
         <button>View All</button>
     </div>
-</section>
+</section> -->
 
 
 <!-- -----------about section-------- -->
@@ -178,7 +618,7 @@
         <div class="review-box">
 
             <div class="carousel" data-flickity='{ }'>
-                <!-- ------- -->
+              
                 <div class="carousel-cell">
                     <div class="review">
 
@@ -221,7 +661,6 @@
                 </div>
 
 
-                <!-- ------- -->
                 <div class="carousel-cell">
                     <div class="review">
 
@@ -242,7 +681,6 @@
                     </div>
                 </div>
 
-                <!-- ------- -->
                 <div class="carousel-cell">
                     <div class="review">
 
