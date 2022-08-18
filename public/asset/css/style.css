@@ -25,7 +25,7 @@ p{
 .b-navbar {
   display: flex;
   justify-content: normal;
-  margin: .5% 0;
+  margin: .5% 0 0 !important;
 }
 .b-navbar a:hover {
   color: #fa941c;

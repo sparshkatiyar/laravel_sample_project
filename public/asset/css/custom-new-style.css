@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Poppins:wght@200;300;400;500;600;700;800&family=Sen&display=swap');
+
 .submenu {
     position: relative;
 }
@@ -25,6 +27,7 @@
 
 .submenu:hover .dropdown-menu-custom {
     display: block !important;
+    z-index: 9;
 }
 
 .dropdown-menu-custom li {
@@ -41,14 +44,15 @@
     display: block;
     color: #222222;
 }
-.custom-nav-pooja{
+
+.custom-nav-pooja {
     justify-content: center;
     border: 0;
     margin-bottom: 50px;
 }
-.custom-nav-pooja .nav-link{
-    font-family: 'Poppins';
-    font-style: normal;
+
+.custom-nav-pooja .nav-link {
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -57,23 +61,29 @@
     border: 0;
     position: relative;
 }
-.custom-nav-pooja .nav-link:hover{
+
+.custom-nav-pooja .nav-link:hover {
     border: 0;
 }
-.custom-nav-pooja  .nav-link.active{
+
+.custom-nav-pooja .nav-link.active {
     color: #222222;
 
 }
-.custom-nav-pooja  .nav-link.active span{
+
+.custom-nav-pooja .nav-link.active span {
     position: relative;
     display: inline-block;
+    font-weight: 500;
 }
-.custom-nav-pooja  .nav-link:focus-visible{
+
+.custom-nav-pooja .nav-link:focus-visible {
     outline: none;
     box-shadow: none;
     border: 0;
 }
-.custom-nav-pooja  .nav-link.active span::before{
+
+.custom-nav-pooja .nav-link.active span::before {
     content: "";
     position: absolute;
     bottom: -5px;
@@ -93,6 +103,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1138px;
+    width: 100%;
+    margin: 0 auto 65px;
+}
+.pooja-section:nth-child(even){
+    flex-direction: row-reverse;
 }
 
 .pooja-section .left-section {
@@ -138,7 +154,9 @@
 }
 
 .specialPooja-form {
-    margin-top: 120px;
+    max-width: 1138px;
+    width: 100%;
+    margin: 120px auto 0;
 }
 
 .specialPooja-form .form-group {
@@ -161,14 +179,22 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    /* line-height: 24px; */
     text-align: left;
     color: #656262;
     border-radius: 5px;
+    height: 56px;
+    line-height: 56px;
+    border: 1px solid #979797;
+    border-radius: 10px;
 }
 
 .specialPooja-form .form-group label span {
     color: #494F59;
+}
+
+.specialPooja-form .form-group textarea.form-control {
+    height: 108px;
 }
 
 .specialPooja-form .form-group .form-control::placeholder {
@@ -201,7 +227,9 @@
 }
 
 .pooja-details-section {
-    margin-top: 120px;
+    max-width: 1135px;
+    margin: 120px auto 0;
+    width: 100%;
 }
 
 .pooja-details-section h3 {
@@ -218,7 +246,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap:0 20px;
+    gap: 0 20px;
     flex-wrap: wrap;
 }
 
@@ -227,8 +255,16 @@
     margin-bottom: 60px;
 }
 
+.pooja-details-section .inner-pooja-details .item .img-section img {
+    border-radius: 8px;
+    transition: 0.5s ease-in;
+}
+.pooja-details-section .inner-pooja-details .item .img-section img:hover{
+    transform: scale(0.912);
+}
+
 .pooja-details-section .inner-pooja-details .item h5 {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
@@ -237,7 +273,7 @@
 }
 
 .pooja-details-section .inner-pooja-details .item p {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
@@ -252,8 +288,7 @@
 
 
 .btn.btn-view-all {
-    font-family: 'Poppins';
-    font-style: normal;
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -264,4 +299,128 @@
     height: 54px;
     background: #FA941C;
     border-radius: 10px;
+}
+
+.profile-name {
+    display: flex;
+    align-items: center;
+}
+
+.profile-name .img-section {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+}
+
+.profile-name .img-section img {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+}
+
+.profile-name .content {
+    padding-left: 15px;
+}
+
+.profile-name .content .name-title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 28px;
+    color: #353535;
+    margin: 0;
+}
+
+.profile-name .content .name-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #3A3C41;
+    margin: 0;
+}
+
+#testimonial .review p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3A3C41;
+}
+
+.about p {
+    margin: 4% 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #3a3c41;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3A3C41;
+}
+
+#testimonial .flickity-button {
+    display: block;
+    border: 1px solid #C4C4C4;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #C4C4C4;
+}
+
+
+#footer h2 {
+    margin-bottom: 35px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+
+#footer a {
+    color: #d5d2d2d9;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    display: block;
+    margin-bottom: 15px;
+}
+
+#footer .menu br,
+#footer .service br {
+    display: none;
+}
+
+.pandit-registration {
+    background: #FA941C;
+    padding: 27px 0;
+    
+}
+.pandit-registration .inner-section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pandit-registration h3 {
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 51px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.pandit-registration button {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: hsl(0, 0%, 13%);
+    padding: 12px;
+    width: 202px;
+    height: 48px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 0;
 }
