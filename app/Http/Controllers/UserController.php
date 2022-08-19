@@ -238,13 +238,14 @@ class UserController extends Controller
             // 'price_order'   =>'required|min:1',
             'price_tax'     =>'required|min:1',
             'price_coupan'  =>'required|min:1',
-            'price_total'   =>'required|min:1',
+            // 'price_total'   =>'required|min:1',
             // 'booking_type'  =>'required|min:1',
             // 'deliver_date'  =>'required|min:2',  
            
         ];
         $payment_id = rand()."".rand();
-        $price_order        =  Session::get('price_order');
+        $price_order        = $request->totalPay;
+  
         $puja_category      =  Session::get('puja_category');
         $puja_type          =  Session::get('puja_type');
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
@@ -276,7 +277,7 @@ class UserController extends Controller
             'price_order'       => $price_order,
             'price_tax'         => $request->get('price_tax'),
             'price_coupan'      => $request->get('price_coupan'),
-            'price_total'       => $request->get('price_total'),
+            'price_total'       => $price_order,
             'booking_type'      => $request->get('booking_type'),
             'booking_active'    => 1,
             'booking_date'      => now()->timestamp,
@@ -285,6 +286,7 @@ class UserController extends Controller
             
             
         ]);  
+        // dd($userBooking);
         return redirect('/dashboard');       
         return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }

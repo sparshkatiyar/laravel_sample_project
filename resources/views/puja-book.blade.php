@@ -395,7 +395,7 @@
             }
             else{
                 totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
-                alert(totalPrice);
+                // alert(totalPrice);
             }
 
             $("#addprice").text(0);

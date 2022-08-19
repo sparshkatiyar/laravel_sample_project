@@ -9958,11 +9958,23 @@ height: auto;
     height: 3em;
     width: 25em;
     border: none;
-    background-color: 
-    #FA941C;
+    background-color:#FA941C;
     border-radius: 5px;
     color: white;
     margin-top: 10px;
+  }
+  .placeBtn{
+    height: 3em;
+    width: 25em;
+    border: none;
+    background-color:#FA941C;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
   }
 
 

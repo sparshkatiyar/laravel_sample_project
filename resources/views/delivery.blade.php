@@ -191,12 +191,12 @@
                         <p>Price-Detail :</p>
     
                         <div>
-                            <h6>Price( 1 Items)</h6>
+                            <h6><input name="totalPay" type="radio" value="{{$price_order}}" id="tdpay" checked="checked">Price( 1 Items)</h6>
                             <h6>&#x20b9 <span>{{$price_order}}</span></h6>
                         </div>
     
                         <div class="tax">
-                            <h6><input type="radio" value="{{$adPay}}" id="adpay">Advance Pay</h6>
+                            <h6><input name="totalPay" type="radio" value="{{$adPay}}" id="adpay">Advance Pay</h6>
                             
                             <h6>&#x20b9 <span>{{$adPay}}</span></h6>
                         </div>
@@ -207,10 +207,16 @@
                         </div>
                     </div>
                     <input type="text" value="{{$tax}}" name="price_tax" hidden>
-                    <input type="text" value="{{$price_total}}" name="price_total" hidden>
+                    <!-- <input type="text" value="{{$price_total}}" name="price_total" hidden> -->
                     <input type="text" value="0" name="price_coupan" hidden>
                     <input type="text" value="1" name="booking_type" hidden>
+                    @if(Auth::guard('user')->user())
                     <button id="placeBtn" type="submit" value="submit">Place Order</button>
+                    @else
+          
+                    <span class="placeBtn" onclick="popshow()">Place Order</span>
+                    
+                    @endif
                 </div>
             </form>
         </div>
@@ -276,7 +282,13 @@
         $("#adpay").click(function(){
             var basePrice ="{{$price_order}}";
             // alert(basePrice);
-            var totalPrice = parseInt(basePrice) + parseInt("{{$adPay}}");;
+            var totalPrice =  parseInt("{{$adPay}}");;
+            var setPrice = $("#finalprice").text(totalPrice);
+        });
+        $("#tdpay").click(function(){
+            var basePrice ="{{$price_order}}";
+            // alert(basePrice);
+            var totalPrice = parseInt(basePrice) ;;
             var setPrice = $("#finalprice").text(totalPrice);
         });
     </script>

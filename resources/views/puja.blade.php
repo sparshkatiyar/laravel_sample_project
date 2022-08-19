@@ -63,90 +63,19 @@
             <div class="pooja-details-section">
               <h3>All Pooja’s</h3>
               <div class="inner-pooja-details">
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
+                
+                
+                @foreach(@$pujaList as $puja)       
+                    <div class="item">
+                        <a href="{{'puja-booking/'}}{{$puja->id}}">
+                            <div class="img-section">
+                                <img src="{{$puja->puja_id->image}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>{{$puja->puja_id->name}}</h5>
+                            <p>INR-{{$puja->puja_base_price}}/-</p>
+                        </a>
+                    </div>
+                @endforeach
               </div>
               <div class="text-center">
                 <button type="button" class="btn btn-view-all">View All</button>
