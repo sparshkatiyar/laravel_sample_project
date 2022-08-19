@@ -24,6 +24,38 @@ class PujaController extends Controller
         // dd($pujaList);
         return view('puja',compact('pujaList'));
     }
+    public function home()
+    {
+    
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        }  
+        // dd($pujaList);
+        return view('puja-ghar',compact('pujaList'));
+    }
+    public function online()
+    {
+    
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        }  
+        // dd($pujaList);
+        return view('puja-online',compact('pujaList'));
+    }
+
+    public function onrequest()
+    {
+    
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        }  
+        // dd($pujaList);
+        return view('puja-request',compact('pujaList'));
+    }
+    
     public function booking(Request $request )
     {
         $ecomm_puja_id = $request->id;
