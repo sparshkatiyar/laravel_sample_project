@@ -20,7 +20,7 @@
                         <h4>Login <span><img src="right.png" alt="" width="20px"></span></h4>
 
                     </div>
-                    <div id="loginNumber">{{@$user->country_code}}-{{@$user->mobile_number}}</div>
+                    <div id="loginNumber">{{@$user->country_code}} {{@$user->mobile_number}}</div>
                    
                     @if(Auth::guard('user')->user())
                     <a href="{{url('/address')}}">
@@ -51,7 +51,7 @@
                             @csrf
                             <div class="contact">
                                 <label for="">Contact Details :</label>
-                                <div>
+                                <div class="form-menu">
                                     <input type="text" value="{{@@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
                                     <input type="text" value="{{@@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
                                 </div>
@@ -59,25 +59,25 @@
                             <!--  -->
                             <div class="add">
                                 <label for="">Address :</label>
-                                <div>
+                                <div class="form-menu">
 
                                     <input type="text" value="{{@@$userAddress->flat_no}}" name="flat_no" placeholder="Flat no.*">
                                     <input type="text"  value="{{@@$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
 
                                 </div>
 
-                                <div>
+                                <div class="form-menu">
 
                                     <input type="text" value="{{@@$userAddress->city}}" name="city" placeholder="City*">
                                     <input type="text"  value="{{@@$userAddress->pincode}}" name="pincode" placeholder="Pincode*">
 
                                 </div>
 
-                                <div>
+                                <div class="form-menu">
                                     <textarea id="" name="address" rows="4" cols="50"
                                         placeholder="Address (Area and Street)">{{@@$userAddress->address}}</textarea>
                                 </div>
-                                <div>
+                                <div class="form-menu">
                                     <input type="text" value="{{@@$userAddress->town}}" name="town" placeholder="City/District/Town">
                                     <select name="state" id="state" class="form-control">
                                     <option selected><b>--Select State--</b> </option>
@@ -119,6 +119,12 @@
                                     <option value="West Bengal">West Bengal</option>
                                 </select>
                                 </div>
+                                <label for="">Order Note (If any)  :</label>
+                                <div class="form-menu">
+
+                                    <input type="text" class="width-100"   placeholder="Enter note">
+                                   
+                                </div>
                             </div>
                             <!--  -->
                             <div class="note">
@@ -144,7 +150,20 @@
 
                     <!-- ---summary-detail-- -->
                     <div class="summary-detail">
-                        <div class="img">
+
+                    <div class="inner-summary-detail">
+                        <div class="img-section">
+                        <img src="{{ $pujaDetails->puja_id->image}}" alt="">
+                        </div>
+                        <div class="content-section">
+                        <h4>{{ $pujaDetails->puja_id->name}}</h4>
+                        <p><span>Pooja Date :</span>   22 March 2022</p>
+                        <p><span> Catogary :</span>     Ghar Pe Pooja  
+                        <strong>&#x20b9 {{$price_order}}</strong>
+                    </p>
+                        </div>
+                    </div>
+                        <!-- <div class="img">
                             <img src="{{ $pujaDetails->puja_id->image}}" alt="">
                         </div>
                         <div class="detail">
@@ -153,13 +172,13 @@
 
                             <p class="price-pera"><strong> <span class="current-price">&#x20b9 {{$price_order}}</span></strong>
                                 <small><del>
-                                        <!-- <font color="gray"> &#x20b9 6.00 </font> -->
+                                        <font color="gray"> &#x20b9 6.00 </font>
                                     </del></small></p>
                             <div id="offer">
                                 <font color="#A65D08
                                 ">25% off</font>
                             </div>
-                        </div>
+                        </div> -->
 
 
                       
@@ -188,19 +207,30 @@
                 @csrf
                 <div class="price-detail">
                     <div class="detail">
-                        <p>Price-Detail :</p>
+                        <p class="pr-dt">Price-Detail :</p>
     
-                        <div>
-                            <h6><input name="totalPay" type="radio" value="{{$price_order}}" id="tdpay" checked="checked">Price( 1 Items)</h6>
+                        <div class="price-item">
+
+                        <label class="custom-radio">Price( 1 Items)
+                            <input  name="totalPay" type="radio" value="{{$price_order}}" id="tdpay" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                            <h6></h6>
                             <h6>&#x20b9 <span>{{$price_order}}</span></h6>
+                        
                         </div>
+                        
+                        <small class="pay-b">(pay balance amount to pandit ji)</small>
     
-                        <div class="tax">
-                            <h6><input name="totalPay" type="radio" value="{{$adPay}}" id="adpay">Advance Pay</h6>
+                        <div class="tax price-item">
                             
+                            <label class="custom-radio">Advance Pay
+                            <input name="totalPay" type="radio" value="{{$adPay}}" id="adpay">
+                            <span class="checkmark"></span>
+                        </label>
                             <h6>&#x20b9 <span>{{$adPay}}</span></h6>
                         </div>
-                        <small>(pay balance amount to pandit ji)</small>
+                        
                         <div class="total">
                             <h6>Total amount</h6>
                             <h6>&#x20b9 <span id="finalprice">{{$price_total}}</span></h6>

@@ -184,7 +184,46 @@
 
 <!-- ----section2-- -->
 
-<section id="section2">
+<section class="pooja-description-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="pooja-description">
+                    <div class="left-section">
+                        <div class="header-title">Advantages of this pooja</div>
+                        <div class="content">
+                            <ul>
+                                <li>Brings the peace, understanding, prosperity and happiness in the family.</li>
+                                <li>Brings success to new business and ventures.</li>
+                                <li>Auspicious for new beginnings like Griha Pravesh, wedding ceremonies, Birth of a baby and so on</li>
+                                <li>A divine atmosphere is created at the place where Akhand Ramayan Paath is recited.</li>
+                                <li>Induces truth, bravery and morality amongst devotees.</li>
+                                <li>Provides moksha to soul and rids it from trails of re-birth.</li>
+                                <li>Prevents damage and danger from evil.</li>
+                                <li>Protects against health problem.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right-section">
+                        <div class="header-title">Your Pooja is Simplified</div>
+                        <div class="content">
+                            <p>Your Pooja is Simplified at “AstroPandit Om”</p>
+                            <ul>
+                                <li>No of Pandits: 5, Time: 24 Hr,</li>
+                                <li>Pooja Cost: Ghar pe Pooja  (At your place-home or office): Rs 13501/-. Price is inclusive of Pooja samagri. You need to arrange eatables, utensils, hawan kund, flowers / garland etc. For details what you need to arrange, check Pooja Samagri Column below. </li>
+                                <li>Extra Rs 2000 for Sound system.</li>
+                                <li>For Team of 7 People with Amplifier Sound System and Murti Setup for Big function Price - Rs 21000/-</li>
+                             
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="section2">
     <div class="container-fluid boxes-pooja">
         <div class="box1">
             <div class="a">
@@ -196,8 +235,7 @@
             </div>
         </div>
 
-        <!-- --- -->
-        <!-- <div class="box2">
+         <div class="box2">
             <div class="a">
                 <h4>Your Pooja is Simplified</h4>
             </div>
@@ -206,13 +244,13 @@
             <div class="b">
                 {!! $pujaDetails->puja_id->pujasimplified!!}
             </div>
-        </div> -->
+        </div>
     </div>
 
     
 
 
-</section>
+</section> -->
 
 
 
