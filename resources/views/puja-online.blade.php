@@ -6,13 +6,13 @@
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
         <div class="nav nav-tabs custom-nav-pooja" id="nav-tab" role="tablist">
-          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+          <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
             <span>All</span>
           </button>
           <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
             <span>Ghar Pe Pooja</span>
           </button>
-          <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+          <button class="nav-link active" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
             <span>Online Pooja</span>
           </button>
           <button class="nav-link" id="specialPooja-tab" data-bs-toggle="tab" data-bs-target="#specialPooja" type="button" role="tab" aria-controls="specialPooja" aria-selected="false">
@@ -20,7 +20,7 @@
           </button>
         </div>
         <div class="tab-content custom-tab-content" id="nav-tabContent">
-          <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="pooja-section">
               <div class="left-section">
                 <div class="img">
@@ -302,7 +302,7 @@ If you wish to have your online pooja at special holy places on the bank of rive
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <div class="tab-pane fade active show" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
             <div class="pooja-section">
               <div class="left-section">
                 <div class="img">
