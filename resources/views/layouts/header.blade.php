@@ -59,9 +59,9 @@
                      <li><a href="../Horoscope-page/horoscope.html">Horoscope</a></li>
                      <li class="submenu"> <a class=""  href="{{url('puja-home')}}">Pooja</a>
                            <ul class="dropdown-menu-custom">
-                              <li><a href="{{route('puja.ghar')}}">Ghar Pe Pooja</a></li>
-                              <li><a href="{{route('puja.online')}}">Online E-Pooja</a></li>
-                              <li><a href="{{route('puja.request')}}">On Request-Pooja</a></li>
+                              <li><a href="{{url('./puja-ghar')}}">Ghar Pe Pooja</a></li>
+                              <li><a href="{{url('./puja-online')}}">Online E-Pooja</a></li>
+                              <li><a href="{{url('./puja-request')}}">On Request-Pooja</a></li>
                            </ul>
                      </li>
                      <li>

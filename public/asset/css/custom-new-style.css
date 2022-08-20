@@ -424,3 +424,394 @@
     border-radius: 10px;
     border: 0;
 }
+
+
+.pooja-description-section{
+    margin-bottom: 120px;
+}
+
+.pooja-description-section .pooja-description{
+    max-width: 1140px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.pooja-description-section .pooja-description .left-section,
+.pooja-description-section .pooja-description .right-section {
+    width: 50%;
+  
+    /* padding: 15px 25px; */
+}
+.pooja-description-section .pooja-description .left-section .content{
+    border: 1px solid #FA941C;
+    border-top: 0;
+}
+.pooja-description-section .pooja-description .right-section .content{
+    border: 1px solid #FA941C;
+    border-top: 0;
+    border-left: 0;
+}
+.pooja-description-section .pooja-description .left-section .content,
+.pooja-description-section .pooja-description .right-section .content {
+    padding: 15px 25px;
+    height: 100%;
+}
+
+.pooja-description-section .pooja-description .left-section .header-title ,
+.pooja-description-section .pooja-description .right-section .header-title{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #222222;
+    text-align: center;
+    padding: 15px 10px;
+    border: 1px solid #FA941C;
+
+}
+.pooja-description-section .pooja-description .left-section .header-title {
+    border-right: 0;
+}
+.pooja-description-section .pooja-description .left-section .content p ,
+.pooja-description-section .pooja-description .right-section .content p{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #222222;
+    margin-bottom: 25px; 
+
+}
+.pooja-description-section .pooja-description .left-section .content ul,
+.pooja-description-section .pooja-description .right-section .content ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.pooja-description-section .pooja-description .left-section .content ul li,
+.pooja-description-section .pooja-description .right-section .content ul li{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+    margin-bottom: 25px;
+}
+.pooja-description-section .pooja-description .left-section .content ul li:last-child,
+.pooja-description-section .pooja-description .right-section .content ul li:last-child{
+    margin-bottom: 0;
+}
+.changeNumber{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #109BAE;
+    border: 1px solid #109BAE;
+    border-radius: 10px;
+    padding: 10px;
+    height: auto;
+    width: 74px;
+    height: 41px;
+}
+.customer-detail .show-heding h5
+{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #222222;
+    margin: 0;
+}
+#section1 .form .login{
+    height: auto;
+}
+/* .login + div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+} */
+.login h4{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #222222;
+    margin: 0;
+}
+#section1 .form .customer-detail .show-heding{
+    padding: 15px 15px;
+    margin: 0 0 15px;
+}
+#section1 .form .summary .summary-detail .detail h5{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    color: #212121;
+    margin-bottom: 35px;
+}
+.summary-detail .img{
+    max-width: 105px;
+    width: 100%;
+    height: 122px;
+    overflow: hidden;
+    border: 0.184872px solid #0D7B4D;
+
+}
+.inner-summary-detail{
+    width: 100%;
+    display: flex;
+    padding: 15px;
+}
+.inner-summary-detail .img-section{
+    max-width: 105px;
+    width: 100%;
+    height: 122px;
+    margin-right: 20px;
+    overflow: hidden;
+}
+.inner-summary-detail .img-section img{
+    max-width: 100%;
+}
+.inner-summary-detail .content-section h4{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    color: #212121;
+    margin-bottom: 20px;
+}
+.inner-summary-detail .content-section p{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #212121;
+    margin-bottom: 15px;
+    position: relative;
+}
+.inner-summary-detail .content-section{
+    width: 100%;
+}
+.inner-summary-detail .content-section p span{
+    color: #5E5F63;
+}
+.inner-summary-detail .content-section p:last-child{
+    margin-bottom: 0;
+}
+.inner-summary-detail .content-section p strong{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: #212121;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+#section1 .main .form {
+    max-width: 768px;
+    padding: 0;
+    width: 100%;
+    margin-right: 30px;
+}
+#section1 .main .price-detail{
+    max-width: 361px;
+    width: 100%;
+}
+#section1 .main .price-detail .detail{
+    max-width: 361px;
+    height: auto;
+    width: 100%;
+    padding: 24px 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+}
+.placeBtn{
+    max-width: 361px;
+    /* width: 100%; */
+}
+#section1 .main .price-detail .detail .total h6{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+}
+.price-item{
+    margin-bottom: 15px;
+}
+.price-item h6{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+    margin-bottom: 0;
+}
+.price-item input{
+    margin-right: 8px;
+}
+.pr-dt{
+    font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+
+/* Secondary Black */
+
+color: #5E5F63;
+}
+.pay-b{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 0 0 15px;
+    color: #656262;
+    text-align: center;
+    display: block;
+}
+#section1 .main .price-detail .detail .total{
+    padding: 15px 0 0;
+}
+.total h6{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+    margin-bottom: 0;   
+}
+#section1 .form .customer-detail .detail-form input {
+    padding: 1% 2%;
+    color: #6B6D71;
+    width: 48%;
+    margin: 1% 0;
+    height: 50px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+}
+#section1 .form .customer-detail .detail-form input:focus,
+#section1 .form .customer-detail .detail-form textarea:focus{
+    outline: none;
+}
+#section1 .form .customer-detail .detail-form label {
+    font-size: 18px;
+    margin: 3% 0;
+    font-weight: 600;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #222222;
+}
+#section1 .form .customer-detail .detail-form textarea{
+    color: #6B6D71;
+    margin: 1% 0;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+}
+.form-menu{
+    display: flex;
+    justify-content: space-between;
+}
+.form-menu input{
+    width: 48%;
+}
+.form-menu .input.width-100{
+    width: 100%;
+}
+
+
+
+
+#section1 .form .summary,
+#section1 .form .customer-detail{
+    height: 75px;
+}
+
+
+#section1 .form .customer-detail{
+    padding: 0;
+}
+
+#loginNumber {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+}
+#section1 .form .customer-detail .show-heding{
+    margin-bottom: 0;
+    align-items: center;
+    height: 75px;
+}
+#section1 .form .customer-detail .detail-form{
+    padding: 15px;
+}
+.custom-radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+    margin-bottom: 0;
+  }
+  
+  /* Hide the browser's default radio button */
+  .custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .custom-radio .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid #939393;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .custom-radio:hover input ~ .checkmark {
+    background-color: transparent;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .custom-radio input:checked ~ .checkmark {
+    background-color: transparent;
+    border-color: #FA941C;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+ .custom-radio .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .custom-radio input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .custom-radio .checkmark:after {
+    top: 3px;
+    left: 3.1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FA941C;
+}

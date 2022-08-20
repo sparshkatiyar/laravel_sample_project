@@ -43,7 +43,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h5 class="login">Verify Phone</h5>
-        <p class="otpheading" >OTP sent to <span id="otpheading"> +91 1234567890</span></p>
+        <p class="otpheading" >OTP sent to +91-<span id="otpheading"> </span></p>
       </div>
       <form action="javascript:void(0);" class="mt-5" id="veryfyOtp">
         <input type="text" id="otpMob" name="mobileNumber" hidden>
@@ -92,7 +92,7 @@
       </p>
       <p class="resendbutton"><a href="#">Resend OTP availablen in </a></p>
       <div class="button-div">
-        <button class="resendotp">
+        <button class="resendotp" id="resendotp" >
           Resend OTP on<br />
           SMS</button
         ><button class="resendotp">
@@ -174,10 +174,10 @@
             var LoginForm = $("#registerForm");
             var formData = LoginForm.serialize();
             $("#otpContinue"). attr("disabled", true);
-            var mobileTelCode = $("select[name=mobileTelCode]").val();
-            var mobileNumber= $("input[name=mobileNumber]").val();
+            var mobileTelCode   = $("select[name=mobileTelCode]").val();
+            var mobileNumber    = $("input[name=mobileNumber]").val();
             // alert(mobileNumber);
-            var timer2 = "1:01";
+            var timer2 = "1:00";
             var base_url = '<?=url('');?>';           
             $.ajax({
                 url: "{{url('login')}}",
@@ -187,6 +187,7 @@
                     document.getElementById("registerForm").reset(); 
                     $('#otpTel').val(mobileTelCode);
                     $('#otpMob').val(mobileNumber);
+                    $('#otpheading').text(mobileNumber);
                     setInterval(function() {
 
                     var timer = timer2.split(':');
@@ -202,6 +203,7 @@
                     $('.second').html(minutes + ':' + seconds);
                     timer2 = minutes + ':' + seconds;
                     }, 1000);
+                    window.setTimeout(setEnabled, 30000);
                     // continiuepop();
                     // alert('Ajax form has been submitted successfully');
                 }
@@ -230,6 +232,15 @@
                 }
             });
         });
+
+        
+
+        function setEnabled() {
+            var submitButton = document.getElementById('resendotp');
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
     </script>
     <script>
         

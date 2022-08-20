@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
         <div class="nav nav-tabs custom-nav-pooja" id="nav-tab" role="tablist">
-          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+          <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
             <span>All</span>
           </button>
           <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
@@ -410,7 +410,7 @@ If you wish to have your online pooja at special holy places on the bank of rive
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="specialPooja" role="tabpanel" aria-labelledby="specialPooja-tab">
+          <div class="tab-pane fade active" id="specialPooja" role="tabpanel" aria-labelledby="specialPooja-tab">
             <div class="pooja-section">
               <div class="left-section">
                 <div class="img">
