@@ -104,9 +104,16 @@ class PujaController extends Controller
             $saveCategory->standard_pooja = $request->standard_pooja ?? '';
             $saveCategory->premium_pooja = $request->premium_pooja ?? '';
             $saveCategory->grand_pooja = $request->grand_pooja ?? '';
-            $saveCategory->category_samagri = $request->category_samagri ?? '';
-            $saveCategory->category_wsamagri = $request->category_wsamagri ?? '';
-            $saveCategory->category_all = $request->category_all ?? '';
+            $saveCategory->category_samagri = $request->standard_category_samagri ?? '';
+            $saveCategory->category_wsamagri = $request->standard_category_wsamagri ?? '';
+            $saveCategory->category_all = $request->standard_category_all ?? '';
+            $saveCategory->premium_category_samagri = $request->premium_category_samagri ?? '';
+            $saveCategory->premium_category_wsamagri = $request->premium_category_wsamagri ?? '';
+            $saveCategory->premium_category_all = $request->premium_category_all ?? '';
+
+            $saveCategory->grand_category_samagri = $request->grand_category_samagri ?? '';
+            $saveCategory->grand_category_wsamagri = $request->grand_category_wsamagri ?? '';
+            $saveCategory->grand_category_all = $request->grand_category_all ?? '';
             $saveCategory->created_at = \Carbon\Carbon::now();
             $saveCategory->updated_at = \Carbon\Carbon::now();
             $saveCategory->save();          
@@ -118,9 +125,16 @@ class PujaController extends Controller
             $saveCategory->standard_pooja = $request->standard_pooja ?? '';
             $saveCategory->premium_pooja = $request->premium_pooja ?? '';
             $saveCategory->grand_pooja = $request->grand_pooja ?? '';
-            $saveCategory->category_samagri = $request->category_samagri ?? '';
-            $saveCategory->category_wsamagri = $request->category_wsamagri ?? '';
-            $saveCategory->category_all = $request->category_all ?? '';
+            $saveCategory->category_samagri = $request->standard_category_samagri ?? '';
+            $saveCategory->category_wsamagri = $request->standard_category_wsamagri ?? '';
+            $saveCategory->category_all = $request->standard_category_all ?? '';
+            $saveCategory->premium_category_samagri = $request->premium_category_samagri ?? '';
+            $saveCategory->premium_category_wsamagri = $request->premium_category_wsamagri ?? '';
+            $saveCategory->premium_category_all = $request->premium_category_all ?? '';
+
+            $saveCategory->grand_category_samagri = $request->grand_category_samagri ?? '';
+            $saveCategory->grand_category_wsamagri = $request->grand_category_wsamagri ?? '';
+            $saveCategory->grand_category_all = $request->grand_category_all ?? '';
             $saveCategory->updated_at = \Carbon\Carbon::now();
             $saveCategory->save();          
             return redirect()->back()->with('success','Pooja category details edited successfully');

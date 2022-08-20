@@ -12,7 +12,7 @@
                 <a href="../Home-page/Home-page.html">Talk to Astrologers</a><br><br>
                 <a href="../Product/product.html">Astroshop</a><br><br>
                 <a href="../Horoscope-page/horoscope.html">Horoscope</a><br><br>
-                <a href="../Pooja-page/Pooja-main-page.html">Pooja</a><br><br>
+                <a href="{{url('puja-home')}}">Pooja</a><br><br>
                 <a href="../About/about.html">About us</a><br><br>
                 <a href="../Contact/contact.html">Contact us</a><br><br>
             </div>

@@ -501,5 +501,36 @@ class UserApiController extends Controller
         // return response()->json(['message'=>' Experties list .'],200);
     }
 
+    public function horroscope(Request $request){
+        $validator = [          
+            'sign' => 'required',
+            'day'=>'required'
+        ];
+        $validation = Validator::make($request->all(),$validator);
+        if($validation->fails()){
+            $response   =[
+                'message'   => $validation->errors($validation)->first(),
+            ];
+            return response()->json($response,400);
+        }
+        $sign=$request->sign;
+        $day=$request->day;
+        $aztro = curl_init('https://aztro.sameerkumar.website/?sign='.$sign.'&day='.$day);
+        curl_setopt_array($aztro, array(
+            CURLOPT_POST => TRUE,
+            CURLOPT_RETURNTRANSFER => TRUE,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            )
+        ));
+        $response = curl_exec($aztro);
+        if($response === FALSE){
+            die(curl_error($aztro));
+        }
+        $responseData = json_decode($response, TRUE);
+        return response()->json(['UserHorroscope'=>$responseData],200);
+    }
+    
+
 }
 
