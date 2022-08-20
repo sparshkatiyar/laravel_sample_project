@@ -719,12 +719,15 @@ color: #5E5F63;
 
 
 
-#section1 .form .summary{
+#section1 .form .summary,
+#section1 .form .customer-detail{
     height: 75px;
 }
 
 
-
+#section1 .form .customer-detail{
+    padding: 0;
+}
 
 #loginNumber {
     position: absolute;
@@ -735,7 +738,14 @@ color: #5E5F63;
     line-height: 24px;
     color: #222222;
 }
-
+#section1 .form .customer-detail .show-heding{
+    margin-bottom: 0;
+    align-items: center;
+    height: 75px;
+}
+#section1 .form .customer-detail .detail-form{
+    padding: 15px;
+}
 .custom-radio {
     display: block;
     position: relative;
