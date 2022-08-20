@@ -26,6 +26,10 @@ Route::get('/puja-ghar', [App\Http\Controllers\PujaController::class, 'home'])->
 Route::get('/puja-online', [App\Http\Controllers\PujaController::class, 'online'])->name('online');
 Route::get('/puja-onrequest', [App\Http\Controllers\PujaController::class, 'onrequest'])->name('onrequest');
 Route::get('/puja-booking/{id}', [App\Http\Controllers\PujaController::class, 'booking'])->name('booking');
+Route::get('/puja-all', [App\Http\Controllers\PujaController::class, 'AllPooja'])->name('puja.all');
+Route::get('/puja-ghar', [App\Http\Controllers\PujaController::class, 'GhrPooja'])->name('puja.ghar');
+Route::get('/puja-online', [App\Http\Controllers\PujaController::class, 'OnlinePooja'])->name('puja.online');
+Route::get('/puja-request', [App\Http\Controllers\PujaController::class, 'RequestPooja'])->name('puja.request');
 
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index');
 Route::post('/pandit-registration', [App\Http\Controllers\PanditController::class, 'register'])->name('register');
@@ -35,6 +39,7 @@ Route::post('/otp_verify', [App\Http\Controllers\UserController::class, 'otp_ver
 Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'delivery'])->name('delivery');
 Route::post('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryProcced');
 Route::post('/puja-delivery-login', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryForLogin');
+Route::post('horroscope',[UserApiController::class,'horroscope']);
 Route::group(['middleware' => 'user-auth'],function(){
 	Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('index');
 	Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('index');

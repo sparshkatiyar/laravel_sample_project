@@ -453,7 +453,7 @@
             }
             else if(ptype =="all"){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
+            }Welcome@1212!!
             else{
                 totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
                 // alert(totalPrice);

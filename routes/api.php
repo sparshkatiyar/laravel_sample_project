@@ -52,6 +52,7 @@ Route::group(['namespace' => 'API'], function () {
             Route::post('booking_placed_details',[UserApiController::class,'getBookingDetails']);
             Route::get('myorder',[UserApiController::class,'myorder']);
             Route::post('make_payment',[UserApiController::class,'makePayment']);
+            Route::post('horroscope',[UserApiController::class,'horroscope']);
 
         });
     });

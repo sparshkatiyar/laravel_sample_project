@@ -111,5 +111,41 @@ class PujaController extends Controller
         return response()->json(['message'=>' added successfully.','data'=>$user],200);    
 
     }
+
+    public function AllPooja()
+    {
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        } 
+        return view('all_pooja',compact('pujaList'));
+    }
+
+    public function GhrPooja()
+    {
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        } 
+        return view('gharpuja',compact('pujaList'));
+    }
+
+    public function OnlinePooja()
+    {
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        } 
+        return view('online_pooja',compact('pujaList'));
+    }
+
+    public function RequestPooja()
+    {
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        } 
+        return view('request_pooja',compact('pujaList'));
+    }
     
 }

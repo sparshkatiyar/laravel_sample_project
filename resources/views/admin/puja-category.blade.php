@@ -62,7 +62,7 @@
 
                                     <div class="form-group">
                                     <label>Standard<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_pooja" rows="4"
-                                            placeholder="Standard" required></textarea>
+                                            placeholder="Standard"></textarea>
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Premium<span class="text-danger">*</span></label>
@@ -72,11 +72,11 @@
                                     </div> -->
                                     <div class="form-group">
                                     <label>Premium<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_pooja" rows="4"
-                                            placeholder="Premium" required></textarea>
+                                            placeholder="Premium"></textarea>
                                     </div>
                                     <div class="form-group">
                                     <label>Grand<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_pooja" rows="4"
-                                            placeholder="Grand" required></textarea>
+                                            placeholder="Grand"></textarea>
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Grand<span class="text-danger">*</span></label>
@@ -90,19 +90,53 @@
                                         <textarea  type="text" name="category_samagri" rows="4" class="form-control"  placeholder="Puja with samagry" required>
                                         </textarea>
                                     </div> -->
+                                    <!-- Standard Pooja samagry -->
                                     <div class="form-group">
-                                        <label> Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="category_samagri" rows="4"
-                                            placeholder="Puja with samagry" required></textarea>
+                                        <label>Standard Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_samagri" rows="4"
+                                            placeholder="Puja with samagry"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label> Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry" required></textarea>
+                                        <label>Standard Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label> Puja all<span class="text-danger">*</span></label>
-                                        <textarea  class="form-control" name="category_all" rows="4"
-                                            placeholder="Puja all" required></textarea>
+                                        <label>Standard Puja all<span class="text-danger">*</span></label>
+                                        <textarea  class="form-control" name="standard_category_all" rows="4"
+                                            placeholder="Puja all"></textarea>
                                     </div>
+                                    <!-- End section -->
+
+                                    <!-- Premium Pooja samagry -->
+                                    <div class="form-group">
+                                        <label>Premium Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_samagri" rows="4"
+                                            placeholder="Puja with samagry"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Premium Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Premium Puja all<span class="text-danger">*</span></label>
+                                        <textarea  class="form-control" name="premium_category_all" rows="4"
+                                            placeholder="Puja all"></textarea>
+                                    </div>
+                                    <!-- End Section -->
+
+                                    <!-- Grand Pooja samagry -->
+                                    <div class="form-group">
+                                        <label>Grand Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_samagri" rows="4"
+                                            placeholder="Puja with samagry"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Grand Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Grand Puja all<span class="text-danger">*</span></label>
+                                        <textarea  class="form-control" name="grand_category_all" rows="4"
+                                            placeholder="Puja all"></textarea>
+                                    </div>
+                                    <!-- End Section -->
                                     <button type="submit" class="btn btn-primary">
                                        Save
                                     </button>
