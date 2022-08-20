@@ -719,12 +719,22 @@ color: #5E5F63;
 
 
 
+#section1 .form .summary{
+    height: 75px;
+}
 
 
 
 
-
-
+#loginNumber {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+}
 
 .custom-radio {
     display: block;
