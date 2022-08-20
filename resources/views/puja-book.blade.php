@@ -50,9 +50,30 @@
         <div class="top-row">
 
             <div class="top2">
-                    <div class="detail-box">
-                        <h6>Choose Your Pooja :</h6>
-                        <div >
+                    <div class="detail-box detail-box2">
+                        <h6 class="text-heading2">Choose Your Pooja :</h6>
+
+                        <div class="cate-item">
+                            <label class="custom-radio">Standard
+                                <input type="radio" name="pujatype" value="1" id="standard">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="cate-item">
+                            <label class="custom-radio">Premium
+                                <input type="radio" name="pujatype" value="2" id="premium">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="cate-item">
+                            <label class="custom-radio">Grand
+                                <input t type="radio" name="pujatype" value="3" id="grand">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <!-- <div >
                             <details>
                                 <summary>
                                     <h6> Standard </h6>
@@ -65,7 +86,7 @@
                                 </p>
                             </details> &nbsp;
                         </div>
-                        <!--  -->
+                        
                         <div>
                             <details style="padding-bottom:17px;">
                                 <summary>
@@ -77,7 +98,7 @@
                                 </p>
                             </details>
                         </div>
-                        <!--  -->
+                        
                         <div>
                             <details style="padding-bottom:17px;">
                                 <summary>
@@ -88,7 +109,7 @@
 
                                     {{$category_all->category_all ?? ''}}  
                                 </p>
-                            </details>  </div>
+                            </details>  </div> -->
                     </div>
                     <!-- <div  class="date-time">
                         <span class="datey" >Date :
@@ -111,8 +132,10 @@
                     </p> -->
             </div>
             <div class="top2">
-                <div class="detail-box">
-                    <h6>Pooja Samagri :</h6>
+                <div class="detail-box detail-box2 detail-box3">
+                    <h6  class="text-heading2">Pooja Samagri :</h6>
+
+                   
                     <div >
                         <details>
                             <summary>

@@ -107,7 +107,8 @@
     width: 100%;
     margin: 0 auto 65px;
 }
-.pooja-section:nth-child(even){
+
+.pooja-section:nth-child(even) {
     flex-direction: row-reverse;
 }
 
@@ -259,7 +260,8 @@
     border-radius: 8px;
     transition: 0.5s ease-in;
 }
-.pooja-details-section .inner-pooja-details .item .img-section img:hover{
+
+.pooja-details-section .inner-pooja-details .item .img-section img:hover {
     transform: scale(0.912);
 }
 
@@ -395,9 +397,10 @@
 .pandit-registration {
     background: #FA941C;
     padding: 27px 0;
-    
+
 }
-.pandit-registration .inner-section{
+
+.pandit-registration .inner-section {
     width: 100%;
     display: flex;
     align-items: center;
@@ -426,40 +429,44 @@
 }
 
 
-.pooja-description-section{
+.pooja-description-section {
     margin-bottom: 120px;
 }
 
-.pooja-description-section .pooja-description{
+.pooja-description-section .pooja-description {
     max-width: 1140px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
 }
+
 .pooja-description-section .pooja-description .left-section,
 .pooja-description-section .pooja-description .right-section {
     width: 50%;
-  
+
     /* padding: 15px 25px; */
 }
-.pooja-description-section .pooja-description .left-section .content{
+
+.pooja-description-section .pooja-description .left-section .content {
     border: 1px solid #FA941C;
     border-top: 0;
 }
-.pooja-description-section .pooja-description .right-section .content{
+
+.pooja-description-section .pooja-description .right-section .content {
     border: 1px solid #FA941C;
     border-top: 0;
     border-left: 0;
 }
+
 .pooja-description-section .pooja-description .left-section .content,
 .pooja-description-section .pooja-description .right-section .content {
     padding: 15px 25px;
     height: 100%;
 }
 
-.pooja-description-section .pooja-description .left-section .header-title ,
-.pooja-description-section .pooja-description .right-section .header-title{
+.pooja-description-section .pooja-description .left-section .header-title,
+.pooja-description-section .pooja-description .right-section .header-title {
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
@@ -469,37 +476,43 @@
     border: 1px solid #FA941C;
 
 }
+
 .pooja-description-section .pooja-description .left-section .header-title {
     border-right: 0;
 }
-.pooja-description-section .pooja-description .left-section .content p ,
-.pooja-description-section .pooja-description .right-section .content p{
+
+.pooja-description-section .pooja-description .left-section .content p,
+.pooja-description-section .pooja-description .right-section .content p {
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
     color: #222222;
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
 
 }
+
 .pooja-description-section .pooja-description .left-section .content ul,
 .pooja-description-section .pooja-description .right-section .content ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
+
 .pooja-description-section .pooja-description .left-section .content ul li,
-.pooja-description-section .pooja-description .right-section .content ul li{
+.pooja-description-section .pooja-description .right-section .content ul li {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #222222;
     margin-bottom: 25px;
 }
+
 .pooja-description-section .pooja-description .left-section .content ul li:last-child,
-.pooja-description-section .pooja-description .right-section .content ul li:last-child{
+.pooja-description-section .pooja-description .right-section .content ul li:last-child {
     margin-bottom: 0;
 }
-.changeNumber{
+
+.changeNumber {
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
@@ -511,41 +524,46 @@
     width: 74px;
     height: 41px;
 }
-.customer-detail .show-heding h5
-{
+
+.customer-detail .show-heding h5 {
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
     color: #222222;
     margin: 0;
 }
-#section1 .form .login{
+
+#section1 .form .login {
     height: auto;
 }
+
 /* .login + div{
     width: 100%;
     display: flex;
     align-items: center;
 } */
-.login h4{
+.login h4 {
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
     color: #222222;
     margin: 0;
 }
-#section1 .form .customer-detail .show-heding{
+
+#section1 .form .customer-detail .show-heding {
     padding: 15px 15px;
     margin: 0 0 15px;
 }
-#section1 .form .summary .summary-detail .detail h5{
+
+#section1 .form .summary .summary-detail .detail h5 {
     font-weight: 500;
     font-size: 18px;
     line-height: 18px;
     color: #212121;
     margin-bottom: 35px;
 }
-.summary-detail .img{
+
+.summary-detail .img {
     max-width: 105px;
     width: 100%;
     height: 122px;
@@ -553,29 +571,34 @@
     border: 0.184872px solid #0D7B4D;
 
 }
-.inner-summary-detail{
+
+.inner-summary-detail {
     width: 100%;
     display: flex;
     padding: 15px;
 }
-.inner-summary-detail .img-section{
+
+.inner-summary-detail .img-section {
     max-width: 105px;
     width: 100%;
     height: 122px;
     margin-right: 20px;
     overflow: hidden;
 }
-.inner-summary-detail .img-section img{
+
+.inner-summary-detail .img-section img {
     max-width: 100%;
 }
-.inner-summary-detail .content-section h4{
+
+.inner-summary-detail .content-section h4 {
     font-weight: 500;
     font-size: 18px;
     line-height: 18px;
     color: #212121;
     margin-bottom: 20px;
 }
-.inner-summary-detail .content-section p{
+
+.inner-summary-detail .content-section p {
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
@@ -583,16 +606,20 @@
     margin-bottom: 15px;
     position: relative;
 }
-.inner-summary-detail .content-section{
+
+.inner-summary-detail .content-section {
     width: 100%;
 }
-.inner-summary-detail .content-section p span{
+
+.inner-summary-detail .content-section p span {
     color: #5E5F63;
 }
-.inner-summary-detail .content-section p:last-child{
+
+.inner-summary-detail .content-section p:last-child {
     margin-bottom: 0;
 }
-.inner-summary-detail .content-section p strong{
+
+.inner-summary-detail .content-section p strong {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
@@ -609,11 +636,13 @@
     width: 100%;
     margin-right: 30px;
 }
-#section1 .main .price-detail{
+
+#section1 .main .price-detail {
     max-width: 361px;
     width: 100%;
 }
-#section1 .main .price-detail .detail{
+
+#section1 .main .price-detail .detail {
     max-width: 361px;
     height: auto;
     width: 100%;
@@ -621,44 +650,51 @@
     border: 1px solid #E0E0E0;
     border-radius: 10px;
 }
-.placeBtn{
+
+.placeBtn {
     max-width: 361px;
     /* width: 100%; */
 }
-#section1 .main .price-detail .detail .total h6{
+
+#section1 .main .price-detail .detail .total h6 {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     /* identical to box height */
-    
-    
+
+
     color: #000000;
 }
-.price-item{
+
+.price-item {
     margin-bottom: 15px;
 }
-.price-item h6{
+
+.price-item h6 {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #222222;
     margin-bottom: 0;
 }
-.price-item input{
+
+.price-item input {
     margin-right: 8px;
 }
-.pr-dt{
+
+.pr-dt {
     font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-/* identical to box height */
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
 
 
-/* Secondary Black */
+    /* Secondary Black */
 
-color: #5E5F63;
+    color: #5E5F63;
 }
-.pay-b{
+
+.pay-b {
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
@@ -667,16 +703,19 @@ color: #5E5F63;
     text-align: center;
     display: block;
 }
-#section1 .main .price-detail .detail .total{
+
+#section1 .main .price-detail .detail .total {
     padding: 15px 0 0;
 }
-.total h6{
+
+.total h6 {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #222222;
-    margin-bottom: 0;   
+    margin-bottom: 0;
 }
+
 #section1 .form .customer-detail .detail-form input {
     padding: 1% 2%;
     color: #6B6D71;
@@ -686,10 +725,12 @@ color: #5E5F63;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
 }
+
 #section1 .form .customer-detail .detail-form input:focus,
-#section1 .form .customer-detail .detail-form textarea:focus{
+#section1 .form .customer-detail .detail-form textarea:focus {
     outline: none;
 }
+
 #section1 .form .customer-detail .detail-form label {
     font-size: 18px;
     margin: 3% 0;
@@ -699,20 +740,24 @@ color: #5E5F63;
     line-height: 27px;
     color: #222222;
 }
-#section1 .form .customer-detail .detail-form textarea{
+
+#section1 .form .customer-detail .detail-form textarea {
     color: #6B6D71;
     margin: 1% 0;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
 }
-.form-menu{
+
+.form-menu {
     display: flex;
     justify-content: space-between;
 }
-.form-menu input{
+
+.form-menu input {
     width: 48%;
 }
-.form-menu .input.width-100{
+
+.form-menu .input.width-100 {
     width: 100%;
 }
 
@@ -720,12 +765,12 @@ color: #5E5F63;
 
 
 #section1 .form .summary,
-#section1 .form .customer-detail{
+#section1 .form .customer-detail {
     height: 75px;
 }
 
 
-#section1 .form .customer-detail{
+#section1 .form .customer-detail {
     padding: 0;
 }
 
@@ -738,14 +783,17 @@ color: #5E5F63;
     line-height: 24px;
     color: #222222;
 }
-#section1 .form .customer-detail .show-heding{
+
+#section1 .form .customer-detail .show-heding {
     margin-bottom: 0;
     align-items: center;
     height: 75px;
 }
-#section1 .form .customer-detail .detail-form{
+
+#section1 .form .customer-detail .detail-form {
     padding: 15px;
 }
+
 .custom-radio {
     display: block;
     position: relative;
@@ -762,17 +810,17 @@ color: #5E5F63;
     line-height: 24px;
     color: #222222;
     margin-bottom: 0;
-  }
-  
-  /* Hide the browser's default radio button */
-  .custom-radio input {
+}
+
+/* Hide the browser's default radio button */
+.custom-radio input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
-  }
-  
-  /* Create a custom radio button */
-  .custom-radio .checkmark {
+}
+
+/* Create a custom radio button */
+.custom-radio .checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -781,37 +829,140 @@ color: #5E5F63;
     background-color: transparent;
     border: 2px solid #939393;
     border-radius: 50%;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .custom-radio:hover input ~ .checkmark {
+}
+
+/* On mouse-over, add a grey background color */
+.custom-radio:hover input~.checkmark {
     background-color: transparent;
-  }
-  
-  /* When the radio button is checked, add a blue background */
-  .custom-radio input:checked ~ .checkmark {
+}
+
+/* When the radio button is checked, add a blue background */
+.custom-radio input:checked~.checkmark {
     background-color: transparent;
     border-color: #FA941C;
-  }
-  
-  /* Create the indicator (the dot/circle - hidden when not checked) */
- .custom-radio .checkmark:after {
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.custom-radio .checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  /* Show the indicator (dot/circle) when checked */
-  .custom-radio input:checked ~ .checkmark:after {
+}
+
+/* Show the indicator (dot/circle) when checked */
+.custom-radio input:checked~.checkmark:after {
     display: block;
-  }
-  
-  /* Style the indicator (dot/circle) */
-  .custom-radio .checkmark:after {
+}
+
+/* Style the indicator (dot/circle) */
+.custom-radio .checkmark:after {
     top: 3px;
     left: 3.1px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: #FA941C;
+}
+
+
+
+.inner-social {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.inner-social a {
+    margin: 0 !important;
+}
+
+.fd-txt {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 35px 0 5px;
+}
+
+#last-btn {
+    width: 100%;
+    margin-bottom: 35px;
+    border: 1px solid #979797;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 13px 15px;
+}
+
+.social-link {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social-link li a {
+    width: 33.06px;
+    height: 33.06px;
+    display: block;
+    margin: 0 !important;
+}
+
+.social-link li a img {
+    width: 33.06px;
+    height: 33.06px;
+}
+
+.terms p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 12.2713px;
+    line-height: 21px;
+
+    color: #D9DBE1;
+}
+
+#bottom .rights {
+    font-weight: 400;
+    font-size: 12.2713px;
+    line-height: 21px;
+    color: #D9DBE1;
+    margin: 0;
+}
+
+#bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f3f9ff;
+    padding: 21px 0;
+}
+.detail-box.detail-box2{
+    max-width: 441px;
+    width: 100%;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    padding: 15px;
+}
+.top2 .detail-box{
+    margin: 0;
+    margin-top: 40px;
+}
+.detail-box.detail-box2.detail-box3{
+    max-width: 642px;
+    width: 100%;
+}
+.detail-box .text-heading2 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 137.9%;
+    color: #353535;
+    margin-bottom: 25px;
+}
+.cate-item {
+    padding: 25px 0 !important;
+    /* margin-bottom: 20px; */
 }
