@@ -940,21 +940,25 @@
     color: #f3f9ff;
     padding: 21px 0;
 }
-.detail-box.detail-box2{
+
+.detail-box.detail-box2 {
     max-width: 441px;
     width: 100%;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
     padding: 15px;
 }
-.top2 .detail-box{
+
+.top2 .detail-box {
     margin: 0;
     margin-top: 40px;
 }
-.detail-box.detail-box2.detail-box3{
+
+.detail-box.detail-box2.detail-box3 {
     max-width: 642px;
     width: 100%;
 }
+
 .detail-box .text-heading2 {
     font-weight: 500;
     font-size: 16px;
@@ -962,7 +966,128 @@
     color: #353535;
     margin-bottom: 25px;
 }
+
 .cate-item {
     padding: 25px 0 !important;
     /* margin-bottom: 20px; */
+}
+
+#placeBtn {
+    width: 361px;
+}
+
+.main-pooja .top-row {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.main-pooja .top-row .top2 {
+    width: 100%;
+    padding: 0;
+}
+
+.item-4 summary {
+    position: relative;
+    display: flex;
+}
+
+.item-4 {
+    border-bottom: 1px solid rgba(191, 191, 191, 0.366);
+    padding: 25px 0 !important;
+}
+
+.item-4 details {
+    margin: 0 !important;
+}
+
+.item-4 summary::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* background: red; */
+    /* background: url(images/arrow-right.svg); */
+    border: solid #666666;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.item-4 summary::marker {}
+
+.content-2 .title3 {
+    font-family: 'Times New Roman';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 39px;
+    /* identical to box height */
+
+
+    /* black color main */
+
+    color: #353535;
+    margin-bottom: 15px;
+}
+
+.content-2 .subtitle3 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height, or 121% */
+
+    margin-bottom: 15px;
+    color: #353535;
+}
+
+.content-2 .cat-puja {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 29px;
+    /* identical to box height, or 181% */
+
+
+    color: #B66200 !important;
+    margin-bottom: 35px;
+}
+
+.content-2 .cat-puja span {
+    color: #353535;
+    display: inline-block;
+    width: 120px;
+}
+
+.content-2 .why-txt {
+    color: #26292F;
+    font-weight: 600;
+}
+
+.text-all {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 29px;
+    /* or 181% */
+
+
+    color: #26292F;
+
+}
+
+.data-select input{
+    padding: 1% 2%;
+    color: #6B6D71;
+    width: 48%;
+    margin: 1% 0;
+    height: 50px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+}
+#section1 .form .pay-option.active{
+    height: auto;
 }

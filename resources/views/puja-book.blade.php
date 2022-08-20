@@ -13,8 +13,13 @@
                 <input type="text" name="ecomm_puja_id" value="{{$ecomm_puja_id}}" hidden>
             </div>
             <div class="top1">
-                <h5> <b>{{ $pujaDetails->puja_id->name}}</b></h5>
-                <span >
+
+                <div class="content-2">
+                <h5 class="title3">{{ $pujaDetails->puja_id->name}}</h5>
+                <h6 class="subtitle3">(Starting From 110.0)</h6>
+                <p class="cat-puja"><span>Category : </span>Online Pooja</p>
+                <p class="why-txt">WHY YOU NEED THIS POOJA</p>
+                <span class="text-all" >
 
                 <?php
                     $string = strip_tags($pujaDetails->puja_id->desc);
@@ -44,6 +49,8 @@
                     
                 </p> -->
                 <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
+                </div>
+                
             </div>
         </div>
         
@@ -136,7 +143,54 @@
                     <h6  class="text-heading2">Pooja Samagri :</h6>
 
                    
-                    <div >
+                    <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> Without Pooja Samagri
+                            <input type="radio" name="category" value="samagri" id="samgari">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                    {{$category_samagri->category_samagri ?? ''}}
+                                
+                                </p>
+                            </details>
+                     </div>
+
+
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> With Pooja Samagri
+                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                {{$category_wsamagri->category_wsamagri ?? ''}}       
+                                </p>
+                            </details>
+                     </div>
+
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio">With Pooja Samagri & All Items
+                            <input type="radio" name="category" value="all" id="all">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                {{$category_all->category_all ?? ''}}  
+                                
+                                </p>
+                            </details>
+                     </div>
+                    <!-- <div >
                         <details>
                             <summary>
                                 <h4> With Samagri </h4>
@@ -148,9 +202,9 @@
                             </p>
                         </details> &nbsp;
                         <input type="radio" name="category" value="samagri" id="samgari">
-                    </div>
+                    </div> -->
                     <!--  -->
-                    <div>
+                    <!-- <div>
                         <details>
                             <summary>
                                 <h4> Without Samagri </h4>
@@ -159,9 +213,9 @@
                                 {{$category_wsamagri->category_wsamagri ?? ''}}                          
                             </p>
                         </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
-                    </div>
+                    </div> -->
                     <!--  -->
-                    <div>
+                    <!-- <div>
                         <details>
                             <summary>
                                 <h4> All </h4>
@@ -171,7 +225,7 @@
                                 {{$category_all->category_all ?? ''}}  
                             </p>
                         </details> &nbsp;<input type="radio" name="category" value="all" id="all">
-                    </div>
+                    </div> -->
                 </div>
 
                 <br>

@@ -15,12 +15,12 @@
           <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
             <span>Online Pooja</span>
           </button>
-          <button class="nav-link" id="specialPooja-tab" data-bs-toggle="tab" data-bs-target="#specialPooja" type="button" role="tab" aria-controls="specialPooja" aria-selected="false">
+          <button class="nav-link active" id="specialPooja-tab" data-bs-toggle="tab" data-bs-target="#specialPooja" type="button" role="tab" aria-controls="specialPooja" aria-selected="false">
             <span>On Request Special Pooja</span>
           </button>
         </div>
         <div class="tab-content custom-tab-content" id="nav-tabContent">
-          <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="pooja-section">
               <div class="left-section">
                 <div class="img">
@@ -410,7 +410,7 @@ If you wish to have your online pooja at special holy places on the bank of rive
               </div>
             </div>
           </div>
-          <div class="tab-pane fade active" id="specialPooja" role="tabpanel" aria-labelledby="specialPooja-tab">
+          <div class="tab-pane fade active show" id="specialPooja" role="tabpanel" aria-labelledby="specialPooja-tab">
             <div class="pooja-section">
               <div class="left-section">
                 <div class="img">

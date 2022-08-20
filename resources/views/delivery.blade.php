@@ -135,6 +135,26 @@
                 </div>
                 <!------- date-- -->
 
+                <div class="pay-option data-select" id="selectDate">
+                    <div class="show-heding">
+                        <div class="num">
+                            3
+                        </div>
+                        <div>
+                            <h5>Select Date and Time of Pooja &nbsp;<span><img src="{{asset('web/image/right.png')}}" alt="" width="20px"></span></h5>
+                        
+                        </div>
+                        <button id="downBtn" class="date-2"> Fill</button>
+                    </div>
+                    <div class="">
+                        <div class="form-menu">
+
+                        <input type="date">
+                        <input type="time">
+
+                        </div>
+                    </div>
+                </div>
 
                 <!----summary--  -->
                 <div class="summary" id="sum">
@@ -189,18 +209,7 @@
                 </div>
 
                 <!-- ----pay-option-- -->
-                <div class="pay-option">
-                    <div class="show-heding">
-                        <div class="num">
-                            3
-                        </div>
-                        <div>
-                            <h5>Payment Options &nbsp;<span><img src="{{asset('web/image/right.png')}}" alt="" width="20px"></span></h5>
-                           
-                        </div>
-                        <!-- <button id="downBtn"> <img src="down.png" alt=""></button> -->
-                    </div>
-                </div>
+               
             </div>
             <!-- ----------------------------------------------------------------------------------------- -->
             <form action="{{url('/booking-placed')}}" method="post">
@@ -291,6 +300,17 @@
             div.classList.toggle("summary2");
 
         }
+        function f4() {
+            alert("hi")
+            let div = document.getElementById("selectDate");
+            div.classList.toggle("pay-option2");
+
+        }
+        $(".date-2").click(function(){
+
+        $(".pay-option").toggleClass("active");
+
+        })
     </script>
 
     <script>
