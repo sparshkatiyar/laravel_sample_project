@@ -27,9 +27,7 @@ Route::get('/puja-online', [App\Http\Controllers\PujaController::class, 'online'
 Route::get('/puja-request', [App\Http\Controllers\PujaController::class, 'onrequest'])->name('request');
 Route::get('/puja-booking/{id}', [App\Http\Controllers\PujaController::class, 'booking'])->name('booking');
 Route::get('/puja-all', [App\Http\Controllers\PujaController::class, 'AllPooja'])->name('puja.all');
-// Route::get('/puja-ghar', [App\Http\Controllers\PujaController::class, 'GhrPooja'])->name('puja.ghar');
-// Route::get('/puja-online', [App\Http\Controllers\PujaController::class, 'OnlinePooja'])->name('puja.online');
-// Route::get('/puja-request', [App\Http\Controllers\PujaController::class, 'RequestPooja'])->name('puja.request');
+
 
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index');
 Route::post('/pandit-registration', [App\Http\Controllers\PanditController::class, 'register'])->name('register');
