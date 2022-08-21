@@ -16,8 +16,8 @@
 
                 <div class="content-2">
                 <h5 class="title3">{{ $pujaDetails->puja_id->name}}</h5>
-                <h6 class="subtitle3">(Starting From 110.0)</h6>
-                <p class="cat-puja"><span>Category : </span>Online Pooja</p>
+                <h6 class="subtitle3">INR/-{{ $pujaDetails->puja_base_price}}</h6>
+                <p class="cat-puja"><span>Category : </span>{{ $pujaDetails->puja_id->category}}</p>
                 <p class="why-txt">WHY YOU NEED THIS POOJA</p>
                 <span class="text-all" >
 
@@ -168,9 +168,9 @@
                                 <span class="checkmark"></span>
                             </label>
                         
-                        </summary>
+                            </summary>
                                 <p>  
-                                {{$category_wsamagri->category_wsamagri ?? ''}}       
+                                {{$category_samagri->category_wsamagri ?? ''}}       
                                 </p>
                             </details>
                      </div>
@@ -185,7 +185,7 @@
                         
                         </summary>
                                 <p>  
-                                {{$category_all->category_all ?? ''}}  
+                                {{$category_samagri->category_all ?? ''}}  
                                 
                                 </p>
                             </details>
@@ -347,42 +347,33 @@
 
             <!-- Portfolio Gallery Grid -->
             <div class="row">
-                <div class="column show nature">
-                    <div class="content">
-                        <a href="../Pooja-1/pooja-book.html"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains"
-                                style="width:100%"></a>
-                        <a href="../Pooja-1/pooja-book.html">
-                            <h4>Akhand Ramayan (Musical)</h4> <a href="../Pooja-1/pooja-book.html"></a>
-                            <p>INR-2100/-</p>
+
+                @foreach(@$pujaList as $puja)
+                 
+                    <!-- <div class="item">
+                        <a href="{{url('puja-booking/')}}/{{$puja->id}}">
+
+                            <div class="img-section">
+                            <img src="{{ $puja->puja_id->image }}" class="img-fluid" alt="">
+                            </div>
+                            <h5>{{$puja->puja_id->name}}</h5>
+                            <p>INR- {{$puja->puja_base_price}}/-</p>
+                        </a>
+                    </div> -->
+                
+                
+                    <div class="column show nature">
+                        <div class="content">
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image }}" alt="Mountains"
+                                    style="width:100%"></a>
+                            
+                                <h4>{{$puja->puja_id->name}}</h4> 
+                                <p>INR- {{$puja->puja_base_price}}/-</p>
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
 
-                <div class="column show people">
-                    <div class="content">
-                        <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
-                        <h4>Akhand Ramayan (Musical)</h4>
-                        <p>INR-2100/-</p>
-                    </div>
-                </div>
-
-
-                <div class="column show cars">
-                    <div class="content">
-                        <a href=""> <img src="{{ asset('puja/god-img3.png')}}" alt="Mountains" style="width:100%"></a>
-                        <h4>Akhand Ramayan (Musical)</h4>
-                        <p>INR-2100/-</p>
-                    </div>
-                </div>
-
-
-                <div class="column show people">
-                    <div class="content">
-                        <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
-                        <h4>Akhand Ramayan (Musical)</h4>
-                        <p>INR-2100/-</p>
-                    </div>
-                </div>
 
 
 
@@ -507,7 +498,7 @@
             }
             else if(ptype =="all"){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }Welcome@1212!!
+            }
             else{
                 totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
                 // alert(totalPrice);
@@ -651,5 +642,6 @@
 
         })
 </script>
+
 <!-- -------------footer-------- -->
 @include('layouts.footer')

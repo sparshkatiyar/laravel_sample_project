@@ -62,9 +62,12 @@ class PujaController extends Controller
         $pujaDetails = PujaEcommerce::find($request->id);  
         $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
         $category_samagri = PujaCategory::where('pooja_id',$ecomm_puja_id)->get()->first();
-        
-        // dd($pujaDetails);
-        return view('puja-book',compact('pujaDetails','ecomm_puja_id','category_samagri'));
+        $pujaList = PujaEcommerce::orderBy("id", "desc")->paginate(6);              
+        foreach(@$pujaList as $pujas){
+            $pujas->puja_id = Puja::find($pujas->puja_id);
+        } 
+        // dd($category_samagri);
+        return view('puja-book',compact('pujaDetails','ecomm_puja_id','category_samagri','pujaList'));
     }
     public function delivery(Request $request)
     {
