@@ -62,7 +62,7 @@ class Controller extends BaseController
         //return redirect('getBarCode');
     }
 
-    public function sendOtp($otp,$mobile,$countryCode) {
+    public function sendOtp($msg,$mobile,$countryCode) {
 
         $AccountSid   =  "AC248fda92be8423797941d80a75acdf25";
         $AuthToken    =  "a55b2e19802fb6394cc6687cd25e0e61";
@@ -73,10 +73,8 @@ class Controller extends BaseController
             $client->account->messages->create(
                 $contact,
                 array(
-                    // 'from' => "+18186503828", 
-                    
-                    'from' => "+15744062664",
-                    'body' => "Astro pandit one time  OTP ".$otp." for signin !."
+                    'from' => "+17086690939",
+                    'body' => $msg
                 )
             );
             // print_r($sms);die;   -----

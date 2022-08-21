@@ -23,9 +23,9 @@
                         <option value="+92">PAK</option>
                     </select>
         
-                    <input type="text" id="numberOtp" value="" id="mobileNumber" name="mobileNumber">
+                    <input type="text" id="numberOtp" value="" id="mobileNumber" name="mobileNumber" required>
                 </div>
-                <button type="submit" class="main-button" id="otpContinue" >Continue</button>
+                <button type="submit" class="main-button"  >Continue</button>
           
             </form>
       </div>
@@ -48,34 +48,7 @@
       <form action="javascript:void(0);" class="mt-5" id="veryfyOtp">
         <input type="text" id="otpMob" name="mobileNumber" hidden>
         <input type="text" id= "otpTel" name="mobileTelCode" hidden>
-        <!-- <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(1)"
-          maxlength="1"
-        />
-        <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(2)"
-          maxlength="1"
-        />
-        <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(3)"
-          maxlength="1"
-        />
-        <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(4)"
-          maxlength="1"
-        /> -->
+        
 		<div class="otp-field">
 		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-2" required>
 		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-3" required>
@@ -165,7 +138,7 @@
 
     <script>
         
-        $('#otpContinue').on('click',  function(){
+        $('#registerForm').submit( function(){
             $.ajaxSetup({
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -173,7 +146,7 @@
             });         
             var LoginForm = $("#registerForm");
             var formData = LoginForm.serialize();
-            $("#otpContinue"). attr("disabled", true);
+            // $("#otpContinue"). attr("disabled", true);
             var mobileTelCode   = $("select[name=mobileTelCode]").val();
             var mobileNumber    = $("input[name=mobileNumber]").val();
             // alert(mobileNumber);
@@ -184,7 +157,9 @@
                 type: "POST",
                 data: formData,
                 success: function( response ) {
-                    document.getElementById("registerForm").reset(); 
+                    document.getElementById("registerForm").reset();
+                    $("#pop1").removeClass('popup2'); 
+                    $("#otp-popup").css({'display':'flex'}); 
                     $('#otpTel').val(mobileTelCode);
                     $('#otpMob').val(mobileNumber);
                     $('#otpheading').text(mobileNumber);
@@ -204,7 +179,7 @@
                     timer2 = minutes + ':' + seconds;
                     }, 1000);
                     window.setTimeout(setEnabled, 30000);
-                    // continiuepop();
+                    continiuepop();
                     // alert('Ajax form has been submitted successfully');
                 }
             });

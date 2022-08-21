@@ -57,7 +57,7 @@
                      <li><a href="../Home-page/Home-page.html">Talk to Astrologers</a></li>
                      <li> <a href="../Product/product.html">Astroshop</a></li>
                      <li><a href="../Horoscope-page/horoscope.html">Horoscope</a></li>
-                     <li class="submenu"> <a class=""  href="{{url('puja-home')}}">Pooja</a>
+                     <li class="submenu"> <a class=""  href="{{url('./puja-home')}}">Pooja</a>
                            <ul class="dropdown-menu-custom">
                               <li><a href="{{url('./puja-ghar')}}">Ghar Pe Pooja</a></li>
                               <li><a href="{{url('./puja-online')}}">Online E-Pooja</a></li>

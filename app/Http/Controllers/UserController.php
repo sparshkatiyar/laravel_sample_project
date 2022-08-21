@@ -97,7 +97,8 @@ class UserController extends Controller
             ];
             return response()->json($response,400);
         }else{
-            
+            $digits = 4;
+            $otp = rand(pow(10, $digits-1), pow(10, $digits)-1);
             $user = User::where('country_code', '=', $request->mobileTelCode)            
             ->where('mobile_number', '=', $request->mobileNumber)->first();
             if($user){
@@ -110,14 +111,19 @@ class UserController extends Controller
                 }
                 $dBoy=User::where('id',$user->id)->first();                   
                 $dBoy->access_token=null;
+                $dBoy->otp=$otp;
                 $dBoy->save();
+                
+                $msg = "Astro pandit one time  OTP ".$otp." for signin !.";
+                $result =$this->sendOtp($msg,$request->mobileNumber,$request->mobileTelCode);
                 return response()->json(['message'=>'OTP send successfully.','data'=>$dBoy],200);
-            }else{                   
+            }else{   
+                               
                 $user = User::create([
                     'country_code'  => $request->get('mobileTelCode'),
                     'mobile_number' => $request->get('mobileNumber'),
                     'is_otp_verify' => 0,
-                    'otp' => 1234,
+                    'otp' => $otp,
                 ]);                
                 // $token = JWTAuth::fromUser($user);                    
                
@@ -131,6 +137,8 @@ class UserController extends Controller
                 $dBoy=User::where('id',$user->id)->first();                   
                 $dBoy->access_token=null;
                 $dBoy->save();
+                $msg = "Astro pandit one time  OTP ".$otp." for signin !.";
+                $result =$this->sendOtp($msg,$request->mobileNumber,$request->mobileTelCode); 
                 return response()->json(['message'=>'OTP send successfully.','data'=>$dBoy],200);
             }
             // $user['access_token'] = $token;       
@@ -196,7 +204,7 @@ class UserController extends Controller
             //     $response['message'] = "Otp Expired.";
             //     return response()->json($response,400);
             // }
-            if($data->otp==$request->otp || $otp=='1234'){
+            if($data->otp == $otp || $otp=='1234'){
                 try {
                     if (!$token = JWTAuth::fromUser($data)) {
                         return response()->json(['error' => 'invalid_credentials'], 400);
@@ -284,7 +292,7 @@ class UserController extends Controller
             'CURLOPT_POSTFIELDS'=>$data
         ])
         ->post($url);
-        dd($response);   
+        // dd($response);   
         $user_id = $user->id; 
         $unique = uniqid();
         

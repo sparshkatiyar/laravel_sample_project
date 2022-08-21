@@ -13,9 +13,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Astro Pandit') }}</title>
-  
-   <link href="{{ asset('asset/css/dashboard.css') }}" rel="stylesheet">
-    
+
+    <link href="{{ asset('asset/css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/custom-new-style.css') }}" rel="stylesheet">
 </head>
 
 <body>
