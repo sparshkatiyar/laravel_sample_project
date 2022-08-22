@@ -18,8 +18,8 @@
                 <div class="page-hero page-container" id="page-hero">
                     <div class="padding d-flex">
                         <div class="page-title">
-                            <h2 class="text-md text-highlight">BookingList</h2>
-                            <small class="text-muted">Astrouser have user</small>
+                            <h2 class="text-md text-highlight">Assined Puja List</h2>
+                            <small class="text-muted">Your booking puja assigned to pandit</small>
                         </div>
                         <div class="flex"></div>
                         <!-- <div>
@@ -167,34 +167,8 @@
                                 </table>
                             </div>
                             <div class="d-flex">
-                                <ul class="pagination">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous"><span
-                                                aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span></a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next"><span
-                                                aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span></a>
-                                    </li>
-                                </ul>
-                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
+                            {!! $bookingList->appends(['sort' => 'id'])->links() !!}
+                               
                             </div>
                         </div>
                         <div id="pandit" class="modal fade" data-backdrop="true">

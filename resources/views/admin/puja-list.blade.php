@@ -68,7 +68,7 @@
                                                 style="width: 60px">
                                                 Name
                                             </th>
-                                            <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
+                                            <th class="text-muted sort sortable" data-sort="item-company">
                                                 Type
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
@@ -76,8 +76,8 @@
                                                 Category
                                             </th>
                                             
-                                            <th class="text-muted" >Description</th>
-                                            <th class="text-muted" style="width: 120px">Advantage</th>
+                                            <!-- <th class="text-muted" >Description</th> -->
+                                            <!-- <th class="text-muted" style="width: 120px">Advantage</th> -->
                                             <th class="text-muted" style="width: 120px">Icon/Image</th>
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
@@ -106,22 +106,30 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="item-amount d-none d-sm-block text-sm">     {{$puja->category}}</span>
+                                            @if(@$puja->category == "small")
+                                                <span class="item-company ajax h-1x">Normal</span>
+                                                @elseif(@$puja->category == "medium")
+                                                <span class="item-company ajax h-1x">Premium</span>
+                                                @else
+                                                <span class="item-company ajax h-1x">Grand</span>
+                                                @endif
+                                                
                                             </td>
                                             
-                                            <td class="no-wrap">
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$puja->desc}}
                                                 </div>
-                                            </td>
-                                            <td class="no-wrap">
+                                            </td> -->
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$puja->advantage}}
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$puja->image}}
+                                                    <img src="{{$puja->image}}" alt="" style="widh:50px;height:50px;">
+                                                
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
@@ -135,11 +143,10 @@
                                                     <a href="#" data-toggle="dropdown" class="text-muted"><i
                                                             data-feather="more-vertical"></i></a>
                                                     <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                        <a class="dropdown-item" href="#">See detail </a><a
-                                                            class="dropdown-item download">Download </a><a
-                                                            class="dropdown-item edit">Edit</a>
+                                                        <a class="dropdown-item" onclick="poojaDetails({{$puja}})">See details </a>
+                                                        <a href="{{'puja-edit'}}/{{$puja->id}}" class="dropdown-item edit" >Edit</a>
                                                         <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item trash">Delete item</a>
+                                                        <a class="dropdown-item trash" onclick="deletePooja({{$puja->id}})">Delete item</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -190,101 +197,136 @@
                                 </table>
                             </div>
                             <div class="d-flex">
-                                <ul class="pagination">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous"><span
-                                                aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span></a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next"><span
-                                                aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span></a>
-                                    </li>
-                                </ul>
-                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
+                            {!! $pujaList->appends(['sort' => 'id'])->links() !!}
+                               
                             </div>
                         </div>
-                        <div id="modal" class="modal fade" data-backdrop="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">New invoice</h5>
-                                    </div>
-                                    <div class="modal-body p-4">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">First Name</label><input type="text"
-                                                        class="form-control" placeholder="First name" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Last Name</label><input type="text"
-                                                        class="form-control" placeholder="Last name" />
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Email</label><input type="email"
-                                                        class="form-control" placeholder="Email" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Password <small>(Register
-                                                            account)</small></label><input type="password"
-                                                        class="form-control" placeholder="Password" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-muted">Address</label><input type="text"
-                                                    class="form-control" placeholder="1234 Main St" />
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">City</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState"
-                                                        class="text-muted d-block">State</label><select
-                                                        class="custom-select">
-                                                        <option selected="selected">Choose...</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                    <label class="text-muted">Zip</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">
-                                                Submit
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
+    <div id="poojaInfoModel" class="modal fade  " data-backdrop="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Pooja Details</h5>
+                    <!-- </div> -->
+                    <button class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted"> Name</label><input type="text" class="form-control"
+                                    id="name" placeholder="Name" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Image</label><input type="text"
+                                    class="form-control" placeholder="Last name" id="image"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Category</label>
+                                <input type="text" class="form-control" placeholder="Category" id="category" />
+                                    <!-- <select class="form-control" name="category" id="category">
+                                        <option value="small">Normal</option>
+                                        <option value="medium">Premium</option>
+                                        <option value="large">Grand</option>
+                                    </select> -->
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Type</label><input type="text"
+                                    class="form-control" placeholder="Last name" id="type"/>
+                            </div>
+
+                        </div>
+                        <!-- <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted">Advantage <small></small></label><textarea 
+                                    id="advantage" class="form-control" placeholder="Advantage"  ></textarea>
+                            </div>
+                           
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted">Description<small></small></label><textarea
+                                    class="form-control" placeholder="Description" id="desc" ></textarea>
+                            </div>
+                           
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted">Simplified<small></small></label><textarea
+                                    id="pujasimplified" class="form-control" placeholder="Simplified" ></textarea   >
+                            </div>
+                           
+                        </div> -->
+
+                        <!-- <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="deletePooja" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title text-md">Delete this pooja !</div><button class="close"
+                        data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-4 text-center">
+                    <p>Woohoo, you're going to delete pooja!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button> 
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function poojaDetails(userInfo) {
+        $('#poojaInfoModel').modal('show');
+        $("#name").val(userInfo.name);
+        $("#image").val(userInfo.image);
+        $("#type").val(userInfo.type);
+        if(userInfo.category == "small"){
+            $("#category").val("Normal");
+        }
+        else if(userInfo.category == "medium"){
+            $("#category").val("Premium");
+        }
+        else{
+            $("#category").val("Grand");
+        }
+        
+        $("#advantage").text(userInfo.advantage);
+        $("#desc").text(userInfo.desc);
+        $("#pujasimplified").text(userInfo.pujasimplified);
+        // alert(userInfo.mobile_number);
+    }
+
+    function deletePooja() {
+        $('#deletePooja').modal('show');
+    }
+
+    function cancel() {
+        $('#deletePooja').modal('hide');
+    }
+    
+    </script>
+    
     @include('admin.footer')
 </body>
 

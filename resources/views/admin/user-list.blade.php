@@ -64,20 +64,22 @@
                                                 style="width: 40px; text-align: center">
                                                 No.
                                             </th>
-                                            <th class="text-muted sort sortable" style="width: 120px" data-sort="item-company">
+                                            <th class="text-muted sort sortable" style="width: 120px"
+                                                data-sort="item-company">
                                                 Name
                                             </th>
+                                            <th class="text-muted" style="width: 120px">Mobile No</th>
                                             <th class="text-muted sort sortable" data-sort="item-amount"
                                                 style="width: 60px">
-                                                email
+                                                Email
                                             </th>
                                             <th class="text-muted sort sortable" data-sort="item-badge"
                                                 style="width: 60px">
-                                                Gender
+                                                No.Booking
                                             </th>
-                                            <th class="text-muted" >DOB</th>
-                                            <th class="text-muted" style="width: 120px">Mobile No</th>
-                                            <th class="text-muted" style="width: 120px">Birth Place</th>
+                                            <!-- <th class="text-muted" >DOB</th>
+                                            
+                                            <th class="text-muted" style="width: 120px">Birth Place</th> -->
                                             <th class="text-muted" style="width: 120px">Date</th>
                                             <th class="text-muted" style="width: 120px">Action</th>
                                             <th style="width: 50px"></th>
@@ -92,19 +94,26 @@
                                                     <i></i></label>
                                             </td>
                                             <td style="min-width: 30px; text-align: center">
-                                                <small class="text-muted">  {{$user->id}}</small>
+                                                <small class="text-muted"> {{$user->id}}</small>
                                             </td>
                                             <td class="flex">
-                                                <a href="page.invoice.detail.html"
-                                                    class="item-company ajax h-1x">{{$user->first_name}}</a>
                                                 <div class="item-mail text-muted h-1x d-none d-sm-block">
-                                           
+                                                    <a class="item-company ajax h-1x">{{$user->first_name}}</a>
+
+                                                </div>
+                                            </td>
+                                            <td class="no-wrap">
+                                                <div class="item-date text-muted text-sm d-none d-md-block">
+                                                    <a class="item-company ajax h-1x">
+                                                    {{$user->country_code}}-{{$user->mobile_number}}
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="item-amount d-none d-sm-block text-sm">     {{$user->email}}</span>
+                                                <span class="item-amount d-none d-sm-block text-sm">
+                                                    {{$user->email}}</span>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 @if($user->gender ==1)
                                                     <span class="item-badge badge text-uppercase bg-success"> 
                                                         male
@@ -114,44 +123,41 @@
                                                         female
                                                     </span>   
                                                 @endif
-                                            </td>
+                                            </td> -->
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$user->dob}}
+                                                    1
                                                 </div>
                                             </td>
-                                            <td class="no-wrap">
-                                                <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$user->country_code}}-{{$user->mobile_number}}
-                                                </div>
-                                            </td>
-                                            <td class="no-wrap">
+
+                                            <!-- <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
                                                 {{$user->date_of_birth}}
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                {{$user->created_at}}
+                                                    {{$user->created_at}}
                                                 </div>
                                             </td>
-                                            
-                                           
+
+
                                             <td>
                                                 <div class="item-action dropdown">
                                                     <a href="#" data-toggle="dropdown" class="text-muted"><i
                                                             data-feather="more-vertical"></i></a>
                                                     <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                        <a class="dropdown-item" href="#">See detail </a><a
-                                                            class="dropdown-item download">Download </a><a
-                                                            class="dropdown-item edit">Edit</a>
+                                                        <a class="dropdown-item download"
+                                                            onclick="viewUser({{$user}})">View </a>
+                                                        <a class="dropdown-item edit">Edit</a>
                                                         <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item trash">Delete item</a>
+                                                        <a class="dropdown-item trash"
+                                                            onclick="deleteUser({{$user->id}})">Delete item</a>
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                      @endforeach
+                                        @endforeach
                                         <!-- <tr class="v-middle" data-id="11">
                                             <td>
                                                 <label class="ui-check m-0"><input type="checkbox" name="id"
@@ -197,101 +203,131 @@
                                 </table>
                             </div>
                             <div class="d-flex">
+                                {!! $userList->appends(['sort' => 'id'])->links() !!}
+                                <!-- {!! $userList->links() !!} -->
                                 <ul class="pagination">
-                                    <li class="page-item disabled">
+                                    <!-- <li class="page-item disabled">
                                         <a class="page-link" href="#" aria-label="Previous"><span
                                                 aria-hidden="true">&laquo;</span>
                                             <span class="sr-only">Previous</span></a>
-                                    </li>
-                                    <li class="page-item active">
+                                    </li> -->
+                                    <!-- <li class="page-item active">
                                         <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item">
+                                    </li> -->
+                                    <!-- <li class="page-item active">
+                                        <a class="page-link" href="#">1 <span class="sr-only">{!! $userList->links() !!}</span></a>
+                                    </li> -->
+                                    <!-- <li class="page-item">
                                         <a class="page-link" href="#">2</a>
                                     </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
+                                   
                                     </li>
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Next"><span
                                                 aria-hidden="true">&raquo;</span>
                                             <span class="sr-only">Next</span></a>
-                                    </li>
+                                    </li> -->
                                 </ul>
-                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
+                                <!-- <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small> -->
                             </div>
                         </div>
-                        <div id="modal" class="modal fade" data-backdrop="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">New invoice</h5>
-                                    </div>
-                                    <div class="modal-body p-4">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">First Name</label><input type="text"
-                                                        class="form-control" placeholder="First name" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Last Name</label><input type="text"
-                                                        class="form-control" placeholder="Last name" />
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Email</label><input type="email"
-                                                        class="form-control" placeholder="Email" />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">Password <small>(Register
-                                                            account)</small></label><input type="password"
-                                                        class="form-control" placeholder="Password" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-muted">Address</label><input type="text"
-                                                    class="form-control" placeholder="1234 Main St" />
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-muted">City</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState"
-                                                        class="text-muted d-block">State</label><select
-                                                        class="custom-select">
-                                                        <option selected="selected">Choose...</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                    <label class="text-muted">Zip</label><input type="text"
-                                                        class="form-control" />
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">
-                                                Submit
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
+    <div id="userInfoModel" class="modal fade  " data-backdrop="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> User Details</h5>
+                    <!-- </div> -->
+                    <button class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted"> Name</label><input type="text" class="form-control"
+                                    id="first_name" placeholder="Name" />
+                            </div>
+                            <!-- <div class="form-group col-md-6">
+                                <label class="text-muted">Last Name</label><input type="text"
+                                    class="form-control" placeholder="Last name" />
+                            </div> -->
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Email</label><input type="email" class="form-control"
+                                    placeholder="Email" id="email" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Mobile No.</label><input type="phone" class="form-control"
+                                    placeholder="Phone" id="mobile_number" />
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Birth Time <small></small></label><input type="text"
+                                    id="birth_time" class="form-control" placeholder="Birth Time" id="birth_time" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Birth Place</label><input id="birth_place" type="text"
+                                    class="form-control" placeholder="1234 Main St" />
+                            </div>
+                        </div>
+
+                        <!-- <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="deleteUser" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title text-md">Delete this user !</div><button class="close"
+                        data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-4 text-center">
+                    <p>Woohoo, you're going to delete user!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button> 
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function viewUser(userInfo) {
+        $('#userInfoModel').modal('show');
+        $("#first_name").val(userInfo.first_name);
+        $("#email").val(userInfo.email);
+        $("#mobile_number").val(userInfo.mobile_number);
+        $("#birth_time").val(userInfo.birth_time);
+        $("#birth_place").val(userInfo.birth_place);
+        // alert(userInfo.mobile_number);
+    }
+
+    function deleteUser() {
+        $('#deleteUser').modal('show');
+    }
+
+    function cancel() {
+        $('#deleteUser').modal('hide');
+    }
+    </script>
+
     @include('admin.footer')
 </body>
 

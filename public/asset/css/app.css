@@ -114,11 +114,13 @@ a {
         justify-content: normal;
         font-size: 13px;
     }
+
     .menu-row .menu a {
         padding: 0.7em 1em;
         font-size: 0.9em;
         font-weight: 600;
     }
+
     .menu-row .button a {
         font-family: Poppins;
         font-size: 12px;
@@ -135,6 +137,7 @@ a {
     .b-navbar {
         display: none;
     }
+
     .r-navbar {
         display: block;
     }
@@ -145,6 +148,7 @@ a {
         display: none;
         font-size: 18px;
     }
+
     .r-navbar .contact-div {
         width: 100%;
     }
@@ -739,6 +743,7 @@ form {
         height: 500px;
         font-size: 14px;
     }
+
     #header .texts {
         display: flex;
         align-items: center;
@@ -749,6 +754,7 @@ form {
         font-weight: 500;
         font-size: 20px;
     }
+
     #header .texts span {
         margin: 0 1%;
     }
@@ -760,6 +766,7 @@ form {
         width: auto;
         font-size: 44px;
     }
+
     #header .texts {
         display: flex;
         align-items: center;
@@ -781,6 +788,7 @@ form {
         width: auto;
         font-size: 30px;
     }
+
     #header .texts {
         width: 100%;
     }
@@ -844,6 +852,7 @@ form {
     #frames {
         font-size: 13px;
     }
+
     #frames .frame img {
         width: 4em;
         height: 4em;
@@ -855,11 +864,13 @@ form {
     #frames {
         font-size: 16px;
     }
+
     #frames .frames-box {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
+
     #frames .frame {
         margin: 2em 0;
     }
@@ -1003,6 +1014,7 @@ form {
         /* transform: translateX(20%); */
         /* margin-left: 31%;       */
     }
+
     #Astrologers .slider-box .box {
         display: flex;
         width: 500px;
@@ -1013,6 +1025,7 @@ form {
         color: #353535e6;
         box-shadow: 0 0 10px rgb(101 101 101 / 20%);
     }
+
     #Astrologers #pera {
         width: 100%;
         text-align: center;
@@ -1031,6 +1044,7 @@ form {
         padding-left: 10%;
         /* transform: translateX(9%) !important;  */
     }
+
     #Astrologers .slider-box .box {
         display: flex;
         width: 345px;
@@ -1205,10 +1219,12 @@ form {
         margin: 50px auto;
         justify-content: space-evenly;
     }
+
     #Book-Pooja .column {
         width: 300px;
         height: 350px;
     }
+
     #Book-Pooja .column img {
         width: 400px;
         height: 280px;
@@ -1221,6 +1237,7 @@ form {
     #Book-Pooja .main {
         max-width: 100%;
     }
+
     #Book-Pooja #pera {
         margin-bottom: 100px;
         font-family: "Poppins";
@@ -1233,11 +1250,13 @@ form {
         margin: 3% auto;
         color: #3a3c41;
     }
+
     #Book-Pooja .column {
         width: 170px;
         height: 240px;
         text-align: center;
     }
+
     #Book-Pooja .column img {
         /* width: 400px; */
         width: 100%;
@@ -1246,6 +1265,7 @@ form {
         margin-bottom: 10px;
         object-fit: cover;
     }
+
     #Book-Pooja .column h4 {
         width: auto;
         height: auto;
@@ -1260,6 +1280,7 @@ form {
         flex-grow: 0;
         /* text-align: center; */
     }
+
     #Book-Pooja .content p {
         font-size: 17px;
         font-weight: 700;
@@ -1440,18 +1461,22 @@ form {
     #Astrologers {
         margin: 3em 0;
     }
+
     #Astroshop .main {
         max-width: 100%;
     }
+
     #Astroshop #pera {
         margin-bottom: 50px;
         font-size: 16px;
         width: 100%;
     }
+
     #Astroshop .row {
         margin: 50px auto;
         justify-content: space-evenly;
     }
+
     #Astroshop .column {
         float: left;
         width: 48%;
@@ -1460,22 +1485,27 @@ form {
         margin: 0%;
         padding: 0px;
     }
+
     #Astroshop .column::after {
         content: "";
         clear: both;
         display: table;
     }
+
     #Astroshop #product-detail {
         font-size: 16px;
     }
+
     #Astroshop .current-price {
         font-size: 18px;
     }
+
     #Astroshop .column img {
         width: 100% !important;
         height: 200px;
         border-radius: 10px;
     }
+
     #Astroshop .column .price-pera span {
         display: block;
     }
@@ -1522,6 +1552,7 @@ form {
         height: 300px;
         font-size: 14px;
     }
+
     #counter .container {
         max-width: 99%;
     }
@@ -1535,6 +1566,7 @@ form {
         padding: 5% 0;
         background-image: url("counter\ img2.png");
     }
+
     #counter .counter-box {
         display: flex;
         justify-content: space-evenly;
@@ -1542,9 +1574,11 @@ form {
         text-align: center;
         display: block;
     }
+
     #counter .counter-box div {
         margin: 5% 0;
     }
+
     #counter .container {
         max-width: 99%;
     }
@@ -1584,6 +1618,7 @@ form {
         justify-content: center;
         flex-wrap: wrap;
     }
+
     #matching .boxes .item {
         display: flex;
         align-items: center;
@@ -1593,6 +1628,7 @@ form {
         padding: 2% 3% 2% 1%;
         justify-content: flex-start;
     }
+
     #matching .boxes .item img {
         width: 75px;
         margin-right: 10%;
@@ -1806,6 +1842,7 @@ form {
     #cards {
         font-size: 14px;
     }
+
     #cards .card {
         height: 14em;
     }
@@ -1815,6 +1852,7 @@ form {
     #cards {
         font-size: 14px;
     }
+
     #cards .card {
         width: 20%;
         margin: 2%;
@@ -1825,6 +1863,7 @@ form {
     #cards {
         font-size: 14px;
     }
+
     #cards .card {
         width: 30%;
     }
@@ -1834,6 +1873,7 @@ form {
     #cards {
         font-size: 14px;
     }
+
     #cards .card {
         width: 45%;
     }
@@ -1900,10 +1940,12 @@ form {
         background-color: #f8f8f8;
         padding: 8% 0;
     }
+
     #Gallery #h2 {
         font-size: 32px;
         padding: 2% 0;
     }
+
     #Gallery #pera {
         font-size: 15px;
         width: 100%;
@@ -1975,6 +2017,7 @@ form {
     #blog .blog-box {
         display: block;
     }
+
     #blog .blog-box .blog {
         width: 96%;
         padding: 1%;
@@ -2048,6 +2091,7 @@ form {
     #About #h2 {
         padding: 30px 0 0 0;
     }
+
     #About .about {
         /* display: none; */
         background-image: none;
@@ -2057,17 +2101,21 @@ form {
         height: 500px;
         /* padding: 200px 0; */
     }
+
     #About .about .box1 {
         width: 0%;
     }
+
     #About .about .box2 {
         width: 100%;
         text-align: center;
     }
+
     #About .about .box2 p {
         text-align: center;
         margin: auto;
     }
+
     #About {
         background-color: #f0d0a1;
         background-image: none;
@@ -2078,6 +2126,7 @@ form {
     #About #h2 {
         font-size: 30px;
     }
+
     #About .about .box2 h3 {
         font: 20px;
     }
@@ -2093,6 +2142,7 @@ form {
         height: auto;
         padding: 5% 0;
     }
+
     #About .about .box2 p {
         /* font: 20px; */
         text-align: justify;
@@ -2125,6 +2175,7 @@ form {
     #Pandit-Registration {
         padding: 25px 10%;
     }
+
     #Pandit-Registration h1 {
         font-size: 25px;
     }
@@ -2135,6 +2186,7 @@ form {
         padding: 25px 3%;
         display: block;
     }
+
     #Pandit-Registration button {
         padding: 10px 18px;
         font-size: 14px;
@@ -2210,14 +2262,17 @@ form {
     #testimonial #h2 {
         font-size: 30px;
     }
+
     #testimonial .review {
         width: 100%;
         padding: 2%;
     }
+
     #testimonial .review p {
         font-size: 16px;
         position: relative;
     }
+
     #testimonial .review .quots {
         font-size: 5em;
         margin: 20px 0;
@@ -2231,9 +2286,11 @@ form {
     #testimonial #h2 {
         font-size: 25px;
     }
+
     #testimonial .flickity-button {
         display: none;
     }
+
     .flickity-page-dots {
         display: none;
     }
@@ -2304,6 +2361,7 @@ form {
         font-size: 14px;
         padding-left: 1em;
     }
+
     #footer .imgbox img {
         width: 16em;
     }
@@ -2313,19 +2371,23 @@ form {
     #footer {
         font-size: 13px;
     }
+
     #footer .imgbox img {
         width: 13em;
     }
+
     #footer .social {
         width: 24%;
         text-align: left;
     }
+
     .social img {
         /* width: 35px !important;====width inline */
         height: 15px;
         width: 15px;
         margin: 0% 5%;
     }
+
     #last-btn {
         padding: 0.4em 4.3em;
     }
@@ -2335,13 +2397,16 @@ form {
     #footer {
         font-size: 16px;
     }
+
     #footer .footer {
         display: block;
         flex-wrap: wrap;
     }
+
     #footer .footer div {
         width: 100%;
     }
+
     #footer .imgbox img {
         width: 10em;
     }
@@ -2368,6 +2433,7 @@ form {
         max-width: 98%;
         padding: 0;
     }
+
     #bottom .container div {
         padding: 1%;
     }
@@ -2488,11 +2554,13 @@ a {
         justify-content: normal;
         font-size: 13px;
     }
+
     .menu-row .menu a {
         padding: 0.7em 1em;
         font-size: 0.9em;
         font-weight: 600;
     }
+
     .menu-row .button a {
         font-family: Poppins;
         font-size: 12px;
@@ -2509,6 +2577,7 @@ a {
     .b-navbar {
         display: none;
     }
+
     .r-navbar {
         display: block;
     }
@@ -2519,6 +2588,7 @@ a {
         display: none;
         font-size: 18px;
     }
+
     .r-navbar .contact-div {
         width: 100%;
     }
@@ -2630,6 +2700,7 @@ a {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .buttons button {
         border-radius: 8px;
         border-bottom: 1px solid rgb(63, 62, 62);
@@ -2645,6 +2716,7 @@ a {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     /* .buttons button{
       border-radius: 8px;
       border
@@ -2729,9 +2801,11 @@ a {
     #section1 {
         font-size: 13px;
     }
+
     #section1 .first .detail {
         padding-right: 10%;
     }
+
     #section1 .first .detail h2 {
         margin: 12% 0 7% 0;
     }
@@ -2750,37 +2824,45 @@ a {
         flex-direction: column-reverse;
         margin-bottom: 60px;
     }
+
     #section1 #a2 {
         display: flex;
         flex-direction: column;
         flex-direction: row-reverse !important;
         flex-direction: column-reverse !important;
     }
+
     #section1 #a2 .img {
         padding: 0%;
         justify-content: center;
     }
+
     #section1 #a2 .detail {
         padding: 0%;
         justify-content: center;
     }
+
     #section1 .first .img {
         width: 100%;
         padding: 0px;
     }
+
     #section1 .first .img img {
         object-fit: cover;
         border-radius: 5px;
         z-index: 10;
     }
+
     #section1 .first .detail {
         width: 100%;
         text-align: center;
         padding: 0px;
     }
+
     #section1 .first .detail p {
         font-size: 1.2em;
     }
+
     #section1 .first .img img {
         object-fit: cover;
         border-radius: 5px;
@@ -2936,10 +3018,12 @@ a {
         margin: 50px auto;
         justify-content: space-evenly;
     }
+
     #Book-Pooja .column {
         width: 300px;
         height: 350px;
     }
+
     #Book-Pooja .column img {
         width: 400px;
         height: 280px;
@@ -2952,6 +3036,7 @@ a {
     #Book-Pooja .main {
         max-width: 100%;
     }
+
     #Book-Pooja #pera {
         margin-bottom: 100px;
         font-family: "Poppins";
@@ -2964,11 +3049,13 @@ a {
         margin: 3% auto;
         color: #3a3c41;
     }
+
     #Book-Pooja .column {
         width: 170px;
         height: 240px;
         text-align: center;
     }
+
     #Book-Pooja .column img {
         /* width: 400px; */
         width: 100%;
@@ -2977,6 +3064,7 @@ a {
         margin-bottom: 10px;
         object-fit: cover;
     }
+
     #Book-Pooja .column h4 {
         width: auto;
         height: auto;
@@ -2991,6 +3079,7 @@ a {
         flex-grow: 0;
         /* text-align: center; */
     }
+
     #Book-Pooja .content p {
         font-size: 17px;
         font-weight: 700;
@@ -3052,6 +3141,7 @@ a {
     #Pandit-Registration {
         padding: 25px 10%;
     }
+
     #Pandit-Registration h1 {
         font-size: 25px;
     }
@@ -3062,6 +3152,7 @@ a {
         padding: 25px 3%;
         display: block;
     }
+
     #Pandit-Registration button {
         padding: 10px 18px;
         font-size: 14px;
@@ -3143,14 +3234,17 @@ a {
     #testimonial #h2 {
         font-size: 30px;
     }
+
     #testimonial .review {
         width: 100%;
         padding: 2%;
     }
+
     #testimonial .review p {
         font-size: 16px;
         position: relative;
     }
+
     #testimonial .review .quots {
         font-size: 5em;
         margin: 20px 0;
@@ -3164,9 +3258,11 @@ a {
     #testimonial #h2 {
         font-size: 25px;
     }
+
     #testimonial .flickity-button {
         display: none;
     }
+
     .flickity-page-dots {
         display: none;
     }
@@ -3237,6 +3333,7 @@ a {
         font-size: 14px;
         padding-left: 1em;
     }
+
     #footer .imgbox img {
         width: 16em;
     }
@@ -3246,19 +3343,23 @@ a {
     #footer {
         font-size: 13px;
     }
+
     #footer .imgbox img {
         width: 13em;
     }
+
     #footer .social {
         width: 24%;
         text-align: left;
     }
+
     .social img {
         /* width: 35px !important;====width inline */
         height: 15px;
         width: 15px;
         margin: 0% 5%;
     }
+
     #last-btn {
         padding: 0.4em 4.3em;
     }
@@ -3268,13 +3369,16 @@ a {
     #footer {
         font-size: 16px;
     }
+
     #footer .footer {
         display: block;
         flex-wrap: wrap;
     }
+
     #footer .footer div {
         width: 100%;
     }
+
     #footer .imgbox img {
         width: 10em;
     }
@@ -3301,6 +3405,7 @@ a {
         max-width: 98%;
         padding: 0;
     }
+
     #bottom .container div {
         padding: 1%;
     }
@@ -3385,6 +3490,121 @@ h1 {
     color: white;
 }
 
-.web-tex{
-   color: #fa941c; 
+.web-tex {
+    color: #fa941c;
 }
+
+.date-time {
+    width: 100%;
+   
+}
+
+.date-time .datey {
+    width: 48%;
+    display: inline-block;
+
+}
+.date-time .datey input{
+   width: 100%;
+    height: 3em;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.main-pooja{
+    width: 90%;
+}
+.top{    
+    display: inline-flex;
+    width: 100%;
+}
+.top .top1{
+    padding: 0% 5% ;
+    width: 49%;
+    
+    display: inline-block;
+}
+.top .top1{
+    padding: 0% 5%;
+    width: 49%;
+    
+    display: inline-block;
+}
+.top-row{    
+    display: inline-flex;
+    width: 100%;
+}
+.top-row .top2{
+    padding: 0% 5% ;
+    width: 49%;
+    margin-top: 50px;
+    display: inline-block;
+}
+.top-row .top2{
+    padding: 0% 5%;
+    width: 49%;
+    
+    display: inline-block;
+}
+.top .top1 img{
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.top2 .detail-box {
+    border: 1px solid #908e8e47;
+    width: 100%;
+  
+    margin: 10% auto 5% auto;
+    padding: 2%;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  .top2 .detail-box div {
+    /* background-color: red; */
+    width: 100%;
+    position: relative;
+    padding: 2% 0 0 0;
+    border-bottom: 1px solid rgba(191, 191, 191, 0.366);
+ 
+  }
+  
+  .top2 .detail-box div details {
+    margin: 20px 0 0 20px;
+  }
+  
+  .top2 .detail-box div h4 {
+    display: inline;
+    font-size: 1.1em;
+    color: #353535;
+    font-weight: 500;
+  }
+  
+  .top2 .detail-box div input {
+    position: absolute;
+    top: 10px;
+    right: 10%;
+    margin-top: 20px;
+    border-radius: 50%;
+    padding: 5%;
+    cursor: pointer;
+  }
+  .top2 .detail-box summary h6 {
+    display: inline-block;
+   }
+
+   #view-btn  button {
+    text-align: center;
+    height: 54px;
+    width: 258px;
+    background: #fa941c;
+    border-radius: 10px;
+    border: none;
+    margin: 2em 0;
+    color: white;
+  }
+  
+  

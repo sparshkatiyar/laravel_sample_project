@@ -25,53 +25,57 @@
                             <div class="col-sm-8 col-md-9">
                                 
                                 <!-- <p><strong>Fill flowing Details <Details></Details></strong></p> -->
-                                <form method="post" action="{{url('admin-panel/puja-creation')}}"  enctype="multipart/form-data">
+                                <form method="post" action="{{url('admin-panel/puja-edit')}}"  enctype="multipart/form-data">
                                 @csrf 
                                     <div class="form-group row">
+                                        <input type="text" name="id" value="{{$puja->id}}" hidden>
                                         <div class="col-sm-6">
                                             <label>Puja name</label><input type="text" name="pujaname" class="form-control"
-                                                placeholder="Name" required />
+                                                placeholder="Name" value="{{$puja->name}}" required />
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Puja icon/Image</label><input type="file" class="form-control" name="pujaimage"
-                                                placeholder="Enter date" required />
+                                                placeholder="Enter date" value="{{$puja->image}}"  />
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6">
                                             <label>Type</label>
-                                            <select class="form-control c-select" name="pujatype">
-                                            <option>Select puja type</option>
+                                            <select value="{{$puja->type}}" class="form-control c-select" name="pujatype" required>
+                                            <option value="1"> Select puja type</option>
                                             <option>Ghar pe puja</option>
                                             <option>Online Puja</option>
+                                            <option>On request puja</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label>Category</label><select name="pujacategory" class="form-control c-select">
-                                            <option>Select puja category</option>
-                                            <option value="Standard">Standard</option>
-                                            <option value="Premium">Premium</option>
-                                            <option value="Grand">Grand</option>
+                                            <label>Category</label><select value="$puja->category" name="pujacategory" class="form-control c-select" required>
+                                            <option value="1">Select puja category</option>
+                                            <option value="small">Normal</option>
+                                            <option value="medium">Premium</option>
+                                            <option value="large">Grand</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Puja Advantage</label><textarea onclick="ckeFunction()" type="text" name="pujaadvantage" rows="4" class="form-control"
-                                                placeholder="Advantage" id="editor1"></textarea>
-                                    </div> 
+                                                placeholder="Advantage" id="editor1">{{$puja->advantage}}</textarea>
+                                    </div>
                                     <div class="form-group">
                                         <label> Puja Description</label><textarea  onclick="ckeFunction()" class="form-control" name="pujadescription" rows="4"
-                                            placeholder="hmm.." id="editor2"></textarea>
+                                            placeholder="hmm.." id="editor2">{{$puja->desc}}</textarea>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label> Puja Description ( Hindi )</label><textarea  onclick="ckeFunction()" class="form-control" name="pujadescriptionhindi" rows="4"
-                                            placeholder="hmm.." id="editor4"></textarea>
+                                            placeholder="hmm.." id="editor4">{{@$puja->deschindi}}</textarea>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label> Puja Simplified</label><textarea onclick="ckeFunction()" class="form-control" name="pujasimplified" rows="4"
+                                            placeholder="hmm.." id="editor3">{{$puja->pujasimplified}}</textarea>
                                     </div>
-                                    
                                     <button type="submit" class="btn btn-primary">
-                                       Next 
+                                       Save 
                                     </button>
-                                   <!--  <a href="{{url('admin-panel/puja-creation-ecommerce')}}" class="btn btn-primary">Next</a> -->
                                 </form>
                             </div>
                             <div class="col-sm-4 col-md-3">
@@ -88,11 +92,11 @@
                                                     class="badge badge-circle text-info mx-1"></span>
                                                 <span class="nav-text">Online Puja</span></a>
                                         </li>
-                                        <!-- <li class="nav-item">
+                                        <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-success mx-1"></span>
                                                 <span class="nav-text">On request Puja</span></a>
-                                        </li> -->
+                                        </li>
                                         
                                     </ul>
                                     <div class="p-3 text-muted">Category</div>
@@ -100,17 +104,17 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-primary mx-1"></span>
-                                                <span class="nav-text">Standard</span></a>
+                                                <span class="nav-text">large</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-info mx-1"></span>
-                                                <span class="nav-text">Premium</span></a>
+                                                <span class="nav-text">small</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-success mx-1"></span>
-                                                <span class="nav-text">Grand</span></a>
+                                                <span class="nav-text">Medium</span></a>
                                         </li>
                                         
                                     </ul>

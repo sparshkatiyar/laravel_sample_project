@@ -78,8 +78,8 @@
                                             <th class="text-muted" >UserInfo</th>
                                             <th class="text-muted" style="width: 120px">Payment info</th>
                                             <th class="text-muted" style="width: 120px">Assign pandit</th>
-                                            <th class="text-muted" style="width: 120px">Date</th>
-                                            <th class="text-muted" style="width: 120px">Action</th>
+                                            <th class="text-muted" style="width: 120px">Pooja Date/Time</th>
+                                            <!-- <th class="text-muted" style="width: 120px">Action</th> -->
                                             <th style="width: 50px"></th>
                                         </tr>
                                     </thead>
@@ -106,16 +106,16 @@
                                             </td>
                                             <td>
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                    <span class="item-badge badge text-uppercase bg-success"> 
+                                                    <a class="item-badge badge text-uppercase bg-success" onclick="addressDetails({{$user->address_id}})"> 
                                                         see details
-                                                    </span>
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
                                                 <div class="item-date text-muted text-sm d-none d-md-block">
-                                                    <span class="item-badge badge text-uppercase bg-success"> 
+                                                    <a class="item-badge badge text-uppercase bg-success" onclick="userDetails({{$user->user_details}})"> 
                                                         see details
-                                                    </span>
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td class="no-wrap">
@@ -146,20 +146,7 @@
                                                 </div>
                                             </td>
                                             
-                                           
-                                            <td>
-                                                <div class="item-action dropdown">
-                                                    <a href="#" data-toggle="dropdown" class="text-muted"><i
-                                                            data-feather="more-vertical"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right bg-black" role="menu">
-                                                        <a class="dropdown-item" href="#">See detail </a><a
-                                                            class="dropdown-item download">Download </a><a
-                                                            class="dropdown-item edit">Edit</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item trash">Delete item</a>
-                                                    </div>
-                                                </div>
-                                            </td>
+
                                         </tr>
                                       @endforeach
                                         
@@ -167,69 +154,11 @@
                                 </table>
                             </div>
                             <div class="d-flex">
-                                <ul class="pagination">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous"><span
-                                                aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span></a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next"><span
-                                                aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span></a>
-                                    </li>
-                                </ul>
-                                <small class="text-muted py-2 mx-2">Total <span id="count">15</span> items</small>
+                            {!! $bookingList->appends(['sort' => 'id'])->links() !!}
+                               
                             </div>
                         </div>
-                        <div id="pandit" class="modal fade" data-backdrop="true">
-                            <div class="modal-dialog">
-                          
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Assign Pandit</h5>
-                                    </div>
-                                    <div class="modal-body p-4">
-                                        <form action="{{url('admin-panel/assing-pandit')}}" method="post">
-                                            @csrf
-                                            
-                                            <div class="form-row">
-                                                <div class="form-group col-md-12">
-                                                    <label for="inputState"
-                                                    class="text-muted d-block">Pandit</label>
-                                                    <select name="pandit_id"         class="custom-select">
-                                                        <option selected="selected" >Choose...</option>
-                                                        @foreach($panditList as $assign)
-                                                        <option value="{{$assign->id}}">{{$assign->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                               
-                                            </div>
-                                            <input type="text" name="booking_id" id="booking_id" hidden >
-                                            <button type="submit" class="btn btn-primary">
-                                                Assign puja now
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div id="modalToast" class="modal fade" data-backdrop="false">
                             <div class="modal-dialog">
                             <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-line join="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> <span class="mx-2">Pandit assign to ecoomerce puja is successful !!</span></div>
@@ -242,7 +171,124 @@
         </div>
 
     </div>
-    @include('admin.footer')
+    <div id="userInfoModel" class="modal fade  " data-backdrop="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> User Details</h5>
+                    <!-- </div> -->
+                    <button class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted"> Name</label><input type="text" class="form-control"
+                                    id="first_name" placeholder="Name" />
+                            </div>
+                            <!-- <div class="form-group col-md-6">
+                                <label class="text-muted">Last Name</label><input type="text"
+                                    class="form-control" placeholder="Last name" />
+                            </div> -->
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Email</label><input type="email" class="form-control"
+                                    placeholder="Email" id="email" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Mobile No.</label><input type="phone" class="form-control"
+                                    placeholder="Phone" id="mobile_number" />
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Birth Time <small></small></label><input type="text"
+                                    id="birth_time" class="form-control" placeholder="Birth Time" id="birth_time" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Birth Place</label><input id="birth_place" type="text"
+                                    class="form-control" placeholder="1234 Main St" />
+                            </div>
+                        </div>
+
+                        <!-- <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="addressInfoModel" class="modal fade  " data-backdrop="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Address Details</h5>
+                    <!-- </div> -->
+                    <button class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted">Contact Name</label><input type="text" class="form-control"
+                                    id="contact_name" placeholder="Contact Name" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Contact Number</label><input type="text"
+                                    class="form-control" placeholder="Contact  Number" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Flat No</label><input type="text" class="form-control"
+                                    placeholder="Flat No" id="flat_no" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Locality No.</label><input type="text" class="form-control"
+                                    placeholder="Phone" id="locality_no" />
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">City <small></small></label><input type="text"
+                                    id="city" class="form-control" placeholder="City" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Pincode</label><input id="pincode" type="text"
+                                    class="form-control" placeholder="1234 Main St" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">Town <small></small></label><input type="text"
+                                    class="form-control" placeholder="City" id="town" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="text-muted">State</label><input id="state" type="text"
+                                    class="form-control" placeholder="1234 Main St" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="text-muted">Locality Address <small></small></label><input type="text"
+                                    class="form-control" placeholder="City" id="address" />
+                            </div>
+                            
+                        </div>
+
+                        <!-- <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
   
     $(document).ready(function(){
@@ -255,7 +301,37 @@
         
         });
     });
-</script>
+    function userDetails(userInfo) {
+        $('#userInfoModel').modal('show');
+        $("#first_name").val(userInfo.first_name);
+        $("#email").val(userInfo.email);
+        $("#mobile_number").val(userInfo.mobile_number);
+        $("#birth_time").val(userInfo.birth_time);
+        $("#birth_place").val(userInfo.birth_place);
+    }
+
+    function paymentDetails(userInfo) {
+        $('#paymentInfoModel').modal('show');
+        $("#name").val(userInfo.name);
+        $("#image").val(userInfo.image);
+        $("#type").val(userInfo.type);
+    }
+
+    function addressDetails(userInfo) {
+        $('#addressInfoModel').modal('show');
+        $("#contact_name").val(userInfo.contact_name);
+        $("#contact_no").val(userInfo.contact_no);
+        $("#flat_no").val(userInfo.flat_no);
+        $("#locality_no").val(userInfo.locality_no);
+        $("#city").val(userInfo.city);
+        $("#pincode").val(userInfo.pincode);
+        $("#address").val(userInfo.address);
+        $("#town").val(userInfo.town);
+        $("#state").val(userInfo.state);
+    }
+    </script>
+    @include('admin.footer')
+ 
 </body>
 
 </html>

@@ -17,6 +17,7 @@ class Puja extends Model
             $port = $_SERVER['SERVER_PORT'] ? ':'.$_SERVER['SERVER_PORT'] : '';
             return $protocol.$server.$port."/public/web/Image/".$value;
             // return $protocol.$server.$port."/web/Image/".$value;
+
              
         }
     }

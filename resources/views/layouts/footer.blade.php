@@ -12,7 +12,7 @@
                 <a href="../Home-page/Home-page.html">Talk to Astrologers</a><br><br>
                 <a href="../Product/product.html">Astroshop</a><br><br>
                 <a href="../Horoscope-page/horoscope.html">Horoscope</a><br><br>
-                <a href="../Pooja-page/Pooja-main-page.html">Pooja</a><br><br>
+                <a href="{{url('puja-home')}}">Pooja</a><br><br>
                 <a href="../About/about.html">About us</a><br><br>
                 <a href="../Contact/contact.html">Contact us</a><br><br>
             </div>
@@ -25,16 +25,28 @@
             </div>
             <div class="social">
                 <h2>Get In Touch</h2>
+                <div class="inner-social">
                 <img src="{{ asset('images/phone (2).png')}}" alt="#" style="width: 20px !important;" />
-                <a href=""> 1234567890</a><br><br><br>
+                <a href=""> 1234567890</a>
+                </div>
+                <div class="inner-social">
                 <img src="{{ asset('images/mail.png')}}" alt="#" style="width: 20px !important;" />
-                <a href=""> tim.jennings@example.com</a><br><br><br>
-                <h3>For Feedback</h3>
-                <a href="../Contact/contact.html"> <button id="last-btn">Contact Us</button><br><br><br> </a>
-                <img src="{{ asset('images/insta.png')}}" alt="#" id="icon" >
-                <img src="{{ asset('images/facebook.png')}}" alt="#" id="icon" >
-                <img src="{{ asset('images/tewter.png')}}" alt="#" id="icon">
-                <img src=" {{ asset('images/linked.png')}} " alt=" # " id=" icon ">
+                <a href=""> tim.jennings@example.com</a>
+                </div>
+                <h3 class="fd-txt">For Feedback</h3>
+                <a href="../Contact/contact.html"> <button id="last-btn">Contact Us</button> </a>
+
+                <ul class="social-link">
+                    <li><a href="javascript:void(0)"><img src="{{ asset('images/insta.svg')}}" alt="#" ></a></li>
+                    <li><a href="javascript:void(0)">  <img src="{{ asset('images/facebook.svg')}}" alt="#" ></a></li>
+                    <li><a href="javascript:void(0)"> <img src="{{ asset('images/tewter.svg')}}" alt="#"></a></li>
+                    <li><a href="javascript:void(0)"><img src=" {{ asset('images/linked.svg')}} " alt=""></a></li>
+                   
+                </ul>
+                
+              
+               
+                
             </div>
         </div>
     </section>

@@ -6,28 +6,119 @@
 
 <section id="section1">
     <div class="container-fluid main-pooja">
-        <div class="img">
-            <div>
+        <div class="top">
+
+            <div class="top1">
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
                 <input type="text" name="ecomm_puja_id" value="{{$ecomm_puja_id}}" hidden>
-                <div class="img-content">
-                    <h3>Starting From
-                        <span id="bprice">&#x20b9  {{ $pujaDetails->puja_base_price}}</span>
+            </div>
+            <div class="top1">
+
+                <div class="content-2">
+                <h5 class="title3">{{ $pujaDetails->puja_id->name}}</h5>
+                <h6 class="subtitle3">INR/-{{ $pujaDetails->puja_base_price}}</h6>
+                <p class="cat-puja"><span>Category : </span>{{ $pujaDetails->puja_id->category}}</p>
+                <p class="why-txt">WHY YOU NEED THIS POOJA</p>
+                <span class="text-all" >
+
+                <?php
+                    $string = strip_tags($pujaDetails->puja_id->desc);
+                    if (strlen($string) > 550) {
+
+                        // truncate string
+                        $stringCut = substr($string, 0, 550);
+                        $endPoint = strrpos($stringCut, ' ');
+                    
+                        //if the string doesn't contain any space then it will cut without word basis.
+                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                        $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
+                    }
+                    
+                    $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
+                    if($string_hindi)
+                    {
+                        $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
+                    }
+                    echo $string;
+                    echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
+
+                ?>
+                </span>     
+                <!-- <p>
+                    {!! $pujaDetails->puja_id->desc!!}
+                    
+                </p> -->
+                <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="top-row">
+
+            <div class="top2">
+                    <div class="detail-box detail-box2">
+                        <h6 class="text-heading2">Choose Your Pooja :</h6>
+
+                        <div class="cate-item">
+                            <label class="custom-radio">Standard
+                                <input type="radio" name="pujatype" value="1" id="standard" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="cate-item">
+                            <label class="custom-radio">Premium
+                                <input type="radio" name="pujatype" value="2" id="premium">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="cate-item">
+                            <label class="custom-radio">Grand
+                                <input t type="radio" name="pujatype" value="3" id="grand">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <!-- <div >
+                            <details>
+                                <summary>
+                                    <h6> Standard </h6>
+                                    <input type="radio" name="pujatype" value="1" id="standard">
+                                </summary>
+                                <p>
+                                    
+                                    {{$category_samagri->category_samagri ?? ''}}
+                                
+                                </p>
+                            </details> &nbsp;
+                        </div>
                         
-                    </h3>
-                    <p class="Category">Category : <span>
-                            <font color="#B66200">{{ $pujaDetails->puja_id->type}}</font>
-                        </span>
-                    </p>
-                    <p class="">Choose Your Pooja :
-                        <select id="pujatype" name="pujatype">
-                            <option value="0">select</option>
-                            <option value="1">small Pooja</option>
-                            <option value="2">Medium Pooja</option>
-                            <option value="3">Large Pooja</option>
-                        </select>
-                    </p>
-                    <div  class="date-time">
+                        <div>
+                            <details style="padding-bottom:17px;">
+                                <summary>
+                                    <h6> Premium </h6>
+                                    <input type="radio" name="pujatype" value="2" id="premium">
+                                </summary>
+                                <p>                           
+                                    {{$category_wsamagri->category_wsamagri ?? ''}}                          
+                                </p>
+                            </details>
+                        </div>
+                        
+                        <div>
+                            <details style="padding-bottom:17px;">
+                                <summary>
+                                    <h6> Grand</h6>
+                                    <input type="radio" name="pujatype" value="3" id="grand">
+                                </summary>
+                                <p>
+
+                                    {{$category_all->category_all ?? ''}}  
+                                </p>
+                            </details>  </div> -->
+                    </div>
+                    <!-- <div  class="date-time">
                         <span class="datey" >Date :
                         </span>
 
@@ -45,104 +136,156 @@
                             <input type="time" name="date">
                            </span>
                         </div>
-                    </p>
-                    
-                </div>
+                    </p> -->
             </div>
-        </div>
+            <div class="top2">
+                <div class="detail-box detail-box2 detail-box3">
+                    <h6  class="text-heading2">Pooja Samagri :</h6>
 
-        <!-- ----- -->
-
-        <div class="details">
-            <h2>{{ $pujaDetails->puja_id->name}}</h2>
-            <span >
-
-            <?php
-                $string = strip_tags($pujaDetails->puja_id->desc);
-                /*if (strlen($string) > 500) {
-
-                    // truncate string
-                    $stringCut = substr($string, 0, 600);
-                    $endPoint = strrpos($stringCut, ' ');
-                
-                    //if the string doesn't contain any space then it will cut without word basis.
-                    $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                    $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
-                }*/
-                
-                $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
-                if($string_hindi)
-                {
-                    $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
-                }
-                echo $string;
-                echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
-
-            ?>
-            </span>     
-            <p>
-                <!-- {!! $pujaDetails->puja_id->desc!!} -->
-                
-            </p>
-            <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
-            <!-- ---box-- -->
-            <div class="detail-box">
-                <h6>Pooja Samagri :</h6>
-                <div >
-                    <details>
+                   
+                    <div class="item-4">
+                        <details>
                         <summary>
-                            <h4> With Samagri </h4>
+                            <label class="custom-radio"> Without Pooja Samagri
+                            <input type="radio" name="category" value="samagri" id="samgari" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        
                         </summary>
-                        <p>
+                                <p>  
+                                    {{@$category_samagri->category_samagri ?? ''}}
+                                
+                                </p>
+                            </details>
+                     </div>
+
+
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> With Pooja Samagri
+                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                            </summary>
+                                <p>  
+                                {{@$category_samagri->category_wsamagri ?? ''}}       
+                                </p>
+                            </details>
+                     </div>
+
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio">With Pooja Samagri & All Items
+                            <input type="radio" name="category" value="all" id="all">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                {{@$category_samagri->category_all ?? ''}}  
+                                
+                                </p>
+                            </details>
+                     </div>
+                    <!-- <div >
+                        <details>
+                            <summary>
+                                <h4> With Samagri </h4>
+                            </summary>
+                            <p>
+                                
+                                {{$category_samagri->category_samagri ?? ''}}
                             
-                            {{$category_samagri->name_desc}}
-                          
-                        </p>
-                    </details> &nbsp;
-                    <input type="radio" name="category" value="samagri" id="samgari">
-                </div>
-                <!--  -->
-                <div>
-                    <details>
-                        <summary>
-                            <h4> Without Samagri </h4>
-                        </summary>
-                        <p>                           
-                            {{$category_wsamagri->name_desc}}                          
-                        </p>
-                    </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
-                </div>
-                <!--  -->
-                <div>
-                    <details>
-                        <summary>
-                            <h4> All </h4>
-                        </summary>
-                        <p>
+                            </p>
+                        </details> &nbsp;
+                        <input type="radio" name="category" value="samagri" id="samgari">
+                    </div> -->
+                    <!--  -->
+                    <!-- <div>
+                        <details>
+                            <summary>
+                                <h4> Without Samagri </h4>
+                            </summary>
+                            <p>                           
+                                {{$category_wsamagri->category_wsamagri ?? ''}}                          
+                            </p>
+                        </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
+                    </div> -->
+                    <!--  -->
+                    <!-- <div>
+                        <details>
+                            <summary>
+                                <h4> All </h4>
+                            </summary>
+                            <p>
 
-                            {{$category_all->name_desc}}  
-                        </p>
-                    </details> &nbsp;<input type="radio" name="category" value="all" id="all">
+                                {{$category_all->category_all ?? ''}}  
+                            </p>
+                        </details> &nbsp;<input type="radio" name="category" value="all" id="all">
+                    </div> -->
                 </div>
-            </div>
 
-            <br>
-            <div class="detail-box">
-                <h5>
-
-                    <b>Total you pay : <span id="adds" class="web-tex"> &#x20b9 </span>
-                            <span id="addprice" class="web-tex">{{ $pujaDetails->puja_base_price}}</span>
-                    </b>
-                </h5>
+                <br>
+                
             </div>
         </div>
 
+       
+        <div class="text-center">
+            <h5>
+
+                <b>Total you pay : <span id="adds" class="web-tex"> &#x20b9 </span>
+                        <span id="addprice" class="web-tex">{{ $pujaDetails->puja_base_price}}</span>
+                </b>
+            </h5>
+        </div>
+
+      
+      
+        <div class="text-center" id="view-btn">
+            @if(Auth::guard('user')->user())
+            <a id="proceedBook"> <button>Book Your Pooja</button></a>
+                <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
+                <!-- <a onclick="popshow()">Login/Sign up</a> -->
+            @else
+            <a id="proceedBookForLogin"> <button>Book Your Pooja</button></a>
+                
+            @endif
+            
+        </div>
     </div>
 </section>
 
 <!-- ----section2-- -->
 
-<section id="section2">
+<section class="pooja-description-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="pooja-description">
+                    <div class="left-section">
+                        <div class="header-title">Advantages of this pooja</div>
+                        <div class="content">
+                        {!!$pujaDetails->puja_id->advantage!!}
+                        </div>
+                    </div>
+                    <div class="right-section">
+                        <div class="header-title">Your Pooja is Simplified</div>
+                        <div class="content">
+                            <p>Your Pooja is Simplified at “AstroPandit Om”</p>
+                            {!!$pujaDetails->category_samagri!!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="section2">
     <div class="container-fluid boxes-pooja">
         <div class="box1">
             <div class="a">
@@ -154,8 +297,7 @@
             </div>
         </div>
 
-        <!-- --- -->
-        <div class="box2">
+         <div class="box2">
             <div class="a">
                 <h4>Your Pooja is Simplified</h4>
             </div>
@@ -167,20 +309,10 @@
         </div>
     </div>
 
-    <div class="text-center" id="view-btn">
-        @if(Auth::guard('user')->user())
-        <a id="proceedBook"> <button>Book Your Pooja</button></a>
-            <!-- <a href="{{url('./dashboard')}}">Dashboard</a> -->
-            <!-- <a onclick="popshow()">Login/Sign up</a> -->
-        @else
-        <a id="proceedBookForLogin"> <button>Book Your Pooja</button></a>
-            
-        @endif
-        
-    </div>
+    
 
 
-</section>
+</section> -->
 
 
 
@@ -200,42 +332,33 @@
 
             <!-- Portfolio Gallery Grid -->
             <div class="row">
-                <div class="column show nature">
-                    <div class="content">
-                        <a href="../Pooja-1/pooja-book.html"> <img src="{{ asset('puja/god-img1.png')}}" alt="Mountains"
-                                style="width:100%"></a>
-                        <a href="../Pooja-1/pooja-book.html">
-                            <h4>Akhand Ramayan (Musical)</h4> <a href="../Pooja-1/pooja-book.html"></a>
-                            <p>INR-2100/-</p>
+
+                @foreach(@$pujaList as $puja)
+                 
+                    <!-- <div class="item">
+                        <a href="{{url('puja-booking/')}}/{{$puja->id}}">
+
+                            <div class="img-section">
+                            <img src="{{ $puja->puja_id->image }}" class="img-fluid" alt="">
+                            </div>
+                            <h5>{{$puja->puja_id->name}}</h5>
+                            <p>INR- {{$puja->puja_base_price}}/-</p>
+                        </a>
+                    </div> -->
+                
+                
+                    <div class="column show nature">
+                        <div class="content">
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image }}" alt="Mountains"
+                                    style="width:100%"></a>
+                            
+                                <h4>{{$puja->puja_id->name}}</h4> 
+                                <p>INR- {{$puja->puja_base_price}}/-</p>
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
 
-                <div class="column show people">
-                    <div class="content">
-                        <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
-                        <h4>Akhand Ramayan (Musical)</h4>
-                        <p>INR-2100/-</p>
-                    </div>
-                </div>
-
-
-                <div class="column show cars">
-                    <div class="content">
-                        <a href=""> <img src="{{ asset('puja/god-img3.png')}}" alt="Mountains" style="width:100%"></a>
-                        <h4>Akhand Ramayan (Musical)</h4>
-                        <p>INR-2100/-</p>
-                    </div>
-                </div>
-
-
-                <div class="column show people">
-                    <div class="content">
-                        <a href=""> <img src="{{ asset('puja/god-img2.png')}}" alt="Mountains" style="width:100%"></a>
-                        <h4>Akhand Ramayan (Musical)</h4>
-                        <p>INR-2100/-</p>
-                    </div>
-                </div>
 
 
 
@@ -260,38 +383,10 @@
         var basePrice =" {{$pujaDetails->puja_base_price}}";
         var totalPrice = 0;
         var setPrice = $("#addprice").text();
-        
-        // var ptype= $("#pujatype").val();
-    
-        $('#pujatype').on('change', function() {
-            if(this.value == 1){
-                $("#adds").show();
-                $("#addprice").show();
-                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_samall}}");
-                $("#addprice").text(0);
-                // $("#bprice").hide();
-                $("#addprice").text(totalPrice);               
-                
-            }
-            else if(this.value == 2){
-                $("#adds").show();
-                $("#addprice").show();
-                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_medium}}");
-                $("#addprice").text(0);
-                // $("#bprice").hide();
-                $("#addprice").text(totalPrice);
-            }
-            else if(this.value == 3){
-                $("#adds").show();
-                $("#addprice").show();
-                totalPrice = parseInt(basePrice) + parseInt("{{$pujaDetails->puja_price_large}}");
-                $("#addprice").text(0);
-                // $("#bprice").hide();
-                $("#addprice").text(totalPrice);
-            }
-        });
+       
         $("#samgari").click(function(){
-            var ptype = $("select[name=pujatype]").val();
+            var ptype = $("input[name=pujatype]:checked").val();
+         
             if(ptype ==1){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
             }
@@ -301,12 +396,17 @@
             else if(ptype ==3){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
             }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         
         })
         $("#wsamgari").click(function(){
-            var ptype = $("select[name=pujatype]").val();
+            var ptype = $("input[name=pujatype]:checked").val();
+
+            // alert(ptype);
             if(ptype ==1){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
             }
@@ -316,13 +416,16 @@
             else if(ptype ==3){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
             }
-            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+           
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
             
         })
         $("#all").click(function(){
-            var ptype = $("select[name=pujatype]").val();
+            var ptype = $("input[name=pujatype]:checked").val();
             if(ptype ==1){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
             }
@@ -332,7 +435,71 @@
             else if(ptype ==3){
                 totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
             }
-            // totalPrice = parseInt(basePrice) +parseInt(setPrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+        })
+
+        $("#standard").click(function(){
+            var ptype = $("input[name=category]:checked").val();
+            // alert(ptype);
+         
+            if(ptype =="samagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype =="wsamagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype =="all"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
+                // alert(totalPrice);
+            }
+
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+        
+        })
+        $("#premium").click(function(){
+            var ptype = $("input[name=category]:checked").val();
+
+            // alert(ptype);
+            if(ptype =="samagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype =="wsamagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype =="all"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_medium}}"); 
+            }
+           
+            $("#addprice").text(0);
+            $("#addprice").text(totalPrice);
+            
+        })
+        $("#grand").click(function(){
+            var ptype = $("input[name=category]:checked").val();
+            // alert(ptype);
+            if(ptype =="samagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptype =="wsamagri"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptype =="all"){
+                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else{
+                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_large}}"); 
+            }
             $("#addprice").text(0);
             $("#addprice").text(totalPrice);
         })
@@ -349,7 +516,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });         
-        var puja_type = $("select[name=pujatype]").val();
+        var puja_type = $("input[name=pujatype]:checked").val();
         
         var puja_category= $("input[name=category]").val();           
         var ecomm_puja_id= $("input[name=ecomm_puja_id]").val();           
@@ -431,5 +598,6 @@
 
         })
 </script>
+
 <!-- -------------footer-------- -->
 @include('layouts.footer')

@@ -64,12 +64,12 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6">
-                                            <label>Small puja price</label><input type="text" class="form-control" name="samallpujaprice"
+                                            <label>Standard puja price</label><input type="text" class="form-control" name="samallpujaprice"
                                                 placeholder="Enter price" required />
                                         </div>
                                         
                                         <div class="col-sm-6">
-                                            <label>Medium puja price</label><input type="text" class="form-control" name="mediumpujaprice"
+                                            <label>Premium puja price</label><input type="text" class="form-control" name="mediumpujaprice"
                                                 placeholder="Enter price" required />
                                         </div>
                                      
@@ -78,7 +78,7 @@
                                         
                                         
                                         <div class="col-sm-6">
-                                            <label>Large puja price</label><input type="text" class="form-control" name="largepujaprice"
+                                            <label>Grand puja price</label><input type="text" class="form-control" name="largepujaprice"
                                                 placeholder="Enter price" required />
                                         </div>
                                         <div class="col-sm-6">
@@ -88,8 +88,9 @@
                                     </div>                                    
                                     
                                     <button type="submit" class="btn btn-primary">
-                                       Create 
+                                       Next 
                                     </button>
+                                    <!-- <a href="{{url('admin-panel/puja-category')}}" class="btn btn-primary">Next</a> -->
                                 </form>
                             </div>
                             <div class="col-sm-4 col-md-3">
@@ -118,17 +119,17 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-primary mx-1"></span>
-                                                <span class="nav-text">large</span></a>
+                                                <span class="nav-text">Standard</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-info mx-1"></span>
-                                                <span class="nav-text">small</span></a>
+                                                <span class="nav-text">Premium</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#"><span
                                                     class="badge badge-circle text-success mx-1"></span>
-                                                <span class="nav-text">Medium</span></a>
+                                                <span class="nav-text">Grand</span></a>
                                         </li>
                                         
                                     </ul>

@@ -25,7 +25,7 @@ p{
 .b-navbar {
   display: flex;
   justify-content: normal;
-  margin: .5% 0;
+  margin: .5% 0 0 !important;
 }
 .b-navbar a:hover {
   color: #fa941c;
@@ -417,6 +417,7 @@ padding: 2%;
   width: 25%;
   
 }
+
 
 .popup-1 .second-div input {
   
@@ -5809,7 +5810,7 @@ border-left: 1px solid orange;
   align-items: center;
   justify-content: center;
 margin-left: -4px;
-margin-top: ;
+
 border-radius: 0 8px 8px 0;
 
 border-top: 1px solid orange;
@@ -8003,7 +8004,7 @@ font-family: 'Poppins', sans-serif;
   
   .buttons button{
     border-radius: 8px;
-    border
+ 
    }
 }
 
@@ -8635,7 +8636,7 @@ h1 {
 }
 
 #section1 .main-pooja {
-  display: flex;
+  display: block;
 }
 
 #section1 .main-pooja .img {
@@ -8646,14 +8647,17 @@ h1 {
   align-items: center;
   text-align: left;
   margin: 3% 0;
+  display: none
 }
 #section1 .main-pooja .img img {
   width: 409px;
   height: 427.75px;
+  display: none;
 }
 
 #section1 .main-pooja .img .img-content {
   margin: 30px 0;
+  display: none;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -8677,6 +8681,7 @@ h1 {
   width: 50%;
   margin: 3% 0;
   padding-right: 10%;
+  display: none;
 }
 
 #section1 .main-pooja .details h2 {
@@ -8716,6 +8721,7 @@ h1 {
   position: relative;
   padding: 2% 0 0 0;
   border-bottom: 1px solid rgba(191, 191, 191, 0.366);
+  display: none;
 }
 
 #section1 .main-pooja .details .detail-box div details {
@@ -8737,6 +8743,44 @@ h1 {
   border-radius: 50%;
   padding: 5%;
   cursor: pointer;
+}
+
+
+
+ .book1 .detail-box {
+  border: 1px solid #908e8e47;
+  width: 100%;
+  display: none !important;
+  margin: 10% auto 5% auto;
+  padding: 2%;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.book1 .detail-box div {
+  /* background-color: red; */
+  width: 100%;
+  position: relative;
+  padding: 2% 0 0 0;
+  border-bottom: 1px solid rgba(191, 191, 191, 0.366);
+}
+
+.book1 .detail-box div details {
+  margin: 20px 0 0 20px;
+}
+
+.book1s .detail-box div h4 {
+  display: inline;
+  font-size: 1.1em;
+  color: #353535;
+  font-weight: 500;
+}
+
+.book1 .detail-box summary h6 {
+ display: inline-block;
+}
+.book1 .detail-box summary input {
+float: right;
 }
 
 /* ------------------------------responsive------------- */
@@ -8884,19 +8928,19 @@ h1 {
 
 /* ---------------------section2---------------- */
 
-#section2 {
-}
+
 
 #section2 .boxes-pooja {
   display: flex;
   width: 90%;
-  height: 600px;
+  height: auto;
   color: #353535;
   font-weight: 500;
 }
 
 #section2 .boxes-pooja .box1 {
-  width: 50%;
+  width: 100%;
+  margin: 0% 5%;
   border: 1px solid #fa941c;
 }
 
@@ -8908,8 +8952,9 @@ h1 {
 #section2 .boxes-pooja .box1 .a,
 #section2 .boxes-pooja .box2 .a {
   width: 100%;
-  height: 100px;
+  height: auto;
   border-bottom: 1px solid #fa941c;
+  padding: 10px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9001,7 +9046,7 @@ h1 {
 /* Create three equal columns that floats next to each other */
 #Book-Pooja .column {
   float: left;
-  width: 400px;
+  width: 340px;
   height: 400px;
  /* display: block;*/
   margin: 20px 0;
@@ -9913,11 +9958,23 @@ height: auto;
     height: 3em;
     width: 25em;
     border: none;
-    background-color: 
-    #FA941C;
+    background-color:#FA941C;
     border-radius: 5px;
     color: white;
     margin-top: 10px;
+  }
+  .placeBtn{
+    height: 3em;
+    width: 25em;
+    border: none;
+    background-color:#FA941C;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
   }
 
 
@@ -11683,17 +11740,7 @@ align-items: center;
     animation-duration: .3s;
     
     }
-    .order-page @keyframes box {
-      .order-page from{
-       
-        opacity: 0;
-      }
-      .order-page to{
-       
-        opacity: 1;
-      }
-      
-    }
+   
   
   /* -------uppuer buttons----- */
   .order-page .upper-buttons {
@@ -13867,3 +13914,4 @@ align-items: baseline;
 {
   height: auto;
 }
+

@@ -16,16 +16,16 @@
             <form action="javascript:void(0);" id="registerForm">
 
                 <div class="second-div">
-                    <select class="optiondiv" name="mobileTelCode" id="mobileTelCode">
+                    <select class="optiondiv" name="mobileTelCode" id="mobileTelCode" required>
         
                         
                         <option value="+91">IND</option>
                         <option value="+92">PAK</option>
                     </select>
         
-                    <input type="text" id="numberOtp" value="" id="mobileNumber" name="mobileNumber">
+                    <input type="text" id="numberOtp" value="" id="mobileNumber" name="mobileNumber" required>
                 </div>
-                <button type="submit" class="main-button" id="otpContinue" >Continue</button>
+                <button type="submit" class="main-button"  >Continue</button>
           
             </form>
       </div>
@@ -43,39 +43,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h5 class="login">Verify Phone</h5>
-        <p class="otpheading" >OTP sent to <span id="otpheading"> +91 1234567890</span></p>
+        <p class="otpheading" >OTP sent to +91-<span id="otpheading"> </span></p>
       </div>
       <form action="javascript:void(0);" class="mt-5" id="veryfyOtp">
         <input type="text" id="otpMob" name="mobileNumber" hidden>
         <input type="text" id= "otpTel" name="mobileTelCode" hidden>
-        <!-- <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(1)"
-          maxlength="1"
-        />
-        <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(2)"
-          maxlength="1"
-        />
-        <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(3)"
-          maxlength="1"
-        />
-        <input
-          class="otp"
-          type="text"
-          oninput="digitValidate(this)"
-          onkeyup="tabChange(4)"
-          maxlength="1"
-        /> -->
+        
 		<div class="otp-field">
 		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-2" required>
 		<input type="number" name="otp[]" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-3" required>
@@ -92,7 +65,7 @@
       </p>
       <p class="resendbutton"><a href="#">Resend OTP availablen in </a></p>
       <div class="button-div">
-        <button class="resendotp">
+        <button class="resendotp" id="resendotp" >
           Resend OTP on<br />
           SMS</button
         ><button class="resendotp">
@@ -106,66 +79,66 @@
     <!-- -------popup end------- -->
 
     <script>
-     let in1 = document.getElementById('otc-1'),
-	ins = document.querySelectorAll('input[type="number"]'),
-	splitNumber = function(e) {
-		let data = e.data || e.target.value;
-		if (!data) return;
-		if (data.length === 1) return;
+        let in1 = document.getElementById('otc-1'),
+        ins = document.querySelectorAll('input[type="number"]'),
+        splitNumber = function(e) {
+            let data = e.data || e.target.value;
+            if (!data) return;
+            if (data.length === 1) return;
 
-		popuNext(e.target, data);
-		//for (i = 0; i < data.length; i++ ) { ins[i].value = data[i]; }
-	},
-	popuNext = function(el, data) {
-		el.value = data[0];
-		data = data.substring(1);
-		if (el.nextElementSibling && data.length) {
+            popuNext(e.target, data);
+            //for (i = 0; i < data.length; i++ ) { ins[i].value = data[i]; }
+        },
+        popuNext = function(el, data) {
+            el.value = data[0];
+            data = data.substring(1);
+            if (el.nextElementSibling && data.length) {
 
-			popuNext(el.nextElementSibling, data);
-		}
-	};
+                popuNext(el.nextElementSibling, data);
+            }
+        };
 
-ins.forEach(function(input) {
+        ins.forEach(function(input) {
 
-	input.addEventListener('keyup', function(e) {
+            input.addEventListener('keyup', function(e) {
 
-		if (e.keyCode === 16 || e.keyCode == 9 || e.keyCode == 224 || e.keyCode == 18 || e.keyCode == 17) {
-			return;
-		}
+                if (e.keyCode === 16 || e.keyCode == 9 || e.keyCode == 224 || e.keyCode == 18 || e.keyCode == 17) {
+                    return;
+                }
 
-		if ((e.keyCode === 8 || e.keyCode === 37) && this.previousElementSibling && this.previousElementSibling.tagName === "INPUT") {
-			this.previousElementSibling.select();
-		} else if (e.keyCode !== 8 && this.nextElementSibling) {
-			this.nextElementSibling.select();
-		}
+                if ((e.keyCode === 8 || e.keyCode === 37) && this.previousElementSibling && this.previousElementSibling.tagName === "INPUT") {
+                    this.previousElementSibling.select();
+                } else if (e.keyCode !== 8 && this.nextElementSibling) {
+                    this.nextElementSibling.select();
+                }
 
 
-		if (e.target.value.length > 1) {
-			splitNumber(e);
-		}
-	});
+                if (e.target.value.length > 1) {
+                    splitNumber(e);
+                }
+            });
 
-	input.addEventListener('focus', function(e) {
+            input.addEventListener('focus', function(e) {
 
-		if (this === in1) return;
+                if (this === in1) return;
 
-		if (in1.value == '') {
-			in1.focus();
-		}
+                if (in1.value == '') {
+                    in1.focus();
+                }
 
-		if (this.previousElementSibling.value == '') {
-			this.previousElementSibling.focus();
-		}
-	});
-});
+                if (this.previousElementSibling.value == '') {
+                    this.previousElementSibling.focus();
+                }
+            });
+        });
 
-in1.addEventListener('input', splitNumber);
+        // in1.addEventListener('input', splitNumber);
 
     </script>
 
     <script>
         
-        $('#otpContinue').on('click',  function(){
+        $('#registerForm').submit( function(){
             $.ajaxSetup({
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -173,20 +146,23 @@ in1.addEventListener('input', splitNumber);
             });         
             var LoginForm = $("#registerForm");
             var formData = LoginForm.serialize();
-            $("#otpContinue"). attr("disabled", true);
-            var mobileTelCode = $("select[name=mobileTelCode]").val();
-            var mobileNumber= $("input[name=mobileNumber]").val();
+            // $("#otpContinue"). attr("disabled", true);
+            var mobileTelCode   = $("select[name=mobileTelCode]").val();
+            var mobileNumber    = $("input[name=mobileNumber]").val();
             // alert(mobileNumber);
-            var timer2 = "1:01";
+            var timer2 = "1:00";
             var base_url = '<?=url('');?>';           
             $.ajax({
                 url: "{{url('login')}}",
                 type: "POST",
                 data: formData,
                 success: function( response ) {
-                    document.getElementById("registerForm").reset(); 
+                    document.getElementById("registerForm").reset();
+                    $("#pop1").removeClass('popup2'); 
+                    $("#otp-popup").css({'display':'flex'}); 
                     $('#otpTel').val(mobileTelCode);
                     $('#otpMob').val(mobileNumber);
+                    $('#otpheading').text(mobileNumber);
                     setInterval(function() {
 
                     var timer = timer2.split(':');
@@ -202,6 +178,7 @@ in1.addEventListener('input', splitNumber);
                     $('.second').html(minutes + ':' + seconds);
                     timer2 = minutes + ':' + seconds;
                     }, 1000);
+                    window.setTimeout(setEnabled, 30000);
                     continiuepop();
                     // alert('Ajax form has been submitted successfully');
                 }
@@ -230,8 +207,16 @@ in1.addEventListener('input', splitNumber);
                 }
             });
         });
+
+        
+
+        function setEnabled() {
+            var submitButton = document.getElementById('resendotp');
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
     </script>
     <script>
-        // var timer2 = "1:01";
-        // var interval = 
+        
     </script>

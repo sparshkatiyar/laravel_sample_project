@@ -37,7 +37,7 @@
     <div class="flex">
       <div class="w-xl w-auto-sm mx-auto py-5">
         <div class="p-4 d-flex flex-column h-100">
-          <a href="index.html" class="navbar-brand align-self-center"
+          <a href="/" class="navbar-brand align-self-center"
             ><svg
               width="32"
               height="32"

@@ -13,9 +13,12 @@ use JWTAuth;
 use App\Models\User;
 use App\Models\UserAddress;
 use App\Models\Booking;
+use App\Models\Puja;
+use App\Models\PujaEcommerce;
 use Auth;
 use Session;
-
+use Illuminate\Support\Facades\Http;
+use Ixudra\Curl\Facades\Curl;
 class UserController extends Controller
 {
     //
@@ -36,15 +39,45 @@ class UserController extends Controller
     public function index()
     {   
         if(Auth::guard('user')->user()){
-            $yi =Auth::guard('user')->user();           
-            return view('dashboard');
+            $yi =Auth::guard('user')->user();
+            $orderList =  Booking::where('user_id',$yi->id)->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderList as $order){
+                
+                $order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                $order->ecomm_puja_id->puja_id = Puja::find($order->ecomm_puja_id->puja_id);
+                // $order->puja_id = Puja::find($pujaDetails->puja_id);
+                
+            }
+            $orderListCompleted =  Booking::where('user_id',$yi->id)->where('booking_status',"3")->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderListCompleted as $order){
+                
+                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+                // $order->puja_id = Puja::find($pujaDetails->puja_id);
+                
+            }
+
+            $orderListOngoing =  Booking::where('user_id',$yi->id)->where('booking_status',"1")->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderListOngoing as $order){
+                
+                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+                // $order->puja_id = Puja::find($pujaDetails->puja_id);
+                
+            }
+            $orderListCanceled =  Booking::where('user_id',$yi->id)->where('booking_status',"4")->orderBy('id', 'DESC')->paginate(2); 
+            foreach(@$orderListCanceled as $order){
+                
+                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+ 
+                
+            }
+            // dd($orderList);       
+            return view('dashboard',compact('orderList','orderListCompleted','orderListOngoing','orderListCanceled'));
     	}
         return redirect('/');
-        // $id = Auth::id();
-        // $user = Auth::user();
-        // $yi = auth()->guard('user');
-        // dd($yi);
-        // $auth  = Auth::user();
+        
     }
 
     public function  login(Request $request){
@@ -64,7 +97,8 @@ class UserController extends Controller
             ];
             return response()->json($response,400);
         }else{
-            
+            $digits = 4;
+            $otp = rand(pow(10, $digits-1), pow(10, $digits)-1);
             $user = User::where('country_code', '=', $request->mobileTelCode)            
             ->where('mobile_number', '=', $request->mobileNumber)->first();
             if($user){
@@ -77,14 +111,19 @@ class UserController extends Controller
                 }
                 $dBoy=User::where('id',$user->id)->first();                   
                 $dBoy->access_token=null;
+                $dBoy->otp=$otp;
                 $dBoy->save();
+                
+                $msg = "Astro pandit one time  OTP ".$otp." for signin !.";
+                $result =$this->sendOtp($msg,$request->mobileNumber,$request->mobileTelCode);
                 return response()->json(['message'=>'OTP send successfully.','data'=>$dBoy],200);
-            }else{                   
+            }else{   
+                               
                 $user = User::create([
                     'country_code'  => $request->get('mobileTelCode'),
                     'mobile_number' => $request->get('mobileNumber'),
                     'is_otp_verify' => 0,
-                    'otp' => 1234,
+                    'otp' => $otp,
                 ]);                
                 // $token = JWTAuth::fromUser($user);                    
                
@@ -98,6 +137,8 @@ class UserController extends Controller
                 $dBoy=User::where('id',$user->id)->first();                   
                 $dBoy->access_token=null;
                 $dBoy->save();
+                $msg = "Astro pandit one time  OTP ".$otp." for signin !.";
+                $result =$this->sendOtp($msg,$request->mobileNumber,$request->mobileTelCode); 
                 return response()->json(['message'=>'OTP send successfully.','data'=>$dBoy],200);
             }
             // $user['access_token'] = $token;       
@@ -163,7 +204,7 @@ class UserController extends Controller
             //     $response['message'] = "Otp Expired.";
             //     return response()->json($response,400);
             // }
-            if($data->otp==$request->otp || $otp=='1234'){
+            if($data->otp == $otp || $otp=='1234'){
                 try {
                     if (!$token = JWTAuth::fromUser($data)) {
                         return response()->json(['error' => 'invalid_credentials'], 400);
@@ -206,13 +247,14 @@ class UserController extends Controller
             // 'price_order'   =>'required|min:1',
             'price_tax'     =>'required|min:1',
             'price_coupan'  =>'required|min:1',
-            'price_total'   =>'required|min:1',
+            // 'price_total'   =>'required|min:1',
             // 'booking_type'  =>'required|min:1',
             // 'deliver_date'  =>'required|min:2',  
            
         ];
         $payment_id = rand()."".rand();
-        $price_order        =  Session::get('price_order');
+        $price_order        = $request->totalPay;
+  
         $puja_category      =  Session::get('puja_category');
         $puja_type          =  Session::get('puja_type');
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
@@ -227,7 +269,30 @@ class UserController extends Controller
             return response()->json($response,400);
         }
 
+        $url = "https://test.payu.in/_payment";  
+        $data = "key=JP***g&txnid=TwSScNDppDAkri&amount=10.00&firstname=PayU User&email=test@gmail.com&phone=9876543210&productinfo=iPhone&pg=&bankcode=&surl=https://apiplayground-response.herokuapp.com/&furl=https://apiplayground-response.herokuapp.com/&ccnum=&ccexpmon=&ccexpyr=&ccvv=&ccname=&txn_s2s_flow=&hash=1b5b8ab56e7f0026e66c25bdf545bd5b855cdbb82cd31f0a35e8dea883c238e18a0262660c7bbd0f78b8f9dd06a33252ba17d91201540121df69ba7614780ed4";
+        $headers = array( "Content-Type: application/x-www-form-urlencoded", ); 
+        // $response = Curl::to($url)
 
+        // ->withData([
+        //     'CURLOPT_URL'=>$url,
+        //     'CURLOPT_POST'=>true,
+        //     'CURLOPT_HTTPHEADER'=>$headers,
+        //     'CURLOPT_RETURNTRANSFER'=>true,
+        //     'CURLOPT_POSTFIELDS'=>$data
+        // ])
+
+        // ->post();
+       
+        $response = Http::withOptions([
+            'CURLOPT_URL'=>$url,
+            'CURLOPT_POST'=>true,
+            'CURLOPT_HTTPHEADER'=>$headers,
+            'CURLOPT_RETURNTRANSFER'=>true,
+            'CURLOPT_POSTFIELDS'=>$data
+        ])
+        ->post($url);
+        // dd($response);   
         $user_id = $user->id; 
         $unique = uniqid();
         
@@ -244,7 +309,7 @@ class UserController extends Controller
             'price_order'       => $price_order,
             'price_tax'         => $request->get('price_tax'),
             'price_coupan'      => $request->get('price_coupan'),
-            'price_total'       => $request->get('price_total'),
+            'price_total'       => $price_order,
             'booking_type'      => $request->get('booking_type'),
             'booking_active'    => 1,
             'booking_date'      => now()->timestamp,
@@ -253,6 +318,7 @@ class UserController extends Controller
             
             
         ]);  
+        // dd($userBooking);
         return redirect('/dashboard');       
         return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }
