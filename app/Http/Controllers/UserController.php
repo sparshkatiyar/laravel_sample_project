@@ -260,7 +260,7 @@ class UserController extends Controller
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
         $user =  $user =Auth::guard('user')->user(); 
         $userAddress = UserAddress::where('user_id',$user->id)->first();
-        $address_id = $userAddress->id;
+        $address_id = @$userAddress->id;
         $validation = Validator::make($request->all(),$validator);
         if($validation->fails()){
             $response   =[

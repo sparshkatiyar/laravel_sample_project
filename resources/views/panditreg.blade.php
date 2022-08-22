@@ -1,26 +1,6 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <!--  ---font awsome link ----->
-    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Astro Pandit') }}</title>
+@include('layouts.header')
+@include('layouts.popup')
   
-    <link href="{{ asset('asset/css/pandit.css') }}" rel="stylesheet">
-    
-</head>
-<body>
-    <!-- --------navbar---- -->
-    @include('navbar')
-    <!-- ----r-navabr---- -->
 
 <!-- divider -->
 <div id="divaider"></div>
@@ -29,7 +9,7 @@
 
     <!-- -----main box--- -->
 
-    <div class="main-container">
+    <div class="main-container" id="pandit-regi-container">
         <center>
             <p class="main-heading">Pandit Registration</p>
             <p class="text-success">{{Session::get('success')}}</p>
@@ -39,8 +19,16 @@
             <!-- ---form-contaienr -->
             <div class="container  form-container">
                 <h6>Personal Details :</h6>
+
                 <!-- <h2>{{Session::get('success')}}</h2> -->
                 <div class="logo-box">
+                    <div class="logo"><img src="{{ asset('pandit/pandit-logo.png')}}" alt="#">
+                        <input type="file" id="imgupload" name="pandit_pic" type="file">
+                    </div>
+
+                    <p>Profile Pic <span> *(png, jpg, jpeg only)</span></p>
+                 </div>
+                <!-- <div class="logo-box">
                     
                     <div class="image-upload">
                         <label for="file-input">
@@ -50,7 +38,7 @@
                         <input id="file-input" name="pandit_pic" type="file" />
                     </div>
                     <p>Profile Pic <span> *(png, jpg, jpeg only)</span></p>
-                </div>
+                </div> -->
                 <!--  -->
                 <div class=" form ">
                     <div class="row">
@@ -295,4 +283,4 @@
         });
     </script>
     
-@include('layouts.footer')
+    @include('layouts.footer')
