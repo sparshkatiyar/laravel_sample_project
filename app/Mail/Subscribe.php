@@ -17,9 +17,9 @@ class Subscribe extends Mailable
      * @return void
      */
     public $email;
-    public function __construct($email)
+    public function __construct()
     {
-        $this->email = $email;
+        // $this->email = $email;
     }
 
 
@@ -33,7 +33,7 @@ class Subscribe extends Mailable
     public function build()
     {
         return $this
-            ->subject('Thank you for subscribing to our newsletter')
+            ->subject('Thank you for subscribing to our newsletter of astropandit')
             ->markdown('emails.subscribers');
     }
 
