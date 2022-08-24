@@ -83,8 +83,8 @@ class PujaController extends Controller
         $tax                =  ($price_order *18)/100;
         $adPay              =  ($price_order *40)/100;
         $price_total        =  $price_order;       
-        $pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
-        $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);  
+        @$pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
+        @$pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);  
         return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress','adPay'));
     }
     public function deliveryForLogin(Request $request)

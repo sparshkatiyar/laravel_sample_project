@@ -173,32 +173,17 @@
 
                     <div class="inner-summary-detail">
                         <div class="img-section">
-                        <img src="{{ $pujaDetails->puja_id->image}}" alt="">
+                        <img src="{{ @$pujaDetails->puja_id->image}}" alt="">
                         </div>
                         <div class="content-section">
-                        <h4>{{ $pujaDetails->puja_id->name}}</h4>
+                        <h4>{{ @$pujaDetails->puja_id->name}}</h4>
                         <!-- <p><span>Pooja Date :</span>   22 March 2022</p> -->
-                        <p><span> Catogary :</span>     {{ $pujaDetails->puja_id->type}} 
+                        <p><span> Catogary :</span>     {{ @$pujaDetails->puja_id->type}} 
                         <strong>&#x20b9 {{$price_order}}</strong>
                     </p>
                         </div>
                     </div>
-                        <!-- <div class="img">
-                            <img src="{{ $pujaDetails->puja_id->image}}" alt="">
-                        </div>
-                        <div class="detail">
-                            <h5>{{ $pujaDetails->puja_id->name}}</h5>
-                      
-
-                            <p class="price-pera"><strong> <span class="current-price">&#x20b9 {{$price_order}}</span></strong>
-                                <small><del>
-                                        <font color="gray"> &#x20b9 6.00 </font>
-                                    </del></small></p>
-                            <div id="offer">
-                                <font color="#A65D08
-                                ">25% off</font>
-                            </div>
-                        </div> -->
+                        
 
 
                       
