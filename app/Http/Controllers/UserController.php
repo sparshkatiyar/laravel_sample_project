@@ -248,11 +248,12 @@ class UserController extends Controller
             // 'price_order'   =>'required|min:1',
             'price_tax'     =>'required|min:1',
             'price_coupan'  =>'required|min:1',
-            // 'price_total'   =>'required|min:1',
-            // 'booking_type'  =>'required|min:1',
-            // 'deliver_date'  =>'required|min:2',  
+         
+            'delivery_time'     =>'required|min:1',
+            'delivery_date'      =>'required|min:2',   
            
         ];
+        $deliveryDate = $request->get('delivery_date'). ",".$request->get('delivery_time');
         $payment_id = rand()."".rand();
         $price_order        = $request->totalPay;
   
@@ -269,7 +270,15 @@ class UserController extends Controller
             ];
             return response()->json($response,400);
         }
-
+        if(!$userAddress){
+            return response()->json(['message'=>'Invalid Address id'],400); 
+        }
+        if(!$puja_type || !$puja_type=="undefined"){
+            return response()->json(['message'=>'Invalid puja type id'],400); 
+        }
+        if(!$puja_category || $puja_category == "undefined"){
+            return response()->json(['message'=>'Invalid puja category id'],400); 
+        }
         $url = "https://test.payu.in/_payment";  
         $data = "key=JP***g&txnid=TwSScNDppDAkri&amount=10.00&firstname=PayU User&email=test@gmail.com&phone=9876543210&productinfo=iPhone&pg=&bankcode=&surl=https://apiplayground-response.herokuapp.com/&furl=https://apiplayground-response.herokuapp.com/&ccnum=&ccexpmon=&ccexpyr=&ccvv=&ccname=&txn_s2s_flow=&hash=1b5b8ab56e7f0026e66c25bdf545bd5b855cdbb82cd31f0a35e8dea883c238e18a0262660c7bbd0f78b8f9dd06a33252ba17d91201540121df69ba7614780ed4";
         $headers = array( "Content-Type: application/x-www-form-urlencoded", ); 
@@ -299,11 +308,11 @@ class UserController extends Controller
         $obj = new stdClass();
         $obj->name = "HariOm";
         $obj->phone = "7992215707";
-        $type =3;
+        $type =1;
         // $mailReulst = $this->sendMail("pkworkout11@gmail.com");
         // dd($mailReulst);
         $msg = $this->smsToUser($type,$obj);
-        // $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
+        $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
 
         // dd($smr,$msg,$user->mobile_number,$user->country_code);
         $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
@@ -323,12 +332,15 @@ class UserController extends Controller
             'booking_type'      => $request->get('booking_type'),
             'booking_active'    => 1,
             'booking_date'      => now()->timestamp,
-            'deliver_date'      => $request->get('deliver_date'),
+            'deliver_date'      => $deliveryDate,
             'booking_status'    => 1,   
             
             
         ]);  
-        
+       
+        session()->forget('puja_category');
+        session()->forget('puja_type');
+        session()->forget('ecomm_puja_id');
         return redirect('/dashboard');       
         return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }

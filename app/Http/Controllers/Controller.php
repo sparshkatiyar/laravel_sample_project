@@ -126,8 +126,8 @@ class Controller extends BaseController
     }
 
     public function smsToUser($type,$data){
-        if($type ==1){
-            return "Thank you for booking puja at AstroPandit Om.Pandit ji will be assigned and intimated to you shortly.Radhe Radhe...";
+        if($type == 1){
+            return "Thank you for booking puja at AstroPandit Om.Pandit ji will be assigned and intimated to you shortly.Radhe Radhe ";
         }
        
         elseif($type == 2){
