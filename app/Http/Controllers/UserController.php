@@ -19,6 +19,7 @@ use Auth;
 use Session;
 use Illuminate\Support\Facades\Http;
 use Ixudra\Curl\Facades\Curl;
+use stdClass;
 class UserController extends Controller
 {
     //
@@ -260,7 +261,7 @@ class UserController extends Controller
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
         $user =  $user =Auth::guard('user')->user(); 
         $userAddress = UserAddress::where('user_id',$user->id)->first();
-        $address_id = $userAddress->id;
+        $address_id = @$userAddress->id;
         $validation = Validator::make($request->all(),$validator);
         if($validation->fails()){
             $response   =[
@@ -295,7 +296,16 @@ class UserController extends Controller
         // dd($response);   
         $user_id = $user->id; 
         $unique = uniqid();
-        
+        $obj = new stdClass();
+        $obj->name = "HariOm";
+        $obj->phone = "7992215707";
+        $type =3;
+        // $mailReulst = $this->sendMail("pkworkout11@gmail.com");
+        // dd($mailReulst);
+        $msg = $this->smsToUser($type,$obj);
+        // $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
+
+        // dd($smr,$msg,$user->mobile_number,$user->country_code);
         $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
         $userBooking = Booking::create([
             'user_id'           => $user_id,            
@@ -318,7 +328,7 @@ class UserController extends Controller
             
             
         ]);  
-        // dd($userBooking);
+        
         return redirect('/dashboard');       
         return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }

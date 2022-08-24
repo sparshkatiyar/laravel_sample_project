@@ -13,13 +13,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Astro Pandit') }}</title>
-  
-   <link href="{{ asset('asset/css/dashboard.css') }}" rel="stylesheet">
-    
+
+    <link href="{{ asset('asset/css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/custom-new-style.css') }}" rel="stylesheet">
 </head>
 
 <body>
     @include('navbar')
+
     <div id="divaider"></div>
     <section class="my-address-order">
         <!-- -----------side bar show button-------- -->
@@ -58,33 +61,33 @@
                                 <h4>Contact Details :</h4>
                             </div>
                             <div class="col2">
-                                <input type="text" value="{{$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
+                                <input type="text" value="{{@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
                             </div>
                             <div class="col3">
-                                <input type="text" value="{{$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
+                                <input type="text" value="{{@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
                             </div>
                             <div class="col4">
                                 <h5>Address:</h5>
                             </div>
                             <div class="col5">
-                                <input type="text" value="{{$userAddress->flat_no}}" name="flat_no" placeholder="Flat No*">
+                                <input type="text" value="{{@$userAddress->flat_no}}" name="flat_no" placeholder="Flat No*">
                             </div>
                             <div class="col6">
-                                <input type="text" value="{{$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
+                                <input type="text" value="{{@$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
                             </div>
     
                             <div class="col7">
-                                <input type="text" value="{{$userAddress->city}}" name="city" placeholder="City*">
+                                <input type="text" value="{{@$userAddress->city}}" name="city" placeholder="City*">
                             </div>
     
                             <div class="col8">
-                                <input type="text" value="{{$userAddress->pincode}}" name ="pincode" placeholder="Pincode*">
+                                <input type="text" value="{{@$userAddress->pincode}}" name ="pincode" placeholder="Pincode*">
                             </div>
                             <div class="col9">
-                                <textarea cols="30" rows="5" name="address" placeholder="Address (Area and Street)">"{{$userAddress->address}}"</textarea>
+                                <textarea cols="30" rows="5" name="address" placeholder="Address (Area and Street)">"{{@$userAddress->address}}"</textarea>
                             </div>
                             <div class="col10">
-                                <input type="text" value="{{$userAddress->town}}" name="town" placeholder="City/District/Town">
+                                <input type="text" value="{{@$userAddress->town}}" name="town" placeholder="City/District/Town">
                             </div>
                             <div class="col11">
                                 <select name="state" id="state" class="form-control">
