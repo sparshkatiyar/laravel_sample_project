@@ -255,10 +255,14 @@
     width: 23%;
     margin-bottom: 60px;
 }
-
+.pooja-details-section .inner-pooja-details .item .img-section{
+    height: 277px;
+    overflow: hidden;
+}
 .pooja-details-section .inner-pooja-details .item .img-section img {
     border-radius: 8px;
     transition: 0.5s ease-in;
+    max-width: 100%;
 }
 
 .pooja-details-section .inner-pooja-details .item .img-section img:hover {
@@ -272,6 +276,9 @@
     line-height: 27px;
     color: #353535;
     margin: 15px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .pooja-details-section .inner-pooja-details .item p {
