@@ -56,24 +56,34 @@ class HomeController extends Controller
     }
 
     public function pujaEditSave(Request $request){   
-      
         $puja = Puja::find($request->id);  
-        if($request->pujatype !="1"){
-            $puja->type = $request->pujatype;
-        }     
-        if($request->pujacategory !="1"){
-            $puja->category = $request->pujacategory;
-        } 
+        // if($request->pujatype !="1"){
+        //     $puja->type = $request->pujatype;
+        // }     
+        // if($request->pujacategory !="1"){
+        //     $puja->category = $request->pujacategory;
+        // } 
+        if($request->file('pujaimage')){
+            $file= $request->file('pujaimage');
+            // $filename= date('YmdHi')."-".$file->getClientOriginalName();
+            $filename= date('YmdHi')."-puja.".$file->extension();
+            $file-> move(public_path('web/Image'), $filename);
+            $puja->image= $filename;
+        }
+        $puja->name = $request->pujaname;    
+        $puja->type = $request->pujatype;      
+        $puja->category = $request->pujacategory;
         $puja->advantage = $request->pujaadvantage;    
         $puja->desc = $request->pujadescription;    
         $puja->pujasimplified = $request->pujasimplified;  
         $puja->save();  
-        return view('admin/puja-edit', compact('puja'));
+        return redirect('admin-panel/puja-edit-price/'.$request->id);
     }
     public function pujaCreationEm(){
         $pujaList = Puja::all();
         return view('admin/puja-creation-ecomm',compact('pujaList'));
     }
+
     public function signin()
     {
         return view('admin/signin');

@@ -30,8 +30,8 @@
                             <a href="{{url('admin-panel/assigned-pandit-pooja')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Assigned Pooja</span>
                             <a href="{{url('admin-panel/puja-creation')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja Creation/upload puja</span>
                             </a>
-                            <!-- <a href="{{url('admin-panel/puja-creation-ecommerce')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja Creation Ecommerce</span>
-                            </a> -->
+                            <a href="{{url('admin-panel/puja-creation-ecommerce')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja Creation Ecommerce</span>
+                            </a> 
                             <a href="{{url('admin-panel/puja-category')}}"><span class="nav-icon text-primary"><i             data-feather="home"></i></span> <span class="nav-text">Puja Category</span>
                             </a>
                         </li>

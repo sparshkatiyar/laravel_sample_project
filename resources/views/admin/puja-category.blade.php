@@ -14,10 +14,10 @@
                         </div>
                         <div class="flex"></div>
 
-                        <div>
+                        <!-- <div>
                             <a href="{{url('admin-panel/puja-category')}}"><span class="d-none d-sm-inline mx-1">Puja list</span>
                                 <i data-feather="arrow-right"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="page-content page-container" id="page-content">
@@ -48,7 +48,7 @@
                                         <option value="">Select pooja Name</option>
                                         @if(!empty($allpooja))
                                         @foreach($allpooja as $pooja)
-                                        <option value="{{$pooja->id}}">{{$pooja->name ?? ''}}</option>
+                                        <option value="{{$pooja->id}}"@if(!empty($poojacat) && $poojacat->pooja_id==$pooja->id) selected @endif>{{$pooja->name ?? ''}}</option>
                                         @endforeach
                                         @endif
                                         </select>
@@ -62,7 +62,7 @@
 
                                     <div class="form-group">
                                     <label>Standard<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_pooja" rows="4"
-                                            placeholder="Standard"></textarea>
+                                            placeholder="Standard">{{!empty($poojacat) ? $poojacat->standard_pooja : ''}}</textarea>
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Premium<span class="text-danger">*</span></label>
@@ -72,11 +72,11 @@
                                     </div> -->
                                     <div class="form-group">
                                     <label>Premium<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_pooja" rows="4"
-                                            placeholder="Premium"></textarea>
+                                            placeholder="Premium">{{!empty($poojacat) ? $poojacat->premium_pooja : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
                                     <label>Grand<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_pooja" rows="4"
-                                            placeholder="Grand"></textarea>
+                                            placeholder="Grand">{{!empty($poojacat) ? $poojacat->grand_pooja : ''}}</textarea>
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Grand<span class="text-danger">*</span></label>
@@ -92,49 +92,49 @@
                                     </div> -->
                                     <!-- Standard Pooja samagry -->
                                     <div class="form-group">
-                                        <label>Standard Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_samagri" rows="4"
-                                            placeholder="Puja with samagry"></textarea>
+                                        <label>Standard Puja with samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_samagri" rows="4"
+                                            placeholder="Puja with samagry">{{!empty($poojacat) ? $poojacat->category_samagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Standard Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry"></textarea>
+                                        <label>Standard Puja without samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry">{{!empty($poojacat) ? $poojacat->category_wsamagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Standard Puja all<span class="text-danger">*</span></label>
                                         <textarea  class="form-control" name="standard_category_all" rows="4"
-                                            placeholder="Puja all"></textarea>
+                                            placeholder="Puja all">{{!empty($poojacat) ? $poojacat->category_all : ''}}</textarea>
                                     </div>
                                     <!-- End section -->
 
                                     <!-- Premium Pooja samagry -->
                                     <div class="form-group">
-                                        <label>Premium Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_samagri" rows="4"
-                                            placeholder="Puja with samagry"></textarea>
+                                        <label>Premium Puja with samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_samagri" rows="4"
+                                            placeholder="Puja with samagry">{{!empty($poojacat) ? $poojacat->premium_category_samagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Premium Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry"></textarea>
+                                        <label>Premium Puja without samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry">{{!empty($poojacat) ? $poojacat->premium_category_wsamagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Premium Puja all<span class="text-danger">*</span></label>
                                         <textarea  class="form-control" name="premium_category_all" rows="4"
-                                            placeholder="Puja all"></textarea>
+                                            placeholder="Puja all">{{!empty($poojacat) ? $poojacat->premium_category_all : ''}}</textarea>
                                     </div>
                                     <!-- End Section -->
 
                                     <!-- Grand Pooja samagry -->
                                     <div class="form-group">
-                                        <label>Grand Puja with samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_samagri" rows="4"
-                                            placeholder="Puja with samagry"></textarea>
+                                        <label>Grand Puja with samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_samagri" rows="4"
+                                            placeholder="Puja with samagry">{{!empty($poojacat) ? $poojacat->grand_category_samagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Grand Puja without samagry<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry"></textarea>
+                                        <label>Grand Puja without samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry">{{!empty($poojacat) ? $poojacat->grand_category_wsamagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Grand Puja all<span class="text-danger">*</span></label>
                                         <textarea  class="form-control" name="grand_category_all" rows="4"
-                                            placeholder="Puja all"></textarea>
+                                            placeholder="Puja all">{{!empty($poojacat) ? $poojacat->grand_category_all : ''}}</textarea>
                                     </div>
                                     <!-- End Section -->
                                     <button type="submit" class="btn btn-primary">

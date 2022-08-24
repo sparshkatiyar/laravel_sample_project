@@ -67,10 +67,13 @@ Route::group(['prefix' => '/admin-panel'],function(){
 		Route::get('/puja-edit/{id}',[App\Http\Controllers\Admin\HomeController::class,'pujaEdit']);
 		Route::post('/puja-edit',[App\Http\Controllers\Admin\HomeController::class,'pujaEditSave']);
 		Route::post('/puja-creation',[App\Http\Controllers\Admin\PujaController::class,'pujaCreation']);
-		Route::get('/puja-creation-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaCreationEm']);
+		Route::get('/puja-creation-ecommerce',[App\Http\Controllers\Admin\HomeController::class,'pujaCreationEm'])->name('pooja.price');
 		Route::post('/puja-creation-ecommerce',[App\Http\Controllers\Admin\PujaController::class,'pujaCreationEm']);
+		Route::get('/puja-edit-price/{id}',[App\Http\Controllers\Admin\PujaController::class,'pujaCreationedit'])->name('pooja.edit.price');
+		Route::get('/puja-delete/{id}',[App\Http\Controllers\Admin\PujaController::class,'pujadelete'])->name('pooja.delete.price');
 		Route::post('/assing-pandit',[App\Http\Controllers\Admin\BookingMgmtController::class,'assignPandit']);
-		Route::get('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategory']);
+		Route::get('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategory'])->name('pooja.category');
+		Route::get('/puja-category-edit/{id}',[App\Http\Controllers\Admin\PujaController::class,'pujaCategoryedit'])->name('pooja.category.edit');
 		Route::post('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategoryUpdate']);
 		Route::get('/pandit-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'index']);
 		Route::get('/astrologer-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'astro']);

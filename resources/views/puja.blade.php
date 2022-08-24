@@ -68,8 +68,9 @@
               <h3>All Pooja’s</h3>
               <div class="inner-pooja-details">
                 
-                
-                @foreach(@$pujaList as $puja)       
+                @if(!empty($pujaList))
+                @foreach(@$pujaList as $puja)
+                    
                     <div class="item">
                         <a href="{{'puja-booking/'}}{{$puja->id}}">
                             <div class="img-section">
@@ -80,6 +81,7 @@
                         </a>
                     </div>
                 @endforeach
+                @endif
               </div>
               <div class="text-center">
                 <button type="button" class="btn btn-view-all">View All</button>

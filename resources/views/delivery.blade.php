@@ -220,12 +220,12 @@
     
                         <div class="price-item">
 
-                        <label class="custom-radio">Price( 1 Items)
-                            <input  name="totalPay" type="radio" value="{{$price_order}}" id="tdpay" checked="checked">
+                        <label class="custom-radio">Pay Advance Amount
+                            <input  name="totalPay" type="radio" value="{{$price_order}}" id="adpay" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                             <h6></h6>
-                            <h6>&#x20b9 <span>{{$price_order}}</span></h6>
+                            <h6>&#x20b9 <span>{{$adPay}}</span></h6>
                         
                         </div>
                         
@@ -233,16 +233,16 @@
     
                         <div class="tax price-item">
                             
-                            <label class="custom-radio">Advance Pay
-                            <input name="totalPay" type="radio" value="{{$adPay}}" id="adpay">
+                            <label class="custom-radio">Pay Full Amount
+                            <input name="totalPay" type="radio" value="{{$adPay}}" id="tdpay">
                             <span class="checkmark"></span>
                         </label>
-                            <h6>&#x20b9 <span>{{$adPay}}</span></h6>
+                            <h6>&#x20b9 <span>{{$price_order}}</span></h6>
                         </div>
                         
                         <div class="total">
                             <h6>Total amount</h6>
-                            <h6>&#x20b9 <span id="finalprice">{{$price_total}}</span></h6>
+                            <h6>&#x20b9 <span id="finalprice">{{$adPay}}</span></h6>
                         </div>
                     </div>
                     <input type="text" value="{{$tax}}" name="price_tax" hidden>

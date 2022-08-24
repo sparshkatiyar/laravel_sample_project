@@ -29,6 +29,21 @@
                         </div>
                     </div>
                 </div>
+                @if ($message = Session::get('success'))
+                          <div class="alert alert-success alert-block">
+                              <button type="button" class="close" data-dismiss="alert">×</button> 
+                                  <strong>{{ $message }}</strong>
+                          </div>
+             
+                          @endif
+
+                          @if ($message = Session::get('error'))
+                              <div class="alert alert-danger alert-block">
+                                  <button type="button" class="close" data-dismiss="alert">×</button> 
+                                      <strong>{{ $message }}</strong>
+                              </div>
+                             
+                          @endif
                 <div class="page-content page-container" id="page-content">
                     <div class="padding">
                         <div id="invoice-list" data-plugin="invoice">
@@ -146,7 +161,8 @@
                                                         <a class="dropdown-item" onclick="poojaDetails({{$puja}})">See details </a>
                                                         <a href="{{'puja-edit'}}/{{$puja->id}}" class="dropdown-item edit" >Edit</a>
                                                         <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item trash" onclick="deletePooja({{$puja->id}})">Delete item</a>
+                                                        <!-- <a class="dropdown-item trash" onclick="deletePooja({{$puja->id}})">Delete item</a> -->
+                                                        <a class="dropdown-item trash" href="{{'puja-delete'}}/{{$puja->id}}" onclick="return confirm('Are you sure you want to delete this pooja')">Delete Pooja</a>
                                                     </div>
                                                 </div>
                                             </td>

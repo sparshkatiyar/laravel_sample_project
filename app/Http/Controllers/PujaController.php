@@ -31,7 +31,8 @@ class PujaController extends Controller
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->puja_id);
         }  
-        // dd($pujaList);
+
+       
         return view('puja-ghar',compact('pujaList'));
     }
     public function online()
@@ -59,9 +60,10 @@ class PujaController extends Controller
     public function booking(Request $request )
     {
         $ecomm_puja_id = $request->id;
-        $pujaDetails = PujaEcommerce::find($request->id);  
-        $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
-        $category_samagri = PujaCategory::where('pooja_id',$ecomm_puja_id)->get()->first();
+        $pujaDetails = PujaEcommerce::find($request->id);
+        $poojaid=PujaEcommerce::where('id',$request->id)->first();
+        $pujaDetails->puja_id = Puja::find($poojaid->puja_id);
+        $category_samagri = PujaCategory::where('pooja_id',$poojaid->puja_id)->first();
         $pujaList = PujaEcommerce::orderBy("id", "desc")->paginate(6);              
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->puja_id);

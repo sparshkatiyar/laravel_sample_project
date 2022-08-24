@@ -71,22 +71,62 @@ class PujaController extends Controller
                 'message'   => $validator->errors($validator)->first(),
             ];
             return response()->json($response,400);
-        }   
+        }  
         
-        $puja = new PujaEcommerce();
-
-        $puja->puja_id              = $request->get('pujanameId');
-        $puja->puja_base_price      = $request->get('baseprice'); 
-        $puja->puja_samagri_price   = $request->get('samagriprice');  
-        $puja->puja_wsamagri_price   = $request->get('wsamagriprice');  
-        $puja->puja_price_samall    = $request->get('samallpujaprice');
-        $puja->puja_price_medium    = $request->get('mediumpujaprice');
-        $puja->puja_price_large     = $request->get('largepujaprice');
-        $puja->puja_price_all       = $request->get('allpujaprice');
-        $puja->save();
+        $checpricepooja=PujaEcommerce::where('id',$request->price_id)->first();
+       
+        if(empty($checpricepooja))
+        {
+            
+            $poojaprice= PujaEcommerce::where('puja_id',$request->get('pujanameId'))->first();
+            if(empty($poojaprice))
+            {
+                $puja = new PujaEcommerce();
+                $puja->puja_id              = $request->get('pujanameId');
+                $puja->puja_base_price      = $request->get('baseprice'); 
+                $puja->puja_samagri_price   = $request->get('samagriprice');  
+                $puja->puja_wsamagri_price   = $request->get('wsamagriprice');  
+                $puja->puja_price_samall    = $request->get('samallpujaprice');
+                $puja->puja_price_medium    = $request->get('mediumpujaprice');
+                $puja->puja_price_large     = $request->get('largepujaprice');
+                $puja->puja_price_all       = $request->get('allpujaprice');
+                $puja->save();
+                return redirect('admin-panel/puja-category');
+            }else
+            {
+                return redirect()->route('pooja.edit.price',$request->get('pujanameId'))->withInput($request->all())->with('error','Already added Pooja Price for this Pooja');
+            }
+        
+        }else
+        {
+            $poojaprice= PujaEcommerce::where('puja_id',$request->get('pujanameId'))->where('id','!=',$request->price_id)->first();
+            if(empty($poojaprice))
+            {
+            $puja=PujaEcommerce::where('puja_id',$request->get('pujanameId'))->first();
+            $puja->puja_id              = $request->get('pujanameId');
+            $puja->puja_base_price      = $request->get('baseprice'); 
+            $puja->puja_samagri_price   = $request->get('samagriprice');  
+            $puja->puja_wsamagri_price   = $request->get('wsamagriprice');  
+            $puja->puja_price_samall    = $request->get('samallpujaprice');
+            $puja->puja_price_medium    = $request->get('mediumpujaprice');
+            $puja->puja_price_large     = $request->get('largepujaprice');
+            $puja->puja_price_all       = $request->get('allpujaprice');
+            $puja->save();
+            return redirect('admin-panel/puja-category-edit/'.$request->get('pujanameId'));
+            }else
+            {
+                return redirect()->route('pooja.edit.price',$request->get('pujanameId'))->withInput($request->all())->with('error','Already added Pooja Price for this Pooja');
+            }
+        }
         \Session::put('PoojaPrice',$puja);
         // return redirect('admin-panel/puja-list-ecommerce');
-        return redirect('admin-panel/puja-category');
+        
+    }
+
+    public function pujaCreationedit($pujaid){
+        $pujaList = Puja::all();
+        $pujaecomm=PujaEcommerce::where('puja_id',$pujaid)->first();
+        return view('admin/puja-creation-ecomm',compact('pujaList','pujaecomm'));
     }
 
     public function pujaCategory(){
@@ -95,10 +135,24 @@ class PujaController extends Controller
         return view('admin/puja-category',compact('allpooja'));
     }
 
+    public function pujaCategoryedit($poojacatid){
+        // $category_all = PujaCategory::select('name_desc')->where('id',3)->get()->first();
+        $allpooja = Puja::get();
+        $poojacat = PujaCategory::where('pooja_id',$poojacatid)->first();
+        return view('admin/puja-category',compact('allpooja','poojacat'));
+    }
+    public function pujadelete($poojaid){
+         Puja::where('id',$poojaid)->delete();
+         PujaEcommerce::where('puja_id',$poojaid)->delete();
+         PujaCategory::where('pooja_id',$poojaid)->delete();
+         return redirect()->back()->with('success','Pooja details deleted successfully');
+    }
+
     public function pujaCategoryUpdate(Request $request){
         $checlpooja=PujaCategory::where('pooja_id',$request->pujaname)->first();
         if(empty($checlpooja))
         {
+            
             $saveCategory = new PujaCategory;
             $saveCategory->pooja_id = $request->pujaname ?? '';
             $saveCategory->standard_pooja = $request->standard_pooja ?? '';

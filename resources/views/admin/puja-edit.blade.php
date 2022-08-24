@@ -43,17 +43,17 @@
                                             <label>Type</label>
                                             <select value="{{$puja->type}}" class="form-control c-select" name="pujatype" required>
                                             <option value="1"> Select puja type</option>
-                                            <option>Ghar pe puja</option>
-                                            <option>Online Puja</option>
-                                            <option>On request puja</option>
+                                            <option value="Ghar pe puja"@if(!empty($puja) && $puja->type=='Ghar pe puja') selected @endif>Ghar pe puja</option>
+                                            <option value="Online Puja"@if(!empty($puja) && $puja->type=='Online Puja') selected @endif>Online Puja</option>
+                                            <option value="On request puja"@if(!empty($puja) && $puja->type=='On request puja') selected @endif>On request puja</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Category</label><select value="$puja->category" name="pujacategory" class="form-control c-select" required>
                                             <option value="1">Select puja category</option>
-                                            <option value="small">Normal</option>
-                                            <option value="medium">Premium</option>
-                                            <option value="large">Grand</option>
+                                            <option value="Standard"@if(!empty($puja) && $puja->category=='Standard') selected @endif>Standard</option>
+                                            <option value="Premium"@if(!empty($puja) && $puja->category=='Premium') selected @endif>Premium</option>
+                                            <option value="Grand"@if(!empty($puja) && $puja->category=='Grand') selected @endif>Grand</option>
                                             </select>
                                         </div>
                                     </div>

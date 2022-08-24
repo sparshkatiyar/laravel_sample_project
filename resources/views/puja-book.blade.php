@@ -17,37 +17,41 @@
                 <div class="content-2">
                 <h5 class="title3">{{ $pujaDetails->puja_id->name}}</h5>
                 <h6 class="subtitle3">INR/-{{ $pujaDetails->puja_base_price}}</h6>
-                <p class="cat-puja"><span>Category : </span>{{ $pujaDetails->puja_id->category}}</p>
+                <p class="cat-puja"><span>Category : </span>{{ $pujaDetails->puja_id->type}}</p>
                 <p class="why-txt">WHY YOU NEED THIS POOJA</p>
-                <span class="text-all" >
+                <!-- <span class="text-all" >
 
                 <?php
-                    $string = strip_tags($pujaDetails->puja_id->desc);
-                    if (strlen($string) > 550) {
+                    // $string = strip_tags($pujaDetails->puja_id->desc);
+                    // if (strlen($string) > 550) {
 
-                        // truncate string
-                        $stringCut = substr($string, 0, 550);
-                        $endPoint = strrpos($stringCut, ' ');
+                    //     // truncate string
+                    //     $stringCut = substr($string, 0, 550);
+                    //     $endPoint = strrpos($stringCut, ' ');
                     
-                        //if the string doesn't contain any space then it will cut without word basis.
-                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                        $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
-                    }
+                    //     //if the string doesn't contain any space then it will cut without word basis.
+                    //     $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                    //     $string .= '... <a href="javascript:void(0); " id="readMore">Read More</a>';
+                    // }
                     
-                    $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
-                    if($string_hindi)
-                    {
-                        $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
-                    }
-                    echo $string;
-                    echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
+                    // $string_hindi = strip_tags($pujaDetails->puja_id->deschindi);
+                    // if($string_hindi)
+                    // {
+                    //     $string .= '<a href="javascript:void(0); " id="readMore">Read More</a>';
+                    // }
+                    // echo $string;
+                    // echo '<p style="display:none;" id="hindi_desc">'.$string_hindi.'</p>';
 
                 ?>
-                </span>     
-                <!-- <p>
+                </span>      -->
+                <p class="english-desc">
                     {!! $pujaDetails->puja_id->desc!!}
                     
-                </p> -->
+                </p>
+                <p class="hindi-desc">
+                    {!! $pujaDetails->puja_id->pujasimplified!!}
+                    
+                </p>
                 <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
                 </div>
                 
@@ -59,27 +63,30 @@
             <div class="top2">
                     <div class="detail-box detail-box2">
                         <h6 class="text-heading2">Choose Your Pooja :</h6>
-
+                        @if(!empty($category_samagri->standard_pooja))
                         <div class="cate-item">
                             <label class="custom-radio">Standard
-                                <input type="radio" name="pujatype" value="1" id="standard" checked="checked">
+                                <input type="radio" name="pujatype" value="1" id="standard" checked="checked" onclick=getpooja('standard')>
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-
+                        @endif
+                        @if(!empty($category_samagri->premium_pooja))
                         <div class="cate-item">
                             <label class="custom-radio">Premium
-                                <input type="radio" name="pujatype" value="2" id="premium">
+                                <input type="radio" name="pujatype" value="2" id="premium" onclick=getpooja('premium')>
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-
+                        @endif
+                        @if(!empty($category_samagri->grand_pooja))
                         <div class="cate-item">
                             <label class="custom-radio">Grand
-                                <input t type="radio" name="pujatype" value="3" id="grand">
+                                <input t type="radio" name="pujatype" value="3" id="grand" onclick=getpooja('grand')>
                                 <span class="checkmark"></span>
                             </label>
                         </div>
+                        @endif
                         <!-- <div >
                             <details>
                                 <summary>
@@ -138,11 +145,188 @@
                         </div>
                     </p> -->
             </div>
-            <div class="top2">
+            <div class="top2" id="standard-samagri">
                 <div class="detail-box detail-box2 detail-box3">
                     <h6  class="text-heading2">Pooja Samagri :</h6>
+                    @if(!empty($category_samagri->category_wsamagri))
+                    <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> Without Pooja Samagri
+                            <input type="radio" name="category" value="samagri" id="samgari" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                    {{@$category_samagri->category_wsamagri ?? ''}}
+                                
+                                </p>
+                            </details>
+                     </div>
 
-                   
+                     @endif
+                    @if(!empty($category_samagri->category_samagri))
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> With Pooja Samagri
+                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                            </summary>
+                                <p>  
+                                {{@$category_samagri->category_samagri ?? ''}}       
+                                </p>
+                            </details>
+                     </div>
+                     @endif
+                    @if(!empty($category_samagri->category_all))
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio">With Pooja Samagri & All Items
+                            <input type="radio" name="category" value="all" id="all">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                {{@$category_samagri->category_all ?? ''}}  
+                                
+                                </p>
+                            </details>
+                     </div>
+                     @endif
+                </div>
+
+                <br>
+                
+            </div>
+            <div class="top2" id="premium-samagri" style="display:none;">
+                <div class="detail-box detail-box2 detail-box3">
+                    <h6  class="text-heading2">Pooja Samagri :</h6>
+                  
+                    @if(!empty($category_samagri->premium_category_wsamagri))
+                    <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> Without Pooja Samagri
+                            <input type="radio" name="category" value="samagri" id="samgari" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                    {{@$category_samagri->premium_category_wsamagri ?? ''}}
+                                
+                                </p>
+                            </details>
+                     </div>
+                     @endif
+                    @if(!empty($category_samagri->premium_category_samagri))
+
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> With Pooja Samagri
+                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                            </summary>
+                                <p>  
+                                {{@$category_samagri->premium_category_samagri ?? ''}}       
+                                </p>
+                            </details>
+                     </div>
+                     @endif
+                    @if(!empty($category_samagri->premium_category_all))
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio">With Pooja Samagri & All Items
+                            <input type="radio" name="category" value="all" id="all">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                {{@$category_samagri->premium_category_all ?? ''}}  
+                                
+                                </p>
+                            </details>
+                     </div>
+                     @endif
+                </div>
+
+                <br>
+                
+            </div>
+            
+            <div class="top2" id="grand-samagri" style="display:none;">
+                <div class="detail-box detail-box2 detail-box3">
+                    <h6  class="text-heading2">Pooja Samagri :</h6>
+                    @if(!empty($category_samagri->grand_category_wsamagri))
+                    <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> Without Pooja Samagri
+                            <input type="radio" name="category" value="samagri" id="samgari" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                    {{@$category_samagri->grand_category_wsamagri ?? ''}}
+                                
+                                </p>
+                            </details>
+                     </div>
+                    @endif
+                    @if(!empty($category_samagri->grand_category_samagri))
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> With Pooja Samagri
+                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                            </summary>
+                                <p>  
+                                {{@$category_samagri->grand_category_samagri ?? ''}}       
+                                </p>
+                            </details>
+                     </div>
+                    @endif
+                    @if(!empty($category_samagri->grand_category_all))
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio">With Pooja Samagri & All Items
+                            <input type="radio" name="category" value="all" id="all">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </summary>
+                                <p>  
+                                {{@$category_samagri->grand_category_all ?? ''}}  
+                                
+                                </p>
+                            </details>
+                     </div>
+                     @endif
+                </div>
+
+                <br>
+                
+            </div>
+
+            <!-- <div class="top2">
+                <div class="detail-box detail-box2 detail-box3">
+                    <h6  class="text-heading2">Pooja Samagri :</h6>
                     <div class="item-4">
                         <details>
                         <summary>
@@ -190,47 +374,11 @@
                                 </p>
                             </details>
                      </div>
-                    <!-- <div >
-                        <details>
-                            <summary>
-                                <h4> With Samagri </h4>
-                            </summary>
-                            <p>
-                                
-                                {{$category_samagri->category_samagri ?? ''}}
-                            
-                            </p>
-                        </details> &nbsp;
-                        <input type="radio" name="category" value="samagri" id="samgari">
-                    </div> -->
-                    <!--  -->
-                    <!-- <div>
-                        <details>
-                            <summary>
-                                <h4> Without Samagri </h4>
-                            </summary>
-                            <p>                           
-                                {{$category_wsamagri->category_wsamagri ?? ''}}                          
-                            </p>
-                        </details> &nbsp;<input type="radio" name="category" value="wsamagri" id="wsamgari">
-                    </div> -->
-                    <!--  -->
-                    <!-- <div>
-                        <details>
-                            <summary>
-                                <h4> All </h4>
-                            </summary>
-                            <p>
-
-                                {{$category_all->category_all ?? ''}}  
-                            </p>
-                        </details> &nbsp;<input type="radio" name="category" value="all" id="all">
-                    </div> -->
                 </div>
 
                 <br>
                 
-            </div>
+            </div> -->
         </div>
 
        
@@ -272,13 +420,33 @@
                         {!!$pujaDetails->puja_id->advantage!!}
                         </div>
                     </div>
-                    <div class="right-section">
+                    @if(!empty($category_samagri->standard_pooja))
+                    <div class="right-section" id="standard-simplified">
                         <div class="header-title">Your Pooja is Simplified</div>
                         <div class="content">
-                            <p>Your Pooja is Simplified at “AstroPandit Om”</p>
-                            {!!$pujaDetails->category_samagri!!}
+                            <!-- <p>Your Pooja is Simplified at “AstroPandit Om”</p> -->
+                            {!!$category_samagri->standard_pooja!!}
                         </div>
                     </div>
+                    @endif
+                    @if(!empty($category_samagri->premium_pooja))
+                    <div class="right-section" id="premium-simplified" style="display:none;">
+                        <div class="header-title">Your Pooja is Simplified</div>
+                        <div class="content">
+                            <!-- <p>Your Pooja is Simplified at “AstroPandit Om”</p> -->
+                            {!!$category_samagri->premium_pooja!!}
+                        </div>
+                    </div>
+                    @endif
+                    @if(!empty($category_samagri->grand_pooja))
+                    <div class="right-section" id="grand-simplified" style="display:none;">
+                        <div class="header-title">Your Pooja is Simplified</div>
+                        <div class="content">
+                            <!-- <p>Your Pooja is Simplified at “AstroPandit Om”</p> -->
+                            {!!$category_samagri->grand_pooja!!}
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -375,10 +543,37 @@
 
 </section>
 <script>
-    $(function(){
-        // $("#adds").hide();
-        // $("#addprice").hide();
-    })
+    
+        function getpooja(sel)
+        {
+            if(sel=='standard')
+            {
+                $('#standard-samagri').show();
+                $('#premium-samagri').hide();
+                $('#grand-samagri').hide();
+                $('#standard-simplified').show();
+                $('#premium-simplified').hide();
+                $('#grand-simplified').hide();
+            }
+            else if(sel=='premium')
+            {
+                $('#standard-samagri').hide();
+                $('#premium-samagri').show();
+                $('#grand-samagri').hide();
+                $('#standard-simplified').hide();
+                $('#premium-simplified').show();
+                $('#grand-simplified').hide();
+            }
+            else if(sel=='grand')
+            {
+                $('#standard-samagri').hide();
+                $('#premium-samagri').hide();
+                $('#grand-samagri').show();
+                $('#standard-simplified').hide();
+                $('#premium-simplified').hide();
+                $('#grand-simplified').show();
+            }
+        }
     $(document).ready(function(){
         var basePrice =" {{$pujaDetails->puja_base_price}}";
         var totalPrice = 0;

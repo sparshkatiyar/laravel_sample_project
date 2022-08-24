@@ -12,44 +12,61 @@
                             <small class="text-muted">wih price puja </small>
                         </div>
                         <div class="flex"></div>
-                        <div>
+                        <!-- <div>
                             <a href="{{url('admin-panel/puja-list-ecommerce')}}"><span class="d-none d-sm-inline mx-1">Puja list Ecommerce</span>
                                 <i data-feather="arrow-right"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="page-content page-container" id="page-content">
                     <div class="padding">
                         <div class="row">
                             <div class="col-sm-8 col-md-9">
-                                
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                                        <strong>{{ $message }}</strong>
+                                </div>
+                    
+                                @endif
+
+                                @if ($message = Session::get('error'))
+                                    <div class="alert alert-danger alert-block">
+                                        <button type="button" class="close" data-dismiss="alert">×</button> 
+                                            <strong>{{ $message }}</strong>
+                                    </div>
+                                    
+                                @endif
                                 <!-- <p><strong>Fill flowing Details <Details></Details></strong></p> -->
                                 <form method="post" action="{{url('admin-panel/puja-creation-ecommerce')}}"  enctype="multipart/form-data">
                                 @csrf 
+                                    @if(!empty($pujaecomm))
+                                    <input type="hidden" name="price_id" value="{{$pujaecomm->id}}">
+                                    @endif
                                     <div class="form-group row">
                                         <div class="col-sm-6">
                                             <label>Puja name</label>
                                             <select class="form-control c-select" name="pujanameId">
                                                 <option>select name</option>
                                                 @foreach($pujaList as $puja)
-                                                <option value="{{$puja->id}}">{{$puja->name}}</option>
+                                                <option value="{{$puja->id}}"@if(!empty($pujaecomm) && $pujaecomm->puja_id==$puja->id) selected @endif>{{$puja->name}}</option>
                                                 
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Puja base price</label><input type="text" class="form-control" name="baseprice"
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_base_price : ''}}" required />
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6">
                                             <label>With Samagri price</label><input type="text" class="form-control" name="samagriprice"
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_samagri_price : ''}}" required />
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Without samagri price</label><input type="text" class="form-control" name="wsamagriprice"
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_wsamagri_price : ''}}" required />
                                         </div>
                                         
                                         
@@ -65,12 +82,12 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6">
                                             <label>Standard puja price</label><input type="text" class="form-control" name="samallpujaprice"
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_samall : ''}}" required />
                                         </div>
                                         
                                         <div class="col-sm-6">
                                             <label>Premium puja price</label><input type="text" class="form-control" name="mediumpujaprice"
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_medium : ''}}" required />
                                         </div>
                                      
                                     </div>                                    
@@ -79,11 +96,11 @@
                                         
                                         <div class="col-sm-6">
                                             <label>Grand puja price</label><input type="text" class="form-control" name="largepujaprice"
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_large : ''}}" required />
                                         </div>
                                         <div class="col-sm-6">
                                             <label>All puja price</label><input type="text" class="form-control" name="allpujaprice"
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_all : ''}}" required />
                                         </div>
                                     </div>                                    
                                     
