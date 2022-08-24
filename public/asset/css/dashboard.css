@@ -11522,7 +11522,7 @@
     /* ----side bar--- */
     .order-page .container-order .sidebar {
       /* background-color: rgb(121, 103, 138); */
-      border-right: 1px solid rgba(128, 128, 128, 0.582);
+      border-right: 1px solid  #E0E0E0;
       height: 70vh;
     }
     
@@ -11531,7 +11531,7 @@
       padding: 1em 1em;
       /* background-color: aqua; */
       border-radius: 10px;
-      border: 1px solid #222222;
+      border: 1px solid ;
       height: 4em;
       overflow: hidden;
       transition: .3s;
@@ -11702,6 +11702,9 @@
       border-radius: 10px;
       margin-top: 20px ;
       max-height: 200px;
+      border: 1px solid #E0E0E0;
+border-radius: 10px;
+
     }
     .order-page .pooja-card  .col{
         /* padding: 20px ; */
@@ -12076,7 +12079,7 @@
   /* ----side bar--- */
   .my-address-order .container .sidebar {
     /* background-color: rgb(121, 103, 138); */
-    border-right: 1px solid rgba(128, 128, 128, 0.582);
+    border-right: 1px solid #E0E0E0;
   }
   
   .my-address-order .container .sidebar .headding {
@@ -12357,7 +12360,7 @@
     /* ----side bar--- */
     .profile-page-order .container .sidebar {
       /* background-color: rgb(121, 103, 138); */
-      border-right: 1px solid rgba(128, 128, 128, 0.582);
+      border-right: 1px solid #E0E0E0;
     }
     
     .profile-page-order .container .sidebar .headding {
@@ -12678,7 +12681,7 @@
   /* ----side bar--- */
   .wallet-page-order .container .sidebar {
     /* background-color: rgb(121, 103, 138); */
-    border-right: 1px solid rgba(128, 128, 128, 0.582);
+    border-right: 1px solid #E0E0E0;
    }.container .sidebar .headding {
     margin: 20px 10px;
     padding: 1em 1em;
@@ -13000,7 +13003,7 @@
     /* ----side bar--- */
     .mywishlist-order .container .sidebar {
       /* background-color: rgb(121, 103, 138); */
-      border-right: 1px solid rgba(128, 128, 128, 0.582);
+      border-right: 1px solid #E0E0E0;
     }
     
     .mywishlist-order .container .sidebar .headding {
@@ -13432,7 +13435,7 @@
     /* ----side bar--- */
     .order-detail-page .container .sidebar {
       
-      border-right: 1px solid rgba(128, 128, 128, 0.582);
+      border-right: 1px solid #E0E0E0;
     }
     
     .order-detail-page .container .sidebar .headding {
@@ -13776,16 +13779,17 @@
        }
   
        .order-page .container-order .sidebar{
-        padding-right: 10px;
+        padding-right: 16px;
        }
       
 
        .sidebar .nav .nav-item{
        display: block;
-       border-radius: 10px;
-       border: 1px solid #222222;
        padding: 10px 0px;
-       margin-bottom: 20px;
+       margin-bottom:16px;
+       border: 1px solid #E0E0E0;
+      border-radius: 10px;
+
        }
 .sidebar .nav .nav-item a{
 font-family: 'Poppins';
@@ -13800,7 +13804,7 @@ justify-content: space-between;
 
 }
 .sidebar .nav .nav-item a img{
-  width: 20px;
+  width: 16px;
 }
 .submenu{
   list-style: none;
@@ -13909,10 +13913,10 @@ justify-content: space-between;
     border: 0;
     padding: 15px 0.7rem;
 }
-
+/* 
 .nav-tabs:not(.nav-tabs-neutral)>.nav-item>.nav-link.active {
     box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.3);
-}
+} */
 
 .card .nav-tabs {
     border-top-right-radius: 0.1875rem;
@@ -13920,24 +13924,38 @@ justify-content: space-between;
 }
 
 .nav-tabs>.nav-item>.nav-link {
-    color: #888888;
-    margin: 0;
-    margin-right: 5px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: 30px;
-    font-size: 14px;
-    padding: 11px 23px;
-    line-height: 1.5;
+  color: #888888;
+  margin: 0;
+  margin-right: 5px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #222222;
+  margin-right: 25px;
+  padding: 11px 23px;
+  line-height: 1.5;
+  padding: 10px 10px;
+  /* gap: 13.34px; */
+  width: 130px;
+  height: 41px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  text-align: center;
 }
-
+/* .nav-tabs>.nav-item>.nav-link:last-child{
+  margin-right: 0;
+} */
 .nav-tabs>.nav-item>.nav-link:hover {
     background-color: transparent;
 }
 
 .nav-tabs>.nav-item>.nav-link.active {
-    background-color: #444;
-    border-radius: 30px;
+    background-color: #FA941C;;
+    border-radius: 10px;
     color: #FFFFFF;
 }
 
@@ -13952,10 +13970,10 @@ justify-content: space-between;
     color: #FFFFFF;
 }
 
-.nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
+/* .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
     background-color: rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
-}
+} */
 
 .card {
     border: 0;

@@ -85,29 +85,29 @@
                                                         <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
                                                     </div>
                                                     <div class="col col4">
-                                                        <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
+                                                        <p class="name-pooja">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
 
                                                     </div>
 
 
                                                     <div class="col col5">
                                                         <!-- <img src="right.png" alt="right" width="10px"> -->
-                                                        <p>Delivery Expected on Nov
+                                                        <p class="delivery-date">Delivery Expected on Nov
                                                             {{$orderDetails->deliver_date}}</p>
                                                     </div>
                                                     <div class="col col6">
-                                                        <p class="text">Lorem ipsum dolor sit tetur </p>
+                                                        <p class="text-pooja">Lorem ipsum dolor sit tetur </p>
                                                     </div>
                                                     <div class="col col7">
                                                         <img src="{{asset('web/image/ram.png')}}" alt="star">
-                                                        <p>Rates the Pooja</p>
+                                                        <p class="pooja-rates">Rates the Pooja</p>
                                                     </div>
                                                     <div class="col col8">
                                                         <p class="price"><span><b>&#x20b9 {{$orderDetails->price_total}}</b></span> </p>
                                                     </div>
 
                                                     <div class="col col9">
-                                                        <p><a href="order-detail/order-detail.html">View Details</a></p>
+                                                        <p class="view-dt"><a href="order-detail/order-detail.html">View Details</a></p>
                                                     </div>
 
 
