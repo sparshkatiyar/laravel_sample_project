@@ -246,13 +246,16 @@ class UserController extends Controller
             // 'puja_type'     =>'required|min:1',
             // 'puja_category' =>'required|min:1',
             // 'price_order'   =>'required|min:1',
-            'price_tax'     =>'required|min:1',
-            'price_coupan'  =>'required|min:1',
+            'price_tax'         =>'required|min:1',
+            'price_coupan'      =>'required|min:1',
             // 'price_total'   =>'required|min:1',
-            // 'booking_type'  =>'required|min:1',
-            // 'deliver_date'  =>'required|min:2',  
+            'delivery_time'     =>'required|min:1',
+            'delivery_date'      =>'required|min:2',  
            
         ];
+
+        $deliveryDate = $request->get('delivery_date'). ",".$request->get('delivery_time');
+        // dd($deliveryDate);
         $payment_id = rand()."".rand();
         $price_order        = $request->totalPay;
   
@@ -261,6 +264,15 @@ class UserController extends Controller
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
         $user =  $user =Auth::guard('user')->user(); 
         $userAddress = UserAddress::where('user_id',$user->id)->first();
+        if(!$userAddress){
+            return response()->json(['message'=>'Invalid Address id'],400); 
+        }
+        if(!$puja_type || !$puja_type=="undefined"){
+            return response()->json(['message'=>'Invalid puja type id'],400); 
+        }
+        if(!$puja_category || $puja_category == "undefined"){
+            return response()->json(['message'=>'Invalid puja category id'],400); 
+        }
         $address_id = @$userAddress->id;
         $validation = Validator::make($request->all(),$validator);
         if($validation->fails()){
@@ -299,14 +311,33 @@ class UserController extends Controller
         $obj = new stdClass();
         $obj->name = "HariOm";
         $obj->phone = "7992215707";
-        $type =3;
+        $type =1;
         // $mailReulst = $this->sendMail("pkworkout11@gmail.com");
         // dd($mailReulst);
         $msg = $this->smsToUser($type,$obj);
-        // $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
+        $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
 
         // dd($smr,$msg,$user->mobile_number,$user->country_code);
         $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
+        // $userBooking                    =  new Booking();
+        // $userBooking->user_id           =$user_id;
+        // $userBooking->ecomm_puja_id     =$ecomm_puja_id;
+        // $userBooking->address_id        =$address_id;
+        // $userBooking->payment_id        =$payment_id;
+        // $userBooking->booking_id        =$bookingid;
+        // $userBooking->pandit_id         =null;
+        // $userBooking->puja_type         =$puja_type;
+        // $userBooking->puja_category     =$puja_category;
+        // $userBooking->price_order       =$price_order;
+        // $userBooking->price_tax         =$request->get('price_tax');
+        // $userBooking->price_coupan      =$request->get('price_coupan');
+        // $userBooking->price_total       =$price_order;
+        // $userBooking->booking_type      =$request->get('booking_type');
+        // $userBooking->booking_active    =1;
+        // $userBooking->booking_date      =$price_order;
+        // $userBooking->deliver_date      =now()->timestamp;
+        // $userBooking->booking_status    =1;
+        // $userBooking->save();
         $userBooking = Booking::create([
             'user_id'           => $user_id,            
             'ecomm_puja_id'     => $ecomm_puja_id,
@@ -323,14 +354,19 @@ class UserController extends Controller
             'booking_type'      => $request->get('booking_type'),
             'booking_active'    => 1,
             'booking_date'      => now()->timestamp,
-            'deliver_date'      => $request->get('deliver_date'),
+            'deliver_date'      => $deliveryDate,
             'booking_status'    => 1,   
             
             
         ]);  
+        // dd($userBooking);
+        if($userBooking){
+            return redirect('/dashboard');       
+        }else{
+            return response()->json(['message'=>'Something Went wrong ! '],400); 
+        }
         
-        return redirect('/dashboard');       
-        return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
+        // return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }
 
     public function updateProfileDetails(Request $request) {

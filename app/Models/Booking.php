@@ -25,6 +25,7 @@ class Booking extends Model
         'booking_type',
         'booking_active',
         'booking_date',
+        'deliver_date',
         'booking_status',        
     ];
 }

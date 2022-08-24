@@ -249,8 +249,8 @@
                     <!-- <input type="text" value="{{$price_total}}" name="price_total" hidden> -->
                     <input type="text" value="0" name="price_coupan" hidden>
                     <input type="text" value="1" name="booking_type" hidden>
-                    <input type="text" name="delivery_date" hidden>
-                    <input type="text" name="delivery_time" hidden>
+                    <input type="text" name="delivery_date" id="ddate" hidden>
+                    <input type="text" name="delivery_time" id="dtime" hidden>
                     @if(Auth::guard('user')->user())
                     <button id="placeBtn" type="submit" value="submit">Place Order</button>
                     @else
@@ -343,7 +343,19 @@
             var totalPrice = parseInt(basePrice) ;;
             var setPrice = $("#finalprice").text(totalPrice);
         });
+
         
+        $("#delivery_date").on("change",function(){
+            let  selected = $(this).val();
+            $("#ddate").val(selected);
+            let dd =   $("#ddate").val();
+            // alert(dd);
+        });
+        $("#delivery_time").on("change",function(){
+            let selected = $(this).val();
+            $("#dtime").val(selected);
+            let  dt =   $("#dtime").val();
+        });
     </script>
 
 @include('layouts.footer')
