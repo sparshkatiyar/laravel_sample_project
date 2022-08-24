@@ -16,7 +16,7 @@
 
                 <div class="content-2">
                 <h5 class="title3">{{ $pujaDetails->puja_id->name}}</h5>
-                <h6 class="subtitle3">INR/-{{ $pujaDetails->puja_base_price}}</h6>
+                <h6 class="subtitle3">(Starting From  &#x20b9 {{ $pujaDetails->puja_base_price}} )</h6>
                 <p class="cat-puja"><span>Category : </span>{{ $pujaDetails->puja_id->type}}</p>
                 <p class="why-txt">WHY YOU NEED THIS POOJA</p>
                 <!-- <span class="text-all" >

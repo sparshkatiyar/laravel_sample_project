@@ -75,7 +75,7 @@
                                                     </div>
                                                     <div class="col col2">
                                                         <p class="date">
-                                                            Date <span>{{$orderDetails->created_at}}</span>
+                                                            Booking Date <span>{{date('d-m-Y',strtotime($orderDetails->created_at))}}</span>
                                                         </p>
                                                     </div>
 
@@ -92,8 +92,8 @@
 
                                                     <div class="col col5">
                                                         <!-- <img src="right.png" alt="right" width="10px"> -->
-                                                        <p class="delivery-date">Delivery Expected on Nov
-                                                            {{$orderDetails->deliver_date}}</p>
+                                                        <p class="delivery-date">Delivery Date
+                                                            {{$orderDetails->booking_date}}</p>
                                                     </div>
                                                     <div class="col col6">
                                                         <p class="text-pooja">Lorem ipsum dolor sit tetur </p>

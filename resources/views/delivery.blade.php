@@ -40,7 +40,7 @@
                             2
                         </div>
                         <div>
-                            <h5>Delivery Address &nbsp; <span><img src="right.png" alt="" width="20px"></span></h5>
+                            <h5>Address &nbsp; <span><img src="right.png" alt="" width="20px"></span></h5>
                         </div>
                         <button id="downBtn" onclick="f1()">Fill</button>
                     </div>
@@ -149,8 +149,8 @@
                     <div class="">
                         <div class="form-menu">
 
-                        <input type="date">
-                        <input type="time">
+                        <input type="date"  id="delivery_date">
+                        <input type="time"  id="delivery_time">
 
                         </div>
                     </div>
@@ -177,8 +177,8 @@
                         </div>
                         <div class="content-section">
                         <h4>{{ $pujaDetails->puja_id->name}}</h4>
-                        <p><span>Pooja Date :</span>   22 March 2022</p>
-                        <p><span> Catogary :</span>     Ghar Pe Pooja  
+                        <!-- <p><span>Pooja Date :</span>   22 March 2022</p> -->
+                        <p><span> Catogary :</span>     {{ $pujaDetails->puja_id->type}} 
                         <strong>&#x20b9 {{$price_order}}</strong>
                     </p>
                         </div>
@@ -249,6 +249,8 @@
                     <!-- <input type="text" value="{{$price_total}}" name="price_total" hidden> -->
                     <input type="text" value="0" name="price_coupan" hidden>
                     <input type="text" value="1" name="booking_type" hidden>
+                    <input type="text" name="delivery_date" hidden>
+                    <input type="text" name="delivery_time" hidden>
                     @if(Auth::guard('user')->user())
                     <button id="placeBtn" type="submit" value="submit">Place Order</button>
                     @else
@@ -341,6 +343,7 @@
             var totalPrice = parseInt(basePrice) ;;
             var setPrice = $("#finalprice").text(totalPrice);
         });
+        
     </script>
 
 @include('layouts.footer')
