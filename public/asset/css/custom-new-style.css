@@ -255,10 +255,12 @@
     width: 23%;
     margin-bottom: 60px;
 }
-.pooja-details-section .inner-pooja-details .item .img-section{
+
+.pooja-details-section .inner-pooja-details .item .img-section {
     height: 277px;
     overflow: hidden;
 }
+
 .pooja-details-section .inner-pooja-details .item .img-section img {
     border-radius: 8px;
     transition: 0.5s ease-in;
@@ -1086,7 +1088,7 @@
 
 }
 
-.data-select input{
+.data-select input {
     padding: 1% 2%;
     color: #6B6D71;
     width: 48%;
@@ -1095,7 +1097,8 @@
     border: 1px solid #E0E0E0;
     border-radius: 10px;
 }
-#section1 .form .pay-option.active{
+
+#section1 .form .pay-option.active {
     height: auto;
 }
 
@@ -1107,103 +1110,107 @@
 
 /*-----------------------------------------------------------------pandit registration-----------------------------------------------------------------*/
 
-  
+
 
 
 /* ---main-container--- */
-#pandit-regi-container{
+#pandit-regi-container {
     /* text-align: center; */
     font-family: 'Poppins', sans-serif;
     width: 90%;
-    margin:50px auto;
+    margin: 50px auto;
 }
-#pandit-regi-container .main-heading{
+
+#pandit-regi-container .main-heading {
     font-size: 1.4em;
     font-weight: 500;
     line-height: 36px;
     margin: 30px 0;
 }
 
-#pandit-regi-container .detail-heading{
+#pandit-regi-container .detail-heading {
     font-size: 1em;
     font-weight: 500;
     line-height: 36px;
 }
 
-#pandit-regi-container .logo-box{
+#pandit-regi-container .logo-box {
     text-align: center;
 }
 
-#pandit-regi-container .logo-box .logo{
+#pandit-regi-container .logo-box .logo {
     height: 5em;
     width: 5em;
     overflow: hidden;
     margin: auto;
     position: relative;
     /* border: 1px solid black; */
-    
+
 }
 
 
-#pandit-regi-container .logo-box .logo img{
+#pandit-regi-container .logo-box .logo img {
     height: 100%;
     width: 100%;
 
 }
 
 
-#pandit-regi-container .logo-box  p{
+#pandit-regi-container .logo-box p {
     font-size: .9em;
     margin: 10px 0;
- 
-    
+
+
 }
 
-#pandit-regi-container .logo-box  p span{
-color: gray;
- 
-    
+#pandit-regi-container .logo-box p span {
+    color: gray;
+
+
 }
 
 /* --form-- */
-#pandit-regi-container .form-container .form{
+#pandit-regi-container .form-container .form {
     width: 100%;
     /* background-color: #ccc; */
 }
 
-#pandit-regi-container .form-container .form h6{
-    margin-top: 5% ;
+#pandit-regi-container .form-container .form h6 {
+    margin-top: 5%;
 }
 
 
-#pandit-regi-container .form-container .form label{
+#pandit-regi-container .form-container .form label {
     color: #FA941C;
     margin: 10px 0;
     font-weight: 500;
 }
-#pandit-regi-container .form-container .form label.error{
-  color: red;
+
+#pandit-regi-container .form-container .form label.error {
+    color: red;
 }
-#pandit-regi-container .form-container .form .row{
+
+#pandit-regi-container .form-container .form .row {
     width: 100%;
     margin-top: 40px;
     display: flex;
     /* align-items: flex-end; */
-    align-items:center;
+    align-items: center;
 }
 
-#pandit-regi-container .form-container .form .row .col.has-error input, #pandit-regi-container .form-container .form .row .col.has-error select
-{
-  border-color: red !important ;
+#pandit-regi-container .form-container .form .row .col.has-error input,
+#pandit-regi-container .form-container .form .row .col.has-error select {
+    border-color: red !important;
 }
 
-#pandit-regi-container .form-container .form .row .col{
-    width:50%;
+#pandit-regi-container .form-container .form .row .col {
+    width: 50%;
 }
 
 
-#pandit-regi-container .form-container .form .row .col .text,select{
-    width:100%;
+#pandit-regi-container .form-container .form .row .col .text,
+select {
+    width: 100%;
     height: 3em;
     padding: 10px;
     border-radius: 10px;
@@ -1211,39 +1218,42 @@ color: gray;
     border-radius: 10px;
 }
 
-#pandit-regi-container .form-container .form .row .col .dropdown-check-list ,.anchor , .anchor2{
+#pandit-regi-container .form-container .form .row .col .dropdown-check-list,
+.anchor,
+.anchor2 {
     width: 100%;
     background-color: white;
     height: 3em;
     border-radius: 10px;
-      
-}
-
-.anchor , .anchor2{
-display: flex;  
-align-items: center; 
 
 }
 
-#pandit-regi-container .form-container .form .row .col .dropdown-check-list .items li input{
-          margin-right: 10px;
+.anchor,
+.anchor2 {
+    display: flex;
+    align-items: center;
+
+}
+
+#pandit-regi-container .form-container .form .row .col .dropdown-check-list .items li input {
+    margin-right: 10px;
 }
 
 
 
-#pandit-regi-container .form-container .form .row .col textarea{
+#pandit-regi-container .form-container .form .row .col textarea {
     width: 49%;
     border-radius: 10px;
     resize: none;
 }
 
 
-#pandit-regi-container .form-container .form .submit-div{
+#pandit-regi-container .form-container .form .submit-div {
     width: 100%;
-    margin:40px 0;
+    margin: 40px 0;
 }
 
-#pandit-regi-container .form-container .form .submit-div .submit{
+#pandit-regi-container .form-container .form .submit-div .submit {
     padding: .4em 2.5em;
     border-radius: 10px;
     border: none;
@@ -1252,3 +1262,231 @@ align-items: center;
 }
 
 
+.hindDesclink,
+.englishDesc {
+    color: #151C2C;
+    font-weight: 500px;
+    font-size: 18px;
+}
+
+.reg-form-section .form-group label {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FA941C;
+    margin-bottom: 12px;
+}
+
+.reg-form-section .form-group label span {
+    color: #494F59;
+}
+
+.reg-form-section .form-group {
+    margin-bottom: 35px;
+}
+
+.reg-form-section .form-group .form-control {
+    width: 100%;
+    padding: 16px;
+    height: 56px;
+    border: 1px solid #979797;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+
+}
+
+.reg-form-section .form-group textarea.form-control {
+    height: 108px;
+}
+
+.reg-form-section .form-group br {
+    display: none;
+}
+
+.cstm {
+    width: 145px;
+    justify-content: space-between;
+}
+
+.cstm label {
+    color: #111112;
+}
+
+.cs-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    font-weight: 400 !important;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #222222 !important;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cs-checkbox label {
+    color: #222222;
+
+}
+
+/* Hide the browser's default checkbox */
+.cs-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.cs-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 23px;
+    height: 23px;
+    border: 1px solid #FA941C;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+/* On mouse-over, add a grey background color */
+.cs-checkbox:hover input~.checkmark {
+    background-color: #FFFFFF;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cs-checkbox input:checked~.checkmark {
+    background-color: #FA941C;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.cs-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.cs-checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.cs-checkbox .checkmark:after {
+    left: 9px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+
+
+
+/********************Multiple Select Css***********************/
+
+ul.multiselect-container.dropdown-menu.active {
+    width: 100%;
+    display: block;
+    top: 100%;
+}
+
+.multiple-select1 .btn-group {
+    width: 100%;
+    display: block;
+}
+
+.multiselect.dropdown-toggle {
+    width: 100%;
+    padding: 16px;
+    height: 56px;
+    border: 1px solid #979797;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+    text-align: left;
+    background: transparent;
+}
+
+.multiselect.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    right: 15px;
+    position: absolute;
+    top: 50%;
+}
+
+.multiselect-container li .checkbox {
+    padding: 0 10px;
+    color: #222222 !important;
+}
+
+.multiselect-selected-text {
+    color: #222222;
+}
+
+.title-reg {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+    margin: 50px 0 35px;
+}
+
+.uploadAdhar {
+    width: 100%;
+    height: 56px;
+    background: #FFF4E8;
+    border-radius: 10px;
+    display: block;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.regPandit-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+
+    margin-top: 45px;
+    color: #000000;
+    margin-bottom: 75px;
+
+}
+
+.reg-pr-dt {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 35px;
+}
+.reg-form-section .submit-div{
+    text-align: center;
+}

@@ -1,6 +1,6 @@
 @include('layouts.header')
 @include('layouts.popup')
-  
+
 
 <!-- divider -->
 <div id="divaider"></div>
@@ -11,19 +11,19 @@
 
     <div class="main-container" id="pandit-regi-container">
         <center>
-            <p class="main-heading">Pandit Registration</p>
+            <p class="regPandit-title">Pandit Registration</p>
             <p class="text-success">{{Session::get('success')}}</p>
         </center>
         <form action="{{url('pandit-registration')}}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- ---form-contaienr -->
             <div class="container  form-container">
-                <h6>Personal Details :</h6>
+                <h6 class="reg-pr-dt">Personal Details :</h6>
 
                 <!-- <h2>{{Session::get('success')}}</h2> -->
                 <div class="logo-box">
                     <div class="logo"><img src="{{ asset('pandit/pandit-logo.png')}}" alt="#">
-                        <input type="file" id="imgupload" name="pandit_pic" type="file">
+                        <input type="file" id="imgupload"  name="pandit_pic" type="file">
                     </div>
 
                     <p>Profile Pic <span> *(png, jpg, jpeg only)</span></p>
@@ -40,73 +40,102 @@
                     <p>Profile Pic <span> *(png, jpg, jpeg only)</span></p>
                 </div> -->
                 <!--  -->
-                <div class=" form ">
+                <div class="form reg-form-section">
                     <div class="row">
-                        <div class="col">
-                            <label for="javascript:void(0);">Name*</label><br>
-                            <input type="text"  name="name" placeholder="Rajesh Shukla" class="text" required>
-                        </div>
-    
-                        <div class="col">
-                            <label for="javascript:void(0);">Email ID*</label><br>
-                            <input type="email" name="email" placeholder="rajeshshukla@gmail.com" class="text" required>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col">
-                            <label for="javascript:void(0);">Gender*</label><br>
-                            <select id="gender" name="gender" required>
-                                <option value="1" selected>Male</option>
-                                <option value="2">Female</option>
-                            </select>
-                        </div>
-    
-                        <div class="col">
-                            <label for="javascript:void(0);">Date Of Birth*</label><br>
-                            <input type="date" name="dob" placeholder="11 March 2001" class="text" required>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col">
-                            <label for="javascript:void(0);">Register As* (Can Choose Upto 2)</label><br>
-                            <!-- <div id="list3" class="dropdown-check-list" tabindex="100"> -->
-                                <ul class="items">
-                                    <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Astrologers"/>Astrologers</li>
-                                    <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Pandit Ji"/>Pandit Ji</li>
-                                    <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Motivational guide "/>Motivational guide </li>
-                                    
-    
-                                </ul>
-                            <!-- </div> -->
-                            
-                        </div>
-    
-                        <div class="col">
-                            <label for="javascript:void(0);">Primary Skill*</label><br>
-                            <div id="list1" class="dropdown-check-list" tabindex="100">
-                                <span class="anchor">Vedic</span>
-                                <ul class="items" >
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Karamkand visheshgya"/>Karamkand visheshgya</li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Kathavachak"/>Kathavachak </li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Karamkand"/>Karamkand </li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value=""/>Puja-path Consultation </li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Gemstone consultation"/>Gemstone consultation</li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Puja Muhurat Consultation"/>Puja Muhurat Consultation</li>
-                                    <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Bhajan/Sandhya- Sangeetmay Path"/>Bhajan/Sandhya- Sangeetmay Path</li>
-                                </ul>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Name*</label><br>
+                                <input type="text"  name="name" class="form-control" placeholder="Rajesh Shukla" class="text" required>
                             </div>
                         </div>
-                    </div>
-    
-    
-                    <div class="row">
-                        <div class="col">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Email ID*</label><br>
+                                <input type="email" name="email" class="form-control" placeholder="rajeshshukla@gmail.com" class="text" required>
+                            </div>
+                        </div>
+                       
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Gender*</label><br>
+                                <select id="gender" name="gender" class="form-control" required>
+                                    <option value="1" selected>Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Date Of Birth*</label><br>
+                                <input type="date" name="dob" class="form-control" placeholder="11 March 2001" class="text" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Register As* <span>(Can Choose Upto 2)</span></label><br>
+                                <!-- <div id="list3" class="dropdown-check-list" tabindex="100"> -->
+                                    <!-- <ul class="items">
+                                        <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Astrologers"/>Astrologers</li>
+                                        <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Pandit Ji"/>Pandit Ji</li>
+                                        <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Motivational guide "/>Motivational guide </li>
+                                        
+        
+                                    </ul> -->
+                                   <div class="multiple-select1" id="multiple-select1">
+                                   <select id="example-getting-started" multiple="multiple">
+                                        <option value="cheese">Cheese</option>
+                                        <option value="tomatoes">Tomatoes</option>
+                                        <option value="mozarella">Mozzarella</option>
+                                        <option value="mushrooms">Mushrooms</option>
+                                        <option value="pepperoni">Pepperoni</option>
+                                        <option value="onions">Onions</option>
+                                    </select>
+                                   </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Primary Skill*</label><br>
+
+                                <div class="multiple-select1" id="multiple-select2">
+                                   <select id="primarySkill" multiple="multiple">
+                                        <option value="cheese">Vedic</option>
+                                        <option value="tomatoes">Vedic Puja-path</option>
+                                        <option value="mozarella">Karamkand visheshgya</option>
+                                        <option value="mushrooms">Kathavachak</option>
+                                        <option value="pepperoni">Vedic Puja-path</option>
+                                        <option value="onions">Karamkand</option>
+                                        <option value="onions">Puja-path Consultation</option>
+                                        <option value="onions">Gemstone consultation</option>
+                                        <option value="onions">Puja Muhurat Consultation</option>
+                                        <option value="onions">Bhajan/Sandhya- Sangeetmay Path</option>
+                                    </select>
+                                   </div>
+                                <!-- <div id="list1" class="dropdown-check-list" tabindex="100">
+                                    <span class="anchor"></span>
+                                    <ul class="items" >
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Karamkand visheshgya"/>Karamkand visheshgya</li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Kathavachak"/>Kathavachak </li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Vedic Puja-path"/>Vedic Puja-path </li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Karamkand"/>Karamkand </li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value=""/>Puja-path Consultation </li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Gemstone consultation"/>Gemstone consultation</li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Puja Muhurat Consultation"/>Puja Muhurat Consultation</li>
+                                        <li><input type="checkbox" class="four-checkbox" name="skill_primary[]" value="Bhajan/Sandhya- Sangeetmay Path"/>Bhajan/Sandhya- Sangeetmay Path</li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
                             <label for="javascript:void(0);">Seconadary Skills (Optional)</label><br>
-                            <div id="list2" class="dropdown-check-list" tabindex="100">
+                            <!-- <div id="list2" class="dropdown-check-list" tabindex="100">
                                 <span class="anchor">Astrologers</span>
                                 <ul class="items">
                                     <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Birth Chart Analysis"/>Birth Chart Analysis </li>
@@ -120,106 +149,151 @@
                                     <li><input type="checkbox" class="six-checkbox" name="skill_secondry[]" value="Spiritual/Reiki healing"/>Spiritual/Reiki healing </li>
     
                                 </ul>
+                            </div> -->
+                            <div class="multiple-select1" id="multiple-select3">
+                                   <select id="seconadarySkill" multiple="multiple">
+                                        <option value="cheese">Astrologers</option>
+                                        <option value="tomatoes">Birth Chart Analysis</option>
+                                        <option value="mozarella">Gemstone consultation</option>
+                                        <option value="mushrooms">Vastu Consultation</option>
+                                        <option value="pepperoni">Kundali Matching</option>
+                                        <option value="onions">Marriage consultation</option>
+                                        <option value="onions">Career and business advice </option>
+                                        <option value="onions">Love and Relationship advice</option>
+                                        <option value="onions">Health and Family issues advice</option>
+                                        <option value="onions">Reiki healing</option>
+                                    </select>
+                                   </div>
                             </div>
                         </div>
-    
-                        <div class="col">
-                            <label for="javascript:void(0);">Your Preferred to consult with Devotee </label><br>
-    
-                            <input type="text" name="consult_time" placeholder="10:00 AM to 08:00 PM" class="text">
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Your Preferred to consult with Devotee </label><br>
+                                <input type="text" name="consult_time" class="form-control" placeholder="10:00 AM to 08:00 PM" class="text">
+                            </div>
                         </div>
-                    </div>
-                    <!-- -----other detail-- -->
-                    <h6 class="other-detail
-                        ">Other Details :</h6>
-                    <div class="row">
-                        <div class="col">
-    
-                            <label for="javascript:void(0);">Are you working on any other online platform?*</label>
-    
-                            <div class="row">
-                                <div class="col">
-                                    <input type="radio" name="other_platform"> <label>Yes</label>
-                                    <input type="radio" name="other_platform"> <label>No</label>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Select Language* <span> (Choose Upto 3)</span> </label><br>
+                                <select class="form-control">
+                                    <option>English</option>
+                                    <option>English</option>
+                                    <option>English</option>
+                                   
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Experience* <span> (In Years)</span> </label><br>
+                                <input type="text" name="consult_time" class="form-control" placeholder="10:00 AM to 08:00 PM" class="text">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <h6 class="title-reg">Other Details :</h6>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Are you working on any other online platform?*</label>
+                              
+                                    <div class="d-flex cstm align-items-center">
+                                        <label class="custom-radio" style="color: #111112 !important;">Yes
+                                                <input type="radio" name="other_platform"> 
+                                                <span class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-radio" style="color:#111112 !important;">No
+                                        <input type="radio" name="other_platform"> 
+                                                <span class="checkmark"></span>
+                                        </label>
+                                   
                                 </div>
                             </div>
-    
                         </div>
-    
-                        <div class="col">
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
                             <label for="javascript:void(0);">Name of the App or Website </label><br>
     
-                            <input type="text" name="app_or_website" class="text" required>
+                                <input type="text" class="form-control" name="app_or_website" class="text" required>
+                            </div>
                         </div>
-    
-                    </div>
-    
-                    <div class="row">
-    
-                        <div class="col ">
-                            <label for="javascript:void(0);">Aadhar Card No.* </label><br>
-    
-                            <input type="number"  name="uid_number" class="text" required>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Aadhar Card No.* </label><br>
+                                <input type="number" class="form-control"  name="uid_number" class="text" required>
+                            </div>
                         </div>
-                        <div class="col d-flex flex-column"
-                            style="background-color: javascript:void(0);FFF4E8; border-radius:10px; padding:0 10px 10px 10px ">
-                            <label for="javascript:void(0);">Upload Aadhar Card* </label>
-                            <input type="file" name="uid_image" placeholder="Choose File" required>
-    
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                               
+                                    <label for="javascript:void(0);">Upload Aadhar Card* </label>
+                                    <div class="uploadAdhar">
+                                    <input type="file" name="uid_image" placeholder="Choose File" required>
+                                    </div>
+            
+                                
+                            </div>
                         </div>
-    
-    
-                    </div>
-    
-    
-    
-                    <div class="row">
-                        <div class="col">
-                            <label for="javascript:void(0);">Summary of Experties* ( Maximum 200 Words)</label><br>
-                            <textarea name="experties" id="javascript:void(0);" cols="auto" rows="5" required></textarea>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">Summary of Experties* <span>( Maximum 200 Words)</span></label><br>
+                                <textarea name="experties" class="form-control" id="javascript:void(0);" cols="auto" rows="5" required></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <!-- ---Consultation Charges--- -->
-                    <h6 class="charges">Consultation Charges :</h6>
-    
-                    <div class="row">
-    
-                        <div class="col">
-                            <label for="javascript:void(0);">For Call</label><br>
-    
-                            <input type="text"  name="charge_call" placeholder="INR 50" class="text" required>
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <h6 class="title-reg">Consultation Charges :</h6>
                         </div>
-                        <div class="col">
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">For Call</label><br>
+                                <input type="text" class="form-control" name="charge_call" placeholder="INR 50" class="text" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
                             <label for="javascript:void(0);">For Chat</label>
-                            <input type="text" name="charge_chat" placeholder="INR 50" class="text" required>
-    
+                            <input type="text" class="form-control" name="charge_chat" placeholder="INR 50" class="text" required>
+                            </div>
                         </div>
-    
-    
+                       
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div class="form-group">
+                                <label for="javascript:void(0);">For Video Chat</label><br>
+                                <input type="text" class="form-control" name="charge_video" placeholder="INR 50" class="text" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <label class="cs-checkbox">By submitting, you accept our Terms & Conditions
+                                and our Privacy Policy
+                                <input type="checkbox"  type="checkbox" name="is_term"  required>
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="submit-div">
+                                <button class="submit" type="submit">Submit</button>
+                            </div>
+                        </div>
+                       
                     </div>
     
-    
-                    <div class="row">
-    
-                        <div class="col">
-                            <label for="javascript:void(0);">For Video Chat</label><br>
-    
-                            <input type="text" name="charge_video" placeholder="INR 50" class="text" required>
-                        </div>
-                        <div class="col"></div>
-    
-                    </div>
-    
-                    <div class="row">
-                        <div class="col">
-                            <input type="checkbox" name="is_term" id="javascript:void(0);" required> <span>By submitting, you accept our Terms & Conditions
-                                and our Privacy Policy</span>
-                        </div>
-                    </div>
-    
-                    <center>
-                        <div class="submit-div"><button class="submit" type="submit">Submit</button></div>
-                    </center>
+                   
+                        
+                   
                 </div>
             </div>
         </form>
@@ -282,5 +356,10 @@
             })
         });
     </script>
-    
+
+
+
     @include('layouts.footer')
+
+
+  

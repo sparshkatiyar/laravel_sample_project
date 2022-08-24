@@ -44,15 +44,27 @@
 
                 ?>
                 </span>      -->
-                <p class="english-desc">
+                <div class="englishDesc">
+               
+                {!! $pujaDetails->puja_id->desc!!}
+       <a class="englishDesclink" href="javascript:void(0)">Read More/Hindi</a>
+   
+                    </div>
+    <div class="hindiDesc"  style="display: none;">
+   
+    {!! $pujaDetails->puja_id->pujasimplified!!}
+      <a class="hindDesclink" href="javascript:void(0)">Read less</a>
+   
+                    </div>
+                <!-- <p class="english-desc">
                     {!! $pujaDetails->puja_id->desc!!}
                     
                 </p>
                 <p class="hindi-desc">
                     {!! $pujaDetails->puja_id->pujasimplified!!}
                     
-                </p>
-                <a id="lessMore" href="javascript:void(0); ">...lessmore</a>
+                </p> -->
+               
                 </div>
                 
             </div>
@@ -794,5 +806,20 @@
         })
 </script>
 
+
+<script>
+	$('.englishDesclink').click(function() {
+ $(".hindiDesc").css({"display": "inline-block",});
+ 
+ $(".englishDesclink").css({"display": "none",});
+   $(".hindDesclink").css({"display": "inline-block",});
+});
+
+$('.hindDesclink').click(function() {
+ $(".englishDesclink").css({"display": "inline-block",});
+ $(".hindDesclink").css({"display": "none",});
+ $(".hindiDesc").css({"display": "none",});
+});
+</script>
 <!-- -------------footer-------- -->
 @include('layouts.footer')
