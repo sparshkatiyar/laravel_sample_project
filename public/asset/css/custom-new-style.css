@@ -1487,6 +1487,56 @@ ul.multiselect-container.dropdown-menu.active {
     color: #000000;
     margin-bottom: 35px;
 }
-.reg-form-section .submit-div{
+
+.reg-form-section .submit-div {
     text-align: center;
+}
+
+.success-message .modal-dialog {
+    max-width: 605px;
+    width: 100%;
+    margin: 0 auto;
+}
+.success-message .modal-dialog .modal-body{
+    padding: 35px 65px;
+}
+
+.success-message h3 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.success-message p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #5E5F63;
+    margin-bottom: 35px;
+}
+.success-message .success-img{
+    display: block;
+    margin:  0 auto 24px;
+}
+.success-message button {
+    width: 100%;
+    padding: 10px 20px;
+    height: 54px;
+    background: #FA941C;
+    border-color: #FA941C;
+    border: 0;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+.success-message button:focus {
+    outline: none;
+    box-shadow: none;
 }

@@ -237,14 +237,17 @@
                     <input type="text" name="delivery_date" id="ddate" hidden>
                     <input type="text" name="delivery_time" id="dtime" hidden>
                     @if(Auth::guard('user')->user())
-                    <button id="placeBtn" type="submit" value="submit">Place Order</button>
+                    <button id="placeBtn" type="submit" data-bs-toggle="modal" data-bs-target="#successModal" value="submit">Place Order</button>
                     @else
           
                     <span class="placeBtn" onclick="popshow()">Place Order</span>
                     
                     @endif
+
+                    
                 </div>
             </form>
+            <!-- <button id="placeBtn" type="submit" data-bs-toggle="modal" data-bs-target="#successModal" value="submit">Place Order</button> -->
         </div>
     </section>
 
@@ -297,7 +300,18 @@
 
         $(".pay-option").toggleClass("active");
 
+
         })
+       function clsfirstpopup(){
+            $("#pop1").css({"display": "none"});
+        }
+        function popshow(){
+
+            $("#pop1").css({"display": "flex"});
+        }
+        // $("#clsindex").click(function(){
+        //     $("#pop1").css({"display": "none"});;
+        // })
     </script>
 
     <script>
@@ -344,3 +358,24 @@
     </script>
 
 @include('layouts.footer')
+
+
+
+
+<!-- Modal -->
+<div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <div class="success-message">
+        <img src="{{ asset('images/suceess-img.svg')}}" alt="#" class="img-fluid success-img" />
+            <h3>Order Successful</h3>
+            <p>Your Order #1234 has successfully place</p>
+            <button type="button" data-bs-dismiss="modal">Thank You</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -133,17 +133,17 @@ function w3RemoveClass(element, name) {
 
 
 
-function popshow(){
+// function popshow(){
 
 
-  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+//   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 
-  let box = document.getElementById("pop1");
-  if (typeof(box) != 'undefined' && box != null)
-  {
-    box.classList.add("popup2")
-  }
-}
+//   let box = document.getElementById("pop1");
+//   if (typeof(box) != 'undefined' && box != null)
+//   {
+//     box.classList.add("popup2")
+//   }
+// }
 
 
 let clsindex = document.getElementById("cls-index");
