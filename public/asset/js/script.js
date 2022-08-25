@@ -1,7 +1,26 @@
 
+ $(document).ready(function() {
+    $('#example-getting-started').multiselect();
+    $('#seconadarySkill').multiselect();
+    $('#primarySkill').multiselect();
+    $('#multiple-select1').on('click', function(e){
+      $(this).find(".multiselect-container").toggleClass( "active" );
+     
+    });
+    $('#multiple-select2').on('click', function(e){
+      $(this).find(".multiselect-container").toggleClass( "active" );
+    
+    });
+    $('#multiple-select3').on('click', function(e){
+      $(this).find(".multiselect-container").toggleClass( "active" );
+    
+    });
+});
+
 
 $(document).ready(function(){
 
+ 
   $.fn.manage_tabs = function() {
     var current = $(this);
       var tabs = current.find('.tabs_title');

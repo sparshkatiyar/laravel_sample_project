@@ -17,7 +17,8 @@
     <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/custom-new-style.css') }}" rel="stylesheet">
     
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" rel="stylesheet"/>
+
     <!-- <script src="{{ asset('asset/js/script.js') }}"></script> -->
     <script src="{{ asset('asset/js/jquery.js') }}"></script>
     <!-- <script src="{{ asset('asset/js/pooja-main-script.js') }}"></script> -->
