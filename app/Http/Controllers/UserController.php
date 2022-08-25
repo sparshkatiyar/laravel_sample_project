@@ -255,7 +255,7 @@ class UserController extends Controller
         ];
         $deliveryDate = $request->get('delivery_date'). ",".$request->get('delivery_time');
         $payment_id = rand()."".rand();
-        $price_order        = $request->totalPay;
+        $price_order        = $request->finalprice;
   
         $puja_category      =  Session::get('puja_category');
         $puja_type          =  Session::get('puja_type');
@@ -308,11 +308,11 @@ class UserController extends Controller
         $obj = new stdClass();
         $obj->name = "HariOm";
         $obj->phone = "7992215707";
-        $type =1;
+        $type =3;
         // $mailReulst = $this->sendMail("pkworkout11@gmail.com");
         // dd($mailReulst);
         $msg = $this->smsToUser($type,$obj);
-        $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
+        // $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
 
         // dd($smr,$msg,$user->mobile_number,$user->country_code);
         $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
@@ -337,10 +337,7 @@ class UserController extends Controller
             
             
         ]);  
-       
-        session()->forget('puja_category');
-        session()->forget('puja_type');
-        session()->forget('ecomm_puja_id');
+        
         return redirect('/dashboard');       
         return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }

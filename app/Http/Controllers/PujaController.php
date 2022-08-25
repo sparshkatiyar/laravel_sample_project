@@ -15,8 +15,12 @@ class PujaController extends Controller
 {
     //
     public function index()
-    {
-    
+    {   
+        // $obj =null;
+        // $type =1;
+        // $msg = $this->smsToUser($type,$obj);
+        // $smr = $this->sendSMS($msg,"7992215707","+91");
+        // dd($smr);
         $pujaList = PujaEcommerce::orderBy("id", "desc")->get();              
         foreach(@$pujaList as $pujas){
             $pujas->puja_id = Puja::find($pujas->puja_id);
