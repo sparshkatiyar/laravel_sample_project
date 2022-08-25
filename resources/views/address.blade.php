@@ -45,52 +45,68 @@
                 <!-- -------alll-------- -->
                 <div class="all-content">
 
-                    <div class="main-heading">
-                        
-                        <div>
-                            <p class="head" style=" font-family: 'Tinos', serif; font-weight: 500;">
+                    <div class="add-section">
+                        <a href="javascript:void(0)"> <img src="{{ asset('images/prev.svg')}}" alt="#" class="img-fluid success-img" />Back</a>
+                       
+                            <p class="address-title">
                                 My Adresses
-                            </p>
+                           
                         </div>
                     </div>
 
-                    <form action="{{url('save-address/')}}" method="post"> 
+                    <form action="{{url('save-address/')}}" method="post" > 
                         @csrf
-                        <div class="form">
-                            <div class="col">
-                                <h4>Contact Details :</h4>
-                            </div>
-                            <div class="col2">
-                                <input type="text" value="{{@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
-                            </div>
-                            <div class="col3">
-                                <input type="text" value="{{@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
-                            </div>
-                            <div class="col4">
-                                <h5>Address:</h5>
-                            </div>
-                            <div class="col5">
-                                <input type="text" value="{{@$userAddress->flat_no}}" name="flat_no" placeholder="Flat No*">
-                            </div>
-                            <div class="col6">
-                                <input type="text" value="{{@$userAddress->locality_no}}" name="locality_no" placeholder="Locality*">
-                            </div>
-    
-                            <div class="col7">
-                                <input type="text" value="{{@$userAddress->city}}" name="city" placeholder="City*">
-                            </div>
-    
-                            <div class="col8">
-                                <input type="text" value="{{@$userAddress->pincode}}" name ="pincode" placeholder="Pincode*">
-                            </div>
-                            <div class="col9">
-                                <textarea cols="30" rows="5" name="address" placeholder="Address (Area and Street)">"{{@$userAddress->address}}"</textarea>
-                            </div>
-                            <div class="col10">
-                                <input type="text" value="{{@$userAddress->town}}" name="town" placeholder="City/District/Town">
-                            </div>
-                            <div class="col11">
-                                <select name="state" id="state" class="form-control">
+                        <div class="address-form">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12">
+                                    <h4 class="ad-title">Contact Details :</h4>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                        <input type="text" value="{{@$userAddress->contact_name}}" class="form-control" name="contact_name" placeholder="Name*">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                    <input type="text" value="{{@$userAddress->contact_no}}"  class="form-control" name="contact_no" placeholder="Mobile No*">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12  col-md-12">
+                                <h4 class="ad-title">Address:</h4>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                    <input type="text" value="{{@$userAddress->flat_no}}"  class="form-control" name="flat_no" placeholder="Flat No*">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                    <input type="text" value="{{@$userAddress->locality_no}}"  class="form-control" name="locality_no" placeholder="Locality*">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                    <input type="text" value="{{@$userAddress->city}}"  class="form-control" name="city" placeholder="City*">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                    <input type="text" value="{{@$userAddress->pincode}}"  class="form-control" name ="pincode" placeholder="Pincode*">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                    <textarea cols="30" rows="5" name="address"  class="form-control" placeholder="Address (Area and Street)">"{{@$userAddress->address}}"</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                    <input type="text" value="{{@$userAddress->town}}"  class="form-control" name="town" placeholder="City/District/Town">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="form-group">
+                                    <select name="state" id="state" class="form-control">
                                     <option selected><b>--Select State--</b> </option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -129,11 +145,29 @@
                                     <option value="Uttarakhand">Uttarakhand</option>
                                     <option value="West Bengal">West Bengal</option>
                                 </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 text-center">
+                                    <div class="form-group">
+                                    <button type="submit" class="add-save-btn" value="submit">Save</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col12">
-                                <button type="submit" value="submit">Save</button>
+                          
+                        </div>
+
+                        <div class="save-address">
+                            <h4>Save Addresses</h4>
+                            <div class="inner-header-address">
+                                <div class="left">
+                                    <h5>Rahul Vaidya</h5>
+                                    <p>4517 Washington Ave. Manchester, Kentucky 39495</p>
+                                </div>
+                                <div class="right">
+                                    <img src="{{ asset('images/edit.svg')}}" alt="#" class="img-fluid" />
+                                    <img src="{{ asset('images/delete.svg')}}" alt="#" class="img-fluid" />
+                                </div>
                             </div>
-    
                         </div>
                     </form>
                     <!-- ----form--- -->

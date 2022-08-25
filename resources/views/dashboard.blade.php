@@ -44,7 +44,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-            
+                    
+
                             <div class="tab-container-one">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item active"><a class="nav-link active" href="#home" role="tab" aria-controls="home" data-bs-toggle="tab">All</a></li>
@@ -298,3 +299,54 @@
 <!-- -----------section1----------- -->
 @include('layouts.footer')
 
+
+
+
+<!-- Sucess Modal -->
+<div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <div class="success-message">
+        <img src="{{ asset('images/suceess-img.svg')}}" alt="#" class="img-fluid success-img" />
+            <h3>Your Review has been submited successfully</h3>
+        
+            <button type="button" data-bs-dismiss="modal">Thank You</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Sucess Modal -->
+<div class="modal fade ratingModal" id="ratingModal" tabindex="-1" aria-labelledby="ratingModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+      <button type="button" class="close-modal" data-bs-dismiss="modal" aria-label="Close">
+      <img src="{{ asset('images/close.svg')}}" alt="#" class="img-fluid" />
+      </button>
+        <div class="rating-modal-section">
+        
+            <h3>Rate the Pooja</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam enim, tincidunt quam tortor ullamcorper egestas et et.</p>
+
+            <ul>
+                <li><img src="{{ asset('images/rating-img.svg')}}" alt="#" class="img-fluid" /></li>
+                <li><img src="{{ asset('images/rating-img.svg')}}" alt="#" class="img-fluid" /></li>
+                <li><img src="{{ asset('images/rating-img.svg')}}" alt="#" class="img-fluid" /></li>
+                <li><img src="{{ asset('images/rating-img.svg')}}" alt="#" class="img-fluid" /></li>
+            </ul>
+            <label for="" class="rating-label">Feedback (If Any)</label>
+            <textarea name="" id="" cols="3" rows="3"></textarea>
+            <button type="button" class="rating-btn" data-bs-dismiss="modal">Submit</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
