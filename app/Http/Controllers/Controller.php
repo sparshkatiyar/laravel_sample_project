@@ -101,15 +101,15 @@ class Controller extends BaseController
         $client       =  new Client($AccountSid, $AuthToken);
         $contact      =  $countryCode.$mobile;//'+919899728180';
         try{       
-            DB::beginTransaction();     
-            $client->account->messages->create(
+            // DB::beginTransaction();     
+            $messages = $client->account->messages->create(
                 $contact,
                 array(
                     'from' => "+17086690939",
                     'body' => $msg
                 )
             );
-            // print_r($sms);die;  
+            // print_r($messages->body);die;  
             $response     =  [
                 'message' => 'success',
                 'status'  => 1,

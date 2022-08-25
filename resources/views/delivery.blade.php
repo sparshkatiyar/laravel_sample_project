@@ -229,9 +229,14 @@
                             <h6>Total amount</h6>
                             <h6>&#x20b9 <span id="finalprice">{{$adPay}}</span></h6>
                         </div>
+                        <div class="custom-radio">
+                            <input name="cod" type="radio"  id="tdy" checked="checked">
+                            <h6>Payment Mode</h6>
+                            <h6> <span id="cod">COD</span></h6>
+                        </div>
                     </div>
                     <input type="text" value="{{$tax}}" name="price_tax" hidden>
-                    <!-- <input type="text" value="{{$price_total}}" name="price_total" hidden> -->
+                    <input type="text" value="" name="finalprice" hidden>
                     <input type="text" value="0" name="price_coupan" hidden>
                     <input type="text" value="1" name="booking_type" hidden>
                     <input type="text" name="delivery_date" id="ddate" hidden>
@@ -321,12 +326,14 @@
             // alert(basePrice);
             var totalPrice =  parseInt("{{$adPay}}");;
             var setPrice = $("#finalprice").text(totalPrice);
+            var finalprice = $("input[name=finalprice]").val(totalPrice);
         });
         $("#tdpay").click(function(){
             var basePrice ="{{$price_order}}";
             // alert(basePrice);
             var totalPrice = parseInt(basePrice) ;;
             var setPrice = $("#finalprice").text(totalPrice);
+            var finalprice = $("input[name=finalprice]").val(totalPrice);
         });
 
         
