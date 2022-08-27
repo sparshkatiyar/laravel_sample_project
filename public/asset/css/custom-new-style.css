@@ -1499,7 +1499,26 @@ ul.multiselect-container.dropdown-menu.active {
     border: 0;
 }
 
-
+.pooj-tite-5{
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #353535;
+    margin: 15px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pooja-price5{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 30px !important;
+    color: #222222;
+}
 .success-message .modal-dialog .modal-content{
     border-radius: 10px;
 }
@@ -1757,4 +1776,27 @@ p {
     line-height: 24px;
     color: #FFFFFF;
 
+}
+
+
+
+
+
+
+
+
+
+/* Responsive Css *******************/
+
+@media (max-width: 1024px){
+    .pooja-details-section .inner-pooja-details .item{
+        width: 47%;
+        margin-bottom: 30px;
+    }
+    .pooja-section{
+        flex-direction: column;
+    }
+    .pooja-section{
+        margin-bottom: 40px;
+    }
 }

@@ -532,8 +532,8 @@
                             <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image }}" alt="Mountains"
                                     style="width:100%"></a>
                             
-                                <h4>{{$puja->puja_id->name}}</h4> 
-                                <p>INR- {{$puja->puja_base_price}}/-</p>
+                                <h4 class="pooj-tite-5">{{$puja->puja_id->name}}</h4> 
+                                <p class="pooja-price5">INR- {{$puja->puja_base_price}}/-</p>
                         </div>
                     </div>
                 @endforeach
