@@ -335,6 +335,9 @@
             document.getElementById('number').value = value;
         }
 
+        var totalPrice =  parseInt("{{$adPay}}");;
+            // var setPrice = $("#finalprice").text(totalPrice);
+        var finalprice = $("input[name=finalprice]").val(totalPrice);
         $("#adpay").click(function(){
             var basePrice ="{{$price_order}}";
             // alert(basePrice);
@@ -370,7 +373,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
+<!-- <div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       
@@ -385,4 +388,4 @@
       
     </div>
   </div>
-</div>
+</div> -->

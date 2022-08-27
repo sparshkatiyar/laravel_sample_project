@@ -302,6 +302,7 @@
 
 
 <!-- Sucess Modal -->
+@if($message)
 <div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -309,7 +310,7 @@
       <div class="modal-body">
         <div class="success-message">
         <img src="{{ asset('images/suceess-img.svg')}}" alt="#" class="img-fluid success-img" />
-            <h3>Your Review has been submited successfully</h3>
+            <h3>{{$message}}</h3>
         
             <button type="button" data-bs-dismiss="modal">Thank You</button>
         </div>
@@ -318,6 +319,7 @@
     </div>
   </div>
 </div>
+@endif
 
 
 <!-- Sucess Modal -->
