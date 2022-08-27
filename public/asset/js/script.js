@@ -130,7 +130,13 @@ function w3RemoveClass(element, name) {
   
   // setTimeout(popshow , 2000)
   
+  function clsfirstpopup(){
+    $("#pop1").css({"display": "none"});
+}
+function popshow1(){
 
+    $("#pop1").css({"display": "flex"});
+}
 
 
 // function popshow(){

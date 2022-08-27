@@ -83,7 +83,7 @@
                     <a href="{{url('./dashboard')}}">Dashboard</a>
                    <!-- <a onclick="popshow()">Login/Sign up</a> -->
                     @else
-                    <a onclick="popshow()">Login/Sign up</a>
+                    <a onclick="popshow1()">Login/Sign up</a>
                     @endif
                     
                 </div>
