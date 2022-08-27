@@ -1786,6 +1786,39 @@ p {
 
 
 
+.hm-menu{
+    display: none;
+}
+.hm-menu span{
+    width: 34px;
+    height: 3px;
+    background-color: #fb941d;
+    border-radius: 2px;
+    margin: 0 0 7px;
+    display: block;
+}
+.desktop-menu{
+    display: block;
+}
+.mobile-menu{
+    display: none;
+    border-top: 1px solid #000000;
+}
+.mobile-menu ul{
+    display: block;
+}
+.mobile-menu ul li{
+    display: block;
+    padding: 5px 0;
+}
+.top-header .item1 p{
+    display: flex;
+    align-items: center;
+}
+.top-header .item1 p img{
+    margin: 0;
+    padding-right: 10px;
+}
 /* Responsive Css *******************/
 
 @media (max-width: 1024px){
@@ -1798,5 +1831,154 @@ p {
     }
     .pooja-section{
         margin-bottom: 40px;
+    }
+}
+@media (max-width: 991px){
+    .b-navbar .img-div{
+        width: 100%;
+    }
+    .menu-row{
+        padding: 10px 0;
+    }
+    .top-header{
+        display: block !important;
+    }
+    .top-header .item1{
+        display: block;
+        width: 100%;
+    }
+    .top-header .item1 p{
+        margin-bottom: 10px;
+    }
+    .top-header .item2{
+        display: block;
+        margin-bottom: 10px;
+    }
+    .top-header .item2 img{
+        margin: 0;
+    }
+    .top-header .item2 div{
+        display: flex;
+        align-items: center;
+    }
+    .desktop-menu{
+        display: none;
+    }
+    .b-navbar{
+        display: block !important;
+    }
+    .b-navbar .menu-div{
+        width: 100%;
+    }
+    .hm-menu{
+        display: block;
+    }
+    .mobile-menu.active{
+        display: block;
+    }
+    .b-navbar .menu-div .contact-div{
+        margin-top: 20px;
+    }
+    .tab-content>.tab-pane{
+        padding: 0 15px;
+    }
+    .pooja-details-section{
+        margin-top: 40px;
+    }
+    .pooja-description-section .pooja-description{
+        flex-direction: column;
+    }
+    .pooja-description-section .pooja-description .left-section, .pooja-description-section .pooja-description .right-section{
+        width: 100%;
+    }
+    .pooja-description-section .pooja-description .left-section .header-title{
+        border-right: 1px solid #FA941C;
+    }
+    .pooja-description-section .pooja-description .left-section .content{
+        border-top: 1px solid #FA941C;
+    }
+    .main-pooja .top{
+        display: block;
+    }
+    .main-pooja .top1{
+        display: block;
+        width: 100%;
+    }
+    #section1 .main .price-detail,
+    #section1 .main .price-detail .detail{
+        max-width: 100%;
+    }
+    .custom-radio{
+        padding-left: 30px;
+    }
+    .detail-form .form-menu{
+        flex-direction: column;
+    }
+    #last-btn{
+        width: auto;
+        margin: 0;
+    }
+    .social-link{
+        justify-content: flex-start;
+    }
+    #footer h2{
+        margin: 10px 0;
+        font-size: 22px;
+    }
+    #footer{
+        padding: 30px 0;
+    }
+    .terms p{
+        text-align: center;
+    }
+    #bottom .container{
+        flex-direction: column;
+    }
+    .social img{
+        margin-left: 0;
+    }
+    .data-select input{
+        width: 100%;
+    }
+    .form-menu{
+        flex-direction: column;
+    }
+    #section1 .form .customer-detail .detail-form input{
+        width: 100%;
+    }
+    .inner-summary-detail .content-section p strong{
+        position: static;
+    }
+    #section1 .main{
+        display: block;
+        margin: 0 auto;
+    }
+    #section1 form{
+        width: 100%;
+    }
+    .main-pooja .top-row{
+        flex-direction: column;
+    }
+    #section1 .show-heding div:nth-child(2){
+        width: 100%;
+    }
+    .main-pooja .top-row .top2,
+    .detail-box.detail-box2.detail-box3{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 767px){
+    .pooja-details-section .inner-pooja-details .item{
+        width: 100%;
+    }
+    .pooja-details-section .inner-pooja-details{
+        gap: 0;
+    }
+    #Book-Pooja .column{
+        width: 100%;
+    }
+    #Book-Pooja .content{
+        margin: 0;
     }
 }

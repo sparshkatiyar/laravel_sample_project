@@ -138,7 +138,9 @@ function popshow1(){
     $("#pop1").css({"display": "flex"});
 }
 
-
+function hmMenu(){
+  $(".mobile-menu").toggleClass('active');
+}
 // function popshow(){
 
 
