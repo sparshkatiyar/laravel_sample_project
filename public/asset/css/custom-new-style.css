@@ -1925,6 +1925,18 @@ p {
         margin: 10px 0;
         font-size: 22px;
     }
+    .content-2 .title3{
+        font-size: 22px;
+    }
+    .content-2 .cat-puja{
+        margin-bottom: 10px;
+    }
+    .content-2 .subtitle3{
+        font-size: 18px;
+    }
+    #section1 .main-pooja{
+        flex-direction: column;
+    }
     #footer{
         padding: 30px 0;
     }
