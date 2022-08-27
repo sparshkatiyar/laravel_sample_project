@@ -1928,6 +1928,26 @@ p {
     .content-2 .title3{
         font-size: 22px;
     }
+    .pooja-section .right-section h5{
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    .pooja-section .right-section{
+        margin-top: 10px;
+    }
+    .pooja-section{
+        margin-bottom: 20px;
+    }
+    .pooja-details-section{
+        margin-top: 20px;
+    }
+    .pooja-details-section h3{
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    .pooja-section:nth-child(even){
+        flex-direction: column-reverse;
+    }
     .content-2 .cat-puja{
         margin-bottom: 10px;
     }
