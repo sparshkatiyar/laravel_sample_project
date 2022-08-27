@@ -15,6 +15,9 @@
       $(this).find(".multiselect-container").toggleClass( "active" );
     
     });
+   
+    $('#successModal').modal('show');
+
 });
 
 

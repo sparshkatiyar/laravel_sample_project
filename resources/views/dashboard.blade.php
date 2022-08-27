@@ -100,7 +100,7 @@
                                                         <p class="text-pooja">Lorem ipsum dolor sit tetur </p>
                                                     </div>
                                                     <div class="col col7">
-                                                        <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                        <img src="{{ asset('images/rating-img.svg')}}" alt="star">
                                                         <p class="pooja-rates">Rates the Pooja</p>
                                                     </div>
                                                     <div class="col col8">
@@ -156,7 +156,7 @@
                                                     <p class="text">Lorem ipsum dolor sit tetur </p>
                                                 </div>
                                                 <div class="col col7">
-                                                    <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                    <img src="{{ asset('images/rating-img.svg')}}" alt="star">
                                                     <p>Rates the Pooja</p>
                                                 </div>
                                                 <div class="col col8">
@@ -210,7 +210,7 @@
                                                     <p class="text">Lorem ipsum dolor sit tetur </p>
                                                 </div>
                                                 <div class="col col7">
-                                                    <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                    <img src="{{ asset('images/rating-img.svg')}}" alt="star">
                                                     <p>Rates the Pooja</p>
                                                 </div>
                                                 <div class="col col8">
@@ -263,7 +263,7 @@
                                                     <p class="text">Lorem ipsum dolor sit tetur </p>
                                                 </div>
                                                 <div class="col col7">
-                                                    <img src="{{asset('web/image/ram.png')}}" alt="star">
+                                                    <img src="{{ asset('images/rating-img.svg')}}" alt="star">
                                                     <p>Rates the Pooja</p>
                                                 </div>
                                                 <div class="col col8">
@@ -298,7 +298,6 @@
 
 <!-- -----------section1----------- -->
 @include('layouts.footer')
-
 
 
 
@@ -350,3 +349,5 @@
     </div>
   </div>
 </div>
+
+
