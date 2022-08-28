@@ -134,7 +134,7 @@ class Controller extends BaseController
             return $data->user_name. ", " .$data->pandit_name."for (Customer name), (Name of Pandit) has been assigned. Date and time of Pooja are (date, time). Advance paid: Rs___, and Balance____.";
         }
         elseif($type == 3){
-            return $data->name. ", " .$data->phone." will perform your online pooja on (Date and time of Pooja). Please visit AstroPanditom.com to check details of Pooja. Please Join your pooja through Google Meet (ID and Password). Radhe Radhe…";
+            return $data->name. ", " .$data->phone." will perform your online pooja on (Date and time of Pooja). Please visit https://astropanditom.com to check details of Pooja. Please Join your pooja through Google Meet (ID and Password). Radhe Radhe…";
         }
         elseif($type == 4){
             return "Your auspicious pooja has been successfully completed. Thanks for choosing AstroPandit Om. Hope to serve you again. Radhe Radhe... ";
@@ -148,7 +148,7 @@ class Controller extends BaseController
             return "Thank you for booking puja at AstroPandit Om.Pandit ji will be assigned and intimated to you shortly.Radhe Radhe...";
         }
         elseif($type ==2){
-            return "-(Customer Name) has booked the pooja (name of pooja) for (date and time of pooja) on (date of booking by devotee). Advance paid: Rs___, and Rs___ to be collected by Pandit ji.";
+            return $data->user_name."- has booked the pooja ".$data->puja_name." for ".$data->delivery." on (".$data->today."). Advance paid: Rs INR/- ".$data->advanced_paid.", and Rs INR/- ".$data->collect_price." to be collected by Pandit ji.";
         }
         elseif($type ==3){
             return $data->puja_name. "for ".$data->user_name. " has been successfully completed by Mr ".$data->pandit_name." on ".$data->date." and ".$data->time." of Pooja done. Full amount has been collected. Radhe Radhe... ";

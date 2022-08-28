@@ -254,7 +254,7 @@ class UserController extends Controller
         $deliveryDate = $request->get('delivery_date'). ",".$request->get('delivery_time');
         $payment_id = rand()."".rand();
         $price_order        = $request->finalprice;
-  
+        
         $puja_category      =  Session::get('puja_category');
         $puja_type          =  Session::get('puja_type');
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
@@ -300,19 +300,32 @@ class UserController extends Controller
             'CURLOPT_POSTFIELDS'=>$data
         ])
         ->post($url);
-        // dd($response);   
+        // dd($response);  
+        $puja_id     = PujaEcommerce::find($ecomm_puja_id);
+        $pujainfo     = Puja::find($puja_id)->first();  
         $user_id = $user->id; 
         $unique = uniqid();
-        $obj = new stdClass();
-        $obj->name = "HariOm";
-        $obj->phone = "7992215707";
-        $type =3;
+        $objUser = new stdClass();
+        $objUser->name = "Astro Pandit";
+        $objUser->phone = "7992215707";
+        $utype =1;
+        $otype =2;
+        $objOwner = new stdClass();
+        $objOwner->user_name = $user->first_name;
+        $objOwner->puja_name = $pujainfo->name;
+        $objOwner->delivery = $deliveryDate;
+        $objOwner->collect_price =$price_order;
+        $objOwner->advanced_paid ="0";
+        $objOwner->today =date('Y-m-d H:i:s');
         // $mailReulst = $this->sendMail("pkworkout11@gmail.com");
-        // dd($mailReulst);
-        $msg = $this->smsToUser($type,$obj);
-        // $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
+    
+        $umsg = $this->smsToUser($utype,$objUser);
+        $omsg = $this->smsToOwner($otype,$objOwner);
+        // dd($omsg,$user->mobile_number,$user->country_code)   ;
 
-        // dd($smr,$msg,$user->mobile_number,$user->country_code);
+        $smr = $this->sendSMS($umsg,$user->mobile_number,$user->country_code);
+        $smr = $this->sendSMS($omsg,"88106 40406","+91");
+
         $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
         $userBooking = Booking::create([
             'user_id'           => $user_id,            

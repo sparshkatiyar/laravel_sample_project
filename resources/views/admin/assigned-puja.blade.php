@@ -171,39 +171,7 @@
                                
                             </div>
                         </div>
-                        <div id="pandit" class="modal fade" data-backdrop="true">
-                            <div class="modal-dialog">
-                          
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Assign Pandit</h5>
-                                    </div>
-                                    <div class="modal-body p-4">
-                                        <form action="{{url('admin-panel/assing-pandit')}}" method="post">
-                                            @csrf
-                                            
-                                            <div class="form-row">
-                                                <div class="form-group col-md-12">
-                                                    <label for="inputState"
-                                                    class="text-muted d-block">Pandit</label>
-                                                    <select name="pandit_id"         class="custom-select">
-                                                        <option selected="selected" >Choose...</option>
-                                                        @foreach($panditList as $assign)
-                                                        <option value="{{$assign->id}}">{{$assign->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                               
-                                            </div>
-                                            <input type="text" name="booking_id" id="booking_id" hidden >
-                                            <button type="submit" class="btn btn-primary">
-                                                Assign puja now
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div id="modalToast" class="modal fade" data-backdrop="false">
                             <div class="modal-dialog">
                             <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-line join="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> <span class="mx-2">Pandit assign to ecoomerce puja is successful !!</span></div>

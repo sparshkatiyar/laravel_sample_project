@@ -10,6 +10,7 @@ use App\Models\PujaEcommerce;
 use App\Models\UserAddress;
 use App\Models\Puja;
 use App\Models\User;
+use stdClass;
 
 
 class BookingMgmtController extends Controller
@@ -37,6 +38,7 @@ class BookingMgmtController extends Controller
             $booking->address_id        = UserAddress::find($booking->address_id);
             $booking->pandit_id         = Pandit::find($booking->pandit_id);
         } 
+      
         // dd($bookingList);
         return view('admin/assigned-puja' ,compact('bookingList','panditList'));
     }
@@ -53,8 +55,21 @@ class BookingMgmtController extends Controller
                 $booking->address_id        = UserAddress::find($booking->address_id);
                 $booking->pandit_id         = Pandit::find($booking->pandit_id);
             } 
-            return view('admin/booking-list' ,compact('bookingList','panditList'));
-            // $panditAss
+            $panditDetails  = Pandit::find($booking->pandit_id)->first();
+            // dd($panditDetails->name);
+            $user  = User::find($booking->user_id);
+            $obj = new stdClass();
+            $obj->name = $panditDetails->name;
+            $obj->phone = "+91 88106 40406";
+            $type =3;
+            // $mailReulst = $this->sendMail("pkworkout11@gmail.com");
+       
+            $msg = $this->smsToUser($type,$obj);
+            // dd($msg);
+            $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
+            return redirect('/admin-panel/pooja-booking');
+            
+        
         }
     }
 }

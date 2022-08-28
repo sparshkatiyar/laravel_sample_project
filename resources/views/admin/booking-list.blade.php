@@ -221,7 +221,39 @@
             </div>
         </div>
     </div>
-
+    <div id="pandit" class="modal fade" data-backdrop="true">
+                            <div class="modal-dialog">
+                          
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Assign Pandit</h5>
+                                    </div>
+                                    <div class="modal-body p-4">
+                                        <form action="{{url('admin-panel/assing-pandit')}}" method="post">
+                                            @csrf
+                                            
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label for="inputState"
+                                                    class="text-muted d-block">Pandit</label>
+                                                    <select name="pandit_id"         class="custom-select">
+                                                        <option selected="selected" >Choose...</option>
+                                                        @foreach($panditList as $assign)
+                                                        <option value="{{$assign->id}}">{{$assign->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                               
+                                            </div>
+                                            <input type="text" name="booking_id" id="booking_id" hidden >
+                                            <button type="submit" class="btn btn-primary">
+                                                Assign puja now
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
     <div id="addressInfoModel" class="modal fade  " data-backdrop="true">
         <div class="modal-dialog modal-lg ">
             <div class="modal-content">
@@ -289,12 +321,14 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
   
     $(document).ready(function(){
         $(".assing").click(function(){
             var puaj_id = $(this).attr('value');
             $("#booking_id").val(puaj_id);           
+            // alert(puaj_id);
             $('#pandit').modal('show');
             // $('#modalToast').modal('show').delay(2000).fadeOut();
     

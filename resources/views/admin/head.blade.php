@@ -8,4 +8,5 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/site.min.css')}}" />
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
 </head>
