@@ -128,7 +128,7 @@
                             </div>
                             <!--  -->
                             <div class="note">
-                                <button type="submit">Deliver Here</button>
+                                <button type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -242,10 +242,10 @@
                     <input type="text" name="delivery_date" id="ddate" hidden>
                     <input type="text" name="delivery_time" id="dtime" hidden>
                     @if(Auth::guard('user')->user())
-                    <button id="placeBtn" type="submit" data-bs-toggle="modal" data-bs-target="#successModal" value="submit">Place Order</button>
+                    <button id="placeBtn" type="submit" data-bs-toggle="modal" data-bs-target="#successModal" value="submit">Book Pooja</button>
                     @else
           
-                    <span class="placeBtn" onclick="popshow()">Place Order</span>
+                    <span class="placeBtn" onclick="popshow()">Book Pooja</span>
                     
                     @endif
 
