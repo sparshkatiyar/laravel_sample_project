@@ -3,8 +3,9 @@
     $('#example-getting-started').multiselect();
     $('#seconadarySkill').multiselect();
     $('#primarySkill').multiselect();
+    $('#language').multiselect();
     $('#multiple-select1').on('click', function(e){
-      $(this).find(".multiselect-container").toggleClass( "active" );
+      $(this).find(".multiselect-container").toggleClass( "active" )
      
     });
     $('#multiple-select2').on('click', function(e){
@@ -15,9 +16,45 @@
       $(this).find(".multiselect-container").toggleClass( "active" );
     
     });
+    $('#language-select').on('click', function(e){
+      $(this).find(".multiselect-container").toggleClass( "active" );
+    });
    
-    $('#successModal').modal('show');
+    $(document).on("click", function(event){
+      var $trigger = $("#multiple-select1");
+      if($trigger !== event.target && !$trigger.has(event.target).length){
+        $(this).find(".multiple-selectin1 .multiselect-container").removeClass( "active" )
+      }            
+  });
 
+  $(document).on("click", function(event){
+    var $trigger = $("#multiple-select2");
+    if($trigger !== event.target && !$trigger.has(event.target).length){
+      $(this).find(".multiple-selectin2 .multiselect-container").removeClass( "active" )
+    }            
+});
+
+$(document).on("click", function(event){
+  var $trigger = $("#multiple-select3");
+  if($trigger !== event.target && !$trigger.has(event.target).length){
+    $(this).find(".multiple-selectin3 .multiselect-container").removeClass( "active" )
+  }            
+});
+
+
+
+$(document).on("click", function(event){
+  var $trigger = $("#language-select");
+  if($trigger !== event.target && !$trigger.has(event.target).length){
+    $(this).find(".multiple-selectin4 .multiselect-container").removeClass( "active" )
+  }            
+});
+
+
+  
+
+    $('#successModal').modal('show');
+   
 });
 
 

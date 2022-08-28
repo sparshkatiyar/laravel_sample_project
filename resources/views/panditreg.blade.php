@@ -44,20 +44,20 @@
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Name*</label><br>
+                                <label>Name*</label><br>
                                 <input type="text"  name="name" class="form-control" placeholder="Rajesh Shukla" class="text" required>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Email ID*</label><br>
+                                <label>Email ID*</label><br>
                                 <input type="email" name="email" class="form-control" placeholder="rajeshshukla@gmail.com" class="text" required>
                             </div>
                         </div>
                        
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Gender*</label><br>
+                                <label>Gender*</label><br>
                                 <select id="gender" name="gender" class="form-control" required>
                                     <option value="1" selected>Male</option>
                                     <option value="2">Female</option>
@@ -67,14 +67,14 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Date Of Birth*</label><br>
+                                <label>Date Of Birth*</label><br>
                                 <input type="date" name="dob" class="form-control" placeholder="11 March 2001" class="text" required>
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Register As* <span>(Can Choose Upto 2)</span></label><br>
+                                <label>Register As* <span>(Can Choose Upto 2)</span></label><br>
                                 <!-- <div id="list3" class="dropdown-check-list" tabindex="100"> -->
                                     <!-- <ul class="items">
                                         <li><input type="checkbox" class="single-checkbox" name="reg_as[]" value="Astrologers"/>Astrologers</li>
@@ -83,7 +83,7 @@
                                         
         
                                     </ul> -->
-                                   <div class="multiple-select1" id="multiple-select1">
+                                   <div class="multiple-select1 multiple-selectin1" id="multiple-select1">
                                    <select id="example-getting-started" multiple="multiple">
                                         <option value="cheese">Cheese</option>
                                         <option value="tomatoes">Tomatoes</option>
@@ -99,9 +99,9 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Primary Skill*</label><br>
+                                <label>Primary Skill*</label><br>
 
-                                <div class="multiple-select1" id="multiple-select2">
+                                <div class="multiple-select1 multiple-selectin2" id="multiple-select2">
                                    <select id="primarySkill" multiple="multiple">
                                         <option value="cheese">Vedic</option>
                                         <option value="tomatoes">Vedic Puja-path</option>
@@ -134,7 +134,7 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                            <label for="javascript:void(0);">Seconadary Skills (Optional)</label><br>
+                            <label>Seconadary Skills (Optional)</label><br>
                             <!-- <div id="list2" class="dropdown-check-list" tabindex="100">
                                 <span class="anchor">Astrologers</span>
                                 <ul class="items">
@@ -150,7 +150,7 @@
     
                                 </ul>
                             </div> -->
-                            <div class="multiple-select1" id="multiple-select3">
+                            <div class="multiple-select1 multiple-selectin3" id="multiple-select3">
                                    <select id="seconadarySkill" multiple="multiple">
                                         <option value="cheese">Astrologers</option>
                                         <option value="tomatoes">Birth Chart Analysis</option>
@@ -169,26 +169,28 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Your Preferred to consult with Devotee </label><br>
+                                <label>Your Preferred to consult with Devotee </label><br>
                                 <input type="text" name="consult_time" class="form-control" placeholder="10:00 AM to 08:00 PM" class="text">
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Select Language* <span> (Choose Upto 3)</span> </label><br>
-                                <select class="form-control">
-                                    <option>English</option>
-                                    <option>English</option>
-                                    <option>English</option>
-                                   
-                                </select>
+                                <label>Select Language* <span> (Choose Upto 3)</span> </label><br>
+                                <div class="multiple-select1 multiple-selectin4" id="language-select">
+                                   <select id="language" multiple="multiple">
+                                        
+                                        <option>English</option>
+                                        <option>Hindi</option>
+                                        <option></option>
+                                    </select>
+                                   </div>
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Experience* <span> (In Years)</span> </label><br>
+                                <label>Experience* <span> (In Years)</span> </label><br>
                                 <input type="text" name="consult_time" class="form-control" placeholder="10:00 AM to 08:00 PM" class="text">
                             </div>
                         </div>
@@ -199,7 +201,7 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Are you working on any other online platform?*</label>
+                                <label>Are you working on any other online platform?*</label>
                               
                                     <div class="d-flex cstm align-items-center">
                                         <label class="custom-radio" style="color: #111112 !important;">Yes
@@ -217,7 +219,7 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                            <label for="javascript:void(0);">Name of the App or Website </label><br>
+                            <label>Name of the App or Website </label><br>
     
                                 <input type="text" class="form-control" name="app_or_website" class="text" required>
                             </div>
@@ -225,7 +227,7 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Aadhar Card No.* </label><br>
+                                <label>Aadhar Card No.* </label><br>
                                 <input type="number" class="form-control"  name="uid_number" class="text" required>
                             </div>
                         </div>
@@ -233,7 +235,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                
-                                    <label for="javascript:void(0);">Upload Aadhar Card* </label>
+                                    <label>Upload Aadhar Card* </label>
                                     <div class="uploadAdhar">
                                     <input type="file" name="uid_image" placeholder="Choose File" required>
                                     </div>
@@ -244,7 +246,7 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">Summary of Experties* <span>( Maximum 200 Words)</span></label><br>
+                                <label>Summary of Experties* <span>( Maximum 200 Words)</span></label><br>
                                 <textarea name="experties" class="form-control" id="javascript:void(0);" cols="auto" rows="5" required></textarea>
                             </div>
                         </div>
@@ -255,21 +257,21 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">For Call</label><br>
+                                <label>For Call</label><br>
                                 <input type="text" class="form-control" name="charge_call" placeholder="INR 50" class="text" required>
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                            <label for="javascript:void(0);">For Chat</label>
+                            <label>For Chat</label>
                             <input type="text" class="form-control" name="charge_chat" placeholder="INR 50" class="text" required>
                             </div>
                         </div>
                        
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label for="javascript:void(0);">For Video Chat</label><br>
+                                <label>For Video Chat</label><br>
                                 <input type="text" class="form-control" name="charge_video" placeholder="INR 50" class="text" required>
                             </div>
                         </div>

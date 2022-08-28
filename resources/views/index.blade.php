@@ -1362,6 +1362,51 @@
                     </div>
 
 
+                    <div class="specialPooja-form  show people text-left">
+<div class="row" style="justify-content:flex-start;">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+    <div class="form-group">
+      <label style="text-align: left;"> Name</label>
+      <input type="text" class="form-control" placeholder="Enter Your Name">
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+    <div class="form-group">
+      <label style="text-align: left;">Email</label>
+      <input type="text" class="form-control" placeholder="Enter Your Email">
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+    <div class="form-group">
+      <label style="text-align: left;">Enter Your Mobile Number</label>
+      <input type="text" class="form-control" placeholder="Mobile Number">
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+    <div class="form-group">
+      <label style="text-align: left;">Enter Location</label>
+      <input type="text" class="form-control" placeholder="Enter Location">
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+    <div class="form-group">
+      <label style="text-align: left;">Enter City</label>
+      <input type="text" class="form-control" placeholder="Enter City">
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+    <div class="form-group">
+      <label style="text-align: left;">Your Message <span>( Maximum 200 Words) </span>
+      </label>
+      <textarea name="" id="" cols="3" rows="3" class="form-control"></textarea>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+    <button type="submit" class="btn btn-submit">Save</button>
+  </div>
+</div>
+</div>
+
 
                     <!-- END GRID -->
                 </div>

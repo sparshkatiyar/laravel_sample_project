@@ -138,6 +138,7 @@
 
 .read-more-link {
     color: #FA941C;
+    display: none;
 }
 
 .read-more-link:hover {

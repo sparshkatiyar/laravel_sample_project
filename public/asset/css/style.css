@@ -9202,8 +9202,9 @@ h1 {
 /* Create three equal columns that floats next to each other */
 #Book-Pooja .column {
   float: left;
-  width: 340px;
-  height: 400px;
+  width: 24%;
+  /* width: 340px; */
+  /* height: 400px; */
   /* display: block;*/
   margin: 20px 0;
   text-align: left;
@@ -9231,6 +9232,9 @@ h1 {
   font-size: 18px;
   line-height: 27px;
   color: #353535;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   
 }
 
