@@ -531,6 +531,21 @@ class UserApiController extends Controller
         return response()->json(['UserHorroscope'=>$responseData],200);
     }
     
+    public function sendMailTem(Request $request){
+        $validator = [          
+            'email' => 'required',            
+        ];
+        $validation = Validator::make($request->all(),$validator);
+        if($validation->fails()){
+            $response   =[
+                'message'   => $validation->errors($validation)->first(),
+            ];
+            return response()->json($response,400);
+        }
 
+        $email =  $request->email;
+        $mailReulst = $this->sendMail($email);
+        return response()->json(['data'=>"mailReulst"],200);
+    }
 }
 
