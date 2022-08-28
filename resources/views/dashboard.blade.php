@@ -83,7 +83,7 @@
 
 
                                                     <div class="col col3">
-                                                        <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                        <img  src="{{$orderDetails->ecomm_puja_id->puja_id->image}}" alt="ram img">
                                                     </div>
                                                     <div class="col col4">
                                                         <p class="name-pooja">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
@@ -139,7 +139,7 @@
 
 
                                                 <div class="col col3">
-                                                    <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                    <img  src="{{$orderDetails->ecomm_puja_id->puja_id->image}}" alt="ram img">
                                                 </div>
                                                 <div class="col col4">
                                                     <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
@@ -193,7 +193,7 @@
 
 
                                                 <div class="col col3">
-                                                    <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                    <img  src="{{$orderDetails->ecomm_puja_id->puja_id->image}}" alt="ram img">
                                                 </div>
                                                 <div class="col col4">
                                                     <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
@@ -246,7 +246,7 @@
 
 
                                                 <div class="col col3">
-                                                    <img  src="{{asset('web/image/202207031212-puja.png')}}" alt="ram img">
+                                                    <img  src="{{$orderDetails->ecomm_puja_id->puja_id->image}}" alt="ram img">
                                                 </div>
                                                 <div class="col col4">
                                                     <p class="Name">{{$orderDetails->ecomm_puja_id->puja_id->name}}</p>
@@ -302,7 +302,7 @@
 
 
 <!-- Sucess Modal -->
-@if($message)
+@if(@$message)
 <div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
