@@ -28,7 +28,7 @@ class PanditController extends Controller
             'skill_secondry'    => 'required',
             'consult_time'      => 'required',
             'other_platform'    => 'required',
-            'app_or_website'    => 'required',
+            // 'app_or_website'    => 'required',
             'uid_number'        => 'required',
             'uid_image'         => 'required',
             'experties'         => 'required',

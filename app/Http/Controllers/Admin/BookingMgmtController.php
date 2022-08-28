@@ -55,7 +55,7 @@ class BookingMgmtController extends Controller
                 $booking->address_id        = UserAddress::find($booking->address_id);
                 $booking->pandit_id         = Pandit::find($booking->pandit_id);
             } 
-            $panditDetails  = Pandit::find($booking->pandit_id)->first();
+            $panditDetails  = Pandit::find($request->pandit_id)->first();
             // dd($panditDetails->name);
             $user  = User::find($booking->user_id);
             $obj = new stdClass();
