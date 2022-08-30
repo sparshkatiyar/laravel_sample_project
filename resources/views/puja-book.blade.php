@@ -79,6 +79,7 @@
                         <div class="cate-item">
                             <label class="custom-radio">Standard
                                 <input type="radio" name="pujatype" value="1" id="standard" checked="checked" onclick=getpooja('standard')>
+                                <input type="hidden" id="standard-price" value="{{$pujaDetails->puja_price_samall}}">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -87,6 +88,7 @@
                         <div class="cate-item">
                             <label class="custom-radio">Premium
                                 <input type="radio" name="pujatype" value="2" id="premium" onclick=getpooja('premium')>
+                                <input type="hidden" id="premium-price" value="{{$pujaDetails->puja_price_medium}}">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -95,6 +97,7 @@
                         <div class="cate-item">
                             <label class="custom-radio">Grand
                                 <input t type="radio" name="pujatype" value="3" id="grand" onclick=getpooja('grand')>
+                                <input type="hidden" id="grand-price" value="{{$pujaDetails->puja_price_large}}">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -165,7 +168,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio"> Without Pooja Samagri
-                            <input type="radio" name="category" value="samagri" id="samgari" checked="checked">
+                            <input type="radio" name="standard_category" value="samagri" id="samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -183,7 +186,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio"> With Pooja Samagri
-                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                            <input type="radio" name="standard_category" value="wsamagri" id="wsamgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -199,7 +202,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio">With Pooja Samagri & All Items
-                            <input type="radio" name="category" value="all" id="all">
+                            <input type="radio" name="standard_category" value="all" id="all">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -225,7 +228,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio"> Without Pooja Samagri
-                            <input type="radio" name="category" value="samagri" id="samgari" checked="checked">
+                            <input type="radio" name="premium_category" value="samagri" id="samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -243,7 +246,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio"> With Pooja Samagri
-                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                            <input type="radio" name="premium_category" value="{{@$category_samagri->premium_category_samagri ?? ''}}" id="wsamgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -259,7 +262,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio">With Pooja Samagri & All Items
-                            <input type="radio" name="category" value="all" id="all">
+                            <input type="radio" name="premium_category" value="all" id="all">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -285,7 +288,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio"> Without Pooja Samagri
-                            <input type="radio" name="category" value="samagri" id="samgari" checked="checked">
+                            <input type="radio" name="grand_category" value="samagri" id="samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -302,7 +305,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio"> With Pooja Samagri
-                            <input type="radio" name="category" value="wsamagri" id="wsamgari">
+                            <input type="radio" name="grand_category" value="wsamagri" id="wsamgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -318,7 +321,7 @@
                         <details>
                         <summary>
                             <label class="custom-radio">With Pooja Samagri & All Items
-                            <input type="radio" name="category" value="all" id="all">
+                            <input type="radio" name="grand_category" value="all" id="all">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -588,127 +591,151 @@
         }
     $(document).ready(function(){
         var basePrice =" {{$pujaDetails->puja_base_price}}";
-        var totalPrice = 0;
-        var setPrice = $("#addprice").text();
+        var pricetype = $("input[name=pujatype]:checked").val();
+        if(pricetype==1)
+        {
+            var poojatypeprice=$('#standard-price').val();
+        }
+        else if(pricetype==2)
+        {
+            var poojatypeprice=$('#premium-price').val();
+        }
+        else if(pricetype==3)
+        {
+            var poojatypeprice=$('#grand-price').val();
+        }
+        var totalPrice = parseInt(basePrice)+parseInt(poojatypeprice)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
+        var setPrice = $("#addprice").text(totalPrice);
        
-        $("#samgari").click(function(){
-            var ptype = $("input[name=pujatype]:checked").val();
+        // $("#samgari").click(function(){
+        //     var ptype = $("input[name=pujatype]:checked").val();
          
-            if(ptype ==1){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-            }
-            else if(ptype ==2){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-            }
-            else if(ptype ==3){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-            }
-            else{
-                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
-            $("#addprice").text(0);
-            $("#addprice").text(totalPrice);
+        //     if(ptype ==1){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+        //     }
+        //     else if(ptype ==2){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+        //     }
+        //     else if(ptype ==3){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+        //     }
+        //     else{
+        //         totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+        //     }
+        //     $("#addprice").text(0);
+        //     $("#addprice").text(totalPrice);
         
-        })
-        $("#wsamgari").click(function(){
-            var ptype = $("input[name=pujatype]:checked").val();
+        // })
+        // $("#wsamgari").click(function(){
+        //     var ptype = $("input[name=pujatype]:checked").val();
 
-            // alert(ptype);
-            if(ptype ==1){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
-            else if(ptype ==2){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
-            else if(ptype ==3){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
-            else{
-                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
+        //     // alert(ptype);
+        //     if(ptype ==1){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+        //     }
+        //     else if(ptype ==2){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+        //     }
+        //     else if(ptype ==3){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+        //     }
+        //     else{
+        //         totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+        //     }
            
-            $("#addprice").text(0);
-            $("#addprice").text(totalPrice);
+        //     $("#addprice").text(0);
+        //     $("#addprice").text(totalPrice);
             
-        })
-        $("#all").click(function(){
-            var ptype = $("input[name=pujatype]:checked").val();
-            if(ptype ==1){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
-            else if(ptype ==2){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
-            else if(ptype ==3){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
-            else{
-                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
-            $("#addprice").text(0);
-            $("#addprice").text(totalPrice);
-        })
+        // })
+        // $("#all").click(function(){
+        //     var ptype = $("input[name=pujatype]:checked").val();
+        //     if(ptype ==1){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+        //     }
+        //     else if(ptype ==2){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+        //     }
+        //     else if(ptype ==3){
+        //         totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+        //     }
+        //     else{
+        //         totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+        //     }
+        //     $("#addprice").text(0);
+        //     $("#addprice").text(totalPrice);
+        // })
 
         $("#standard").click(function(){
-            var ptype = $("input[name=category]:checked").val();
-            // alert(ptype);
+            var pricetypestandard = $("input[name=pujatype]:checked").val();
+       
+            var poojatypepricestandard =$('#standard-price').val();
+        var totalPricestandard  = parseInt(basePrice)+parseInt(poojatypepricestandard)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
+            // var ptype = $("input[name=standard_category]:checked").val();
          
-            if(ptype =="samagri"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-            }
-            else if(ptype =="wsamagri"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
-            else if(ptype =="all"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
-            else{
-                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
-                // alert(totalPrice);
-            }
+            // if(ptype =="samagri"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            // }
+            // else if(ptype =="wsamagri"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            // }
+            // else if(ptype =="all"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            // }
+            // else{
+            //     totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
+            //     // alert(totalPrice);
+            // }
 
             $("#addprice").text(0);
-            $("#addprice").text(totalPrice);
+            $("#addprice").text(totalPricestandard);
         
         })
         $("#premium").click(function(){
-            var ptype = $("input[name=category]:checked").val();
+            var pricetypepremium = $("input[name=pujatype]:checked").val();
+            var poojatypepricepremium =$('#premium-price').val();
+       
+        var totalPricepremium  = parseInt(basePrice)+parseInt(poojatypepricepremium)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
+            // var ptype = $("input[name=premium_category]:checked").val();
 
-            // alert(ptype);
-            if(ptype =="samagri"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-            }
-            else if(ptype =="wsamagri"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
-            else if(ptype =="all"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
-            else{
-                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_medium}}"); 
-            }
+            // // alert(ptype);
+            // if(ptype =="samagri"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            // }
+            // else if(ptype =="wsamagri"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            // }
+            // else if(ptype =="all"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            // }
+            // else{
+            //     totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_medium}}"); 
+            // }
            
             $("#addprice").text(0);
-            $("#addprice").text(totalPrice);
+            $("#addprice").text(totalPricepremium);
             
         })
         $("#grand").click(function(){
-            var ptype = $("input[name=category]:checked").val();
-            // alert(ptype);
-            if(ptype =="samagri"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-            }
-            else if(ptype =="wsamagri"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            }
-            else if(ptype =="all"){
-                totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            }
-            else{
-                totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_large}}"); 
-            }
+            var pricetypegrand = $("input[name=pujatype]:checked").val();
+        
+            var poojatypepricegrand =$('#grand-price').val();
+        var totalPricegrand  = parseInt(basePrice)+parseInt(poojatypepricegrand)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
+            // var ptype = $("input[name=grand_category]:checked").val();
+            // // alert(ptype);
+            // if(ptype =="samagri"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            // }
+            // else if(ptype =="wsamagri"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            // }
+            // else if(ptype =="all"){
+            //     totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            // }
+            // else{
+            //     totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_large}}"); 
+            // }
             $("#addprice").text(0);
-            $("#addprice").text(totalPrice);
+            $("#addprice").text(totalPricegrand);
         })
 
     });
