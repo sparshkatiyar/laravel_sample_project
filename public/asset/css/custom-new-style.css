@@ -2015,3 +2015,40 @@ p {
         margin: 0;
     }
 }
+
+.upld-item{
+    height: 5em;
+    width: 5em;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    border-radius: 100px;
+}
+.upload{
+    height: 5em;
+    width: 8em;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    border-radius: 100px;
+}
+.custom-file {
+    /* width: 30px; */
+    /* height: 30px; */
+    /* background-image: url(../../pandit/upload.svg); */
+    /* z-index: 999999; */
+    position: absolute;
+    bottom: 0px;
+    right: 24px;
+    background-repeat: no-repeat;
+}
+
+.custom-file .imgInp.custom-file-input{
+    background-image: url("../../pandit/upload.svg");
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+}
+#img_container{
+    text-align: center;
+}

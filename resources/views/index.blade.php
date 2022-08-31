@@ -1299,13 +1299,13 @@
                     </div>
 
 
-                    <div class="column show people">
+                    <!-- <div class="column show people">
                         <div class="content">
                             <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
                             <p>INR-2100/-</p>
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <div class="column show cars">
@@ -1317,13 +1317,13 @@
                     </div>
 
 
-                    <div class="column show people">
+                    <!-- <div class="column show people">
                         <div class="content">
                             <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
                             <h4>Akhand Ramayan (Musical)</h4>
                             <p>INR-2100/-</p>
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <div class="column show cars">
@@ -1402,7 +1402,7 @@
     </div>
   </div>
   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-    <button type="submit" class="btn btn-submit">Save</button>
+    <button type="submit" class="btn btn-submit" style="color:#FFF;">Save</button>
   </div>
 </div>
 </div>
