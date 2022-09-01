@@ -20,7 +20,19 @@
             <!-- ---form-contaienr -->
             <div class="container  form-container">
                 <h6 class="reg-pr-dt">Personal Details :</h6>
-
+                <div class="upload">
+      <div class="form-group">
+         
+          
+         
+           
+              <!-- <div class="custom-file">
+              <input type="file" id="inputGroupFile01"  name="pandit_pic" onchange="restImage1(event)" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01"><span><img  src="{{ asset('pandit/upload.svg')}}" alt=""></span></label>
+          
+          </div> -->
+      </div>
+    </div>
                 <!-- <h2>{{Session::get('success')}}</h2> -->
                 <div class="logo-box">
                     <div class="logo"><img src="{{ asset('pandit/pandit-logo.png')}}" alt="#" id="pandit-pic">
@@ -394,6 +406,23 @@
             })
         });
 
+//         multiple1 = new Array();
+//  function restImage1(event) {
+
+//    this.multiple1 = [];
+//    let multipleFiles = event.target.files;
+//    if (multipleFiles) {
+//       for (var file of multipleFiles) {
+//          var multipleReader = new FileReader();
+//          multipleReader.onload = (e) => {
+//             $('#preview4').attr('src', e.target.result)
+//          }
+//          multipleReader.readAsDataURL(file);
+//       }
+//    }
+//  }
+    </script>
+<script>
         function getoption(app)
         {
             if($(app).val()=='yes')
