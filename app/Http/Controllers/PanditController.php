@@ -46,7 +46,16 @@ class PanditController extends Controller
             return response()->json($response,400);
         } 
 
-
+        $checkmail=Pandit::where('email',$request->email)->first();
+        $checkuid=Pandit::where('uid_number',$request->uid_number)->first();
+        if(!empty($checkmail))
+        {
+            return redirect()->route('index.pandit.registration')->withInput($request->all())->with('error','Email Already Exist');
+        }
+        if(!empty($checkuid))
+        {
+            return redirect()->route('index.pandit.registration')->withInput($request->all())->with('error','Aadhar Number Already Exist');
+        }
         $pandit = new Pandit();
         if($request->file('pandit_pic')){
             $file= $request->file('pandit_pic');
@@ -70,12 +79,14 @@ class PanditController extends Controller
         $pandit->reg_as         = json_encode($request->get('reg_as'));
         $pandit->skill_primary  = json_encode($request->get('skill_primary'));
         $pandit->skill_secondry = json_encode($request->get('skill_secondry'));
+        $pandit->language =      json_encode($request->get('language'));
         $pandit->consult_time   = $request->get('consult_time');
         $pandit->other_platform = $request->get('other_platform');
         $pandit->app_or_website = $request->get('app_or_website');
         $pandit->uid_number     = $request->get('uid_number');
         // $pandit->uid_image      = "uid_image.jpg" /*$request->get('uid_image')*/;
         $pandit->experties      = $request->get('experties');
+        $pandit->experiance      = $request->get('experiance');
         $pandit->charge_chat    = $request->get('charge_chat');
         $pandit->charge_call    = $request->get('charge_call');
         $pandit->charge_video   = $request->get('charge_video');
