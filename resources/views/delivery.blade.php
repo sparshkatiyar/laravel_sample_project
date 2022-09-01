@@ -122,13 +122,13 @@
                                 <label for="">Order Note (If any)  :</label>
                                 <div class="form-menu">
 
-                                    <input type="text" class="width-100"   placeholder="Enter note">
+                                    <input type="text" class="width-100"  {{@@$userAddress->city}}  placeholder="Enter note">
                                    
                                 </div>
                             </div>
                             <!--  -->
                             <div class="note">
-                                <button type="submit">Submit</button>
+                                <button type="submit">Save</button>
                             </div>
                         </form>
                     </div>
@@ -165,7 +165,6 @@
                         <div>
                             <h5>Order Summary &nbsp;<span></span></h5>
                         </div>
-                        <button id="downBtn" onclick="f3()"> Fill</button>
                     </div>
 
                     <!-- ---summary-detail-- -->
@@ -366,6 +365,23 @@
             let  dt =   $("#dtime").val();
         });
     </script>
+    <script>
+       $(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate() + 1;
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    alert(maxDate);
+    $('#delivery_date').attr('min', maxDate);
+});
+        </script>
 
 @include('layouts.footer')
 

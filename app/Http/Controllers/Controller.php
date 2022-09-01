@@ -167,16 +167,27 @@ class Controller extends BaseController
         }
     }
 
-    public function sendMail($email)
+    public function sendMail($email,$subject,$details)
     {
+        $details = [
+            'subject'=>$subject,
+            'title' => 'Astropandit',
+            'body' => $details
+              ];
+           if(\Mail::to($email)->send(new \App\Mail\Subscribe($details)))
+           {
+            return 1;
+           } else 
+           {
+            return 2;
+           }
+    //   Mail::to($email)->send(new Subscribe());
  
-      Mail::to($email)->send(new Subscribe());
- 
-        if (Mail::failures()) {
-            return response()->Fail('Sorry! Please try again latter');
-        }else{
-            return response()->success('Great! Successfully send in your mail');
-        }
+    //     if (Mail::failures()) {
+    //         return response()->Fail('Sorry! Please try again latter');
+    //     }else{
+    //         return response()->success('Great! Successfully send in your mail');
+    //     }
     } 
 
 }

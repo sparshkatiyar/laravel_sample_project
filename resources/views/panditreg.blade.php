@@ -239,7 +239,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Aadhar Card No.* </label><br>
-                                <input type="number" class="form-control"  name="uid_number" value="{{old('uid_number')}}" class="text" minlength="12" maxlength="12" required="true">
+                                <input type="text" class="form-control"  onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="uid_number" value="{{old('uid_number')}}" class="text" minlength="12" maxlength="12" required="true">
                             </div>
                         </div>
 
@@ -269,21 +269,21 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>For Call*</label><br>
-                                <input type="text" class="form-control" name="charge_call" value="{{old('charge_call')}}" placeholder="INR 50" class="text" required="true">
+                                <input type="text" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="charge_call" value="{{old('charge_call')}}" placeholder="INR 50" class="text" required="true">
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                             <label>For Chat*</label>
-                            <input type="text" class="form-control" name="charge_chat" value="{{old('charge_chat')}}" placeholder="INR 50" class="text" required="true">
+                            <input type="text" class="form-control" name="charge_chat" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" value="{{old('charge_chat')}}" placeholder="INR 50" class="text" required="true">
                             </div>
                         </div>
                        
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>For Video Chat*</label><br>
-                                <input type="text" class="form-control" name="charge_video" value="{{old('charge_video')}}" placeholder="INR 50" class="text" required="true">
+                                <input type="text" class="form-control" name="charge_video" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" value="{{old('charge_video')}}" placeholder="INR 50" class="text" required="true">
                             </div>
                         </div>
 

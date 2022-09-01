@@ -113,7 +113,7 @@ class UserController extends Controller
                 $dBoy->otp=$otp;
                 $dBoy->save();
                 
-                $msg = "Astro pandit one time  OTP ".$otp." for signin !.";
+                $msg = $otp." is your Verification code for AstroPandit Om';
                 $result =$this->sendOtp($msg,$request->mobileNumber,$request->mobileTelCode);
                 return response()->json(['message'=>'OTP send successfully.','data'=>$dBoy],200);
             }else{   

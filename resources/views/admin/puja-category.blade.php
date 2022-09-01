@@ -61,8 +61,8 @@
                                     </div> -->
 
                                     <div class="form-group">
-                                    <label>Standard<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_pooja" rows="4"
-                                            placeholder="Standard">{{!empty($poojacat) ? $poojacat->standard_pooja : ''}}</textarea>
+                                    <label>Standard<span class="text-danger">*</span></label><textarea   onclick="ckeFunction()" class="form-control" name="standard_pooja" rows="4"
+                                            placeholder="Standard" id="editor1">{{!empty($poojacat) ? $poojacat->standard_pooja : ''}}</textarea>
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Premium<span class="text-danger">*</span></label>
@@ -71,12 +71,12 @@
                                         </textarea>
                                     </div> -->
                                     <div class="form-group">
-                                    <label>Premium<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_pooja" rows="4"
-                                            placeholder="Premium">{{!empty($poojacat) ? $poojacat->premium_pooja : ''}}</textarea>
+                                    <label>Premium<span class="text-danger">*</span></label><textarea   onclick="ckeFunction()" class="form-control" name="premium_pooja" rows="4"
+                                            placeholder="Premium" id="editor2">{{!empty($poojacat) ? $poojacat->premium_pooja : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                    <label>Grand<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_pooja" rows="4"
-                                            placeholder="Grand">{{!empty($poojacat) ? $poojacat->grand_pooja : ''}}</textarea>
+                                    <label>Grand<span class="text-danger">*</span></label><textarea   onclick="ckeFunction()" class="form-control" name="grand_pooja" rows="4"
+                                            placeholder="Grand" id="editor3">{{!empty($poojacat) ? $poojacat->grand_pooja : ''}}</textarea>
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Grand<span class="text-danger">*</span></label>
@@ -92,49 +92,49 @@
                                     </div> -->
                                     <!-- Standard Pooja samagry -->
                                     <div class="form-group">
-                                        <label>Standard Puja with samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_samagri" rows="4"
-                                            placeholder="Puja with samagry">{{!empty($poojacat) ? $poojacat->category_samagri : ''}}</textarea>
+                                        <label>Standard Puja with samagri<span class="text-danger">*</span></label><textarea   onclick="ckeFunction()" class="form-control" name="standard_category_samagri" rows="4"
+                                            placeholder="Puja with samagry" id="editor4">{{!empty($poojacat) ? $poojacat->category_samagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Standard Puja without samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="standard_category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry">{{!empty($poojacat) ? $poojacat->category_wsamagri : ''}}</textarea>
+                                        <label>Standard Puja without samagri<span class="text-danger">*</span></label><textarea   onclick="ckeFunction()" class="form-control" name="standard_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry" id="editor5">{{!empty($poojacat) ? $poojacat->category_wsamagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Standard Puja all<span class="text-danger">*</span></label>
-                                        <textarea  class="form-control" name="standard_category_all" rows="4"
-                                            placeholder="Puja all">{{!empty($poojacat) ? $poojacat->category_all : ''}}</textarea>
+                                        <textarea  class="form-control" name="standard_category_all" rows="4" onclick="ckeFunction()" 
+                                            placeholder="Puja all" id="editor6">{{!empty($poojacat) ? $poojacat->category_all : ''}}</textarea>
                                     </div>
                                     <!-- End section -->
 
                                     <!-- Premium Pooja samagry -->
                                     <div class="form-group">
-                                        <label>Premium Puja with samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_samagri" rows="4"
-                                            placeholder="Puja with samagry">{{!empty($poojacat) ? $poojacat->premium_category_samagri : ''}}</textarea>
+                                        <label>Premium Puja with samagri<span class="text-danger">*</span></label><textarea   onclick="ckeFunction()" class="form-control" name="premium_category_samagri" rows="4"
+                                            placeholder="Puja with samagry" id="editor7">{{!empty($poojacat) ? $poojacat->premium_category_samagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Premium Puja without samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="premium_category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry">{{!empty($poojacat) ? $poojacat->premium_category_wsamagri : ''}}</textarea>
+                                        <label>Premium Puja without samagri<span class="text-danger">*</span></label><textarea  onclick="ckeFunction()" class="form-control" name="premium_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry" id="editor8">{{!empty($poojacat) ? $poojacat->premium_category_wsamagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Premium Puja all<span class="text-danger">*</span></label>
-                                        <textarea  class="form-control" name="premium_category_all" rows="4"
-                                            placeholder="Puja all">{{!empty($poojacat) ? $poojacat->premium_category_all : ''}}</textarea>
+                                        <textarea  class="form-control" name="premium_category_all" rows="4" onclick="ckeFunction()" 
+                                            placeholder="Puja all" id="editor10">{{!empty($poojacat) ? $poojacat->premium_category_all : ''}}</textarea>
                                     </div>
                                     <!-- End Section -->
 
                                     <!-- Grand Pooja samagry -->
                                     <div class="form-group">
-                                        <label>Grand Puja with samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_samagri" rows="4"
-                                            placeholder="Puja with samagry">{{!empty($poojacat) ? $poojacat->grand_category_samagri : ''}}</textarea>
+                                        <label>Grand Puja with samagri<span class="text-danger">*</span></label><textarea   onclick="ckeFunction()" class="form-control" name="grand_category_samagri" rows="4"
+                                            placeholder="Puja with samagry" id="editor11">{{!empty($poojacat) ? $poojacat->grand_category_samagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label>Grand Puja without samagri<span class="text-danger">*</span></label><textarea   class="form-control" name="grand_category_wsamagri" rows="4"
-                                            placeholder="Puja without samagry">{{!empty($poojacat) ? $poojacat->grand_category_wsamagri : ''}}</textarea>
+                                        <label>Grand Puja without samagri<span class="text-danger">*</span></label><textarea  onclick="ckeFunction()" class="form-control" name="grand_category_wsamagri" rows="4"
+                                            placeholder="Puja without samagry" id="editor12">{{!empty($poojacat) ? $poojacat->grand_category_wsamagri : ''}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Grand Puja all<span class="text-danger">*</span></label>
-                                        <textarea  class="form-control" name="grand_category_all" rows="4"
-                                            placeholder="Puja all">{{!empty($poojacat) ? $poojacat->grand_category_all : ''}}</textarea>
+                                        <textarea  class="form-control" name="grand_category_all" rows="4" onclick="ckeFunction()" 
+                                            placeholder="Puja all" id="editor13">{{!empty($poojacat) ? $poojacat->grand_category_all : ''}}</textarea>
                                     </div>
                                     <!-- End Section -->
                                     <button type="submit" class="btn btn-primary">
@@ -198,6 +198,16 @@ function ckeFunction(){
     CKEDITOR.replace( 'editor1' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
     CKEDITOR.replace( 'editor2' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
     CKEDITOR.replace( 'editor3' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor4' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor5' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor6' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor7' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor8' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor9' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor10' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor11' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor12' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor13' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
 }
    
 

@@ -94,6 +94,6 @@ class PanditController extends Controller
         $pandit->is_verify      = 0;
         $pandit->is_block       = 0;
         $pandit->save();
-        return redirect('pandit-registration')->with('success','Your registration is successful !!');
+        return redirect('/')->with('success','Your registration is successful !!');
     }
 }
