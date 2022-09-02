@@ -317,34 +317,7 @@
         crossorigin="anonymous"></script>
 
     <!-- for dropdow-- -->
-    <script>
-        var checkList = document.getElementById('list1');
-        checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
-            if (checkList.classList.contains('visible'))
-                checkList.classList.remove('visible');
-            else
-                checkList.classList.add('visible');
-        }
 
-        var checkList2 = document.getElementById('list2');
-        checkList2.getElementsByClassName('anchor')[0].onclick = function (evt) {
-            if (checkList2.classList.contains('visible'))
-                checkList2.classList.remove('visible');
-            else
-                checkList2.classList.add('visible');
-        }
-
-        // var checkList3 = document.getElementById('list3');
-        // checkList3.getElementsByClassName('anchor')[0].onclick = function (evt) {
-        //     if (checkList3.classList.contains('visible'))
-        //         checkList3.classList.remove('visible');
-        //     else
-        //         checkList3.classList.add('visible');
-        // }
-
-
-        
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
     <script>
@@ -369,15 +342,19 @@
             
             $('#example-getting-started').change(function(e){
                 if ($(this).val().length > 2) {
+                    
+                    
                     this.checked = false; // reset first
                     event.preventDefault();
-                    alert('You can select only 2');
+                    // alert('You can select only 2');
                     $(this).attr('checked', false);
-                    event.target.checked = false
-                    
-                    // alert("Not allowed only 2");
-                    // e.preventDefault();
-                    // e.stopPropagation();
+                    event.target.checked = false;
+                    event.target=false;
+                    event.target.find('option')
+                    .remove()
+                    .end()                   
+                    .val('');         
+                 
                 }
             })
                 
@@ -386,22 +363,24 @@
                 if ($(this).val().length > 4) {
                     this.checked = false; // reset first
                     event.preventDefault();
-                    alert('You can select only 4');
+                    // alert('You can select only 4');
                     event.target.checked = false;
-                    // alert("Not allowed only 2");
-                    // e.preventDefault();
-                    // e.stopPropagation();
+                    event.target.find('option')
+                    .remove()
+                    .end()                   
+                    .val('');
                 }
             })
             $('#seconadarySkill').change(function(e){
                 if ($(this).val().length > 6) {
                     this.checked = false; // reset first
                     event.preventDefault();
-                    alert('You can select only 6');
+                    // alert('You can select only 6');
                     event.target.checked = false
-                    // alert("Not allowed only 2");
-                    // e.preventDefault();
-                    // e.stopPropagation();
+                    event.target.find('option')
+                    .remove()
+                    .end()                   
+                    .val('');
                 }
             })
         });

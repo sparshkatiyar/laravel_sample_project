@@ -38,6 +38,7 @@ Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deliv
 Route::post('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryProcced');
 Route::post('/puja-delivery-login', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryForLogin');
 Route::post('horroscope',[UserApiController::class,'horroscope']);
+Route::post('onrequest-puja',[App\Http\Controllers\BookingController::class,'create']);
 Route::group(['middleware' => 'user-auth'],function(){
 	Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('index');
 	Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('index');

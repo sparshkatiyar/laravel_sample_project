@@ -378,7 +378,7 @@
         day = '0' + day.toString();
     
     var maxDate = year + '-' + month + '-' + day;
-    alert(maxDate);
+    // alert(maxDate);
     $('#delivery_date').attr('min', maxDate);
 });
         </script>
