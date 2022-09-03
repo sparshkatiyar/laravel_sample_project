@@ -1270,9 +1270,9 @@
                 <!--  -->
                 <div id="myBtnContainer" class="tabs_title">
                   <button class="btn active" data-name="all"> Show all</button>
-                  <button class="btn" data-name="nature" > Ghar Pe Pooja</button>
-                  <button class="btn" data-name="cars" > Online Pooja</button>
-                  <button class="btn" data-name="people" > On Request Special Pooja</button>
+                  <button class="btn" data-name="nature"> Ghar Pe Pooja</button>
+                  <button class="btn" data-name="cars"> Online Pooja</button>
+                  <button class="btn" data-name="people"> On Request Special Pooja</button>
                </div>
 
                 <!-- Portfolio Gallery Grid -->
@@ -1297,17 +1297,6 @@
                             <p>INR-2100/-</p>
                         </div>
                     </div>
-
-
-                    <!-- <div class="column show people">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div> -->
-
-
                     <div class="column show cars">
                         <div class="content">
                             <img src="{{ asset('images/god-img3.png') }}" alt="Mountains" style="width:100%">
@@ -1315,17 +1304,7 @@
                             <p>INR-2100/-</p>
                         </div>
                     </div>
-
-
-                    <!-- <div class="column show people">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div> -->
-
-
+                    
                     <div class="column show cars">
                         <div class="content">
                             <img src="{{ asset('images/god-img1.png')}}" alt="Mountains" style="width:100%">
@@ -1362,51 +1341,50 @@
                     </div>
 
 
-                    <div class="specialPooja-form  show people text-left">
-<div class="row" style="justify-content:flex-start;">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-    <div class="form-group">
-      <label style="text-align: left;"> Name</label>
-      <input type="text" class="form-control" placeholder="Enter Your Name">
-    </div>
-  </div>
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-    <div class="form-group">
-      <label style="text-align: left;">Email</label>
-      <input type="text" class="form-control" placeholder="Enter Your Email">
-    </div>
-  </div>
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-    <div class="form-group">
-      <label style="text-align: left;">Enter Your Mobile Number</label>
-      <input type="text" class="form-control" placeholder="Mobile Number">
-    </div>
-  </div>
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-    <div class="form-group">
-      <label style="text-align: left;">Enter Location</label>
-      <input type="text" class="form-control" placeholder="Enter Location">
-    </div>
-  </div>
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-    <div class="form-group">
-      <label style="text-align: left;">Enter City</label>
-      <input type="text" class="form-control" placeholder="Enter City">
-    </div>
-  </div>
-  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-    <div class="form-group">
-      <label style="text-align: left;">Your Message <span>( Maximum 200 Words) </span>
-      </label>
-      <textarea name="" id="" cols="3" rows="3" class="form-control"></textarea>
-    </div>
-  </div>
-  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-    <button type="submit" class="btn btn-submit" style="color:#FFF;">Save</button>
-  </div>
-</div>
-</div>
-
+                    <div class="specialPooja-form show people text-left">
+                        <div class="row" style="justify-content:flex-start;">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div class="form-group">
+                                <label style="text-align: left;"> Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div class="form-group">
+                                <label style="text-align: left;">Email</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Email">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div class="form-group">
+                                <label style="text-align: left;">Enter Your Mobile Number</label>
+                                <input type="text" class="form-control" placeholder="Mobile Number">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div class="form-group">
+                                <label style="text-align: left;">Enter Location</label>
+                                <input type="text" class="form-control" placeholder="Enter Location">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <div class="form-group">
+                                <label style="text-align: left;">Enter City</label>
+                                <input type="text" class="form-control" placeholder="Enter City">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                <div class="form-group">
+                                <label style="text-align: left;">Your Message <span>( Maximum 200 Words) </span>
+                                </label>
+                                <textarea name="" id="" cols="3" rows="3" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                <button type="submit" class="btn btn-submit" style="color:#FFF;">Save</button>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- END GRID -->
                 </div>
