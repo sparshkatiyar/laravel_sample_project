@@ -13,8 +13,9 @@
         <center>
             <p class="regPandit-title">Pandit Registration</p>
             <p class="text-success">{{Session::get('success')}}</p>
+            <p class="text-danger">{{Session::get('error')}}</p>
         </center>
-        <form action="{{url('pandit-registration')}}" method="post" enctype="multipart/form-data">
+        <form action="{{url('pandit-registration')}}" method="post" enctype="multipart/form-data" id="create-pandit">
             @csrf
             <!-- ---form-contaienr -->
             <div class="container  form-container">
@@ -22,23 +23,21 @@
                 <div class="upload">
       <div class="form-group">
          
-          <div id='img_container'>
-                <img id="preview4" src="{{ asset('pandit/profile.png')}}" class="upld-item"/>
-          </div> 
+          
          
            
-              <div class="custom-file">
+              <!-- <div class="custom-file">
               <input type="file" id="inputGroupFile01"  name="pandit_pic" onchange="restImage1(event)" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">
               <label class="custom-file-label" for="inputGroupFile01"><span><img  src="{{ asset('pandit/upload.svg')}}" alt=""></span></label>
           
-          </div>
+          </div> -->
       </div>
     </div>
                 <!-- <h2>{{Session::get('success')}}</h2> -->
                 <div class="logo-box">
-                    <!-- <div class="logo"><img src="{{ asset('pandit/pandit-logo.png')}}" alt="#">
-                        <input type="file" id="imgupload"  name="pandit_pic" type="file">
-                    </div> -->
+                    <div class="logo"><img src="{{ asset('pandit/pandit-logo.png')}}" alt="#" id="pandit-pic">
+                        <input type="file" id="imgupload"  name="pandit_pic" type="file" onchange="previewimg(this)" required="true">
+                    </div>
 
                     <p>Profile Pic <span> *(png, jpg, jpeg only)</span></p>
                  </div>
@@ -59,22 +58,22 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Name*</label><br>
-                                <input type="text"  name="name" class="form-control" placeholder="Rajesh Shukla" class="text" required>
+                                <input type="text"  name="name" class="form-control" placeholder="Rajesh Shukla" class="text" value="{{old('name')}}" required="true">
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Email ID*</label><br>
-                                <input type="email" name="email" class="form-control" placeholder="rajeshshukla@gmail.com" class="text" required>
+                                <input type="email" name="email" class="form-control" placeholder="rajeshshukla@gmail.com" class="text" value="{{old('email')}}" required="true">
                             </div>
                         </div>
                        
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Gender*</label><br>
-                                <select id="gender" name="gender" class="form-control" required>
-                                    <option value="1" selected>Male</option>
-                                    <option value="2">Female</option>
+                                <select id="gender" name="gender" class="form-control" required="true">
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                             </div>
                         </div>
@@ -82,7 +81,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Date Of Birth*</label><br>
-                                <input type="date" name="dob" class="form-control" placeholder="11 March 2001" class="text" required>
+                                <input type="date" name="dob" class="form-control" placeholder="11 March 2001" value="{{old('dob')}}" class="text" required="true">
                             </div>
                         </div>
 
@@ -98,9 +97,9 @@
         
                                     </ul> -->
                                    <div class="multiple-select1 multiple-selectin1" id="multiple-select1">
-                                   <select id="example-getting-started" name="reg_as" multiple="multiple">
-                                        <option value="Astrologers">Astrologers</option>
+                                   <select id="example-getting-started" name="reg_as[]" multiple="multiple" required="true">
                                         <option value="Pandit Ji">Pandit Ji</option>
+                                        <option value="Astrologers">Astrologers</option>
                                         <option value="Motivational Guide">Motivational Guide </option>
                                      
                                     </select>
@@ -114,13 +113,11 @@
                                 <label>Primary Skill*</label><br>
 
                                 <div class="multiple-select1 multiple-selectin2" id="multiple-select2">
-                                   <select id="primarySkill" multiple="multiple" name="skill_primary">
+                                   <select id="primarySkill" multiple="multiple" name="skill_primary[]" required="true">
                                         <option value="Vedic">Vedic</option>
                                         <option value="Vedic Puja-path">Vedic Puja-path</option>
                                         <option value="Karamkand visheshgya">Karamkand visheshgya</option>
                                         <option value="Kathavachak">Kathavachak</option>
-                                        <option value="Vedic Puja-path">Vedic Puja-path</option>
-                                        <option value="Karamkand">Karamkand</option>
                                         <option value="Puja-path Consultation">Puja-path Consultation</option>
                                         <option value="Gemstone consultation">Gemstone consultation</option>
                                         <option value="Puja Muhurat Consultation">Puja Muhurat Consultation</option>
@@ -163,7 +160,7 @@
                                 </ul>
                             </div> -->
                             <div class="multiple-select1 multiple-selectin3" id="multiple-select3">
-                                   <select id="seconadarySkill" multiple="multiple" name="skill_secondry">
+                                   <select id="seconadarySkill" multiple="multiple" name="skill_secondry[]" required="true">
                                         <option value="Astrologers">Astrologers</option>
                                         <option value="Birth Chart Analysis">Birth Chart Analysis</option>
                                         <option value="Gemstone consultation">Gemstone consultation</option>
@@ -181,20 +178,22 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label>Your Preferred to consult with Devotee </label><br>
-                                <input type="text" name="consult_time" class="form-control" placeholder="10:00 AM to 08:00 PM" class="text">
+                                <label>Your Preferred to consult with Devotee* </label><br>
+                                <input type="text" name="consult_time" class="form-control" value="{{old('consult_time')}}" placeholder="10:00 AM to 08:00 PM" class="text" required="true">
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Select Language* <span> (Choose Upto 3)</span> </label><br>
-                                <div class="multiple-select1 multiple-selectin4" id="language-select">
-                                   <select id="language" multiple="multiple">
+                                <div class="multiple-select1 multiple-selectin4" id="language-select" value="{{old('consult_time')}}" required="true">
+                                   <select id="language" multiple="multiple" name="language[]">
                                         
-                                        <option>English</option>
-                                        <option>Hindi</option>
-                                        <option></option>
+                                        <option value="English">English</option>
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="Marathi">Marathi</option>
+                                        <option value="Kannad">Kannad</option>
+                                        <option value="Malyalam">Malyalam</option>
                                     </select>
                                    </div>
                             </div>
@@ -203,7 +202,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Experience* <span> (In Years)</span> </label><br>
-                                <input type="text" name="consult_time" class="form-control" placeholder="10:00 AM to 08:00 PM" class="text">
+                                <input type="number" name="experiance" min="1" class="form-control" value="{{old('experiance')}}" placeholder="Enter Experiance year" class="text" required="true">
                             </div>
                         </div>
 
@@ -217,11 +216,11 @@
                               
                                     <div class="d-flex cstm align-items-center">
                                         <label class="custom-radio" style="color: #111112 !important;">Yes
-                                                <input type="radio" name="other_platform"> 
+                                                <input type="radio" name="other_platform" value="yes" onchange="getoption(this)"> 
                                                 <span class="checkmark"></span>
                                         </label>
                                         <label class="custom-radio" style="color:#111112 !important;">No
-                                        <input type="radio" name="other_platform"> 
+                                        <input type="radio" name="other_platform" checked="true" value="no" onchange="getoption(this)"> 
                                                 <span class="checkmark"></span>
                                         </label>
                                    
@@ -229,18 +228,18 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6" style="display:none;" id="website">
                             <div class="form-group">
                             <label>Name of the App or Website </label><br>
     
-                                <input type="text" class="form-control" name="app_or_website" class="text" >
+                                <input type="text" class="form-control" name="app_or_website" value="{{old('app_or_website')}}" class="text" required="true">
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Aadhar Card No.* </label><br>
-                                <input type="number" class="form-control"  name="uid_number" class="text" required>
+                                <input type="text" class="form-control"  onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="uid_number" value="{{old('uid_number')}}" class="text" minlength="12" maxlength="12" required="true">
                             </div>
                         </div>
 
@@ -249,7 +248,7 @@
                                
                                     <label>Upload Aadhar Card* </label>
                                     <div class="uploadAdhar">
-                                    <input type="file" name="uid_image" placeholder="Choose File" required>
+                                    <input type="file" name="uid_image" placeholder="Choose File" required="true">
                                     </div>
             
                                 
@@ -259,7 +258,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
                                 <label>Summary of Experties* <span>( Maximum 200 Words)</span></label><br>
-                                <textarea name="experties" class="form-control" id="javascript:void(0);" cols="auto" rows="5" required></textarea>
+                                <textarea name="experties" class="form-control" id="javascript:void(0);"  cols="auto" rows="5" required="true">{{old('experties')}}</textarea>
                             </div>
                         </div>
 
@@ -269,29 +268,29 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label>For Call</label><br>
-                                <input type="text" class="form-control" name="charge_call" placeholder="INR 50" class="text" required>
+                                <label>For Call*</label><br>
+                                <input type="text" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="charge_call" value="{{old('charge_call')}}" placeholder="INR 50" class="text" required="true">
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                            <label>For Chat</label>
-                            <input type="text" class="form-control" name="charge_chat" placeholder="INR 50" class="text" required>
+                            <label>For Chat*</label>
+                            <input type="text" class="form-control" name="charge_chat" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" value="{{old('charge_chat')}}" placeholder="INR 50" class="text" required="true">
                             </div>
                         </div>
                        
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <div class="form-group">
-                                <label>For Video Chat</label><br>
-                                <input type="text" class="form-control" name="charge_video" placeholder="INR 50" class="text" required>
+                                <label>For Video Chat*</label><br>
+                                <input type="text" class="form-control" name="charge_video" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" value="{{old('charge_video')}}" placeholder="INR 50" class="text" required="true">
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <label class="cs-checkbox">By submitting, you accept our Terms & Conditions
-                                and our Privacy Policy
-                                <input type="checkbox"  type="checkbox" name="is_term"  required>
+                                and our Privacy Policy*
+                                <input type="checkbox"  type="checkbox" name="is_term"  value="1" required="true">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -318,78 +317,111 @@
         crossorigin="anonymous"></script>
 
     <!-- for dropdow-- -->
-    <script>
-        var checkList = document.getElementById('list1');
-        checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
-            if (checkList.classList.contains('visible'))
-                checkList.classList.remove('visible');
-            else
-                checkList.classList.add('visible');
-        }
 
-        var checkList2 = document.getElementById('list2');
-        checkList2.getElementsByClassName('anchor')[0].onclick = function (evt) {
-            if (checkList2.classList.contains('visible'))
-                checkList2.classList.remove('visible');
-            else
-                checkList2.classList.add('visible');
-        }
-
-        // var checkList3 = document.getElementById('list3');
-        // checkList3.getElementsByClassName('anchor')[0].onclick = function (evt) {
-        //     if (checkList3.classList.contains('visible'))
-        //         checkList3.classList.remove('visible');
-        //     else
-        //         checkList3.classList.add('visible');
-        // }
-
-
-        
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
     <script>
+    $(document).ready(function () {
+    $('#create-pandit').validate({ // initialize the plugin
+
+        rules: {
+            field1: {
+                required: true,
+                email: true
+            },
+            field2: {
+                required: true,
+                password: true
+            }
+             
+        }
+    });
+
+});
         $(function(){      
             
             $('#example-getting-started').change(function(e){
-                // alert(JSON.Stri$(this));
                 if ($(this).val().length > 2) {
-                    // $(this).val("");
-                    // $('li .active').prop('checked', false)
-                    alert("Not allowed only 2");
+                    
+                    
+                    this.checked = false; // reset first
+                    event.preventDefault();
+                    // alert('You can select only 2');
+                    $(this).attr('checked', false);
+                    event.target.checked = false;
+                    event.target=false;
+                    event.target.find('option')
+                    .remove()
+                    .end()                   
+                    .val('');         
+                 
                 }
-              
             })
-            $('input[type=checkbox].four-checkbox').change(function(e){
-            if ($('input[type=checkbox].four-checkbox:checked').length > 4) {
-                    $(this).prop('checked', false)
-                    // alert("allowed only 3");
-            }
+                
+            
+            $('#primarySkill').change(function(e){
+                if ($(this).val().length > 4) {
+                    this.checked = false; // reset first
+                    event.preventDefault();
+                    // alert('You can select only 4');
+                    event.target.checked = false;
+                    event.target.find('option')
+                    .remove()
+                    .end()                   
+                    .val('');
+                }
             })
-            $('input[type=checkbox].six-checkbox').change(function(e){
-            if ($('input[type=checkbox].six-checkbox:checked').length > 6) {
-                    $(this).prop('checked', false)
-                    // alert("allowed only 3");
-            }
+            $('#seconadarySkill').change(function(e){
+                if ($(this).val().length > 6) {
+                    this.checked = false; // reset first
+                    event.preventDefault();
+                    // alert('You can select only 6');
+                    event.target.checked = false
+                    event.target.find('option')
+                    .remove()
+                    .end()                   
+                    .val('');
+                }
             })
         });
 
-        multiple1 = new Array();
- function restImage1(event) {
+//         multiple1 = new Array();
+//  function restImage1(event) {
 
-   this.multiple1 = [];
-   let multipleFiles = event.target.files;
-   if (multipleFiles) {
-      for (var file of multipleFiles) {
-         var multipleReader = new FileReader();
-         multipleReader.onload = (e) => {
-            $('#preview4').attr('src', e.target.result)
-         }
-         multipleReader.readAsDataURL(file);
-      }
-   }
- }
+//    this.multiple1 = [];
+//    let multipleFiles = event.target.files;
+//    if (multipleFiles) {
+//       for (var file of multipleFiles) {
+//          var multipleReader = new FileReader();
+//          multipleReader.onload = (e) => {
+//             $('#preview4').attr('src', e.target.result)
+//          }
+//          multipleReader.readAsDataURL(file);
+//       }
+//    }
+//  }
     </script>
+<script>
+        function getoption(app)
+        {
+            if($(app).val()=='yes')
+            {
+                $('#website').show();
+            }else
+            {
+                $('#website').hide();
+            }
 
+        }
+
+
+    </script>
+    <script>
+    function previewimg(img)
+	{
+        document.getElementById('pandit-pic').src = window.URL.createObjectURL(img.files[0]);
+    }
+    </script>
 
 
     @include('layouts.footer')

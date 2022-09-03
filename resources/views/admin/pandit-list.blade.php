@@ -370,7 +370,7 @@
     <script>
     function viewPandit(panditInfo) {
         $('#panditInfoModel').modal('show');
-        $("#name").val(panditInfo.name);
+        $("#first_name").val(panditInfo.name);
         $("#email").val(panditInfo.email);
         $("#reg_as").val( panditInfo.reg_as);
         $("#skill_primary").val(panditInfo.skill_primary);

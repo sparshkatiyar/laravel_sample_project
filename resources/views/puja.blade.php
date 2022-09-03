@@ -293,48 +293,51 @@
               </div>
             </div>
             <div class="specialPooja-form">
-              <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label> Name</label>
-                    <input type="text" class="form-control" placeholder="Enter Your Name">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" placeholder="Enter Your Email">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Enter Your Mobile Number</label>
-                    <input type="text" class="form-control" placeholder="Mobile Number">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Enter Location</label>
-                    <input type="text" class="form-control" placeholder="Enter Location">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Enter City</label>
-                    <input type="text" class="form-control" placeholder="Enter City">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <div class="form-group">
-                    <label>Your Message <span>( Maximum 200 Words) </span>
-                    </label>
-                    <textarea name="" id="" cols="3" rows="3" class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <button type="submit" class="btn btn-submit">Save</button>
-                </div>
-              </div>
+                <form action="{{url('onrequest-puja')}}" method="post">
+                    @csrf
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="form-group">
+                          <label> Name</label>
+                          <input type="text" class="form-control" name="client_name" placeholder="Enter Your Name">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="form-group">
+                          <label>Email</label>
+                          <input type="text" class="form-control" name="client_email" placeholder="Enter Your Email">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="form-group">
+                          <label>Enter Your Mobile Number</label>
+                          <input type="text" class="form-control" name="client_number" placeholder="Mobile Number">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="form-group">
+                          <label>Enter Location</label>
+                          <input type="text" class="form-control" name="client_location" placeholder="Enter Location">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="form-group">
+                          <label>Enter City</label>
+                          <input type="text" class="form-control" name="client_city" placeholder="Enter City">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <div class="form-group">
+                          <label>Your Message <span>( Maximum 200 Words) </span>
+                          </label>
+                          <textarea name="" id="" cols="3" rows="3" name="client_message" class="form-control"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <button type="submit" class="btn btn-submit">Save</button>
+                      </div>
+                    </div>
+                </form>
             </div>
           </div>
         </div>

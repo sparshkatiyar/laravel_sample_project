@@ -47,13 +47,13 @@
                 <div class="englishDesc">
                
                 {!! $pujaDetails->puja_id->desc!!}
-       <a class="englishDesclink" href="javascript:void(0)">Read More/Hindi</a>
-   
-                    </div>
-    <div class="hindiDesc"  style="display: none;">
-   
-    {!! $pujaDetails->puja_id->pujasimplified!!}
-      <a class="hindDesclink" href="javascript:void(0)">Read less</a>
+                <a class="englishDesclink" href="javascript:void(0)">Read More/Hindi</a>
+            
+                                </div>
+                <div class="hindiDesc"  style="display: none;">
+            
+                {!! $pujaDetails->puja_id->pujasimplified!!}
+                <a class="hindDesclink" href="javascript:void(0)">Read less</a>
    
                     </div>
                 <!-- <p class="english-desc">
@@ -78,7 +78,7 @@
                         @if(!empty($category_samagri->standard_pooja))
                         <div class="cate-item">
                             <label class="custom-radio">Standard
-                                <input type="radio" name="pujatype" value="1" id="standard" checked="checked" onclick=getpooja('standard')>
+                                <input type="radio" name="pujatype" value="1" id="standard" onclick=getpooja('standard') @if(!empty($category_samagri->standard_pooja)) checked="checked" @endif >
                                 <input type="hidden" id="standard-price" value="{{$pujaDetails->puja_price_samall}}">
                                 <span class="checkmark"></span>
                             </label>
@@ -87,7 +87,7 @@
                         @if(!empty($category_samagri->premium_pooja))
                         <div class="cate-item">
                             <label class="custom-radio">Premium
-                                <input type="radio" name="pujatype" value="2" id="premium" onclick=getpooja('premium')>
+                                <input type="radio" name="pujatype" value="2" id="premium" onclick=getpooja('premium') @if(empty($category_samagri->standard_pooja) && !empty($category_samagri->premium_pooja)) checked="checked" @endif>
                                 <input type="hidden" id="premium-price" value="{{$pujaDetails->puja_price_medium}}">
                                 <span class="checkmark"></span>
                             </label>
@@ -96,7 +96,7 @@
                         @if(!empty($category_samagri->grand_pooja))
                         <div class="cate-item">
                             <label class="custom-radio">Grand
-                                <input t type="radio" name="pujatype" value="3" id="grand" onclick=getpooja('grand')>
+                                <input t type="radio" name="pujatype" value="3" id="grand" onclick=getpooja('grand') @if(empty($category_samagri->standard_pooja) && empty($category_samagri->premium_pooja) && !empty($category_samagri->grand_pooja)) checked="checked" @endif>
                                 <input type="hidden" id="grand-price" value="{{$pujaDetails->puja_price_large}}">
                                 <span class="checkmark"></span>
                             </label>
@@ -160,15 +160,31 @@
                         </div>
                     </p> -->
             </div>
-            <div class="top2" id="standard-samagri">
+            <div class="top2" id="standard-samagri" style="@if(!empty($category_samagri->standard_pooja)) @else display:none; @endif">
                 <div class="detail-box detail-box2 detail-box3">
                     <h6  class="text-heading2">Pooja Samagri :</h6>
+                    @if(!empty($category_samagri->category_samagri))
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> With Pooja Samagri
+                            <input type="radio" name="standard_category" value="{{$pujaDetails->puja_samagri_price ?? '' }}" class="pooja-samgari" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                            </summary>
+                                <p>  
+                                {{@$category_samagri->category_samagri ?? ''}}       
+                                </p>
+                            </details>
+                     </div>
+                     @endif
                     @if(!empty($category_samagri->category_wsamagri))
                     <div class="item-4">
                         <details>
                         <summary>
                             <label class="custom-radio"> Without Pooja Samagri
-                            <input type="radio" name="standard_category" value="samagri" id="samgari">
+                            <input type="radio" name="standard_category" value="{{$pujaDetails->puja_wsamagri_price ?? '' }}" class="pooja-without-samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -181,28 +197,13 @@
                      </div>
 
                      @endif
-                    @if(!empty($category_samagri->category_samagri))
-                     <div class="item-4">
-                        <details>
-                        <summary>
-                            <label class="custom-radio"> With Pooja Samagri
-                            <input type="radio" name="standard_category" value="wsamagri" id="wsamgari">
-                                <span class="checkmark"></span>
-                            </label>
-                        
-                            </summary>
-                                <p>  
-                                {{@$category_samagri->category_samagri ?? ''}}       
-                                </p>
-                            </details>
-                     </div>
-                     @endif
+                   
                     @if(!empty($category_samagri->category_all))
                      <div class="item-4">
                         <details>
                         <summary>
                             <label class="custom-radio">With Pooja Samagri & All Items
-                            <input type="radio" name="standard_category" value="all" id="all">
+                            <input type="radio" name="standard_category" value="{{$pujaDetails->puja_samagri_price ?? '' }}" class="pooja-all-samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -219,16 +220,33 @@
                 <br>
                 
             </div>
-            <div class="top2" id="premium-samagri" style="display:none;">
+            
+            <div class="top2" id="premium-samagri" style="@if(empty($category_samagri->standard_pooja) && !empty($category_samagri->premium_pooja)) @else display:none; @endif">
                 <div class="detail-box detail-box2 detail-box3">
                     <h6  class="text-heading2">Pooja Samagri :</h6>
-                  
+                    @if(!empty($category_samagri->premium_category_samagri))
+
+                    <div class="item-4">
+                    <details>
+                    <summary>
+                        <label class="custom-radio"> With Pooja Samagri
+                        <input type="radio" name="premium_category" value="{{$pujaDetails->puja_samagri_price ?? '' }}" class="pooja-samgari" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                    
+                        </summary>
+                            <p>  
+                            {{@$category_samagri->premium_category_samagri ?? ''}}       
+                            </p>
+                        </details>
+                    </div>
+                    @endif
                     @if(!empty($category_samagri->premium_category_wsamagri))
                     <div class="item-4">
                         <details>
                         <summary>
                             <label class="custom-radio"> Without Pooja Samagri
-                            <input type="radio" name="premium_category" value="samagri" id="samgari">
+                            <input type="radio" name="premium_category" value="{{$pujaDetails->puja_wsamagri_price ?? '' }}" class="pooja-without-samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -240,29 +258,13 @@
                             </details>
                      </div>
                      @endif
-                    @if(!empty($category_samagri->premium_category_samagri))
-
-                     <div class="item-4">
-                        <details>
-                        <summary>
-                            <label class="custom-radio"> With Pooja Samagri
-                            <input type="radio" name="premium_category" value="{{@$category_samagri->premium_category_samagri ?? ''}}" id="wsamgari">
-                                <span class="checkmark"></span>
-                            </label>
-                        
-                            </summary>
-                                <p>  
-                                {{@$category_samagri->premium_category_samagri ?? ''}}       
-                                </p>
-                            </details>
-                     </div>
-                     @endif
+                    
                     @if(!empty($category_samagri->premium_category_all))
                      <div class="item-4">
                         <details>
                         <summary>
                             <label class="custom-radio">With Pooja Samagri & All Items
-                            <input type="radio" name="premium_category" value="all" id="all">
+                            <input type="radio" name="premium_category" value="{{$pujaDetails->puja_samagri_price ?? '' }}" class="pooja-all-samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -280,15 +282,31 @@
                 
             </div>
             
-            <div class="top2" id="grand-samagri" style="display:none;">
+            <div class="top2" id="grand-samagri" style="@if(empty($category_samagri->standard_pooja) && empty($category_samagri->premium_pooja) && !empty($category_samagri->grand_pooja)) @else display:none; @endif">
                 <div class="detail-box detail-box2 detail-box3">
                     <h6  class="text-heading2">Pooja Samagri :</h6>
+                    @if(!empty($category_samagri->grand_category_samagri))
+                     <div class="item-4">
+                        <details>
+                        <summary>
+                            <label class="custom-radio"> With Pooja Samagri
+                            <input type="radio" name="grand_category" value="{{$pujaDetails->puja_samagri_price ?? '' }}" class="pooja-samgari" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        
+                            </summary>
+                                <p>  
+                                {{@$category_samagri->grand_category_samagri ?? ''}}       
+                                </p>
+                            </details>
+                     </div>
+                    @endif
                     @if(!empty($category_samagri->grand_category_wsamagri))
                     <div class="item-4">
                         <details>
                         <summary>
                             <label class="custom-radio"> Without Pooja Samagri
-                            <input type="radio" name="grand_category" value="samagri" id="samgari">
+                            <input type="radio" name="grand_category" value="{{$pujaDetails->puja_wsamagri_price ?? '' }}" class="pooja-without-samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -300,28 +318,13 @@
                             </details>
                      </div>
                     @endif
-                    @if(!empty($category_samagri->grand_category_samagri))
-                     <div class="item-4">
-                        <details>
-                        <summary>
-                            <label class="custom-radio"> With Pooja Samagri
-                            <input type="radio" name="grand_category" value="wsamagri" id="wsamgari">
-                                <span class="checkmark"></span>
-                            </label>
-                        
-                            </summary>
-                                <p>  
-                                {{@$category_samagri->grand_category_samagri ?? ''}}       
-                                </p>
-                            </details>
-                     </div>
-                    @endif
+                    
                     @if(!empty($category_samagri->grand_category_all))
                      <div class="item-4">
                         <details>
                         <summary>
                             <label class="custom-radio">With Pooja Samagri & All Items
-                            <input type="radio" name="grand_category" value="all" id="all">
+                            <input type="radio" name="grand_category" value="{{$pujaDetails->puja_samagri_price ?? '' }}" class="pooja-all-samgari">
                                 <span class="checkmark"></span>
                             </label>
                         
@@ -541,12 +544,6 @@
                     </div>
                 @endforeach
 
-
-
-
-
-
-
                 <!-- END GRID -->
             </div>
 
@@ -594,98 +591,87 @@
         var pricetype = $("input[name=pujatype]:checked").val();
         if(pricetype==1)
         {
-            var poojatypeprice=$('#standard-price').val();
+            var poojatypeprice = $('#standard-price').val();
+            var poojasamagri = $("input[name=standard_category]:checked").val();
         }
         else if(pricetype==2)
         {
             var poojatypeprice=$('#premium-price').val();
+            var poojasamagri = $("input[name=premium_category]:checked").val();
         }
         else if(pricetype==3)
         {
             var poojatypeprice=$('#grand-price').val();
+            var poojasamagri = $("input[name=grand_category]:checked").val();
         }
-        var totalPrice = parseInt(basePrice)+parseInt(poojatypeprice)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
+        
+        var totalPrice = parseInt(basePrice)+parseInt(poojatypeprice)+parseInt(poojasamagri);
         var setPrice = $("#addprice").text(totalPrice);
        
-        // $("#samgari").click(function(){
-        //     var ptype = $("input[name=pujatype]:checked").val();
-         
-        //     if(ptype ==1){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-        //     }
-        //     else if(ptype ==2){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-        //     }
-        //     else if(ptype ==3){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-        //     }
-        //     else{
-        //         totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-        //     }
-        //     $("#addprice").text(0);
-        //     $("#addprice").text(totalPrice);
+        $(".pooja-samgari").click(function(){
+            var ptypesamagri = $("input[name=pujatype]:checked").val();
+            if(ptypesamagri ==1){
+                var poojasamagri= $('#standard-price').val();
+                totalPricesamagri = parseInt(poojasamagri) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptypesamagri ==2){
+                var poojasamagri = $('#premium-price').val();
+                totalPricesamagri = parseInt(poojasamagri) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            else if(ptypesamagri ==3){
+                var poojasamagri= $('#grand-price').val();
+                totalPricesamagri = parseInt(poojasamagri) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
+            }
+            $("#addprice").text(0);
+            $("#addprice").text(totalPricesamagri);
         
-        // })
-        // $("#wsamgari").click(function(){
-        //     var ptype = $("input[name=pujatype]:checked").val();
-
-        //     // alert(ptype);
-        //     if(ptype ==1){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-        //     }
-        //     else if(ptype ==2){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-        //     }
-        //     else if(ptype ==3){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-        //     }
-        //     else{
-        //         totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-        //     }
-           
-        //     $("#addprice").text(0);
-        //     $("#addprice").text(totalPrice);
+        })
+        $(".pooja-without-samgari").click(function(){
             
-        // })
-        // $("#all").click(function(){
-        //     var ptype = $("input[name=pujatype]:checked").val();
-        //     if(ptype ==1){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-        //     }
-        //     else if(ptype ==2){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_medium}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-        //     }
-        //     else if(ptype ==3){
-        //         totalPrice = parseInt("{{$pujaDetails->puja_price_large}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-        //     }
-        //     else{
-        //         totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-        //     }
-        //     $("#addprice").text(0);
-        //     $("#addprice").text(totalPrice);
-        // })
+            var ptypewsamagri = $("input[name=pujatype]:checked").val();
+            if(ptypewsamagri ==1){
+                var poojasamagriwithout = $('#standard-price').val();
+                totalPricewsamagri = parseInt(poojasamagriwithout) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptypewsamagri ==2){
+                var poojasamagriwithout = $('#premium-price').val();
+                totalPricewsamagri = parseInt(poojasamagriwithout) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            else if(ptypewsamagri ==3){
+                var poojasamagriwithout = $('#grand-price').val();
+                totalPricewsamagri = parseInt(poojasamagriwithout) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
+            }
+            $("#addprice").text(0);
+            $("#addprice").text(totalPricewsamagri);
+            
+        })
+        $(".pooja-all-samgari").click(function(){
+            var ptypeall = $("input[name=pujatype]:checked").val();
+            if(ptypeall ==1){
+                var poojasamagriall = $('#standard-price').val();
+                totalPriceall = parseInt(poojasamagriall) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else if(ptypeall ==2){
+                var poojasamagriall = $('#premium-price').val();
+                totalPriceall = parseInt(poojasamagriall) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            else if(ptypeall ==3){
+                var poojasamagriall = $('#grand-price').val();
+                totalPriceall = parseInt(poojasamagriall) +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
+            }
+            
+            $("#addprice").text(0);
+            $("#addprice").text(totalPriceall);
+        })
 
         $("#standard").click(function(){
             var pricetypestandard = $("input[name=pujatype]:checked").val();
        
             var poojatypepricestandard =$('#standard-price').val();
-        var totalPricestandard  = parseInt(basePrice)+parseInt(poojatypepricestandard)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
-            // var ptype = $("input[name=standard_category]:checked").val();
-         
-            // if(ptype =="samagri"){
-            //     totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_samagri_price}}"); 
-            // }
-            // else if(ptype =="wsamagri"){
-            //     totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_wsamagri_price}}"); 
-            // }
-            // else if(ptype =="all"){
-            //     totalPrice = parseInt("{{$pujaDetails->puja_price_samall}}") +parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_all}}"); 
-            // }
-            // else{
-            //     totalPrice = parseInt(basePrice)+ parseInt("{{$pujaDetails->puja_price_samall}}"); 
-            //     // alert(totalPrice);
-            // }
-
+            var poojasamagristandard = $("input[name=standard_category]:checked").val();
+     
+           var totalPricestandard  = parseInt(basePrice)+parseInt(poojatypepricestandard)+parseInt(poojasamagristandard);
+            
             $("#addprice").text(0);
             $("#addprice").text(totalPricestandard);
         
@@ -693,8 +679,8 @@
         $("#premium").click(function(){
             var pricetypepremium = $("input[name=pujatype]:checked").val();
             var poojatypepricepremium =$('#premium-price').val();
-       
-        var totalPricepremium  = parseInt(basePrice)+parseInt(poojatypepricepremium)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
+            var poojasamagripremium = $("input[name=premium_category]:checked").val();
+           var totalPricepremium  = parseInt(basePrice)+parseInt(poojatypepricepremium)+parseInt(poojasamagripremium);
             // var ptype = $("input[name=premium_category]:checked").val();
 
             // // alert(ptype);
@@ -717,9 +703,9 @@
         })
         $("#grand").click(function(){
             var pricetypegrand = $("input[name=pujatype]:checked").val();
-        
             var poojatypepricegrand =$('#grand-price').val();
-        var totalPricegrand  = parseInt(basePrice)+parseInt(poojatypepricegrand)+parseInt("{{$pujaDetails->puja_samagri_price}}")+parseInt("{{$pujaDetails->puja_wsamagri_price}}")+parseInt("{{$pujaDetails->puja_price_all}}");
+            var poojasamagrigrand = $("input[name=grand_category]:checked").val();
+            var totalPricegrand  = parseInt(basePrice)+parseInt(poojatypepricegrand)+parseInt(poojasamagrigrand);
             // var ptype = $("input[name=grand_category]:checked").val();
             // // alert(ptype);
             // if(ptype =="samagri"){

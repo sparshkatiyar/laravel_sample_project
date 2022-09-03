@@ -17,24 +17,23 @@ class Subscribe extends Mailable
      * @return void
      */
     public $email;
-    public function __construct()
+    public $details;
+    public function __construct($details)
     {
-        // $this->email = $email;
+        
+        $this->details = $details;
+        $this->subject=$details['subject'];
     }
-
-
+  
     /**
      * Build the message.
      *
      * @return $this
      */
-
-     
     public function build()
     {
-        return $this
-            ->subject('Thank you for subscribing to our newsletter of astropandit')
-            ->markdown('emails.subscribers');
+        return $this->from('astropanditom@gmail.com','Astro Pandit')
+                    ->view('email.mail');
     }
 
 }

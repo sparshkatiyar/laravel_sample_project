@@ -80,28 +80,26 @@
                                         </div> -->
                                     </div>
                                     <div class="form-group row">
+                                    <div class="col-sm-6">
+                                            <label>All puja price</label><input type="text" class="form-control" name="allpujaprice"
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_all : ''}}" required />
+                                        </div>
                                         <div class="col-sm-6">
                                             <label>Standard puja price</label><input type="text" class="form-control" name="samallpujaprice"
                                                 placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_samall : ''}}" required />
                                         </div>
-                                        
-                                        <div class="col-sm-6">
-                                            <label>Premium puja price</label><input type="text" class="form-control" name="mediumpujaprice"
-                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_medium : ''}}" required />
-                                        </div>
-                                     
                                     </div>                                    
                                     <div class="form-group row">
                                         
-                                        
+                                    <div class="col-sm-6">
+                                            <label>Premium puja price</label><input type="text" class="form-control" name="mediumpujaprice"
+                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_medium : ''}}" required />
+                                        </div>
                                         <div class="col-sm-6">
                                             <label>Grand puja price</label><input type="text" class="form-control" name="largepujaprice"
                                                 placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_large : ''}}" required />
                                         </div>
-                                        <div class="col-sm-6">
-                                            <label>All puja price</label><input type="text" class="form-control" name="allpujaprice"
-                                                placeholder="Enter price" value="{{!empty($pujaecomm) ? $pujaecomm->puja_price_all : ''}}" required />
-                                        </div>
+                                        
                                     </div>                                    
                                     
                                     <button type="submit" class="btn btn-primary">
