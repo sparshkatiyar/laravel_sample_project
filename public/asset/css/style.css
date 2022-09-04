@@ -9277,6 +9277,16 @@ h1 {
   color: #797171;
   outline: none;
   box-shadow: none;
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 30px;
+
+text-align: center;
+
+color: #797171;
+
 }
 
 #Book-Pooja .btn:hover {
@@ -9285,8 +9295,9 @@ h1 {
 }
 
 #Book-Pooja .btn.active {
-  border-bottom: 1px solid #e5c900;
-  color: #000000;
+  border-bottom: 2px solid #E5C900;
+  color: #222222;
+  background: transparent;
 }
 
 #Book-Pooja #view-btn button {

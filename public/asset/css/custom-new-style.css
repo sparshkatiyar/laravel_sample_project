@@ -505,7 +505,8 @@
 .pooja-description-section .pooja-description .right-section .content ul {
     padding: 0;
     margin: 0;
-    list-style: none;
+    /* list-style: none; */
+    padding-left: 10px;
 }
 
 .pooja-description-section .pooja-description .left-section .content ul li,
@@ -1074,8 +1075,9 @@
 }
 
 .content-2 .why-txt {
-    color: #26292F;
+    color: #26292F !important;
     font-weight: 600;
+    margin-bottom:30px;
 }
 
 .text-all {
@@ -2051,4 +2053,53 @@ p {
 }
 #img_container{
     text-align: center;
+}
+
+.main-pooja-3{
+    max-width: 1142px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.main-pooja-3 .left-section{
+    max-width: 409px;
+    width: 100%;
+    height: 427.75px;
+    padding: 0;
+    border: 1px solid #0D7B4D;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.main-pooja-3 .left-section img{
+    height: 100%;
+}
+.main-pooja-3 .right-section{
+    max-width: 642px;
+    width: 100%;
+    padding: 0;
+}
+.main-pooja-3 p{
+    margin-left: 0 !important;
+}
+.englishDesc p, .hindiDesc p{
+    font-family: 'Poppins', sans-serif;
+font-weight: 400;
+font-size: 16px;
+line-height: 29px;
+color: #5E5F63 !important;
+}
+.englishDesc ol li, .hindiDesc ol li{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    color: #5E5F63 !important;
+}
+.englishDesc ul li, .hindiDesc ul li{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    color: #5E5F63 !important;
 }

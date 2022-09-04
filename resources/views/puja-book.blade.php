@@ -6,13 +6,13 @@
 
 <section id="section1">
     <div class="container-fluid main-pooja">
-        <div class="top">
+        <div class="top main-pooja-3">
 
-            <div class="top1">
+            <div class="top1 left-section">
                 <img src="{{ $pujaDetails->puja_id->image}}" alt="">
                 <input type="text" name="ecomm_puja_id" value="{{$ecomm_puja_id}}" hidden>
             </div>
-            <div class="top1">
+            <div class="top1 right-section">
 
                 <div class="content-2">
                 <h5 class="title3">{{ $pujaDetails->puja_id->name}}</h5>
