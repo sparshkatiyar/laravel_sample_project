@@ -1252,22 +1252,6 @@
             <div class="main">
 
 
-
-                <!-- ---dropdown -->
-                <!-- <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown button
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href=""><button class="btn active" onclick="filterSelection('all')"> Show all</button></a></li>
-          <li><a class="dropdown-item" href="">  <button class="btn" onclick="filterSelection('nature')"> Ghar Pe Pooja</button></a></li>
-          <li><a class="dropdown-item" href=""><button class="btn" onclick="filterSelection('cars')"> Online Pooja</button></a></li>
-          <li><a class="dropdown-item" href=""> <button class="btn" onclick="filterSelection('people')"> On Request Special Pooja</button></a></li>
-          
-        </ul>
-      </div> -->
-
-                <!--  -->
                 <div id="myBtnContainer" class="tabs_title">
                   <button class="btn active remove-active" data-name="all"> Show all</button>
                   <button class="btn remove-active" data-name="nature" > Ghar Pe Pooja</button>
@@ -1290,29 +1274,14 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="column show nature">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img1.png') }}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div>
+                   
+                    <!-- {!! $pujaList->appends(['sort' => 'id'])->links() !!} -->
 
+                 
 
                    
 
-                    <div class="column show cars">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img3.png') }}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div>
-
-
-                   
-
-                    <div class="specialPooja-form show people text-left" style="display:none;">
+            <div class="specialPooja-form show people text-left" style="display:none;">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                   <div class="form-group">
@@ -1355,49 +1324,13 @@
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <button type="submit" class="btn btn-submit" style="color:#FFF;">Save</button>
+                  <button type="submit" class="btn btn-submit" style="color:#FFF;">Send</button>
                 </div>
               </div>
             </div>
 
 
-                    <div class="column show cars">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img1.png')}}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div>
-
-
-                    <div class="column show cars">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img3.png') }}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div>
-
-                    <div class="column show cars">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img1.png')}}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div>
-
-
-
-                    <div class="column show nature">
-                        <div class="content">
-                            <img src="{{ asset('images/god-img2.png') }}" alt="Mountains" style="width:100%">
-                            <h4>Akhand Ramayan (Musical)</h4>
-                            <p>INR-2100/-</p>
-                        </div>
-                    </div>
-
-
-
+                    
                     <!-- END GRID -->
                 </div>
 
@@ -1407,9 +1340,9 @@
 
         </div>
 
-        <div class="text-center" id="view-btn">
+        <!-- <div class="text-center" id="view-btn">
             <button>View All</button>
-        </div>
+        </div> -->
 
     </section>
 

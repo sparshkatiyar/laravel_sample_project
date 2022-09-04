@@ -25,7 +25,7 @@ class PanditController extends Controller
             'dob'               => 'required',
             'reg_as'            => 'required',
             'skill_primary'     => 'required',
-            'skill_secondry'    => 'required',
+            // 'skill_secondry'    => 'required',
             'consult_time'      => 'required',
             'other_platform'    => 'required',
             // 'app_or_website'    => 'required',

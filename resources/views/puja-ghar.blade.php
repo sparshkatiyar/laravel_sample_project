@@ -414,7 +414,7 @@
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <button type="submit" class="btn btn-submit">Save</button>
+                  <button type="submit" class="btn btn-submit">Send</button>
                 </div>
               </div>
             </div>

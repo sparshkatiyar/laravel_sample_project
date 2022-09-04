@@ -80,8 +80,8 @@
                                 <div class="form-menu">
                                     <input type="text" value="{{@@$userAddress->town}}" name="town" placeholder="City/District/Town">
                                     <select name="state" id="state" class="form-control">
-                                        @foreach($state_list as $skey=>$svalue)
-                                            @if($skey == $userAddress->state)
+                                        @foreach(@$state_list as $skey=>$svalue)
+                                            @if(@$skey == @$userAddress->state)
                                             <option value="{{$skey}}" selected>{{$svalue}}</option>
                                             @else
                                             <option value="{{$skey}}">{{$svalue}}</option>
@@ -136,6 +136,7 @@
                         <div>
                             <h5>Order Summary &nbsp;<span></span></h5>
                         </div>
+                        <button id="downBtn"   onclick="f3()" style="border-radius: 0;width: 80px;"> View</button>
                     </div>
 
                     <!-- ---summary-detail-- -->

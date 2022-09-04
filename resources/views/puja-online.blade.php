@@ -364,7 +364,7 @@ If you wish to have your online pooja at special holy places on the bank of rive
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <button type="submit" class="btn btn-submit">Save</button>
+                  <button type="submit" class="btn btn-submit">Send</button>
                 </div>
               </div>
             </div>
