@@ -212,6 +212,47 @@ If you wish to have your online pooja at special holy places on the bank of rive
             <div class="pooja-details-section">
               <h3>Ghar Pe Pooja</h3>
               <div class="inner-pooja-details">
+              @foreach(@$pujaList as $puja)
+                
+                @if($puja->puja_id->type == "Ghar pe puja")
+                <div class="item">
+                    <a  href="{{url('puja-booking/')}}/{{$puja->id}}">
+                        <div class="img-section">
+                            <img src="{{ $puja->puja_id->image }}" class="img-fluid" alt="">
+                        </div>
+                        <h5>{{$puja->puja_id->name}}</h5>
+                        <p>INR- {{$puja->puja_base_price}}/-</p>
+
+                    </a>
+                </div>
+            
+                @elseif($puja->puja_id->type  == "Online Puja")
+                <div class="item">
+                    <a  href="{{url('puja-booking/')}}/{{$puja->id}}">
+                        <div class="img-section">
+                            <img src="{{ $puja->puja_id->image }}" class="img-fluid" alt="">
+                        </div>
+                        <h5>{{$puja->puja_id->name}}</h5>
+                        <p>INR- {{$puja->puja_base_price}}/-</p>
+
+                    </a>
+                </div>
+                @elseif($puja->puja_id->type  =="On Request")
+                <div class="item">
+                    <a  href="{{url('puja-booking/')}}/{{$puja->id}}">
+                        <div class="img-section">
+                            <img src="{{ $puja->puja_id->image }}" class="img-fluid" alt="">
+                        </div>
+                        <h5>{{$puja->puja_id->name}}</h5>
+                        <p>INR- {{$puja->puja_base_price}}/-</p>
+
+                    </a>
+                </div>
+                @endif
+                
+            @endforeach
+                
+                
                 <div class="item">
                   <div class="img-section">
                     <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
@@ -219,83 +260,7 @@ If you wish to have your online pooja at special holy places on the bank of rive
                   <h5>Akhand Ramayan (Musical)</h5>
                   <p>INR-2100/-</p>
                 </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
+
               </div>
               <div class="text-center">
                 <button type="button" class="btn btn-view-all">View All</button>
@@ -320,90 +285,23 @@ If you wish to have your online pooja at special holy places on the bank of rive
             <div class="pooja-details-section">
               <h3>Online Pooja</h3>
               <div class="inner-pooja-details">
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/imgod-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/imgod-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
-                <div class="item">
-                  <div class="img-section">
-                    <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                  </div>
-                  <h5>Akhand Ramayan (Musical)</h5>
-                  <p>INR-2100/-</p>
-                </div>
+               
+                
+               
+              @if(!empty($pujaList))
+                @foreach(@$pujaList as $puja)
+                    
+                    <div class="item">
+                        <a href="{{'puja-booking/'}}{{$puja->id}}">
+                            <div class="img-section">
+                                <img src="{{$puja->puja_id->image}}" class="img-fluid" alt="">
+                            </div>
+                            <h5>{{$puja->puja_id->name}}</h5>
+                            <p>INR-{{$puja->puja_base_price}}/-</p>
+                        </a>
+                    </div>
+                @endforeach
+                @endif
               </div>
               <div class="text-center">
                 <button type="button" class="btn btn-view-all">View All</button>
@@ -483,20 +381,7 @@ If you wish to have your online pooja at special holy places on the bank of rive
 <!-- ----------------------Book Pooja------------- -->
 <!-- <section id="Book-Pooja"><div class="container-fluid text-center p-0"><h2 id="h2">All Pooja’s</h2><div class="main"><div class="row">
                
-            @foreach(@$pujaList as $puja)
-                
-                @if($puja->puja_id->type == "Ghar pe puja")
-                <div class="column show ghar_pe_puja"><div class="content"><a href="{{url('puja-booking/')}}/{{$puja->id}}"><img src="{{ $puja->puja_id->image }}" alt="Mountains"
-                                style="width:100%"></a><a href="{{url('puja-booking/')}}/{{$puja->id}}"><h4>{{$puja->puja_id->name}}</h4></a><p>INR- {{$puja->puja_base_price}}/-</p></div></div>
-                @elseif($puja->puja_id->type  == "Online Puja")
-                <div class="column show online_puja"><div class="content"><a href="{{url('puja-booking/')}}/{{$puja->id}}"><img src="{{ $puja->puja_id->image }}" alt="Mountains"
-                                style="width:100%"></a><a href="{{url('puja-booking/')}}/{{$puja->id}}"><h4>{{$puja->puja_id->name}}</h4></a><p>INR- {{$puja->puja_base_price}}/-</p></div></div>
-                @elseif($puja->puja_id->type  =="On Request")
-                <div class="column show onrequest_puja"><div class="content"><a href="{{url('puja-booking/')}}/{{$puja->id}}"><img src="{{ $puja->puja_id->image }}" alt="Mountains"
-                                style="width:100%"></a><a href="{{url('puja-booking/')}}/{{$puja->id}}"><h4>{{$puja->puja_id->name}}</h4></a><p>INR- {{$puja->puja_base_price}}/-</p></div></div>
-                @endif
-                
-            @endforeach
+            
             </div></div></div><div class="text-center" id="view-btn"><button>View All</button></div></section> -->
 <script>
   function show() {

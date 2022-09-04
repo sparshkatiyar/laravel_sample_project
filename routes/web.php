@@ -27,6 +27,7 @@ Route::get('/puja-online', [App\Http\Controllers\PujaController::class, 'online'
 Route::get('/puja-request', [App\Http\Controllers\PujaController::class, 'onrequest'])->name('request');
 Route::get('/puja-booking/{id}', [App\Http\Controllers\PujaController::class, 'booking'])->name('booking');
 Route::get('/puja-all', [App\Http\Controllers\PujaController::class, 'AllPooja'])->name('puja.all');
+Route::get('/order-success', [App\Http\Controllers\UserController::class, 'order'])->name('order');
 
 
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index.pandit.registration');

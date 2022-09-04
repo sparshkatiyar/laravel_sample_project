@@ -348,45 +348,50 @@ class UserController extends Controller
             
             
         ]);  
-        $message  = "Your Order has been submited successfully"; 
-        $yi =Auth::guard('user')->user();
-            $orderList =  Booking::where('user_id',$yi->id)->orderBy('id', 'DESC')->paginate(2); 
-            foreach(@$orderList as $order){
-                
-                $order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-                $order->ecomm_puja_id->puja_id = Puja::find($order->ecomm_puja_id->puja_id);
-                // $order->puja_id = Puja::find($pujaDetails->puja_id);
-                
-            }
-            $orderListCompleted =  Booking::where('user_id',$yi->id)->where('booking_status',"3")->orderBy('id', 'DESC')->paginate(2); 
-            foreach(@$orderListCompleted as $order){
-                
-                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
-                // $order->puja_id = Puja::find($pujaDetails->puja_id);
-                
-            }
-
-            $orderListOngoing =  Booking::where('user_id',$yi->id)->where('booking_status',"1")->orderBy('id', 'DESC')->paginate(2); 
-            foreach(@$orderListOngoing as $order){
-                
-                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
-                // $order->puja_id = Puja::find($pujaDetails->puja_id);
-                
-            }
-            $orderListCanceled =  Booking::where('user_id',$yi->id)->where('booking_status',"4")->orderBy('id', 'DESC')->paginate(2); 
-            foreach(@$orderListCanceled as $order){
-                
-                @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-                @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);             
-            }
-             
-            return view('dashboard',compact('orderList','orderListCompleted','orderListOngoing','orderListCanceled','message'));
-        // return view('dashboard',compact('message'));
-        // return redirect('/dashboard')->with('message', 'Your Order has been submited successfully');     
+        
+        return redirect('order-success')->with('message', 'Your Order has been submited successfully');     
         // return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
     }
+    public function order(){
+        $message  = "Your Order has been submited successfully"; 
+        $yi =Auth::guard('user')->user();
+        $orderList =  Booking::where('user_id',$yi->id)->orderBy('id', 'DESC')->paginate(2); 
+        foreach(@$orderList as $order){
+            
+            $order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+            $order->ecomm_puja_id->puja_id = Puja::find($order->ecomm_puja_id->puja_id);
+            // $order->puja_id = Puja::find($pujaDetails->puja_id);
+            
+        }
+        $orderListCompleted =  Booking::where('user_id',$yi->id)->where('booking_status',"3")->orderBy('id', 'DESC')->paginate(2); 
+        foreach(@$orderListCompleted as $order){
+            
+            @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+            @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+            // $order->puja_id = Puja::find($pujaDetails->puja_id);
+            
+        }
+
+        $orderListOngoing =  Booking::where('user_id',$yi->id)->where('booking_status',"1")->orderBy('id', 'DESC')->paginate(2); 
+        foreach(@$orderListOngoing as $order){
+            
+            @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+            @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
+            // $order->puja_id = Puja::find($pujaDetails->puja_id);
+            
+        }
+        $orderListCanceled =  Booking::where('user_id',$yi->id)->where('booking_status',"4")->orderBy('id', 'DESC')->paginate(2); 
+        foreach(@$orderListCanceled as $order){
+            
+            @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
+            @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);             
+        }
+            
+        return view('dashboard',compact('orderList','orderListCompleted','orderListOngoing','orderListCanceled','message'));
+     
+   
+    }
+
 
     public function updateProfileDetails(Request $request) {
         $validator = [          
