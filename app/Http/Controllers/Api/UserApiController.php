@@ -532,16 +532,16 @@ class UserApiController extends Controller
     }
     
     public function sendMailTem(Request $request){
-        // $validator = [          
-        //     'email' => 'required',            
-        // ];
-        // $validation = Validator::make($request->all(),$validator);
-        // if($validation->fails()){
-        //     $response   =[
-        //         'message'   => $validation->errors($validation)->first(),
-        //     ];
-        //     return response()->json($response,400);
-        // }
+        $validator = [          
+            'email' => 'required',            
+        ];
+        $validation = Validator::make($request->all(),$validator);
+        if($validation->fails()){
+            $response   =[
+                'message'   => $validation->errors($validation)->first(),
+            ];
+            return response()->json($response,400);
+        }
 
         $email =  $request->email;
         $subject="Pooja Booking Confirm";

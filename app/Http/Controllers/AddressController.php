@@ -14,9 +14,10 @@ class AddressController extends Controller
     public function index()
     {
         $user_id =  $user =Auth::guard('user')->user(); 
+        $state_list =  $this->stateList();
         $userAddress = UserAddress::where('user_id',$user_id->id)->first();
         // dd($userAddress);
-        return view('address',compact('userAddress')); 
+        return view('address',compact('userAddress','state_list')); 
     }
 
     public function addAddress(Request $request) {
@@ -38,8 +39,11 @@ class AddressController extends Controller
             ];
             return response()->json($response,400);
         }
+
+        // dd($request->all());
         $user_id =  $user =Auth::guard('user')->user(); 
         $userAddress = UserAddress::where('user_id',$user_id->id)->first();
+        // dd($userAddress,$request->all());
         // $otpUser = User::where('mobile_number',$request->mobileNumber)->first();
         if($userAddress){
             $userAddress->contact_name =$request->get('contact_name');
@@ -48,7 +52,8 @@ class AddressController extends Controller
             $userAddress->locality_no= $request->get('locality_no');
             $userAddress->pincode=$request->get('pincode');
             $userAddress->address=$request->get('address');
-            $userAddress->city=$request->get('state');
+            $userAddress->state=$request->get('state');
+            $userAddress->city=$request->get('city');
             $userAddress->town=$request->get('town');
             if($userAddress->save()){
 
@@ -65,7 +70,7 @@ class AddressController extends Controller
                 'locality_no'       => $request->get('locality_no'),
                 'pincode'           => $request->get('pincode'),
                 'address'           => $request->get('address'),
-                'city'              => $request->get('address'),
+                'city'              => $request->get('city'),
                 'state'             => $request->get('state'),
                 'town'              => $request->get('town'),
             ]);  

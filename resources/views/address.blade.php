@@ -107,9 +107,18 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                     <div class="form-group">
                                     <select name="state" id="state" class="form-control">
-                                    <option selected><b>--Select State--</b> </option>
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <!-- <option selected><b>--Select State--</b> </option> -->
+                                        @foreach($state_list as $skey=>$svalue)
+                                            @if($skey == $userAddress->state)
+                                            <option value="{{$skey}}" selected>{{$svalue}}</option>
+                                            @else
+                                            <option value="{{$skey}}">{{$svalue}}</option>
+                                            @endif
+                                        
+                                        @endforeach
+                                    
+                                    
+                                    <!-- <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                     <option value="Assam">Assam</option>
                                     <option value="Bihar">Bihar</option>
@@ -143,7 +152,7 @@
                                     <option value="Tripura">Tripura</option>
                                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                                     <option value="Uttarakhand">Uttarakhand</option>
-                                    <option value="West Bengal">West Bengal</option>
+                                    <option value="West Bengal">West Bengal</option> -->
                                 </select>
                                     </div>
                                 </div>
