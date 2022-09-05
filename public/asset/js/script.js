@@ -54,8 +54,16 @@ $(document).on("click", function(event){
 $(document).on("click", function(event){  
   $('.remove-active').click(function() {
       $(".specialPooja-form").css({'display': 'none'});
+      $(".hide-resuest").css({'display': 'block'});
     });        
 });
+
+$(document).on("click", function(event){  
+  $('.ative-class').click(function() {
+      $(".hide-resuest").css({'display': 'none'});
+    });        
+});
+
 
 
 

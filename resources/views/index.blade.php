@@ -1340,9 +1340,9 @@
 
         </div>
 
-        <!-- <div class="text-center" id="view-btn">
+        <div class="text-center hide-resuest" id="view-btn">
             <button>View All</button>
-        </div> -->
+        </div>
 
     </section>
 
