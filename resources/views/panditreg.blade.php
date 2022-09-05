@@ -161,7 +161,7 @@
                             </div> -->
                             <div class="multiple-select1 multiple-selectin3" id="multiple-select3">
                                    <select id="seconadarySkill" multiple="multiple" name="skill_secondry[]" required="true">
-                                        @foreach($panditreg as $skill)
+                                        @foreach($second_skill as $skill)
                                         <option value="{{$skill}}">{{$skill}}</option>
                                         @endforeach
                                         
