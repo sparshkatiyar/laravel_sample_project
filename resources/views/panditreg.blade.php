@@ -121,7 +121,7 @@
                                         <option value="Puja-path Consultation">Puja-path Consultation</option>
                                         <option value="Gemstone consultation">Gemstone consultation</option>
                                         <option value="Puja Muhurat Consultation">Puja Muhurat Consultation</option>
-                                        <option value="Bhajan/Sandhya- Sangeetmay Path">Bhajan/Sandhya- Sangeetmay Path</option>
+                                        <option value="Bhajan/Sandhya- Sangeetmay Path">Bhajan/Sandhya- Sangeetmay Path </option>
                                     </select>
                                    </div>
                                 <!-- <div id="list1" class="dropdown-check-list" tabindex="100">
@@ -161,16 +161,10 @@
                             </div> -->
                             <div class="multiple-select1 multiple-selectin3" id="multiple-select3">
                                    <select id="seconadarySkill" multiple="multiple" name="skill_secondry[]" required="true">
-                                        <option value="Astrologers">Astrologers</option>
-                                        <option value="Birth Chart Analysis">Birth Chart Analysis</option>
-                                        <option value="Gemstone consultation">Gemstone consultation</option>
-                                        <option value="Vastu Consultation">Vastu Consultation</option>
-                                        <option value="Kundali Matching">Kundali Matching</option>
-                                        <option value="Marriage consultation">Marriage consultation</option>
-                                        <option value="Career and business advice ">Career and business advice </option>
-                                        <option value="Love and Relationship advice">Love and Relationship advice</option>
-                                        <option value="Health and Family issues advice">Health and Family issues advice</option>
-                                        <option value="Reiki healing">Reiki healing</option>
+                                        @foreach($panditreg as $skill)
+                                        <option value="{{$skill}}">{{$skill}}</option>
+                                        @endforeach
+                                        
                                     </select>
                                    </div>
                             </div>

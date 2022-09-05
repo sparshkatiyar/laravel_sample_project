@@ -11,7 +11,13 @@ class PanditController extends Controller
     //
     public function index()
     {
-        return view('panditreg');
+
+        $pandit_skill =  $this->panditSkill(1);
+        $astros_skill =  $this->panditSkill(2);
+        $motiva_skill =  $this->panditSkill(3);
+        $second_skill =  $this->panditSkill(4);
+        // dd($second_skill);
+        return view('panditreg',compact('pandit_skill','astros_skill','motiva_skill','second_skill'));
     }
 
     public function register(Request $request){

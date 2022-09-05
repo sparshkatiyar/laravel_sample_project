@@ -208,6 +208,61 @@ class Controller extends BaseController
         return $indian_all_states;
     }
 
+    public function panditSkill($type){
+        if($type == 1){
+            $skill_primary = array(
+                "Vedic Pooja-Path", 
+                "Karamkand Visheshgya",
+                "Kathavachak",
+                "Puja-path Consultation",
+                "Gemstone consultation",
+                "Puja Muhurat Consultation",
+                "Bhajan/Sandhya- Sangeetmay Path",
+            );
+            return $skill_primary;
+        }
+        elseif($type == 2){
+            $skill_primary = array(
+                "Vedic Astrology", 
+                "KP Astrology",
+                "Numerology",
+                "Tarot card reading",
+                "Lal Kitab",
+                "Nadi Astrology",
+                "Prasanna KundliReiki Healing",
+                "Palmistry",
+            );
+            return $skill_primary;
+        }
+        elseif($type == 3){
+            $skill_primary = array(
+                "Life Coach", 
+                "Spiritual Healer",
+                "Motivational Speaker",
+                "Individual Coaching",
+                "Leadership Speaker",
+                "Life Skills Training",
+                "Career Counselling",
+              
+            );
+            return $skill_primary;
+        }
+        elseif($type == 4){
+            $skill_secondary = array(
+                "Birth Chart Analysis", 
+                "Gemstone Consultation",
+                "Vastu Consultation",
+                "Kundali Matching",
+                "Marriage Consultation",
+                "Career and Business Advice",
+                "Love and Relationship Advice",
+                "Spiritual/Reiki healing",
+              
+            );
+            return $skill_secondary;
+        }
+    }
+
     public function sendMail($email,$subject,$details)
     {
         $details = [
