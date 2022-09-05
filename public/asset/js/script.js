@@ -51,6 +51,30 @@ $(document).on("click", function(event){
 });
 
 
+$(document).on("click", function(event){  
+  $('.remove-active').click(function() {
+      $(".specialPooja-form").css({'display': 'none'});
+    });        
+});
+
+
+
+// $(document).on("click", function(event){
+//   var $trigger = $(".ative-class");
+//   if($trigger !== event.target && !$trigger.has(event.target).length){
+//     $(this).find(".specialPooja-form").css({'display': 'block'});
+//   }            
+// });
+
+// $(document).ready(function() {
+//   alert("ho")
+//   $('.remove-active.active').click(function() {
+//   alert("hi");
+//   $(".specialPooja-form").css({'display': 'none'});
+// });
+// });
+
+
   
 
     $('#successModal').modal('show');

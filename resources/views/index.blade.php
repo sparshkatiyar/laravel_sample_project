@@ -1960,13 +1960,11 @@
 
 
     <script>
-        $('.ative-class').click(function() {
-            $(".specialPooja-form").css({'display', 'block'});
-        });
+ 
         
-        $('.remove-active').click(function() {
-            $(".specialPooja-form").css({'display', 'none'});
-        });
+       
+
+        
     </script>
     
    

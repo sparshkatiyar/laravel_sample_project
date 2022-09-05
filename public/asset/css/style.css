@@ -10154,7 +10154,7 @@ h1 {
 }
 
 .placeBtn {
-  height: 3em;
+  height: 46px;
   width: 25em;
   border: none;
   background-color: #FA941C;
@@ -10165,6 +10165,7 @@ h1 {
   text-align: center;
   padding-top: 10px;
   cursor: pointer;
+  line-height: 30px;
 }
 
 

@@ -39,10 +39,10 @@
                         <div class="num">
                             2
                         </div>
-                        <div>
+                        <div class="width-100">
                             <h5>Address &nbsp; <span><img src="right.png" alt="" width="20px"></span></h5>
                         </div>
-                        <button id="downBtn" onclick="f1()">Fill</button>
+                        <button id="" class="btn-same" onclick="f1()">Fill</button>
                     </div>
 
                     <!-- ---detail-form -->
@@ -111,11 +111,11 @@
                         <div class="num">
                             3
                         </div>
-                        <div>
+                        <div class="width-100">
                             <h5>Select Date and Time of Pooja &nbsp;<span><img src="{{asset('web/image/right.png')}}" alt="" width="20px"></span></h5>
                         
                         </div>
-                        <button id="downBtn" class="date-2"> Fill</button>
+                        <button id="" class="date-2 btn-same"> Fill</button>
                     </div>
                     <div class="">
                         <div class="form-menu">
@@ -133,10 +133,10 @@
                         <div class="num">
                             3
                         </div>
-                        <div>
+                        <div  class="width-100">
                             <h5>Order Summary &nbsp;<span></span></h5>
                         </div>
-                        <button id="downBtn"   onclick="f3()" style="border-radius: 0;width: 80px;"> View</button>
+                        <button id="" class="btn-same"  onclick="f3()"> View</button>
                     </div>
 
                     <!-- ---summary-detail-- -->
@@ -284,6 +284,11 @@
         function popshow(){
 
             $("#pop1").css({"display": "flex"});
+        }
+        function otpcls(){
+            $("#otp-popup").css({"display": "none"});
+            $("#pop1").css({"display": "none"});
+
         }
         // $("#clsindex").click(function(){
         //     $("#pop1").css({"display": "none"});;

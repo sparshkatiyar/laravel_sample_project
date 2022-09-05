@@ -599,6 +599,7 @@
 
 .inner-summary-detail .img-section img {
     max-width: 100%;
+    border-radius: 4px;
 }
 
 .inner-summary-detail .content-section h4 {
@@ -613,9 +614,10 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
-    color: #212121;
-    margin-bottom: 15px;
+    color: #212121 !important;
+    margin-bottom: 15px !important;
     position: relative;
+    margin-left: 0 !important;
 }
 
 .inner-summary-detail .content-section {
@@ -2102,4 +2104,19 @@ color: #5E5F63 !important;
     font-size: 16px;
     line-height: 29px;
     color: #5E5F63 !important;
+}
+.btn-same{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #109BAE;
+    border: 1px solid #109BAE;
+    border-radius: 10px;
+    padding: 10px;
+    height: auto;
+    width: 74px;
+    height: 41px;
+}
+.width-100 {
+    width: 100%;
 }
