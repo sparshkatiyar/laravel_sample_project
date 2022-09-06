@@ -318,7 +318,7 @@
                         </div>
                     </div>
                 
-                    <div class="tab-pane fade active show" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
             <div class="pooja-section">
               <div class="left-section">
                 <div class="img">

@@ -367,7 +367,8 @@
 
 
 <!-- Modal -->
-<!-- <div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
+@if(@$message)
+<div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       
@@ -375,11 +376,12 @@
         <div class="success-message">
         <img src="{{ asset('images/suceess-img.svg')}}" alt="#" class="img-fluid success-img" />
             <h3>Order Successful</h3>
-            <p>Your Order #1234 has successfully place</p>
+            <p>{{$message}}</p>
             <button type="button" data-bs-dismiss="modal">Thank You</button>
         </div>
       </div>
       
     </div>
   </div>
-</div> -->
+</div>
+@endif

@@ -167,6 +167,54 @@ class Controller extends BaseController
         }
     }
 
+    public function emailTemplate($type,$data){
+        if($type == 1){
+            return "Dear Customer
+            Thank you for booking puja at AstroPandit Om.
+            Pandit ji will be assigned and intimated to you shortly.
+            Radhe Radhe...
+            AstroPanditOm Team
+            ";
+        }
+        elseif($type==2){
+            return "(Customer Name) has booked (name of pooja) for (date and time of pooja) on (date of booking by devotee). Advance paid: Rs___, and Rs___ to be collected by Pandit ji.";
+        }
+        elseif($type==3){
+            return "Dear Customer, 
+            (Name of Pandit and mobile no.) is assigned for your pooja. 
+            Radhe Radhe…
+            AstroPanditOm Team
+            ";
+        }
+        elseif($type==4){
+            return "For pooja (name of pooja and pooja ID no) for (Customer name), (Name of Pandit) has been assigned. Date and time of Pooja are (date, time). Advance paid: Rs___, and Rs___ to be collected by Pandit ji after pooja.
+            Radhe Radhe…
+            AstroPanditOm Team            
+            ";
+        }
+        elseif($type==5){
+            return "name of pooja and pooja ID no) for (Customer name and mobile no.) on (Date and time of Pooja) at (address) to be done. Collect Rs__after puja. Samagri: (Details of Samagri to be picked up from website)
+            Radhe Radhe…
+            AstroPanditOm Team
+                        
+            ";
+        }
+        elseif($type==6){
+            return "For pooja (puja name and ID no) for (Customer name), (Name of Pandit) has been assigned for Online Pooja on (Date and time of pooja). Full amount of Rs___ has been collected. Google Meet (ID and Password)
+            Radhe Radhe…";
+        }
+        elseif($type==7){
+            return "(name of pooja and pooja ID no) for (Customer name and mobile no.) on (Date and time of Pooja) is to be done. Samagri: (Details of Samagri to be picked up from website). Google Meet (ID and Password). 
+            Radhe Radhe…
+            ";
+        }
+        elseif($type==8){
+            return "(name of pooja and pooja ID no) for (Customer name and mobile no.) on (Date and time of Pooja) is to be done. Samagri: (Details of Samagri to be picked up from website). Google Meet (ID and Password). 
+            Radhe Radhe…
+            ";
+        }
+    }
+    
     public function stateList(){
         $indian_all_states  = array (
             'AP' => 'Andhra Pradesh',

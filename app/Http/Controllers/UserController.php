@@ -358,40 +358,24 @@ class UserController extends Controller
     }
     public function order(){
         $message  = "Your Order has been submited successfully"; 
-        $yi =Auth::guard('user')->user();
-        $orderList =  Booking::where('user_id',$yi->id)->orderBy('id', 'DESC')->paginate(2); 
-        foreach(@$orderList as $order){
+        $user_id            =  Auth::guard('user')->user(); 
+        $userAddress        =  UserAddress::where('user_id',@$user_id->id)->first();
+        $price_order        =  Session::get('price_order');
+        $puja_category      =  Session::get('puja_category');
+        $puja_type          =  Session::get('puja_type');
+        $ecomm_puja_id      =  Session::get('ecomm_puja_id');
+        $user               =  Auth::guard('user')->user(); 
+        $tax                =  ($price_order *18)/100;
+        $adPay              =  ($price_order *40)/100;
+        $price_total        =  $price_order;       
+        @$pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
+        @$pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
+        $state_list = $this->stateList();
+        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress','adPay','state_list','message'));
+        
+        
             
-            $order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-            $order->ecomm_puja_id->puja_id = Puja::find($order->ecomm_puja_id->puja_id);
-            // $order->puja_id = Puja::find($pujaDetails->puja_id);
-            
-        }
-        $orderListCompleted =  Booking::where('user_id',$yi->id)->where('booking_status',"3")->orderBy('id', 'DESC')->paginate(2); 
-        foreach(@$orderListCompleted as $order){
-            
-            @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-            @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
-            // $order->puja_id = Puja::find($pujaDetails->puja_id);
-            
-        }
-
-        $orderListOngoing =  Booking::where('user_id',$yi->id)->where('booking_status',"1")->orderBy('id', 'DESC')->paginate(2); 
-        foreach(@$orderListOngoing as $order){
-            
-            @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-            @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);
-            // $order->puja_id = Puja::find($pujaDetails->puja_id);
-            
-        }
-        $orderListCanceled =  Booking::where('user_id',$yi->id)->where('booking_status',"4")->orderBy('id', 'DESC')->paginate(2); 
-        foreach(@$orderListCanceled as $order){
-            
-            @$order->ecomm_puja_id = PujaEcommerce::find($order->ecomm_puja_id);  
-            @$order->ecomm_puja_id->puja_id = Puja::find(@$order->ecomm_puja_id->puja_id);             
-        }
-            
-        return view('dashboard',compact('orderList','orderListCompleted','orderListOngoing','orderListCanceled','message'));
+        // return view('delivery',compact('message'));
      
    
     }
