@@ -149,6 +149,7 @@
                         <div class="content-section">
                         <h4>{{ @$pujaDetails->puja_id->name}}</h4>
                         <!-- <p><span>Pooja Date :</span>   22 March 2022</p> -->
+                        
                         <p><span> Catogary :</span>     {{ @$pujaDetails->puja_id->type}} 
                         <strong>&#x20b9 {{$price_order}}</strong>
                     </p>

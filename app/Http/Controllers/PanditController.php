@@ -102,4 +102,20 @@ class PanditController extends Controller
         $pandit->save();
         return redirect('/')->with('success','Your registration is successful !!');
     }
+
+    public function panditskills(Request $request)
+    {
+        $input_data = $request->all();
+        if($input_data){
+            $skill_data = \DB::table('pandit_skilss')->whereIn('type',$input_data['regtype'])->get();
+            if(!empty($skill_data) && count($skill_data)>0){
+                
+            foreach ($skill_data as $obj){
+               echo '<option value="'.$obj->id.'" >'.$obj->skill.'</option>';
+            }
+            
+            }
+            
+        }
+    }
 }

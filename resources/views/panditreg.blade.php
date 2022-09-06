@@ -97,7 +97,7 @@
         
                                     </ul> -->
                                    <div class="multiple-select1 multiple-selectin1" id="multiple-select1">
-                                   <select id="example-getting-started" name="reg_as[]" multiple="multiple" required="true">
+                                   <select id="example-getting-started" name="reg_as[]" multiple="multiple" required="true" onchange="getpandit(this)">
                                         <option value="Pandit Ji">Pandit Ji</option>
                                         <option value="Astrologers">Astrologers</option>
                                         <option value="Motivational Guide">Motivational Guide </option>
@@ -112,16 +112,32 @@
                             <div class="form-group">
                                 <label>Primary Skill*</label><br>
 
-                                <div class="multiple-select1 multiple-selectin2" id="multiple-select2">
-                                   <select id="primarySkill" multiple="multiple" name="skill_primary[]" required="true">
-                                        <option value="Vedic">Vedic</option>
-                                        <option value="Vedic Puja-path">Vedic Puja-path</option>
-                                        <option value="Karamkand visheshgya">Karamkand visheshgya</option>
-                                        <option value="Kathavachak">Kathavachak</option>
-                                        <option value="Puja-path Consultation">Puja-path Consultation</option>
-                                        <option value="Gemstone consultation">Gemstone consultation</option>
-                                        <option value="Puja Muhurat Consultation">Puja Muhurat Consultation</option>
-                                        <option value="Bhajan/Sandhya- Sangeetmay Path">Bhajan/Sandhya- Sangeetmay Path </option>
+                                <div class="multiple-select1 multiple-selectin2" id="multiple-select2" >
+                                   <select id="primarySkill" multiple="multiple" name="skill_primary[]" required="true" >
+                                       
+                                    </select>
+                                   </div>
+                                   <div class="multiple-select1 multiple-selectin-astro" id="astro-select2" style="display:none;">
+                                   <select id="astroSkill" multiple="multiple" name="skill_primary[]" required="true">
+                                        <option value="Vedic Astrology">Vedic Astrology</option>
+                                        <option value="KP Astrology">KP Astrology</option>
+                                        <option value="Numerology">Numerology</option>
+                                        <option value="Tarot card reading">Tarot card reading</option>
+                                        <option value="Lal Kitab">Lal Kitab</option>
+                                        <option value="Nadi Astrology">Nadi Astrology</option>
+                                        <option value="Prasanna KundliReiki Healing">Prasanna KundliReiki Healing</option>
+                                        <option value="Palmistry">Palmistry</option>
+                                    </select>
+                                   </div>
+                                   <div class="multiple-select1 multiple-selectin2" id="motivation-select2" style="display:none;">
+                                   <select id="motivationSkill" multiple="multiple" name="skill_primary[]" required="true">
+                                        <option value="Life Coach">Life Coach</option>
+                                        <option value="Spiritual Healer">Spiritual Healer</option>
+                                        <option value="Motivational Speaker">Motivational Speaker</option>
+                                        <option value="Individual Coaching">Individual Coaching</option>
+                                        <option value="Leadership Speaker">Leadership Speaker</option>
+                                        <option value="Life Skills Training">Life Skills Training</option>
+                                        <option value="Career Counselling">Career Counselling</option>
                                     </select>
                                    </div>
                                 <!-- <div id="list1" class="dropdown-check-list" tabindex="100">
@@ -315,6 +331,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
     <script>
+        
     $(document).ready(function () {
     $('#create-pandit').validate({ // initialize the plugin
 
@@ -415,10 +432,51 @@
 	{
         document.getElementById('pandit-pic').src = window.URL.createObjectURL(img.files[0]);
     }
-    </script>
+    function getpandit(sel) 
+        {
+            type=[];
+            var type=$(sel).val();
+            
+            // if(type=='Pandit Ji')
+            // {
+            //     $('#multiple-select2').show();
+            //     $('#astro-select2').hide();
+            //     $('#motivation-select2').hide();
+            // }else if(type=='Astrologers')
+            // {
+            //     $('#multiple-select2').hide();
+            //     $('#astro-select2').show();
+            //     $('#motivation-select2').hide();
+            // }else if(type=='Motivational Guide')
+            // {
+            //     $('#multiple-select2').hide();
+            //     $('#astro-select2').hide();
+            //     $('#motivation-select2').show();
+            // }
+        
+console.log(type);
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+// alert(price_order)
+
+// var ecomm_puja_id = 6;          
+$.ajax({
+    url: "{{url('panditskills')}}",
+    type: "POST",
+    data: {regtype:type},
+    success: function(response) {
+       $('#primarySkill').html(response);
+    }
+});
+}
+</script>
+    
 
 
-    @include('layouts.footer')
+@include('layouts.footer')
 
 
   

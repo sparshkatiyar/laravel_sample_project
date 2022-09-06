@@ -94,7 +94,7 @@
                                                     <div class="col col5">
                                                         <!-- <img src="right.png" alt="right" width="10px"> -->
                                                         <p class="delivery-date">Delivery Date
-                                                            {{$orderDetails->deliver_date}}</p>
+                                                            {{date('d-m-Y h:m A',strtotime($orderDetails->deliver_date))}}</p>
                                                     </div>
                                                     <div class="col col6">
                                                         <p class="text-pooja">Lorem ipsum dolor sit tetur </p>

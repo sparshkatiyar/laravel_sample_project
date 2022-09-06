@@ -12,6 +12,14 @@
       $(this).find(".multiselect-container").toggleClass( "active" );
     
     });
+    $('#astro-select2').on('click', function(e){
+      $(this).find(".multiselect-container").toggleClass( "active" );
+    
+    });
+    $('#motivation-select2').on('click', function(e){
+      $(this).find(".multiselect-container").toggleClass( "active" );
+    
+    });
     $('#multiple-select3').on('click', function(e){
       $(this).find(".multiselect-container").toggleClass( "active" );
     
@@ -33,6 +41,18 @@
       $(this).find(".multiple-selectin2 .multiselect-container").removeClass( "active" )
     }            
 });
+$(document).on("click", function(event){
+  var $trigger = $("#astro-select2");
+  if($trigger !== event.target && !$trigger.has(event.target).length){
+    $(this).find(".multiple-selectin2 .multiselect-container-astro").removeClass( "active" )
+  }            
+});
+// $(document).on("click", function(event){
+//   var $trigger = $("#motivation-select2");
+//   if($trigger !== event.target && !$trigger.has(event.target).length){
+//     $(this).find(".multiple-selectin2 .multiselect-container").removeClass( "active" )
+//   }            
+// });
 
 $(document).on("click", function(event){
   var $trigger = $("#multiple-select3");

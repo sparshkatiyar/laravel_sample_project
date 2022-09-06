@@ -259,6 +259,10 @@ class UserController extends Controller
         $puja_type          =  Session::get('puja_type');
         $ecomm_puja_id      =  Session::get('ecomm_puja_id');
         $user =  $user =Auth::guard('user')->user(); 
+       
+        $pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
+        $pujaDetails->puja_id = Puja::find($pujaDetails->puja_id); 
+        $puja_category      =  $pujaDetails->puja_id->category; 
         $userAddress = UserAddress::where('user_id',$user->id)->first();
         $address_id = @$userAddress->id;
         $validation = Validator::make($request->all(),$validator);

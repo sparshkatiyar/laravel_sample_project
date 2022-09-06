@@ -32,6 +32,7 @@ Route::get('/order-success', [App\Http\Controllers\UserController::class, 'order
 
 Route::get('/pandit-registration', [App\Http\Controllers\PanditController::class, 'index'])->name('index.pandit.registration');
 Route::post('/pandit-registration', [App\Http\Controllers\PanditController::class, 'register'])->name('register');
+Route::any('/panditskills', [App\Http\Controllers\PanditController::class, 'panditskills'])->name('panditskills');
 Route::get('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
 Route::post('/otp_verify', [App\Http\Controllers\UserController::class, 'otp_verify'])->name('otp_verify');

@@ -27,7 +27,7 @@ Route::get('/documentations', function(){
 });
 Route::group(['namespace' => 'API'], function () {
     Route::get('home',[UserApiController::class,'home']);
-    Route::post('send_mail',[UserApiController::class,'sendMailTem']);
+    Route::any('send_mail',[UserApiController::class,'sendMailTem']);
     // User API Routes
     
     Route::post('pandit/pandit_registration',[PanditApiController::class,'register']);
