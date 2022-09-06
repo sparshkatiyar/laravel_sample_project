@@ -321,8 +321,18 @@ class UserController extends Controller
         $objOwner->collect_price =$price_order;
         $objOwner->advanced_paid ="0";
         $objOwner->today =date('Y-m-d H:i:s');
-        // $mailReulst = $this->sendMail("pkworkout11@gmail.com");
-    
+        $mailData =null;
+        $mailInfo = $this->emailTemplate(1,$mailData);
+        $email =  "pkworkout11@gmail.com";
+        $subject="Pooja Booking Confirm";
+        $details='<!DOCTYPE html>
+        <html>
+        <body>
+        '.$mailInfo.'
+        <p>Astro Pandit</p>
+        </body>
+        </html>';
+        // $mailReulst = $this->sendMail($email,$subject,$details);
         $umsg = $this->smsToUser($utype,$objUser);
         $omsg = $this->smsToOwner($otype,$objOwner);
         // dd($omsg,$user->mobile_number,$user->country_code)   ;
