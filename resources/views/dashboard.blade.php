@@ -115,7 +115,12 @@
                                                 </div>
                                             </div>
                                             @endforeach
-                                            <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                            @if(!empty($orderList) && count($orderList)>0)
+                                            <div class="pagination">
+                                            {{ $orderList->render('pagination::bootstrap-4') }}
+                                            @endif
+                                    </div>
+                                            
                                             
                                         </div>
                                     </div>
@@ -171,7 +176,8 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                        <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                        
+                                        
                                     </div>
                                     <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
 
@@ -225,7 +231,8 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                        <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                       
+                                        
                                     </div>
                                     <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
                                         @foreach($orderListOngoing as $orderDetails)
@@ -278,7 +285,7 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                            <!-- {!! $orderList->appends(['sort' => 'id'])->links() !!} -->
+                                           
                                     </div>
                                 </div>
                             </div>

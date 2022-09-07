@@ -236,21 +236,22 @@ class UserController extends Controller
     }  
 
     public function bookingPlaced(Request $request) {
-        $validator = [   
-            // 'user_id'       =>'required|min:2',
-            // 'ecomm_puja_id' =>'required|min:1',
-            // 'address_id'    =>'required|min:1',
-            // 'payment_id'    =>'required|min:1',            
-            // 'puja_type'     =>'required|min:1',
-            // 'puja_category' =>'required|min:1',
-            // 'price_order'   =>'required|min:1',
-            'price_tax'     =>'required|min:1',
-            'price_coupan'  =>'required|min:1',
+        // $validator = [   
+        //     // 'user_id'       =>'required|min:2',
+        //     // 'ecomm_puja_id' =>'required|min:1',
+        //     // 'address_id'    =>'required|min:1',
+        //     // 'payment_id'    =>'required|min:1',            
+        //     // 'puja_type'     =>'required|min:1',
+        //     // 'puja_category' =>'required|min:1',
+        //     // 'price_order'   =>'required|min:1',
+        //     'price_tax'     =>'required|min:1',
+        //     'price_coupan'  =>'required|min:1',
          
-            'delivery_time'     =>'required|min:1',
-            'delivery_date'      =>'required|min:2',   
+        //     'delivery_time'     =>'required|min:1',
+        //     'delivery_date'      =>'required|min:2',   
            
-        ];
+        // ];
+        
         $deliveryDate = $request->get('delivery_date'). ",".$request->get('delivery_time');
         $payment_id = rand()."".rand();
         $price_order        = $request->finalprice;
@@ -265,21 +266,24 @@ class UserController extends Controller
         $puja_category      =  $pujaDetails->puja_id->category; 
         $userAddress = UserAddress::where('user_id',$user->id)->first();
         $address_id = @$userAddress->id;
-        $validation = Validator::make($request->all(),$validator);
-        if($validation->fails()){
-            $response   =[
-                'message'   => $validation->errors($validation)->first(),
-            ];
-            return response()->json($response,400);
-        }
+        // $validation = Validator::make($request->all(),$validator);
+        // if($validation->fails()){
+        //     $response   =[
+        //         'message'   => $validation->errors($validation)->first(),
+        //     ];
+        //     return response()->json($response,400);
+        // }
         if(!$userAddress){
-            return response()->json(['message'=>'Invalid Address id'],400); 
+            return 1;
+            // return response()->json(['message'=>'Invalid Address id'],400); 
         }
         if(!$puja_type || !$puja_type=="undefined"){
-            return response()->json(['message'=>'Invalid puja type id'],400); 
+            return 2;
+            // return response()->json(['message'=>'Invalid puja type id'],400); 
         }
         if(!$puja_category || $puja_category == "undefined"){
-            return response()->json(['message'=>'Invalid puja category id'],400); 
+            return 3;
+            // return response()->json(['message'=>'Invalid puja category id'],400); 
         }
         $url = "https://test.payu.in/_payment";  
         $data = "key=JP***g&txnid=TwSScNDppDAkri&amount=10.00&firstname=PayU User&email=test@gmail.com&phone=9876543210&productinfo=iPhone&pg=&bankcode=&surl=https://apiplayground-response.herokuapp.com/&furl=https://apiplayground-response.herokuapp.com/&ccnum=&ccexpmon=&ccexpyr=&ccvv=&ccname=&txn_s2s_flow=&hash=1b5b8ab56e7f0026e66c25bdf545bd5b855cdbb82cd31f0a35e8dea883c238e18a0262660c7bbd0f78b8f9dd06a33252ba17d91201540121df69ba7614780ed4";
@@ -320,25 +324,52 @@ class UserController extends Controller
         $objOwner->delivery = $deliveryDate;
         $objOwner->collect_price =$price_order;
         $objOwner->advanced_paid ="0";
-        $objOwner->today =date('Y-m-d H:i:s');
+        $objOwner->today =date('d-m-Y');
         $mailData =null;
-        $mailInfo = $this->emailTemplate(1,$mailData);
-        $email =  "pkworkout11@gmail.com";
+        $mailDataowner =null;
+        $mailInfouser = $this->emailTemplate(1,$mailData);
+        $mailInfoowner = $this->emailTemplate(2,$objOwner);
+        $email =  "jyotichoudhary332@gmail.com";
+        $emailowner =  "sales.delphinium@gmail.com";
         $subject="Pooja Booking Confirm";
         $details='<!DOCTYPE html>
         <html>
         <body>
-        '.$mailInfo.'
+        '.$mailInfouser.'
+        <p>Astro Pandit</p>
+        </body>
+        </html>';
+        $details='<!DOCTYPE html>
+        <html>
+        <body>
+        '.$mailInfouser.'
+        <p>Astro Pandit</p>
+        </body>
+        </html>';
+        $details='<!DOCTYPE html>
+        <html>
+        <body>
+        '.$mailInfouser.'
+        <p>Astro Pandit</p>
+        </body>
+        </html>';
+        $detailsowner='<!DOCTYPE html>
+        <html>
+        <body>
+        '.$mailInfoowner.'
         <p>Astro Pandit</p>
         </body>
         </html>';
         // $mailReulst = $this->sendMail($email,$subject,$details);
+        $mailReulst = $this->sendMail($email,$subject,$details);
+        $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
         $umsg = $this->smsToUser($utype,$objUser);
         $omsg = $this->smsToOwner($otype,$objOwner);
         // dd($omsg,$user->mobile_number,$user->country_code)   ;
 
         $smr = $this->sendSMS($umsg,$user->mobile_number,$user->country_code);
-        $smr = $this->sendSMS($omsg,"88106 40406","+91");
+        // $smr = $this->sendSMS($omsg,"88106 40406","+91");
+        $smr = $this->sendSMS($omsg,"9326176585","+91");
 
         $bookingid ="AS". strtoupper($unique)."TR0".now()->timestamp;
         $userBooking = Booking::create([
@@ -363,8 +394,8 @@ class UserController extends Controller
             
         ]);  
         
-        return redirect('order-success')->with('message', 'Your Order has been submited successfully');     
-        // return response()->json(['message'=>'Booking successfully.','data'=>$userBooking],200); 
+        // return redirect('order-success')->with('message', 'Your Order has been submited successfully');     
+        return response()->json(['message'=>'Booking successfully.'],200); 
     }
     public function order(){
         $message  = "Your Order has been submited successfully"; 

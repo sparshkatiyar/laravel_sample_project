@@ -23,7 +23,7 @@
                     <div id="loginNumber">{{@$user->country_code}} {{@$user->mobile_number}}</div>
                    
                     @if(Auth::guard('user')->user())
-                    <a href="{{url('/address')}}">
+                    <a href="javascript:void" onclick="popshow()">
                         <button class="changeNumber" >change</button>
 
                     </a>
@@ -47,13 +47,13 @@
 
                     <!-- ---detail-form -->
                     <div class="detail-form">
-                        <form action="{{url('save-address/')}}" method="post">
+                        <form action="{{url('save-address/')}}" method="post" id="address-form">
                             @csrf
                             <div class="contact">
                                 <label for="">Contact Details :</label>
                                 <div class="form-menu">
                                     <input type="text" value="{{@@$userAddress->contact_name}}" name="contact_name" placeholder="Name*">
-                                    <input type="text" value="{{@@$userAddress->contact_no}}" name="contact_no" placeholder="Mobile No*">
+                                    <input type="text" value="{{@@$userAddress->contact_no}}" name="contact_no" placeholder="Alternate Mobile No*">
                                 </div>
                             </div>
                             <!--  -->
@@ -169,7 +169,7 @@
                
             </div>
             <!-- ----------------------------------------------------------------------------------------- -->
-            <form action="{{url('/booking-placed')}}" method="post">
+            <form action="{{url('/booking-placed')}}" method="post" id="boooking-place">
                 @csrf
                 <div class="price-detail">
                     <div class="detail">
@@ -214,7 +214,8 @@
                     <input type="text" name="delivery_date" id="ddate" hidden>
                     <input type="text" name="delivery_time" id="dtime" hidden>
                     @if(Auth::guard('user')->user())
-                    <button id="placeBtn" type="submit" data-bs-toggle="modal" data-bs-target="#successModal" value="submit">Book Pooja</button>
+                    
+                    <span class="placeBtn" onclick="openmodal()">Book Pooja</span>
                     @else
           
                     <span class="placeBtn" onclick="popshow()">Book Pooja</span>
@@ -235,13 +236,30 @@
 
     <!-- ------rights bootm bar----- -->
 
-
+<!-- Modal -->
+<div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <div class="success-message">
+        <img src="{{ asset('images/suceess-img.svg')}}" alt="#" class="img-fluid success-img" />
+            <h3>Order Successful</h3>
+            <p>Your Order has been submited successfully</p>
+            <button type="button" data-bs-dismiss="modal" onclick="ordersuccess()">Thank You</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 
 
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -283,13 +301,56 @@
             $("#pop1").css({"display": "none"});
         }
         function popshow(){
-
             $("#pop1").css({"display": "flex"});
+
+        }
+        function openmodal()
+        {
+            var bookingform=new FormData($("#boooking-place")[0]);
+            if($('#ddate').val()=='' && $('#dtime').val()=='')
+            {
+                swal('Please select date and time');
+                return false;
+            }else
+            {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{url('booking-placed')}}",
+                    type: "POST",
+                    dataType: 'json',
+                    data: bookingform,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // var data = JSON.parse(response);
+                        if(response==1)
+                        {
+                            swal('Please fill address form');
+                        }else
+                        {
+                            $('#successModal').modal('show');
+                        }
+                        
+                    }
+                });
+               
+                
+            }
+            
         }
         function otpcls(){
             $("#otp-popup").css({"display": "none"});
             $("#pop1").css({"display": "none"});
 
+        }
+
+        function ordersuccess()
+        {
+            window.location.href = "{{route('user.index')}}";
         }
         // $("#clsindex").click(function(){
         //     $("#pop1").css({"display": "none"});;
@@ -359,6 +420,8 @@
     // alert(maxDate);
     $('#delivery_date').attr('min', maxDate);
 });
+
+
         </script>
 
 @include('layouts.footer')
@@ -366,22 +429,3 @@
 
 
 
-<!-- Modal -->
-@if(@$message)
-<div class="modal fade success-message" id="successModal" tabindex="-1" aria-labelledby="successModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      
-      <div class="modal-body">
-        <div class="success-message">
-        <img src="{{ asset('images/suceess-img.svg')}}" alt="#" class="img-fluid success-img" />
-            <h3>Order Successful</h3>
-            <p>{{$message}}</p>
-            <button type="button" data-bs-dismiss="modal">Thank You</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
-@endif

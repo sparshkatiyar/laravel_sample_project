@@ -105,7 +105,6 @@ $(document).on("click", function(event){
 
   
 
-    $('#successModal').modal('show');
    
 });
 

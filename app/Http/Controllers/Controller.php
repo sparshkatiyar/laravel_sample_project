@@ -169,15 +169,15 @@ class Controller extends BaseController
 
     public function emailTemplate($type,$data){
         if($type == 1){
-            return "Dear Customer
-            Thank you for booking puja at AstroPandit Om.
-            Pandit ji will be assigned and intimated to you shortly.
-            Radhe Radhe...
-            AstroPanditOm Team
+            return "<p>Dear Customer</p>
+            <p>Thank you for booking puja at AstroPandit Om.</p>
+            <p>Pandit ji will be assigned and intimated to you shortly.</p>
+            <p>Radhe Radhe...</p>
+            <p>AstroPanditOm Team</p>
             ";
         }
         elseif($type==2){
-            return "(Customer Name) has booked (name of pooja) for (date and time of pooja) on (date of booking by devotee). Advance paid: Rs___, and Rs___ to be collected by Pandit ji.";
+            return '<p>'.$data->user_name." has booked '.$data->puja_name.' for '.$data->delivery. 'on '.$data->today.'. Advance paid: Rs'.$data->advanced_paid.', and Rs'.$data->collect_price.' to be collected by Pandit ji.";
         }
         elseif($type==3){
             return "Dear Customer, 
