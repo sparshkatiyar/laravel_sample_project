@@ -114,10 +114,18 @@
 
                                 <div class="multiple-select1 multiple-selectin2" id="multiple-select2" >
                                    <select id="primarySkill" multiple="multiple" name="skill_primary[]" required="true" >
-                                       
+                                        @foreach($pandit_skill as $skill)
+                                        <option class="ppandit" value="{{$skill}}">{{$skill}}</option>
+                                        @endforeach
+                                        @foreach($astros_skill as $skill)
+                                        <option class="pastro"  value="{{$skill}}">{{$skill}}</option>
+                                        @endforeach
+                                        @foreach($motiva_skill as $skill)
+                                        <option class="motiva" value="{{$skill}}">{{$skill}}</option>
+                                        @endforeach
                                     </select>
                                    </div>
-                                   <div class="multiple-select1 multiple-selectin-astro" id="astro-select2" style="display:none;">
+                                   <!-- <div class="multiple-select1 multiple-selectin-astro" id="astro-select2" style="display:none;">
                                    <select id="astroSkill" multiple="multiple" name="skill_primary[]" required="true">
                                         <option value="Vedic Astrology">Vedic Astrology</option>
                                         <option value="KP Astrology">KP Astrology</option>
@@ -128,8 +136,8 @@
                                         <option value="Prasanna KundliReiki Healing">Prasanna KundliReiki Healing</option>
                                         <option value="Palmistry">Palmistry</option>
                                     </select>
-                                   </div>
-                                   <div class="multiple-select1 multiple-selectin2" id="motivation-select2" style="display:none;">
+                                   </div> -->
+                                   <!-- <div class="multiple-select1 multiple-selectin2" id="motivation-select2" style="display:none;">
                                    <select id="motivationSkill" multiple="multiple" name="skill_primary[]" required="true">
                                         <option value="Life Coach">Life Coach</option>
                                         <option value="Spiritual Healer">Spiritual Healer</option>
@@ -139,7 +147,7 @@
                                         <option value="Life Skills Training">Life Skills Training</option>
                                         <option value="Career Counselling">Career Counselling</option>
                                     </select>
-                                   </div>
+                                   </div> -->
                                 <!-- <div id="list1" class="dropdown-check-list" tabindex="100">
                                     <span class="anchor"></span>
                                     <ul class="items" >
