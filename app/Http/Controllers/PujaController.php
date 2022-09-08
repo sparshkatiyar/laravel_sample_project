@@ -91,7 +91,25 @@ class PujaController extends Controller
         @$pujaDetails = PujaEcommerce::find($ecomm_puja_id);  
         @$pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
         $state_list = $this->stateList();
-        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress','adPay','state_list'));
+        $MERCHANT_KEY = "HBxc80";
+        $SALT = "yauHLEFqtr8L4KD4eeqEWpP0YHccAGS4";
+        $txnidn="astro_".rand()."".rand();
+        $name="pk";
+        $email="pkworkout@gmail.com";
+        $amount=100;
+        $phone="7992215707";
+        $surl="http://localhost/cake/my_app_name/view/sucess";
+        $furl="http://localhost/cake/my_app_name/view/failure";
+        $productInfo="xyzabc";
+
+        // Merchant Salt as provided by Payu
+
+        $hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
+        $hashString=$MERCHANT_KEY."|".$txnidn."|".$amount."|".$productInfo."|".$name."|".$email."|||||||||||".$SALT;
+   
+        $hash = strtolower(hash('sha512', $hashString));
+        // dd($hash);
+        return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress','adPay','state_list', 'MERCHANT_KEY','SALT','txnidn','name','email','amount','surl','furl'));
     }
     public function deliveryForLogin(Request $request)
     {

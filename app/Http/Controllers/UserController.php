@@ -285,30 +285,7 @@ class UserController extends Controller
             return 3;
             // return response()->json(['message'=>'Invalid puja category id'],400); 
         }
-        $url = "https://test.payu.in/_payment";  
-        $data = "key=JP***g&txnid=TwSScNDppDAkri&amount=10.00&firstname=PayU User&email=test@gmail.com&phone=9876543210&productinfo=iPhone&pg=&bankcode=&surl=https://apiplayground-response.herokuapp.com/&furl=https://apiplayground-response.herokuapp.com/&ccnum=&ccexpmon=&ccexpyr=&ccvv=&ccname=&txn_s2s_flow=&hash=1b5b8ab56e7f0026e66c25bdf545bd5b855cdbb82cd31f0a35e8dea883c238e18a0262660c7bbd0f78b8f9dd06a33252ba17d91201540121df69ba7614780ed4";
-        $headers = array( "Content-Type: application/x-www-form-urlencoded", ); 
-        // $response = Curl::to($url)
-
-        // ->withData([
-        //     'CURLOPT_URL'=>$url,
-        //     'CURLOPT_POST'=>true,
-        //     'CURLOPT_HTTPHEADER'=>$headers,
-        //     'CURLOPT_RETURNTRANSFER'=>true,
-        //     'CURLOPT_POSTFIELDS'=>$data
-        // ])
-
-        // ->post();
-       
-        $response = Http::withOptions([
-            'CURLOPT_URL'=>$url,
-            'CURLOPT_POST'=>true,
-            'CURLOPT_HTTPHEADER'=>$headers,
-            'CURLOPT_RETURNTRANSFER'=>true,
-            'CURLOPT_POSTFIELDS'=>$data
-        ])
-        ->post($url);
-        // dd($response);  
+        
         $puja_id     = PujaEcommerce::find($ecomm_puja_id);
         $pujainfo     = Puja::find($puja_id)->first();  
         $user_id = $user->id; 
@@ -361,8 +338,8 @@ class UserController extends Controller
         </body>
         </html>';
         // $mailReulst = $this->sendMail($email,$subject,$details);
-        $mailReulst = $this->sendMail($email,$subject,$details);
-        $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
+            // $mailReulst = $this->sendMail($email,$subject,$details);
+            // $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
         $umsg = $this->smsToUser($utype,$objUser);
         $omsg = $this->smsToOwner($otype,$objOwner);
         // dd($omsg,$user->mobile_number,$user->country_code)   ;
