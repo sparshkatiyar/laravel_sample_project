@@ -15,6 +15,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "lykegenes/laravel-countries": "^2.0",
         "twilio/sdk": "^6.40",
         "tymon/jwt-auth": "^1.0"
     },

@@ -39,6 +39,7 @@ Route::post('/otp_verify', [App\Http\Controllers\UserController::class, 'otp_ver
 Route::get('/puja-delivery', [App\Http\Controllers\PujaController::class, 'delivery'])->name('delivery');
 Route::post('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryProcced');
 Route::post('/puja-delivery-login', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryForLogin');
+Route::post('/edit-user-profile', [App\Http\Controllers\ProfileController::class, 'UpdateUserProfile'])->name('user.profile');
 Route::post('horroscope',[UserApiController::class,'horroscope']);
 Route::post('onrequest-puja',[App\Http\Controllers\BookingController::class,'create']);
 Route::group(['middleware' => 'user-auth'],function(){
@@ -46,6 +47,7 @@ Route::group(['middleware' => 'user-auth'],function(){
 	Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('index');
 	Route::get('/address', [App\Http\Controllers\AddressController::class, 'index'])->name('index');
 	Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('index');
+	Route::get('/add_country', [App\Http\Controllers\ProfileController::class, 'add_country'])->name('add_country');
 	Route::post('/save-address', [App\Http\Controllers\AddressController::class, 'addAddress'])->name('addAddress');
 	Route::post('/add-balance', [App\Http\Controllers\WalletController::class, 'addWalletBalance'])->name('addWalletBalance');
 	Route::post('/booking-placed', [App\Http\Controllers\UserController::class, 'bookingPlaced'])->name('addWalletBalance');

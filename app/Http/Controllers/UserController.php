@@ -329,7 +329,8 @@ class UserController extends Controller
         $mailDataowner =null;
         $mailInfouser = $this->emailTemplate(1,$mailData);
         $mailInfoowner = $this->emailTemplate(2,$objOwner);
-        $email =  "jyotichoudhary332@gmail.com";
+        $useremail=Auth::user()->email;
+        $email =  !empty($useremail) ? $useremail : 'astropanditom@gmail.com';
         $emailowner =  "sales.delphinium@gmail.com";
         $subject="Pooja Booking Confirm";
         $details='<!DOCTYPE html>
@@ -361,13 +362,13 @@ class UserController extends Controller
         </body>
         </html>';
         // $mailReulst = $this->sendMail($email,$subject,$details);
-        $mailReulst = $this->sendMail($email,$subject,$details);
+        $mailReulstuser = $this->sendMail($email,$subject,$details);
         $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
         $umsg = $this->smsToUser($utype,$objUser);
         $omsg = $this->smsToOwner($otype,$objOwner);
+        
         // dd($omsg,$user->mobile_number,$user->country_code)   ;
-
-        $smr = $this->sendSMS($umsg,$user->mobile_number,$user->country_code);
+        $smruser = $this->sendSMS($umsg,$user->mobile_number,$user->country_code);
         // $smr = $this->sendSMS($omsg,"88106 40406","+91");
         $smr = $this->sendSMS($omsg,"9326176585","+91");
 
@@ -413,12 +414,8 @@ class UserController extends Controller
         @$pujaDetails->puja_id = Puja::find($pujaDetails->puja_id);
         $state_list = $this->stateList();
         return view('delivery',compact('user','price_order','puja_type','ecomm_puja_id','price_total','tax','pujaDetails','userAddress','adPay','state_list','message'));
-        
-        
             
         // return view('delivery',compact('message'));
-     
-   
     }
 
 

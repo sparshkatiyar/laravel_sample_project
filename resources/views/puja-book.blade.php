@@ -326,7 +326,6 @@
                                     <input type="radio" name="grand_category" value="{{$pujaDetails->puja_samagri_price ?? '' }}" class="pooja-all-samgari" id="all">
                                     <span class="checkmark"></span>
                                 </label>
-
                             </summary>
                             <p>
                                 {!!$category_samagri->grand_category_all ?? ''!!}
