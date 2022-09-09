@@ -8,10 +8,10 @@ $SALT = "yauHLEFqtr8L4KD4eeqEWpP0YHccAGS4";
 $txnid=$txnidn;
 $name="pk";
 $email="pkworkout@gmail.com";
-$amount=$adPay;
+$amount=10;
 $phone="7992215707";
-$surl="http://localhost/cake/my_app_name/view/sucess";
-$furl="http://localhost/cake/my_app_name/view/failure";
+$surl="{{url('payment-success')}}";
+$furl="{{url('payment-failure')}}";
 $productInfo="xyzabc";
 
 // Merchant Salt as provided by Payu
@@ -190,7 +190,7 @@ $hash = strtolower(hash('sha512', $hashString));
             </div>
             <!-- ----------------------------------------------------------------------------------------- -->
                 <div class="price-detail">
-                    <form action="{{url('/booking-placed')}}" method="post" id="boooking-place">
+                    <form action="{{url('/payment-capture')}}" method="post" >
                         @csrf
                         <div class="detail">
                             <p class="pr-dt">Price-Detail :</p>
@@ -224,22 +224,22 @@ $hash = strtolower(hash('sha512', $hashString));
                             <div class="custom-radio">
                                 <input name="cod" type="radio"  id="tdy" checked="checked">
                                 <h6>Payment Mode</h6>
-                                <form action="" method="post">
+                         
 
                                     <h6> <span id="cod">Online </span></h6>
-                                </form>
+                           
                             </div>
                         </div>
                         <input type="text" value="{{$tax}}" name="price_tax" hidden>
                         <input type="text" value="" name="finalprice" hidden>
                         <input type="text" value="0" name="price_coupan" hidden>
                         <input type="text" value="1" name="booking_type" hidden>
-                        <input type="text" name="delivery_date" id="ddate" hidden>
-                        <input type="text" name="delivery_time" id="dtime" hidden>
+                        <input type="text" name="delivery_date" id="ddate" hidden required>
+                        <input type="text" name="delivery_time" id="dtime" hidden required>
                         @if(Auth::guard('user')->user())
                         
-                        <span class="placeBtn" onclick="openmodal()">Book Pooja</span>
-                        
+                        <!-- <span class="placeBtn" onclick="openmodal()">Book Pooja</span> -->
+                        <button id="placeBtn"type="submit"  value="submit">Place Order</button>
                         @else
             
                         <span class="placeBtn" onclick="popshow()">Book Pooja</span>
@@ -248,7 +248,7 @@ $hash = strtolower(hash('sha512', $hashString));
 
                     
                     </form>
-                    <form action="https://secure.payu.in/_payment" method="post" name="payuform">
+                    <!-- <form action="https://secure.payu.in/_payment" method="post" name="payuform">
                        
                         <input type="hidden" name="key" value="{{$MERCHANT_KEY}}" hidden/>
                         <input type="hidden" name="hash"  value="<?php echo $hash;?>" hidden/>
@@ -259,11 +259,11 @@ $hash = strtolower(hash('sha512', $hashString));
                         <input type="text" name="email" id="email"  value="{{@$email}}" hidden/>
                         <input type="text" name="phone" value="{{$phone}}" hidden/>
                         <input type="text" name="productinfo" value="{{ @$productInfo}}" hidden>
-                        <input type="text" name="surl"  size="64" value="{{$surl}}" hidden/>
-                        <input type="text" name="furl"  size="64" value="{{$furl}}" hidden/>
+                        <input type="text" name="surl"  size="64" value="{{url('payment-success')}}" hidden/>
+                        <input type="text" name="furl"  size="64" value="{{url('payment-failure')}}" hidden/>
                         <input type="hidden" name="service_provider" value="AstroPanditOm"hidden />
-                        <button id="placeBtn"type="submit"  value="submit">Place Order</button>
-                    </form>
+                        <!-- <button id="placeBtn"type="submit"  value="submit">Place Order</button> -->
+                    </form> -->
                 </div>
         </div>
     </section>

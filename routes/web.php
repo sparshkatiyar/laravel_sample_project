@@ -42,6 +42,9 @@ Route::post('/puja-delivery-login', [App\Http\Controllers\PujaController::class,
 Route::post('/edit-user-profile', [App\Http\Controllers\ProfileController::class, 'UpdateUserProfile'])->name('user.profile');
 Route::post('horroscope',[UserApiController::class,'horroscope']);
 Route::post('onrequest-puja',[App\Http\Controllers\BookingController::class,'create']);
+Route::post('/payment-success', [App\Http\Controllers\WalletController::class, 'paymentSucsess'])->name('payment-success');
+Route::get('/payment-failure', [App\Http\Controllers\WalletController::class, 'paymentFailure'])->name('payment-failure');
+Route::post('/payment-capture', [App\Http\Controllers\WalletController::class, 'paymentCapture'])->name('payment-capture');
 Route::group(['middleware' => 'user-auth'],function(){
 	Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 	Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('index');
@@ -51,6 +54,7 @@ Route::group(['middleware' => 'user-auth'],function(){
 	Route::post('/save-address', [App\Http\Controllers\AddressController::class, 'addAddress'])->name('addAddress');
 	Route::post('/add-balance', [App\Http\Controllers\WalletController::class, 'addWalletBalance'])->name('addWalletBalance');
 	Route::post('/booking-placed', [App\Http\Controllers\UserController::class, 'bookingPlaced'])->name('addWalletBalance');
+	
 });
 
 Route::group(['prefix' => '/admin-panel'],function(){

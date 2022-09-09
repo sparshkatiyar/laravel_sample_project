@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\Wallet;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class WalletController extends Controller
 {
@@ -57,5 +58,27 @@ class WalletController extends Controller
         // dd($bal);
               
         // return response()->json(['message'=>'Wallet balance added successfully.','data'=>$userAddress],200); 
+    }
+
+    public function paymentSucsess(Request $request){
+        dd($request->all());
+
+    }
+
+    public function paymentFailure(Request $request){
+        dd($request->all());
+
+    }
+    public function paymentCapture(Request $request){
+        Session::put('delivery_date', $request->delivery_date);
+        Session::put('delivery_time', $request->delivery_time);
+        $auth_user =Auth::guard('user')->user();
+        $name = $auth_user->first_name?$auth_user->first_name:"Astro User";
+      
+        $phone = $auth_user->mobile_number;
+        $amount = round($request->finalprice);
+        $email = $auth_user->email?$auth_user->email:"astropanditom@gmail.com";
+     
+        return view('paycapture',compact('name','phone','email','amount')); 
     }
 }
