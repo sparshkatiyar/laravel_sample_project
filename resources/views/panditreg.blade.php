@@ -402,6 +402,18 @@
                     .val('');
                 }
             })
+            $('#language').change(function(e){
+                if ($(this).val().length > 3) {
+                    this.checked = false; // reset first
+                    event.preventDefault();
+                    // alert('You can select only 6');
+                    event.target.checked = false
+                    event.target.find('option')
+                    .remove()
+                    .end()                   
+                    .val('');
+                }
+            })
         });
 
 //         multiple1 = new Array();

@@ -375,8 +375,8 @@ class UserController extends Controller
             
         ]);  
         
-        // return redirect('order-success')->with('message', 'Your Order has been submited successfully');     
-        return response()->json(['message'=>'Booking successfully.'],200); 
+        return redirect('order-success')->with('message', 'Your Order has been submited successfully');     
+        // return response()->json(['message'=>'Booking successfully.'],200); 
     }
     public function order(){
         $message  = "Your Order has been submited successfully"; 
