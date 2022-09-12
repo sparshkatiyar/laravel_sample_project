@@ -252,11 +252,11 @@ class UserController extends Controller
            
         // ];
         $delivery_date      =  Session::get('delivery_date');
-        $delivery_time          =  Session::get('delivery_time');
+        $delivery_time      =  Session::get('delivery_time');
         // dd($request->all(),$request->get('delivery_date'),$request->get('delivery_time'));
         $deliveryDate = $delivery_date. ",".$delivery_time;
         $payment_id = rand()."".rand();
-        $price_order        = $request->finalprice;
+        $price_order        = Session::get('finalprice');
         
         
         $puja_category      =  Session::get('puja_category');
@@ -363,10 +363,10 @@ class UserController extends Controller
             'puja_type'         => $puja_type,
             'puja_category'     => $puja_category,
             'price_order'       => $price_order,
-            'price_tax'         => $request->get('price_tax'),
-            'price_coupan'      => $request->get('price_coupan'),
+            'price_tax'         => 0,
+            'price_coupan'      => "Astro",
             'price_total'       => $price_order,
-            'booking_type'      => $request->get('booking_type'),
+            'booking_type'      => 2,
             'booking_active'    => 1,
             'booking_date'      => now()->timestamp,
             'deliver_date'      => $deliveryDate,
