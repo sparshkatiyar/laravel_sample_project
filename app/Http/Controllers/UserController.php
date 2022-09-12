@@ -251,10 +251,13 @@ class UserController extends Controller
         //     'delivery_date'      =>'required|min:2',   
            
         // ];
-        
-        $deliveryDate = $request->get('delivery_date'). ",".$request->get('delivery_time');
+        $delivery_date      =  Session::get('delivery_date');
+        $delivery_time          =  Session::get('delivery_time');
+        // dd($request->all(),$request->get('delivery_date'),$request->get('delivery_time'));
+        $deliveryDate = $delivery_date. ",".$delivery_time;
         $payment_id = rand()."".rand();
         $price_order        = $request->finalprice;
+        
         
         $puja_category      =  Session::get('puja_category');
         $puja_type          =  Session::get('puja_type');
@@ -372,8 +375,8 @@ class UserController extends Controller
             
         ]);  
         
-        // return redirect('order-success')->with('message', 'Your Order has been submited successfully');     
-        return response()->json(['message'=>'Booking successfully.'],200); 
+        return redirect('order-success')->with('message', 'Your Order has been submited successfully');     
+        // return response()->json(['message'=>'Booking successfully.'],200); 
     }
     public function order(){
         $message  = "Your Order has been submited successfully"; 
