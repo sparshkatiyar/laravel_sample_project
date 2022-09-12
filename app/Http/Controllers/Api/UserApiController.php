@@ -381,12 +381,15 @@ class UserApiController extends Controller
     public function pujaDetails(Request $request) {
       
     
-        $pujaDetails = PujaEcommerce::find($request->epuja_id);
-        // dd($pujaDetails);
+        // $pujaDetails = PujaEcommerce::find($request->epuja_id);
+        $pujaDetailsall = Puja::leftjoin('puja_ecommerces','pujas.id','puja_ecommerces.puja_id')->leftjoin('puja_categories','pujas.id','puja_categories.pooja_id')->select('pujas.*','puja_ecommerces.puja_base_price','puja_ecommerces.puja_samagri_price','puja_ecommerces.puja_wsamagri_price','puja_ecommerces.puja_price_samall','puja_ecommerces.puja_price_medium','puja_ecommerces.puja_price_large','puja_ecommerces.puja_price_all','puja_categories.standard_pooja','puja_categories.premium_pooja','puja_categories.grand_pooja','puja_categories.category_samagri','puja_categories.category_wsamagri','puja_categories.category_all','puja_categories.premium_category_samagri','puja_categories.premium_category_wsamagri','puja_categories.premium_category_all','puja_categories.grand_category_samagri','puja_categories.grand_category_wsamagri','puja_categories.grand_category_all',)->find($request->epuja_id);
+
+        
        
-            $pujaDetails->puja_id = Puja::find(@$pujaDetails->puja_id);
+            // $pujaDetails->puja_id = Puja::find(@$pujaDetails->puja_id);
+           
                    
-        return response()->json(['message'=>'Fetch booking details successfully.','data'=>$pujaDetails],200); 
+        return response()->json(['message'=>'Fetch booking details successfully.','data'=>$pujaDetailsall],200); 
     }
     public function myorder(Request $request) {
       
