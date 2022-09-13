@@ -72,6 +72,7 @@ class WalletController extends Controller
     public function paymentCapture(Request $request){
         Session::put('delivery_date', $request->delivery_date);
         Session::put('delivery_time', $request->delivery_time);
+        Session::put('finalprice', $request->finalprice);
         $auth_user =Auth::guard('user')->user();
         $name = $auth_user->first_name?$auth_user->first_name:"Astro User";
       
