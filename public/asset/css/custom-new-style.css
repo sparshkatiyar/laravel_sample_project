@@ -2009,6 +2009,21 @@ p {
     .pooja-details-section .inner-pooja-details .item{
         width: 100%;
     }
+    body{
+        overflow-x: hidden;
+    
+    }
+    .top2 .detail-box{
+        margin-top: 20px;
+    }
+    .pandit-registration .inner-section{
+        flex-wrap: wrap;
+    }
+    .pandit-registration h3{
+        font-size: 22px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
     .pooja-details-section .inner-pooja-details{
         gap: 0;
     }
@@ -2017,6 +2032,9 @@ p {
     }
     #Book-Pooja .content{
         margin: 0;
+    }
+    .login h4{
+        font-size: 16px !important;
     }
 }
 
