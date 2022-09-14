@@ -2016,6 +2016,28 @@ p {
     .top2 .detail-box{
         margin-top: 20px;
     }
+    .item-4{
+        padding: 15px 0;
+    }
+    .detail-box .text-heading2{
+        margin-bottom: 15px;
+    }
+    .pooja-description-section .pooja-description .left-section .header-title, .pooja-description-section .pooja-description .right-section .header-title{
+        font-size: 16px;
+        padding: 10px 10px;
+    }
+    .top .top1 img{
+        max-height: auto;
+    }
+    .main-pooja-3 .left-section{
+        height: auto;
+    }
+    .specialPooja-form{
+        margin-top: 30px;
+    }
+    #Astrologers #h2{
+        font-size: 25px;
+    }
     .pandit-registration .inner-section{
         flex-wrap: wrap;
     }
@@ -2137,4 +2159,176 @@ color: #5E5F63 !important;
 }
 .width-100 {
     width: 100%;
+}
+
+
+.ds-add{
+    display: none;
+}
+.mobile-menu2{
+    position: fixed;
+    right: -368px;
+    top: 0px;
+    z-index: 60;
+    /* display: none; */
+    height: 100%;
+    max-width: 368px;
+    width: 100%;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    padding: 30px 20px;
+    -webkit-transition: -webkit-transform .6s ease;
+    transition: -webkit-transform .6s ease;
+    -o-transition: transform .6s ease;
+    transition: transform .6s ease;
+    transition: transform .6s ease,-webkit-transform .6s ease;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: auto;
+}
+.mobile-menu2.active{
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.mobile-menu2 .header-menu ul{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.mobile-menu2 .header-menu ul li a{
+    padding: 5px 0;
+    display: inline-block;
+}
+.mobile-menu2 .dropdown-menu-custom{
+    left: 0;
+    transform: none;
+    bottom: -125px;
+}
+.mobile-menu2 .contact-div{
+    flex-direction: column !important;
+}
+.mobile-menu2 .item1{
+ flex-direction: column;
+ align-items: flex-start;
+}
+.mobile-menu2 .item1 p img{
+    margin: 0 5px 0 0;
+}
+.mobile-menu2 .item1 p{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+.mobile-menu2 .menu-row{
+    padding: 0;
+}
+.mobile-menu2 .menu-row{
+    flex-direction: column;
+    align-items: flex-start;
+}
+.mobile-menu2 .menu-div{
+    width: 100%;
+}
+.mobile-menu2 .contact-div{
+    padding: 0 !important;
+    align-items: flex-start !important;
+}
+.header-close{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.mobile-menu2 .item2{
+    margin-bottom: 10px;
+}
+.mobile-menu2 .item2 img{
+    margin: 0 0 0;
+}
+.b-navbar .img-div{
+    justify-content: space-between;
+}
+@media (max-width: 767px){
+    #testimonial .flickity-button {
+      
+        width: 25px;
+        height: 25px;
+       
+    }
+    #frames{
+        margin: 0;
+        padding: 30px 0;
+    }
+    #frames .frame{
+        margin-bottom: 20px;
+    }
+    .popup-1 .main-div {
+        max-width: 350px;
+        height: 300px;
+        width: 100%;
+    }
+    .b-navbar .img-div {
+        padding: 10px 0;
+    }
+    .b-navbar .img-div img{
+        width: 70px;
+    }
+    .menu-div.dsk-menu{
+        display: none;
+    }
+    .ds-add{
+        display: block;
+    }
+    .ds-add img{
+        width: 30px !important;
+        height: 30px;
+    }
+    #Astrologers{
+        margin: 0;
+        padding: 30px 0;
+    }
+    #Book-Pooja .btn,
+    #Astroshop .btn{
+        font-size: 16px;
+        padding: 10px 10px;
+    }
+    #counter .counter-box h1{
+        font-size: 24px;
+    }
+    .h3, h3 {
+        font-size: calc(1.1rem);
+    }
+    #matching .boxes .item{
+        width: 100%;
+    }
+    #h2{
+        font-size: 24px;
+    }
+
+    #testimonial #h2{
+        margin: 0;
+        line-height: 1.2;
+    }
+    #testimonial .flickity-enabled.is-draggable .flickity-viewport{
+        height: 80vh !important;
+    }
+    #About .about .box1{
+        display: none;
+    }
+}
+
+@media (max-width: 650px){
+    #Astroshop .column{
+        width: 100%;
+    }
+    #Astrologers .slider-box .box .icon{
+        width: 5%;
+    }
+    #Astroshop .content{
+        text-align: left;
+    }
+    #Book-Pooja .btn,
+    #Astroshop .btn{
+        width: 100%;
+    }
 }

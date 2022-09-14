@@ -1244,7 +1244,7 @@
     <section id="Book-Pooja" class="pooja_tabs">
         <div class="container-fluid text-center p-0">
 
-            <h2 id="h2">Book Pooja</h2>
+            <h2 id="h2" class="text-center">Book Pooja</h2>
             <p id="pera">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et viverra vulputate viverra
                 adipiscing.</p>
 
