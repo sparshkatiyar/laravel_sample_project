@@ -565,5 +565,12 @@ class UserApiController extends Controller
         return response()->json(['data'=>"mail sent"],200);
         
     }
+
+    public function orderSMS(Request $request){
+        $msg1 = 'Thank u for booking.';
+        $result =$this->sendOrderSMS($request->msg,$request->mobileNumber,$request->mobileTelCode);
+
+        return response()->json(['data'=>"sms sent"],200);
+    }
 }
 

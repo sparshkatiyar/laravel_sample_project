@@ -348,7 +348,7 @@ class UserController extends Controller
         $omsg = $this->smsToOwner($otype,$objOwner);
         
         // dd($omsg,$user->mobile_number,$user->country_code)   ;
-        $smruser = $this->sendSMS($umsg,$user->mobile_number,$user->country_code);
+        $smruser = $this->sendSMS("Thank u for booking",$user->mobile_number,$user->country_code);
         // $smr = $this->sendSMS($omsg,"88106 40406","+91");
         $smr = $this->sendSMS($omsg,"9326176585","+91");
 
