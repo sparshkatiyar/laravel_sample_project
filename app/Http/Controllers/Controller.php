@@ -94,6 +94,36 @@ class Controller extends BaseController
             return $response;
         }
     }
+    public function sendOrderSMS($msg,$mobile,$countryCode) {
+
+        $AccountSid   =  "AC248fda92be8423797941d80a75acdf25";
+        $AuthToken    =  "a55b2e19802fb6394cc6687cd25e0e61";
+        $client       =  new Client($AccountSid, $AuthToken);
+        $contact      =  $countryCode.$mobile;//'+919899728180';
+        try{       
+            DB::beginTransaction();     
+            $client->account->messages->create(
+                $contact,
+                array(
+                    'from' => "+17086690939",
+                    'body' => $msg
+                )
+            );
+            // print_r($sms);die;  
+            $response     =  [
+                'message' => 'success',
+                'status'  => 1,
+            ];
+            return $response;
+
+        } catch(Exception $e){
+            $response = [
+                'message' => $e->getMessage(),
+                'status'  => 0,
+            ];
+            return $response;
+        }
+    }
     public function sendSMS ($msg,$mobile,$countryCode) {
 
         $AccountSid   =  "AC248fda92be8423797941d80a75acdf25";

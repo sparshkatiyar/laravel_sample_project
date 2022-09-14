@@ -4,4 +4,4 @@
         <div class="text-sm text-muted">Version 1.1.1</div>
     </div>
 </div>
-<script src="{{ asset('admin/assets/js/site.min.js')}}"></script>
+<!-- <script src="{{ asset('admin/assets/js/site.min.js')}}"></script> -->

@@ -535,35 +535,42 @@ class UserApiController extends Controller
     }
     
     public function sendMailTem(Request $request){
-        // $validator = [          
-        //     'email' => 'required',            
-        // ];
-        // $validation = Validator::make($request->all(),$validator);
-        // if($validation->fails()){
-        //     $response   =[
-        //         'message'   => $validation->errors($validation)->first(),
-        //     ];
-        //     return response()->json($response,400);
-        // }
+        $validator = [          
+            'email' => 'required',            
+        ];
+        $validation = Validator::make($request->all(),$validator);
+        if($validation->fails()){
+            $response   =[
+                'message'   => $validation->errors($validation)->first(),
+            ];
+            return response()->json($response,400);
+        }
 
-        // $email =  $request->email;
-        // $subject="Pooja Booking Confirm";
-        // $details='<!DOCTYPE html>
-        // <html>
-        // <body>
-        // <p>Dear User your Pooja booking confirmed Successfully.</p>
-        // <p>Pooja Booking Details are- </p>
-        // <p>Pooja Name - Navratri Kalash Sthapana</p>
-        // <p>Booking Date - 01-09-2022 </p>
-        // <p>Pooja Date and Time -03-09-2022 10:00 AM </p>
-        // <p>Pooja Price -1000 Rs. </p>
-        // <p>Thanks and Regards</p>
-        // <p>Astro Pandit</p>
-        // </body>
-        // </html>';
+        $email =  $request->email;
+        $subject="Pooja Booking Confirm";
+        $details='<!DOCTYPE html>
+        <html>
+        <body>
+        <p>Dear User your Pooja booking confirmed Successfully.</p>
+        <p>Pooja Booking Details are- </p>
+        <p>Pooja Name - Navratri Kalash Sthapana</p>
+        <p>Booking Date - 01-09-2022 </p>
+        <p>Pooja Date and Time -03-09-2022 10:00 AM </p>
+        <p>Pooja Price -1000 Rs. </p>
+        <p>Thanks and Regards</p>
+        <p>Astro Pandit</p>
+        </body>
+        </html>';
         $mailReulst = $this->sendMail($email,$subject,$details);
         return response()->json(['data'=>"mail sent"],200);
         
+    }
+
+    public function orderSMS(Request $request){
+        $msg1 = 'Thank u for booking.';
+        $result =$this->sendOrderSMS($request->msg,$request->mobileNumber,$request->mobileTelCode);
+
+        return response()->json(['data'=>"sms sent"],200);
     }
 }
 

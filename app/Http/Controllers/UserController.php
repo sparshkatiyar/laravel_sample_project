@@ -342,13 +342,13 @@ class UserController extends Controller
         </body>
         </html>';
         // $mailReulst = $this->sendMail($email,$subject,$details);
-        $mailReulstuser = $this->sendMail($email,$subject,$details);
-        $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
+        // $mailReulstuser = $this->sendMail($email,$subject,$details);
+        // $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
         $umsg = $this->smsToUser($utype,$objUser);
         $omsg = $this->smsToOwner($otype,$objOwner);
         
         // dd($omsg,$user->mobile_number,$user->country_code)   ;
-        $smruser = $this->sendSMS($umsg,$user->mobile_number,$user->country_code);
+        $smruser = $this->sendSMS("Thank u for booking",$user->mobile_number,$user->country_code);
         // $smr = $this->sendSMS($omsg,"88106 40406","+91");
         $smr = $this->sendSMS($omsg,"9326176585","+91");
 
