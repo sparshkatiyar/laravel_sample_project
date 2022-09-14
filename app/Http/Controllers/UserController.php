@@ -342,8 +342,8 @@ class UserController extends Controller
         </body>
         </html>';
         // $mailReulst = $this->sendMail($email,$subject,$details);
-        $mailReulstuser = $this->sendMail($email,$subject,$details);
-        $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
+        // $mailReulstuser = $this->sendMail($email,$subject,$details);
+        // $mailReulst = $this->sendMail($emailowner,$subject,$detailsowner);
         $umsg = $this->smsToUser($utype,$objUser);
         $omsg = $this->smsToOwner($otype,$objOwner);
         
