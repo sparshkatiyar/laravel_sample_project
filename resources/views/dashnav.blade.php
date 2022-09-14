@@ -4,7 +4,7 @@
                 <ul class="nav flex-column" id="nav_accordion">
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1" href="#">  My Order
-                        <img src="{{asset('web/image/arrow.png')}}" alt="arrow" id="arrow">
+                        <img src="{{asset('web/Image/arrow.png')}}" alt="arrow" id="arrow">
                         </a>
                         <ul id="menu_item1" class="submenu collapse" data-bs-parent="#nav_accordion">
                             <li><a class="nav-link" href="#">My Pooja</a></li>
