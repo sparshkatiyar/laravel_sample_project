@@ -61,7 +61,23 @@ $(document).on("click", function(event){
   }            
 });
 
+$(".ds-add").click(function(){
 
+  $(".mobile-menu2").addClass("active");
+ 
+ 
+ 
+ })
+ 
+ $(".header-close").click(function(){
+ 
+  $(".mobile-menu2").removeClass("active");
+  
+ })
+
+ $(".login-modal").click(function(){
+  $('.popup-1').css('display', 'block');
+ })
 
 $(document).on("click", function(event){
   var $trigger = $("#language-select");
