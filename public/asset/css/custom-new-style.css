@@ -2315,6 +2315,10 @@ color: #5E5F63 !important;
     #About .about .box1{
         display: none;
     }
+    #counter,
+    #Horoscopes{
+        display: none;
+    }
 }
 
 @media (max-width: 650px){
