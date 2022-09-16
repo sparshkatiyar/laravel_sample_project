@@ -96,7 +96,8 @@ class BookingMgmtController extends Controller
             $mailInfouser       = $this->emailTemplate(3,$mail_data_user);
             $mailInfoowner      = $this->emailTemplate(4,$mail_data_owner);
             $mailInfopandit     = $this->emailTemplate(5,$mail_data_pandit);
-            // dd($mailInfopandit);
+      
+         
      
             $subject="Pandit ji is Assigned for pooja";
             $details_user='<!DOCTYPE html>
@@ -131,10 +132,11 @@ class BookingMgmtController extends Controller
             $mailReulstowner        = $this->sendMail($emailowner,$subject,$details_owner);
             $mailReulstopandit      = $this->sendMail($emailpandit,$subject,$details_pandit);
             
-            $msg = $this->smsToUser($type,$obj);          
+            $msg = $this->smsToUser($type,$mail_data_owner);          
+            $msg_owner = $this->smsToOwner(4,$mail_data_owner);
             $smr = $this->sendSMS($msg,$user->mobile_number,$user->country_code);
-     
-
+            $company_phone =  env('COMPANY_PHONE', '8810640406');
+            $smr = $this->sendSMS($msg,"$company_phone","+91");
             return redirect('/admin-panel/pooja-booking');
             
         

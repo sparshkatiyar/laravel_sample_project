@@ -164,7 +164,7 @@ class Controller extends BaseController
             return $data->user_name. ", " .$data->pandit_name."for (Customer name), (Name of Pandit) has been assigned. Date and time of Pooja are (date, time). Advance paid: Rs___, and Balance____.";
         }
         elseif($type == 3){
-            return $data->name. ", " .$data->phone." will perform your online pooja on (Date and time of Pooja). Please visit https://astropanditom.com to check details of Pooja. Please Join your pooja through Google Meet (ID and Password). Radhe Radhe…";
+            return $data->pandit_name. " will perform your pooja on '.$data->pooja_date.'. Please visit https://astropanditom.com to check details of Pooja. Please Join your pooja through Google Meet (ID and Password). Radhe Radhe…";
         }
         elseif($type == 4){
             return "Your auspicious pooja has been successfully completed. Thanks for choosing AstroPandit Om. Hope to serve you again. Radhe Radhe... ";
@@ -182,6 +182,11 @@ class Controller extends BaseController
         }
         elseif($type ==3){
             return $data->puja_name. "for ".$data->user_name. " has been successfully completed by Mr ".$data->pandit_name." on ".$data->date." and ".$data->time." of Pooja done. Full amount has been collected. Radhe Radhe... ";
+        }
+        elseif($type ==4){
+            return $data->pooja_name.'  id '.$data->pooja_id.' for '.$data->user_name.', '.$data->pandit_name.' has been assigned. Date and time of Pooja are '.$data->pooja_date.'. Advance paid: Rs___'.$data->pay_advanced.', and Rs___'.$data->pay_balance.' to be collected by Pandit ji after pooja.
+            Radhe Radhe…
+            AstroPanditOm Team';
         }
     }
 
@@ -210,9 +215,9 @@ class Controller extends BaseController
             return '<p>'.$data->user_name." has booked '.$data->puja_name.' for '.$data->delivery. 'on '.$data->today.'. Advance paid: Rs'.$data->advanced_paid.', and Rs'.$data->collect_price.' to be collected by Pandit ji.";
         }
         elseif($type==3){
-            return '<p>Dear Customer,'.$data->pandit_name.' 
-            is assigned for your pooja. 
-            Radhe Radhe…
+            return '<p>Dear Customer,<br>'.$data->pandit_name.' 
+            is assigned for your pooja.<br> 
+            Radhe Radhe…<br>
             AstroPanditOm Team
             </p>';
         }

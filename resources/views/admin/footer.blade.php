@@ -6,11 +6,11 @@
 </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/feather-icons"></>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+<script src="https://unpkg.com/feather-icons"></script>
   <script>
     feather.replace()
   </script>
 
-<script src="{{ asset('admin/assets/js/site.min.js')}}"></script>
+<!-- <script src="{{ asset('admin/assets/js/site.min.js')}}"></script> -->
 <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
