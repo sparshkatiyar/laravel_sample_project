@@ -13,7 +13,7 @@
                             <small class="text-muted">Add content of category</small>
                         </div>
                         <div class="flex"></div>
-                        <div id="editor">This is some sample content.</div>
+
                         <!-- <div>
                             <a href="{{url('admin-panel/puja-category')}}"><span class="d-none d-sm-inline mx-1">Puja list</span>
                                 <i data-feather="arrow-right"></i></a>
@@ -192,47 +192,27 @@
         </div>
     </div>
 
-
-    @include('admin.footer')
-
-    <script>
-  
+<script>
 function ckeFunction(){
 
-    // CKEDITOR.replace( 'editor1' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor2' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor3' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor4' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor5' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor6' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor7' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor8' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor9' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor10' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor11' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor12' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
-    // CKEDITOR.replace( 'editor13' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor1' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor2' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor3' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor4' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor5' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor6' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor7' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor8' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor9' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor10' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor11' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor12' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
+    CKEDITOR.replace( 'editor13' ); // (In case of angular):__ declare var CKEDITOR: any; (If error occurs)
 }
    
 
 
 
 </script>
-<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
-<script>
-       ClassicEditor.create(document.querySelector('#editor1'));
-       ClassicEditor.create(document.querySelector('#editor2'));
-       ClassicEditor.create(document.querySelector('#editor3'));
-       ClassicEditor.create(document.querySelector('#editor4'));
-       ClassicEditor.create(document.querySelector('#editor5'));
-       ClassicEditor.create(document.querySelector('#editor6'));
-       ClassicEditor.create(document.querySelector('#editor7'));
-       ClassicEditor.create(document.querySelector('#editor8'));
-       ClassicEditor.create(document.querySelector('#editor9'));
-       ClassicEditor.create(document.querySelector('#editor10'));
-       ClassicEditor.create(document.querySelector('#editor11'));
-       ClassicEditor.create(document.querySelector('#editor12'));
-       ClassicEditor.create(document.querySelector('#editor13'));
-                   
-</script>
+    @include('admin.footer')
 </body>
