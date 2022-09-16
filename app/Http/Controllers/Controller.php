@@ -210,24 +210,24 @@ class Controller extends BaseController
             return '<p>'.$data->user_name." has booked '.$data->puja_name.' for '.$data->delivery. 'on '.$data->today.'. Advance paid: Rs'.$data->advanced_paid.', and Rs'.$data->collect_price.' to be collected by Pandit ji.";
         }
         elseif($type==3){
-            return "Dear Customer, 
-            (Name of Pandit and mobile no.) is assigned for your pooja. 
+            return '<p>Dear Customer,'.$data->pandit_name.' 
+            is assigned for your pooja. 
             Radhe Radhe…
             AstroPanditOm Team
-            ";
+            </p>';
         }
         elseif($type==4){
-            return "For pooja (name of pooja and pooja ID no) for (Customer name), (Name of Pandit) has been assigned. Date and time of Pooja are (date, time). Advance paid: Rs___, and Rs___ to be collected by Pandit ji after pooja.
+            return $data->pooja_name.'  id '.$data->pooja_id.' for '.$data->user_name.', '.$data->pandit_name.' has been assigned. Date and time of Pooja are '.$data->pooja_date.'. Advance paid: Rs___'.$data->pay_advanced.', and Rs___'.$data->pay_balance.' to be collected by Pandit ji after pooja.
             Radhe Radhe…
             AstroPanditOm Team            
-            ";
+            ';
         }
         elseif($type==5){
-            return "name of pooja and pooja ID no) for (Customer name and mobile no.) on (Date and time of Pooja) at (address) to be done. Collect Rs__after puja. Samagri: (Details of Samagri to be picked up from website)
+            return ''.$data->pooja_name.' id '.$data->pooja_id.' for ('.$data->user_name.','.$data->user_mobile.') on '.$data->pooja_date.' '.$data->address.' to be done. Collect Rs__ '.$data->pay_balance.'after puja. Samagri: (Details of Samagri to be picked up from website)
             Radhe Radhe…
             AstroPanditOm Team
                         
-            ";
+            ';
         }
         elseif($type==6){
             return "For pooja (puja name and ID no) for (Customer name), (Name of Pandit) has been assigned for Online Pooja on (Date and time of pooja). Full amount of Rs___ has been collected. Google Meet (ID and Password)
