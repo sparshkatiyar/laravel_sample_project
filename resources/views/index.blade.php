@@ -1263,17 +1263,32 @@
             <!-- Portfolio Gallery Grid -->
             <div class="row tabs_content">
                 @foreach(@$pujaList as $puja)
-                <div class="column show nature">
-                    <div class="content">
-                        <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image}}"
-                                alt="Mountains" style="width:100%"></a>
-                        <a href="{{url('puja-booking/')}}/{{$puja->id}}">
-                            <h4>{{$puja->puja_id->name}}
-                            </h4>
-                        </a>
-                        <p>INR- {{$puja->puja_base_price}}/-</p>
+                    @if($puja->puja_id->type == "Ghar pe puja")
+                    <div class="column show nature">
+                        <div class="content">
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image}}"
+                                    alt="Mountains" style="width:100%"></a>
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}">
+                                <h4>{{$puja->puja_id->name}}
+                                </h4>
+                            </a>
+                            <p>INR- {{$puja->puja_base_price}}/-</p>
+                        </div>
                     </div>
-                </div>
+                    @endif
+                    @if($puja->puja_id->type == "Online Puja")
+                    <div class="column show cars">
+                        <div class="content">
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}"> <img src="{{ $puja->puja_id->image}}"
+                                    alt="Mountains" style="width:100%"></a>
+                            <a href="{{url('puja-booking/')}}/{{$puja->id}}">
+                                <h4>{{$puja->puja_id->name}}
+                                </h4>
+                            </a>
+                            <p>INR- {{$puja->puja_base_price}}/-</p>
+                        </div>
+                    </div>
+                    @endif
                 @endforeach
 
                 <!-- {!! $pujaList->appends(['sort' => 'id'])->links() !!} -->
@@ -1346,7 +1361,7 @@
     </div>
 
     <div class="text-center hide-resuest" id="view-btn">
-        <button>View All</button>
+        <!-- <button>View All</button> -->
     </div>
 
 </section>

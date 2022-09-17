@@ -341,7 +341,7 @@
 
                                 @if(!empty($pujaList))
                                 @foreach(@$pujaList as $puja)
-
+                                @if($puja->puja_id->type == "Online Puja")
                                 <div class="item">
                                     <a href="{{'puja-booking/'}}{{$puja->id}}">
                                         <div class="img-section">
@@ -351,6 +351,8 @@
                                         <p>INR-{{$puja->puja_base_price}}/-</p>
                                     </a>
                                 </div>
+                                @endif
+                                
                                 @endforeach
                                 @endif
                             </div>

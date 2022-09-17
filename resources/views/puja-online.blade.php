@@ -304,41 +304,13 @@
 
                                     </a>
                                 </div>
-
-                                @elseif($puja->puja_id->type == "Online Puja")
-                                <div class="item">
-                                    <a href="{{url('puja-booking/')}}/{{$puja->id}}">
-                                        <div class="img-section">
-                                            <img src="{{ $puja->puja_id->image }}" class="img-fluid" alt="">
-                                        </div>
-                                        <h5>{{$puja->puja_id->name}}</h5>
-                                        <p>INR- {{$puja->puja_base_price}}/-</p>
-
-                                    </a>
-                                </div>
-                                @elseif($puja->puja_id->type =="On Request")
-                                <div class="item">
-                                    <a href="{{url('puja-booking/')}}/{{$puja->id}}">
-                                        <div class="img-section">
-                                            <img src="{{ $puja->puja_id->image }}" class="img-fluid" alt="">
-                                        </div>
-                                        <h5>{{$puja->puja_id->name}}</h5>
-                                        <p>INR- {{$puja->puja_base_price}}/-</p>
-
-                                    </a>
-                                </div>
                                 @endif
+                                
 
                                 @endforeach
 
 
-                                <div class="item">
-                                    <div class="img-section">
-                                        <img src="{{ asset('puja/god-img1.png')}}" class="img-fluid" alt="">
-                                    </div>
-                                    <h5>Akhand Ramayan (Musical)</h5>
-                                    <p>INR-2100/-</p>
-                                </div>
+                                
 
                             </div>
                             <div class="text-center">
@@ -372,7 +344,7 @@
 
                                 @if(!empty($pujaList))
                                 @foreach(@$pujaList as $puja)
-
+                                @if($puja->puja_id->type == "Online Puja")
                                 <div class="item">
                                     <a href="{{'puja-booking/'}}{{$puja->id}}">
                                         <div class="img-section">
@@ -382,6 +354,8 @@
                                         <p>INR-{{$puja->puja_base_price}}/-</p>
                                     </a>
                                 </div>
+                                @endif
+                             
                                 @endforeach
                                 @endif
                             </div>
