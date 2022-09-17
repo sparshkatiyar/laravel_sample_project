@@ -41,7 +41,7 @@ Route::post('/puja-delivery', [App\Http\Controllers\PujaController::class, 'deli
 Route::post('/puja-delivery-login', [App\Http\Controllers\PujaController::class, 'deliveryProcced'])->name('deliveryForLogin');
 Route::post('/edit-user-profile', [App\Http\Controllers\ProfileController::class, 'UpdateUserProfile'])->name('user.profile');
 Route::post('horroscope',[UserApiController::class,'horroscope']);
-Route::post('onrequest-puja',[App\Http\Controllers\BookingController::class,'create']);
+Route::post('/onrequest-puja',[App\Http\Controllers\PujaRequestController::class,'create']);
 Route::post('/payment-success', [App\Http\Controllers\WalletController::class, 'paymentSucsess'])->name('payment-success');
 Route::get('/payment-failure', [App\Http\Controllers\WalletController::class, 'paymentFailure'])->name('payment-failure');
 Route::post('/payment-capture', [App\Http\Controllers\WalletController::class, 'paymentCapture'])->name('payment-capture');

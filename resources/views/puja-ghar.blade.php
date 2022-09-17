@@ -317,108 +317,120 @@
                             </div>
                         </div>
                     </div>
-                
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            <div class="pooja-section">
-              <div class="left-section">
-                <div class="img">
-                  <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
-                </div>
-              </div>
-              <div class="right-section">
-                <h5>Online Pooja</h5>
-                <div class="read-more">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor vel dignissim volutpat vel eget arcu eget vel. Aenean augue amet, et, maecenas enim tristique sed mauris, et. Eget maecenas tortor blandit leo.</p>
-                  <!-- <p>If you wish that the pooja of your choice is to be performed specially with more pandits or your pooja is to be performed from holy places in India of your choice. Then, you ...<a href="" class="read-more-link">Read More</a></p> -->
-                </div>
-              </div>
-            </div>
-            <div class="pooja-details-section">
-              <h3>Online Pooja</h3>
-              <div class="inner-pooja-details">
-                
-                @if(!empty($pujaList))
-                @foreach(@$pujaList as $puja)
-                    
-                    <div class="item">
-                        <a href="{{'puja-booking/'}}{{$puja->id}}">
-                            <div class="img-section">
-                                <img src="{{$puja->puja_id->image}}" class="img-fluid" alt="">
-                            </div>
-                            <h5>{{$puja->puja_id->name}}</h5>
-                            <p>INR-{{$puja->puja_base_price}}/-</p>
-                        </a>
-                    </div>
-                @endforeach
-                @endif
-              </div>
-              <div class="text-center">
-                <button type="button" class="btn btn-view-all">View All</button>
-              </div>
-            </div>
-          </div>
 
-          <div class="tab-pane fade" id="specialPooja" role="tabpanel" aria-labelledby="specialPooja-tab">
-            <div class="pooja-section">
-              <div class="left-section">
-                <div class="img">
-                  <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
-                </div>
-              </div>
-              <div class="right-section">
-                <h5>On Request Special Pooja</h5>
-                <div class="read-more">
-                  <p>Ghar pe premium pooja as customized by you, Ghar Pe Pooja on Urgent basis and Pooja from holy places of your choice in India along holy river banks, temples and Dhams etc.</p>
-                  <p>If you wish that the pooja of your choice is to be performed specially with more pandits or your pooja is to be performed from holy places in India of your choice. Then, you ... <a href="" class="read-more-link">Read More</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="specialPooja-form">
-              <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label> Name</label>
-                    <input type="text" class="form-control" placeholder="Enter Your Name">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" placeholder="Enter Your Email">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Enter Your Mobile Number</label>
-                    <input type="text" class="form-control" placeholder="Mobile Number">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Enter Location</label>
-                    <input type="text" class="form-control" placeholder="Enter Location">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                  <div class="form-group">
-                    <label>Enter City</label>
-                    <input type="text" class="form-control" placeholder="Enter City">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <div class="form-group">
-                    <label>Your Message <span>( Maximum 200 Words) </span>
-                    </label>
-                    <textarea name="" id="" cols="3" rows="3" class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                  <button type="submit" class="btn btn-submit">Send</button>
-                </div>
-              </div>
-            </div>
-          </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="pooja-section">
+                            <div class="left-section">
+                                <div class="img">
+                                    <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="right-section">
+                                <h5>Online Pooja</h5>
+                                <div class="read-more">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor vel dignissim
+                                        volutpat vel eget arcu eget vel. Aenean augue amet, et, maecenas enim tristique
+                                        sed mauris, et. Eget maecenas tortor blandit leo.</p>
+                                    <!-- <p>If you wish that the pooja of your choice is to be performed specially with more pandits or your pooja is to be performed from holy places in India of your choice. Then, you ...<a href="" class="read-more-link">Read More</a></p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pooja-details-section">
+                            <h3>Online Pooja</h3>
+                            <div class="inner-pooja-details">
+
+                                @if(!empty($pujaList))
+                                @foreach(@$pujaList as $puja)
+
+                                <div class="item">
+                                    <a href="{{'puja-booking/'}}{{$puja->id}}">
+                                        <div class="img-section">
+                                            <img src="{{$puja->puja_id->image}}" class="img-fluid" alt="">
+                                        </div>
+                                        <h5>{{$puja->puja_id->name}}</h5>
+                                        <p>INR-{{$puja->puja_base_price}}/-</p>
+                                    </a>
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-view-all">View All</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="specialPooja" role="tabpanel" aria-labelledby="specialPooja-tab">
+                        <div class="pooja-section">
+                            <div class="left-section">
+                                <div class="img">
+                                    <img src="{{ asset('puja/img1.png')}}" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                            <div class="right-section">
+                                <h5>On Request Special Pooja</h5>
+                                <div class="read-more">
+                                    <p>Ghar pe premium pooja as customized by you, Ghar Pe Pooja on Urgent basis and
+                                        Pooja from holy places of your choice in India along holy river banks, temples
+                                        and Dhams etc.</p>
+                                    <p>If you wish that the pooja of your choice is to be performed specially with more
+                                        pandits or your pooja is to be performed from holy places in India of your
+                                        choice. Then, you ... <a href="" class="read-more-link">Read More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialPooja-form">
+                            <form action="{{url('onrequest-puja')}}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                        <div class="form-group">
+                                            <label style="text-align:left;"> Name</label>
+                                            <input type="text" class="form-control" name="name" placeholder="Enter Your Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                        <div class="form-group">
+                                            <label style="text-align:left;">Email</label>
+                                            <input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                        <div class="form-group">
+                                            <label style="text-align:left;">Enter Your Mobile Number</label>
+                                            <input type="text" class="form-control" name="phone" placeholder="Mobile Number" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                        <div class="form-group">
+                                            <label style="text-align:left;">Enter Location</label>
+                                            <input type="text" class="form-control" name="location" placeholder="Enter Location" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                        <div class="form-group">
+                                            <label style="text-align:left;">Enter City</label>
+                                            <input type="text" class="form-control" name="city" placeholder="Enter City" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                        <div class="form-group">
+                                            <label style="text-align:left;">Your Message <span>( Maximum 200 Words) </span>
+                                            </label>
+                                            <textarea name="message" id="" cols="3" rows="3"  class="form-control" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                        <button type="submit" class="btn btn-submit" style="color:#FFF;">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
                 </div>
             </div>
