@@ -12,5 +12,5 @@
     feather.replace()
   </script>
 
-<!-- // <script src="{{ asset('admin/assets/js/site.min.js')}}"></script>
-// <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> -->
+ <!-- // <script src="{{ asset('admin/assets/js/site.min.js')}}"></script> -->
+ <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> 

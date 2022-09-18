@@ -86,6 +86,7 @@ Route::group(['prefix' => '/admin-panel'],function(){
 		Route::post('/puja-category',[App\Http\Controllers\Admin\PujaController::class,'pujaCategoryUpdate']);
 		Route::get('/pandit-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'index']);
 		Route::get('/astrologer-list',[App\Http\Controllers\Admin\PanditMgmtController::class,'astro']);
+		Route::get('/puja-request',[App\Http\Controllers\Admin\PujaController::class,'requestList'])->name('requestList');
 		
 	});
 

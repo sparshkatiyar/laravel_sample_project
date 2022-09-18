@@ -35,6 +35,8 @@
                             </a> 
                             <a href="{{url('admin-panel/puja-category')}}"><span class="nav-icon text-primary"><i             data-feather="compass"></i></span> <span class="nav-text">Puja Category</span>
                             </a>
+                            <a href="{{url('admin-panel/puja-request')}}"><span class="nav-icon text-primary"><i             data-feather="compass"></i></span> <span class="nav-text">Puja Request</span>
+                            </a>
                         </li>
                         <li class="nav-header hidden-folded">
                             <span class="text-muted">Applications</span>

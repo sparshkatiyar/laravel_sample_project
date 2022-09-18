@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Puja;
 use App\Models\PujaEcommerce;
 use App\Models\PujaCategory;
+use App\Models\PujaRequest;
 use Validator;
 use Hash;
 use Illuminate\Support\Facades\Input;
@@ -196,5 +197,11 @@ class PujaController extends Controller
         
        
         
+    }
+    public function requestList()
+    {
+        $pujaList = PujaRequest::orderBy('id', 'DESC')->paginate(5);              
+        
+        return view('admin/puja-request',compact('pujaList'));
     }
 }
