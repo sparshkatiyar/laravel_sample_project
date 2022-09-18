@@ -53,6 +53,7 @@ class BookingMgmtController extends Controller
             $addressDetails =  UserAddress::find($bookingDeatails->address_id);
             $bookingList = Booking::all();
             $panditList = Pandit::all();
+            $remain_balance = $bookingDeatails->price_order - $bookingDeatails->price_total;
             // dd($bookingDeatails);
             foreach(@$bookingList as $booking){
                 $booking->ecomm_puja_id     = PujaEcommerce::find($booking->ecomm_puja_id);
@@ -79,8 +80,8 @@ class BookingMgmtController extends Controller
             $mail_data_owner->pooja_id  = $bookingDeatails->booking_id;;
             $mail_data_owner->pooja_date = $bookingDeatails->deliver_date;
        
-            $mail_data_owner->pay_advanced = $panditDetails->name;
-            $mail_data_owner->pay_balance = $panditDetails->name;
+            $mail_data_owner->pay_advanced = $bookingDeatails->price_total;
+            $mail_data_owner->pay_balance = $remain_balance;;
 
             $mail_data_pandit    = new stdClass();
             $mail_data_pandit->pooja_name = $PujaBase->name;
@@ -90,8 +91,9 @@ class BookingMgmtController extends Controller
             $mail_data_pandit->pooja_date = $bookingDeatails->deliver_date;
             // $mail_data_pandit->pooja_time = $panditDetails->name;
             $mail_data_pandit->address = $addressDetails->address;
-            $mail_data_pandit->pay_advanced = $panditDetails->name;
-            $mail_data_pandit->pay_balance = $panditDetails->name;
+          
+            $mail_data_pandit->pay_advanced = $bookingDeatails->price_total;
+            $mail_data_pandit->pay_balance = $remain_balance;
         
             $mailInfouser       = $this->emailTemplate(3,$mail_data_user);
             $mailInfoowner      = $this->emailTemplate(4,$mail_data_owner);

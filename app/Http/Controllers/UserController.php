@@ -256,7 +256,8 @@ class UserController extends Controller
         // dd($request->all(),$request->get('delivery_date'),$request->get('delivery_time'));
         $deliveryDate = $delivery_date. ",".$delivery_time;
         $payment_id = rand()."".rand();
-        $price_order        = Session::get('finalprice');
+        $price_total        = Session::get('finalprice');
+        $price_order        = Session::get('price_order');
         
         
         $puja_category      =  Session::get('puja_category');
@@ -302,8 +303,9 @@ class UserController extends Controller
         $objOwner->user_name = $user->first_name;
         $objOwner->puja_name = $pujainfo->name;
         $objOwner->delivery = $deliveryDate;
-        $objOwner->collect_price =$price_order;
-        $objOwner->advanced_paid ="0";
+        $collect_price = $price_order - $price_total;
+        $objOwner->collect_price =$collect_price;
+        $objOwner->advanced_paid =$price_total;
         $objOwner->today =date('d-m-Y');
         $mailData =null;
         $mailDataowner =null;
@@ -365,7 +367,7 @@ class UserController extends Controller
             'price_order'       => $price_order,
             'price_tax'         => 0,
             'price_coupan'      => "Astro",
-            'price_total'       => $price_order,
+            'price_total'       => $price_total,
             'booking_type'      => 2,
             'booking_active'    => 1,
             'booking_date'      => now()->timestamp,
