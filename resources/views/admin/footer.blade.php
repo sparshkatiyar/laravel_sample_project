@@ -10,6 +10,11 @@
 <script src="https://unpkg.com/feather-icons"></script>
   <script>
     feather.replace()
+
+    $('.avatar-click').on('click', function(e) {
+      $('.dropdown-menu.menu2').toggleClass("active"); //you can list several class names 
+      e.preventDefault();
+    });
   </script>
 
  <!-- // <script src="{{ asset('admin/assets/js/site.min.js')}}"></script> -->

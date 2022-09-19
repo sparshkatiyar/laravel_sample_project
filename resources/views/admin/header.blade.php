@@ -150,9 +150,9 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" data-toggle="dropdown" class="nav-link d-flex align-items-center px-2 text-color"><span
+                <a href="#" data-toggle="dropdown" class="nav-link avatar-click d-flex align-items-center px-2 text-color"><span
                         class="avatar w-24" style="margin: -2px"><img src="{{ asset('admin/assets/img/a1.jpg')}}" alt="..." /></span></a>
-                <div class="dropdown-menu dropdown-menu-right w mt-3 animate fadeIn">
+                <div class="dropdown-menu menu2 dropdown-menu-right w mt-3 animate fadeIn">
                     <a class="dropdown-item" href="page.profile.html"><span>Jacqueline Reid</span> </a><a
                         class="dropdown-item" href="page.price.html"><span
                             class="badge bg-success text-uppercase">Upgrade</span>
