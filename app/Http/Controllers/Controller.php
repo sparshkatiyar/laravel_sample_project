@@ -228,7 +228,7 @@ class Controller extends BaseController
             ';
         }
         elseif($type==5){
-            return ''.$data->pooja_name.' id '.$data->pooja_id.' for ('.$data->user_name.','.$data->user_mobile.') on '.$data->pooja_date.' '.$data->address.' to be done. Collect Rs__ '.$data->pay_balance.'after puja. Samagri: (Details of Samagri to be picked up from website)
+            return ''.$data->pooja_name.' id '.$data->pooja_id.' for ('.$data->user_name.','.$data->user_mobile.') on '.$data->pooja_date.' '.$data->address.' to be done.Advance paid: '.$data->pay_advanced.' Collect Rs.'.$data->pay_balance.'/- after puja. Samagri: (Details of Samagri to be picked up from website)
             Radhe Radhe…
             AstroPanditOm Team
                         
