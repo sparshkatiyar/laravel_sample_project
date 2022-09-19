@@ -19,11 +19,11 @@ class BookingMgmtController extends Controller
         $bookingList = Booking::where('pandit_id',null)->orderBy('id', 'DESC')->paginate(5);      
         $panditList = Pandit::all();
         foreach(@$bookingList as $booking){
-            $booking->ecomm_puja_id                 = PujaEcommerce::find($booking->ecomm_puja_id);
-            $booking->ecomm_puja_id->puja_id        = Puja::find($booking->ecomm_puja_id->puja_id);            
-            $booking->address_id                    = UserAddress::find($booking->address_id);
-            $booking->user_details                  = User::find($booking->user_id);
-            $booking->pandit_id                     = Pandit::find($booking->pandit_id);
+            @$booking->ecomm_puja_id                 = PujaEcommerce::find($booking->ecomm_puja_id);
+            @$booking->ecomm_puja_id->puja_id        = Puja::find($booking->ecomm_puja_id->puja_id);            
+            @$booking->address_id                    = UserAddress::find($booking->address_id);
+            @$booking->user_details                  = User::find($booking->user_id);
+            @$booking->pandit_id                     = Pandit::find($booking->pandit_id);
         } 
       
         return view('admin/booking-list' ,compact('bookingList','panditList'));
@@ -48,8 +48,8 @@ class BookingMgmtController extends Controller
             // dd($request);
             $panditAss = Booking::where("id",$request->booking_id)->update(["pandit_id"=>$request->pandit_id]);
             $bookingDeatails = Booking::where("id",$request->booking_id)->first();
-            $PujaDeatails = PujaEcommerce::find($bookingDeatails->ecomm_puja_id);
-            $PujaBase =  Puja::find($PujaDeatails->puja_id);
+            @$PujaDeatails = PujaEcommerce::find($bookingDeatails->ecomm_puja_id);
+            @$PujaBase =  Puja::find($PujaDeatails->puja_id);
             $addressDetails =  UserAddress::find($bookingDeatails->address_id);
             $bookingList = Booking::all();
             $panditList = Pandit::all();
@@ -61,7 +61,7 @@ class BookingMgmtController extends Controller
                 $booking->address_id        = UserAddress::find($booking->address_id);
                 $booking->pandit_id         = Pandit::find($booking->pandit_id);
             } 
-            $panditDetails  = Pandit::find($request->pandit_id)->first();
+            $panditDetails  = Pandit::find($request->pandit_id);
             // dd($panditDetails->name);
             $user               = User::find($booking->user_id);
             $obj                = new stdClass();

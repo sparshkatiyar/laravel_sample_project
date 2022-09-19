@@ -97,7 +97,7 @@
                                             </td>
                                             <td class="flex">
                                                 <a href="page.invoice.detail.html"
-                                                    class="item-company ajax h-1x">{{$user->ecomm_puja_id->puja_id->name}}</a>
+                                                    class="item-company ajax h-1x">{{@$user->ecomm_puja_id->puja_id->name}}</a>
                                                 <div class="item-mail text-muted h-1x d-none d-sm-block">
 
                                                 </div>
