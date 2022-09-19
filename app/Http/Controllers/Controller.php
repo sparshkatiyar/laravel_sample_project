@@ -222,13 +222,13 @@ class Controller extends BaseController
             </p>';
         }
         elseif($type==4){
-            return $data->pooja_name.'  id '.$data->pooja_id.' for '.$data->user_name.', '.$data->pandit_name.' has been assigned. Date and time of Pooja are '.$data->pooja_date.'. Advance paid: Rs___'.$data->pay_advanced.', and Rs___'.$data->pay_balance.' to be collected by Pandit ji after pooja.
+            return $data->pooja_name.'  id '.$data->pooja_id.' for '.$data->user_name.', '.$data->pandit_name.' has been assigned. Date and time of Pooja are '.$data->pooja_date.'. Advance paid: Rs : '.$data->pay_advanced.', and Rs : '.$data->pay_balance.' to be collected by Pandit ji after pooja.
             Radhe Radhe…
             AstroPanditOm Team            
             ';
         }
         elseif($type==5){
-            return ''.$data->pooja_name.' id '.$data->pooja_id.' for ('.$data->user_name.','.$data->user_mobile.') on '.$data->pooja_date.' '.$data->address.' to be done.Advance paid: '.$data->pay_advanced.' Collect Rs.'.$data->pay_balance.'/- after puja. Samagri: (Details of Samagri to be picked up from website)
+            return ''.$data->pooja_name.' id '.$data->pooja_id.' for ('.$data->user_name.','.$data->user_mobile.') on '.$data->pooja_date.' '.$data->address.' to be done. Collect Rs.'.$data->pay_balance.'/- after puja. Samagri: (Details of Samagri to be picked up from website)
             Radhe Radhe…
             AstroPanditOm Team
                         

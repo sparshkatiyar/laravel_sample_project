@@ -128,10 +128,12 @@ class BookingMgmtController extends Controller
             </html>';
             $emailuser              = $user->email;
             $emailowner             = env('COMPANY_MAIL', 'info@astropanditom.com');
+            $emailowner2             = env('COMPANY_MAIL2', 'astropanditom@gmail.com');
             $emailpandit            = $panditDetails->email;
           
             $mailReulstuser         = $this->sendMail($emailuser,$subject,$details_user);
             $mailReulstowner        = $this->sendMail($emailowner,$subject,$details_owner);
+            $mailReulstowner        = $this->sendMail($emailowner2,$subject,$details_owner);
             $mailReulstopandit      = $this->sendMail($emailpandit,$subject,$details_pandit);
             
             $msg = $this->smsToUser($type,$mail_data_owner);          

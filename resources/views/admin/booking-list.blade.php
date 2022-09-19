@@ -336,14 +336,14 @@
     $(document).ready(function() {
         $(".assing").click(function() {
             var puaj_id = $(this).attr('value');
-            $("#booking_id").val(puaj_id);
-            // alert(puaj_id);
-            $('#pandit').addClass('show');
-            $('#pandit').addClass('modal-backdrop-black');
-            $('#pandit').css('padding-right:','17px');
-            $('#pandit').css('display', 'block');
-            $('#pandit').attr('aria-modal','true');
-            // $('#pandit').modal('show');
+            // $("#booking_id").val(puaj_id);
+            // // alert(puaj_id);
+            // $('#pandit').addClass('show');
+            // $('#pandit').addClass('modal-backdrop-black');
+            // $('#pandit').css('padding-right:','17px');
+            // $('#pandit').css('display', 'block');
+            // $('#pandit').attr('aria-modal','true');
+            $('#pandit').modal('show');
             // $('#modalToast').modal('show').delay(2000).fadeOut();
           
             
